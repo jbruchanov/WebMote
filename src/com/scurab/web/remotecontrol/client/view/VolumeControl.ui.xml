@@ -32,8 +32,8 @@
 		
 	</ui:style>
 	<g:HTMLPanel styleName="{style.containers} unselectable">			
-		<g:Image url="volumebckrnd.png" ui:field="imgBackground" styleName="{style.containers} unselectable" />
-		<g:Image url="volumecontrol.png" styleName="{style.pointer}" ui:field="imgPointer" width="28px" height="28px" />
+		<g:Image url="pics/volumebckrnd.png" ui:field="imgBackground" styleName="{style.containers} unselectable" />
+		<g:Image url="pics/volumecontrol.png" styleName="{style.pointer}" ui:field="imgPointer" width="28px" height="28px" />
 		<g:Label text="New Label" ui:field="lblInfo" styleName="{style.label} unselectable"/>
 		<g:Label text="0" ui:field="lblVolume" styleName="{style.volumeLabel} unselectable"/>
 	</g:HTMLPanel>
