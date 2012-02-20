@@ -1,0 +1,36 @@
+package com.scurab.web.remotecontrol.client.presenter;
+
+import com.google.gwt.event.shared.HandlerManager;
+import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.Widget;
+import com.scurab.web.remotecontrol.client.server.DataService;
+
+public abstract class BasePresenter implements IsWidget
+{
+	protected DataService mDataService = null;
+	protected HandlerManager mEventBus = null;
+	private IsWidget mDisplay = null;
+	
+	public BasePresenter(DataService dataService, HandlerManager eventBus, IsWidget display)
+	{
+		mDataService = dataService;
+		mEventBus = eventBus;
+		mDisplay = display;
+	}
+	
+	
+	protected void onPause()
+	{
+		
+	}
+	
+	protected void onResume()
+	{
+		
+	}
+	
+	public Widget asWidget()
+	{
+		return mDisplay.asWidget(); 	
+	}
+}

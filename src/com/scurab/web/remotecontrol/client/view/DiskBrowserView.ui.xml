@@ -1,0 +1,50 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:my="urn:import:com.scurab.web.remotecontrol.client.controls">
+	<ui:with type="com.scurab.web.remotecontrol.language.Words" field="res"/>
+	<ui:style>
+	.tglButton
+	{
+		height: 30px;
+		margin: 3px;		
+		font-size: 1.1em;
+		text-align: center;
+		padding-top: 10px;
+		font-weight: bolder;
+		letter-spacing: 3px;		
+	}
+	
+	.txtBox
+	{
+		height: 33px;
+		width:135px;
+		margin: 3px;
+		font-size: 1.2em;
+	}
+	.loader
+	{
+		margin: 2px;
+		margin-top:15px;
+	}
+	
+	.scroolPanel
+	{
+		height: 460px;
+		padding: 5px;
+		margin-right: 5px;
+	}
+	</ui:style>
+	
+	<g:HTMLPanel width="300px" height="800">
+		<g:HorizontalPanel width="100%">
+			<g:Image altText="l" ui:field="imgLoader" url="pics/ajax-loader.gif" styleName="gwt-Image {style.loader}"/>
+			<my:ImageButton url="pics/ic_quit.png" altText="Quit"/>
+			<g:ToggleButton text="{res.Filter}" ui:field="tglFilter" styleName="gwt-ToggleButton {style.tglButton}"/>
+			<g:TextBox ui:field="txtFilter" styleName="gwt-TextBox {style.txtBox}"/>
+		</g:HorizontalPanel>
+		<g:ScrollPanel styleName="{style.scroolPanel}">
+			<g:HTMLPanel width="400" ui:field="contentPanel"/>
+		</g:ScrollPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 
