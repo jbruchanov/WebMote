@@ -1,7 +1,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
-	xmlns:my="urn:import:com.scurab.web.remotecontrol.client.controls">
+	xmlns:p1="urn:import:com.scurab.web.remotecontrol.client.controls">
 	<ui:style>
 	.container
 	{
@@ -16,34 +16,34 @@
 			<g:Grid >
 			<g:row>
 				<g:customCell>
-					<my:ImageButton altText="tv" url="pics/ic_main_tv.png" ui:field="btnTV"/>
+					<p1:ImageMobileButton altText="tv" url="pics/ic_main_tv.png" ui:field="btnTV"/>
 				</g:customCell>
 				<g:customCell>
-					<my:ImageButton altText="vp" url="pics/ic_main_videoplayer.png" ui:field="btnVideo"/>
-				</g:customCell>
-			</g:row>
-			<g:row>
-				<g:customCell>
-					<my:ImageButton altText="ap" url="pics/ic_main_audioplayer.png" ui:field="btnAudio"/>
-				</g:customCell>
-				<g:customCell>
-					<my:ImageButton altText="pv" url="pics/ic_main_pictures.png" ui:field="btnPictures"/>
+					<p1:ImageMobileButton altText="vp" url="pics/ic_main_videoplayer.png" ui:field="btnVideo"/>
 				</g:customCell>
 			</g:row>
 			<g:row>
 				<g:customCell>
-					<my:ImageButton altText="v" url="pics/ic_main_volume.png" ui:field="btnVolume"/> 
+					<p1:ImageMobileButton altText="ap" url="pics/ic_main_audioplayer.png" ui:field="btnAudio"/>
 				</g:customCell>
 				<g:customCell>
-					<my:ImageButton altText="f" url="pics/ic_main_harddisk.png" ui:field="btnFileBrowser"/>
+					<p1:ImageMobileButton altText="pv" url="pics/ic_main_pictures.png" ui:field="btnPictures"/>
 				</g:customCell>
 			</g:row>
 			<g:row>
 				<g:customCell>
-					<my:ImageButton altText="mc" url="pics/ic_main_mediacenter.png" ui:field="btnMediaCenter"/>
+					<p1:ImageMobileButton altText="v" url="pics/ic_main_volume.png" ui:field="btnVolume"/> 
 				</g:customCell>
 				<g:customCell>
-					<my:ImageButton altText="BBB" url="pics/ic_main_next.png" ui:field="btnNext"/>
+					<p1:ImageMobileButton altText="f" url="pics/ic_main_harddisk.png" ui:field="btnFileBrowser"/>
+				</g:customCell>
+			</g:row>
+			<g:row>
+				<g:customCell>
+					<p1:ImageMobileButton altText="mc" url="pics/ic_main_mediacenter.png" ui:field="btnMediaCenter"/>
+				</g:customCell>
+				<g:customCell>
+					<p1:ImageMobileButton altText="BBB" url="pics/ic_main_next.png" ui:field="btnNext"/>
 				</g:customCell>
 			</g:row>
 		</g:Grid>

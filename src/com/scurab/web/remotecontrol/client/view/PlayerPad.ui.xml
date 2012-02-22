@@ -1,0 +1,187 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+	.containers
+		{
+			position: absolute;
+		}
+		.left
+		{
+			background-image: url("pics/cp_left_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 80px;
+			height: 140px;
+			left: 0px;
+			top: 80px;
+			z-index: 100;
+		/*	border: solid 1px #FFF;*/
+		}
+					
+		.background
+		{
+			background-image: url("pics/cp_type1_background.png");
+			position: absolute;
+			width: 300px;
+			height: 300px;
+			left: 0px;
+			top: 0px;
+			z-index: 0;
+		}
+		
+		
+		.minus
+		{
+			background-image: url("pics/cp_minus_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 60px;
+			height: 60px;
+			left: 50px;
+			top: 210px;
+			z-index: 100;
+		/*	border: solid 1px #FFF;*/
+		}
+		
+		.plus
+		{
+			background-image: url("pics/cp_plus_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 60px;
+			height: 60px;
+			left: 200px;
+			top: 210px;
+			z-index: 100;
+		/*	border: solid 1px #FFF;*/
+		}
+		
+		.speaker
+		{
+			background-image: url("pics/cp_speaker_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 70px;
+			height: 70px;
+			left: 115px;
+			top: 220px;
+			z-index: 100;
+		/*	border: solid 1px #FFF;*/
+		}
+		
+		.stop
+		{
+			background-image: url("pics/cp_stop_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 60px;
+			height: 60px;
+			left: 152px;
+			top: 152px;
+			z-index: 100;
+		/*	border: solid 1px #FFF;*/
+		}
+		.pause
+		{
+			background-image: url("pics/cp_pause_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 60px;
+			height: 60px;
+			left: 88px;
+			top: 152px;
+			z-index: 100;
+		/*	border: solid 1px #FFF;*/
+		}
+		.play
+		{
+			background-image: url("pics/cp_play_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 120px;
+			height: 70px;
+			left: 90px;
+			top: 78px;
+			z-index: 100;
+		/*	border: solid 1px #FFF;*/
+		}
+		
+		.seekback
+		{
+			background-image: url("pics/cp_seekb_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 80px;
+			height: 80px;
+			left: 15px;
+			top: 65px;
+			z-index: 100;
+		/*	border: solid 1px #FFF;*/
+		}
+		
+		.skipback
+		{
+			background-image: url("pics/cp_skipb_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 80px;
+			height: 60px;
+			left: 10px;
+			top: 150px;
+			z-index: 100;
+		/*	border: solid 1px #FFF;*/
+		}
+		
+		.seekforward
+		{
+			background-image: url("pics/cp_seekf_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 80px;
+			height: 80px;
+			left: 205px;
+			top: 65px;
+			z-index: 100;
+		/*	border: solid 1px #FFF;*/
+		}
+		
+		.skipnext
+		{
+			background-image: url("pics/cp_skipn_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 80px;
+			height: 60px;
+			left: 210px;
+			top: 150px;
+			z-index: 100;
+		/*	border: solid 1px #FFF;*/
+		}
+		
+	</ui:style>
+	<g:HTMLPanel>
+		<g:InlineLabel styleName="{style.containers} {style.background} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.minus} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.plus} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.speaker} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.stop} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.pause} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.play} unselectable" />	
+		<g:InlineLabel styleName="{style.containers} {style.seekback} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.skipback} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.seekforward} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.skipnext} unselectable" />
+	</g:HTMLPanel>
+</ui:UiBinder> 

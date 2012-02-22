@@ -5,19 +5,19 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
-import com.scurab.web.remotecontrol.client.controls.ImageButton;
+import com.scurab.web.remotecontrol.client.controls.ImageMobileButton;
 
 public class MainView extends Composite
 {
 	private static MainViewUiBinder uiBinder = GWT.create(MainViewUiBinder.class);
-	@UiField ImageButton btnTV;
-	@UiField ImageButton btnAudio;
-	@UiField ImageButton btnVideo;
-	@UiField ImageButton btnPictures;
-	@UiField ImageButton btnVolume;
-	@UiField ImageButton btnFileBrowser;
-	@UiField ImageButton btnMediaCenter;
-	@UiField ImageButton btnNext;
+	@UiField ImageMobileButton btnTV;
+	@UiField ImageMobileButton btnAudio;
+	@UiField ImageMobileButton btnVideo;
+	@UiField ImageMobileButton btnPictures;
+	@UiField ImageMobileButton btnVolume;
+	@UiField ImageMobileButton btnFileBrowser;
+	@UiField ImageMobileButton btnMediaCenter;
+	@UiField ImageMobileButton btnNext;
 	interface MainViewUiBinder extends UiBinder<Widget, MainView>
 	{
 	}
@@ -28,35 +28,35 @@ public class MainView extends Composite
 	}	
 	
 	
-	public ImageButton getTVButton()
+	public ImageMobileButton getTVButton()
 	{
 		return btnTV;
 	}
-	public ImageButton getAudioButton()
+	public ImageMobileButton getAudioButton()
 	{
 		return btnAudio;
 	}
-	public ImageButton getVideoButton()
+	public ImageMobileButton getVideoButton()
 	{
 		return btnVideo;
 	}
-	public ImageButton getPicturesButton()
+	public ImageMobileButton getPicturesButton()
 	{
 		return btnPictures;
 	}
-	public ImageButton getVolumeButton()
+	public ImageMobileButton getVolumeButton()
 	{
 		return btnVolume;
 	}
-	public ImageButton getFileBrowserButton()
+	public ImageMobileButton getFileBrowserButton()
 	{
 		return btnFileBrowser;
 	}
-	public ImageButton getMediaCenterButton()
+	public ImageMobileButton getMediaCenterButton()
 	{
 		return btnMediaCenter;
 	}
-	public ImageButton getNextButton()
+	public ImageMobileButton getNextButton()
 	{
 		return btnNext;
 	}

@@ -1,6 +1,97 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.containers
+		{
+			position: absolute;
+		}
+		.left
+		{
+			background-image: url("pics/cp_left_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 80px;
+			height: 140px;
+			left: 0px;
+			top: 80px;
+			z-index: 100;
+		/*	border: solid 1px #FFF;*/
+			
+		}
+		.up
+		{
+			background-image: url("pics/cp_up_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 160px;
+			height: 80px;
+			left: 70px;
+			top: 0px;
+			z-index: 100;
+			/*border: solid 1px #FFF;*/
+			
+		}
+		.right
+		{
+			background-image: url("pics/cp_right_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 80px;
+			height: 140px;
+			left: 220px;
+			top: 80px;
+			z-index: 100;
+			/*border: solid 1px #FFF;*/
+		}
+		.down
+		{
+			background-image: url("pics/cp_down_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 160px;
+			height: 80px;
+			left: 70px;
+			top: 220px;
+			z-index: 100;
+		/*	border: solid 1px #FFF;*/
+		}
+		.center
+		{
+			background-image: url("pics/cp_stop_normal.png");
+			background-repeat: no-repeat;
+			background-position:center; 
+			position: absolute;
+			width: 140px;
+			height: 140px;
+			left: 80px;
+			top: 80px;
+			z-index: 100;
+		/*	border: solid 1px #FFF;*/
+		}
+		
+		.background
+		{
+			background-image: url("pics/cp_type2_background.png");
+			position: absolute;
+			width: 300px;
+			height: 300px;
+			left: 0px;
+			top: 0px;
+			z-index: 0;
+		}
+		
+		</ui:style>
 	<g:HTMLPanel>
+		<g:InlineLabel styleName="{style.containers} {style.background} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.left} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.right} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.up} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.down} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.center} unselectable" />
 	</g:HTMLPanel>
 </ui:UiBinder> 

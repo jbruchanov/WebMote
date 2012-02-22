@@ -52,7 +52,32 @@ body
 
 #content
 {
-	position:absolute;
-	left: 0px;
-	top: 0px;
+	
+}
+
+.container
+{
+}
+
+/*BUTTONS*/
+.rc-Button {
+  margin: 3px;
+  padding: 5px 7px;
+  text-decoration: none;
+  cursor: pointer;
+  cursor: hand;
+  font-size:small;
+  background: #d9d9d9;
+  border:1px solid #bbb;
+  border-bottom: 1px solid #a0a0a0;
+  border-radius: 3px;
+ -moz-border-radius: 3px;
+}
+
+.rc-Button:active
+{
+	background-color: #fda511;
+}
+.rc-Button-Active {
+  background-color: #fda511;
 }

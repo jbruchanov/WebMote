@@ -8,6 +8,7 @@ import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.DiskBrowserView;
 import com.scurab.web.remotecontrol.client.view.MainView;
+import com.scurab.web.remotecontrol.client.view.TVView;
 import com.scurab.web.remotecontrol.client.view.VolumeControl;
 
 public class MainViewPresenter extends BasePresenter
@@ -49,7 +50,9 @@ public class MainViewPresenter extends BasePresenter
 			case MediaCenter:break;
 			case Next:break;
 			case Pictures:break;
-			case TV:break;
+			case TV:
+				pres= new TVPresenter(mDataService,mEventBus,new TVView());
+				break;
 			case Video:				
 				break;
 			case Volume:

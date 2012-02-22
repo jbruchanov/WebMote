@@ -1,0 +1,66 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:p1="urn:import:com.scurab.web.remotecontrol.client.view"
+	xmlns:c="urn:import:com.scurab.web.remotecontrol.client.controls">
+	<ui:style>
+		.headerPanel {
+			top: 0px;
+		}
+		
+		.contentPanel {
+			top: 150px;
+		}
+		
+		.btnNumber {
+			width: 30%;
+			font-size: 2em;
+			font-weight: bolder;
+		}
+	</ui:style>
+	<g:VerticalPanel>
+		<g:VerticalPanel styleName="{style.contentPanel}"
+			width="100%">
+			<p1:TVTopPanel styleName="{style.headerPanel}" width="100%" />
+			<g:VerticalPanel width="100%">
+				<g:HTMLPanel>
+					<c:MobileButton text="1" styleName="{style.btnNumber}" />
+					<c:MobileButton text="2" styleName="{style.btnNumber}" />
+					<c:MobileButton text="3" styleName="{style.btnNumber}" />
+				</g:HTMLPanel>
+				<g:HTMLPanel>
+					<c:MobileButton text="4" styleName="{style.btnNumber}" />
+					<c:MobileButton text="5" styleName="{style.btnNumber}" />
+					<c:MobileButton text="6" styleName="{style.btnNumber}" />
+				</g:HTMLPanel>
+				<g:HTMLPanel>
+					<c:MobileButton text="7" styleName="{style.btnNumber}" />
+					<c:MobileButton text="8" styleName="{style.btnNumber}" />
+					<c:MobileButton text="9" styleName="{style.btnNumber}" />
+				</g:HTMLPanel>
+				<g:HTMLPanel>
+					<c:MobileButton text="Audio" styleName="{style.btnNumber}" />
+					<c:MobileButton text="0" styleName="{style.btnNumber}" />
+					<c:MobileButton text="Loop" styleName="{style.btnNumber}" />
+				</g:HTMLPanel>
+			</g:VerticalPanel>
+
+			<g:VerticalPanel width="100%">
+				<g:VerticalPanel horizontalAlignment="ALIGN_CENTER">
+					<g:HTMLPanel>
+						<c:ImageMobileButton url="pics/btn_save_photo.png" />
+						<c:ImageMobileButton url="pics/btn_record.png" />
+						<c:ImageMobileButton url="pics/btn_stop.png" />
+					</g:HTMLPanel>
+					<g:HTMLPanel>
+						<c:ImageMobileButton url="pics/btn_previous.png" />
+						<c:ImageMobileButton url="pics/btn_playpause.png" />
+						<c:ImageMobileButton url="pics/btn_next.png" />
+						<c:ImageMobileButton url="pics/btn_stop.png" />
+					</g:HTMLPanel>
+				</g:VerticalPanel>
+			</g:VerticalPanel>
+			<p1:JoyPad />
+		</g:VerticalPanel>
+	</g:VerticalPanel>
+
+</ui:UiBinder> 

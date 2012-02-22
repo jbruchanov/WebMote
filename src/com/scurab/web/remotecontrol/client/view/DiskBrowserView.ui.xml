@@ -39,7 +39,7 @@
 	<g:HTMLPanel width="300px" height="800">
 		<g:HorizontalPanel width="100%">
 			<g:Image altText="l" ui:field="imgLoader" url="pics/ajax-loader.gif" styleName="gwt-Image {style.loader}"/>
-			<my:ImageButton url="pics/ic_quit.png" altText="Quit"/>
+			<my:ImageMobileButton url="pics/ic_quit.png" altText="Quit"/>
 			<g:ToggleButton text="{res.Filter}" ui:field="tglFilter" styleName="gwt-ToggleButton {style.tglButton}"/>
 			<g:TextBox ui:field="txtFilter" styleName="gwt-TextBox {style.txtBox}"/>
 		</g:HorizontalPanel>
