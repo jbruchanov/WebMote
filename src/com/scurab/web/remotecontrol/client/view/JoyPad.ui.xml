@@ -86,7 +86,7 @@
 		}
 		
 		</ui:style>
-	<g:HTMLPanel>
+	<g:HTMLPanel styleName="{style.containers}">
 		<g:InlineLabel styleName="{style.containers} {style.background} unselectable" />
 		<g:InlineLabel styleName="{style.containers} {style.left} unselectable" />
 		<g:InlineLabel styleName="{style.containers} {style.right} unselectable" />

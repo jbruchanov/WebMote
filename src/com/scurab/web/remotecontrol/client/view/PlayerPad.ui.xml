@@ -13,7 +13,7 @@
 			background-position:center; 
 			position: absolute;
 			width: 80px;
-			height: 140px;
+			height: 80px;
 			left: 0px;
 			top: 80px;
 			z-index: 100;
@@ -25,7 +25,7 @@
 			background-image: url("pics/cp_type1_background.png");
 			position: absolute;
 			width: 300px;
-			height: 300px;
+			height: 240px;
 			left: 0px;
 			top: 0px;
 			z-index: 0;
@@ -41,7 +41,7 @@
 			width: 60px;
 			height: 60px;
 			left: 50px;
-			top: 210px;
+			top: 150px;
 			z-index: 100;
 		/*	border: solid 1px #FFF;*/
 		}
@@ -55,7 +55,7 @@
 			width: 60px;
 			height: 60px;
 			left: 200px;
-			top: 210px;
+			top: 150px;
 			z-index: 100;
 		/*	border: solid 1px #FFF;*/
 		}
@@ -69,7 +69,7 @@
 			width: 70px;
 			height: 70px;
 			left: 115px;
-			top: 220px;
+			top: 160px;
 			z-index: 100;
 		/*	border: solid 1px #FFF;*/
 		}
@@ -83,7 +83,7 @@
 			width: 60px;
 			height: 60px;
 			left: 152px;
-			top: 152px;
+			top: 92px;
 			z-index: 100;
 		/*	border: solid 1px #FFF;*/
 		}
@@ -96,7 +96,7 @@
 			width: 60px;
 			height: 60px;
 			left: 88px;
-			top: 152px;
+			top: 92px;
 			z-index: 100;
 		/*	border: solid 1px #FFF;*/
 		}
@@ -109,7 +109,7 @@
 			width: 120px;
 			height: 70px;
 			left: 90px;
-			top: 78px;
+			top: 18px;
 			z-index: 100;
 		/*	border: solid 1px #FFF;*/
 		}
@@ -123,7 +123,7 @@
 			width: 80px;
 			height: 80px;
 			left: 15px;
-			top: 65px;
+			top: 5px;
 			z-index: 100;
 		/*	border: solid 1px #FFF;*/
 		}
@@ -137,7 +137,7 @@
 			width: 80px;
 			height: 60px;
 			left: 10px;
-			top: 150px;
+			top: 90px;
 			z-index: 100;
 		/*	border: solid 1px #FFF;*/
 		}
@@ -151,7 +151,7 @@
 			width: 80px;
 			height: 80px;
 			left: 205px;
-			top: 65px;
+			top: 5px;
 			z-index: 100;
 		/*	border: solid 1px #FFF;*/
 		}
@@ -165,13 +165,13 @@
 			width: 80px;
 			height: 60px;
 			left: 210px;
-			top: 150px;
+			top: 90px;
 			z-index: 100;
 		/*	border: solid 1px #FFF;*/
 		}
 		
 	</ui:style>
-	<g:HTMLPanel>
+	<g:HTMLPanel styleName="{style.containers}">
 		<g:InlineLabel styleName="{style.containers} {style.background} unselectable" />
 		<g:InlineLabel styleName="{style.containers} {style.minus} unselectable" />
 		<g:InlineLabel styleName="{style.containers} {style.plus} unselectable" />

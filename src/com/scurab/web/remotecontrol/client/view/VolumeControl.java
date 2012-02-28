@@ -13,12 +13,15 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.event.dom.client.TouchMoveEvent;
+import com.google.gwt.event.logical.shared.HasValueChangeHandlers;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.scurab.web.remotecontrol.client.tools.RCMath;
+import com.sun.org.apache.xalan.internal.xsltc.runtime.MessageHandler;
 
-public class VolumeControl extends Composite implements HasValue<Integer>
+public class VolumeControl extends Composite implements HasValue<Integer>, HasValueChangeHandlers<Integer>
 {
 
 	private static VolumeControlUiBinder uiBinder = GWT.create(VolumeControlUiBinder.class);
@@ -36,6 +39,7 @@ public class VolumeControl extends Composite implements HasValue<Integer>
 	private int mMin = 30;
 	private int mMax = 330;
 	private int mLastAngle = 0;
+	private HandlerManager mHandler = new HandlerManager(this);
 
 	interface VolumeControlUiBinder extends UiBinder<Widget, VolumeControl>
 	{
@@ -116,7 +120,9 @@ public class VolumeControl extends Composite implements HasValue<Integer>
 	
 	private void handleMove(double angle)
 	{		
-		lblVolume.setText(String.valueOf(getPercent(angle)));
+		int volume = getPercent(angle);
+		ValueChangeEvent.fire(this, volume);
+		lblVolume.setText(String.valueOf(volume));
 		angle = angle + 90;//offset		
 		angle = angle * Math.PI/180;
 		double posX = (Math.cos(angle) * lenFromCenter) + centerX - leftOffset - imgPointerHalfSize;
@@ -149,7 +155,7 @@ public class VolumeControl extends Composite implements HasValue<Integer>
 	@Override
 	public HandlerRegistration addValueChangeHandler(ValueChangeHandler<Integer> handler)
 	{
-		return addValueChangeHandler(handler);
+		return mHandler.addHandler(ValueChangeEvent.getType(), handler);
 	}
 
 	@Override
@@ -170,6 +176,13 @@ public class VolumeControl extends Composite implements HasValue<Integer>
 		mLastAngle = value;
 		handleMove((value * 300 + 30));
 		if(fireEvents)
+		{
 			ValueChangeEvent.fire(this, value);
+		}
 	}
+	
+	public void fireEvent(com.google.gwt.event.shared.GwtEvent<?> event) 
+	{
+		mHandler.fireEvent(event);
+	};
 }

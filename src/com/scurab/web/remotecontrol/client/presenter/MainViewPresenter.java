@@ -6,9 +6,12 @@ import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
+import com.scurab.web.remotecontrol.client.view.AudioPlayerView;
 import com.scurab.web.remotecontrol.client.view.DiskBrowserView;
 import com.scurab.web.remotecontrol.client.view.MainView;
+import com.scurab.web.remotecontrol.client.view.PicturesView;
 import com.scurab.web.remotecontrol.client.view.TVView;
+import com.scurab.web.remotecontrol.client.view.VideoPlayerView;
 import com.scurab.web.remotecontrol.client.view.VolumeControl;
 
 public class MainViewPresenter extends BasePresenter
@@ -43,17 +46,22 @@ public class MainViewPresenter extends BasePresenter
 		BasePresenter pres = null;
 		switch(type)
 		{
-			case Audio:break;
+			case Audio:
+				pres = new AudioPlayerPresenter(mDataService, mEventBus, new AudioPlayerView());
+				break;
 			case FileBrowser:
 				pres= new DiskBrowserPresenter(mDataService,mEventBus,new DiskBrowserView());
 				break;
 			case MediaCenter:break;
 			case Next:break;
-			case Pictures:break;
+			case Pictures:
+				pres = new PicturesPresenter(mDataService, mEventBus, new PicturesView());
+				break;
 			case TV:
 				pres= new TVPresenter(mDataService,mEventBus,new TVView());
 				break;
-			case Video:				
+			case Video:
+				pres = new VideoPlayerPresenter(mDataService, mEventBus, new VideoPlayerView());
 				break;
 			case Volume:
 				pres = new VolumeControlPresenter(mDataService, mEventBus, new VolumeControl());

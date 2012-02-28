@@ -1,0 +1,30 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:p1="urn:import:com.scurab.web.remotecontrol.client.controls">
+	<ui:style>
+		.cmbItems
+		{
+			margin-left: 5px;
+			margin-right: 5px;
+			margin-top:10px;
+			margin-bottom:2px;
+			height: 48px;
+			width: 160px;		
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:HorizontalPanel>
+			<p1:ImageMobileButton url="pics/ic_quit.png"/>
+			<g:ListBox styleName="{style.cmbItems}" ui:field="cmbItems"/>
+			<p1:ImageMobileButton url="pics/ic_start.png"/>
+		</g:HorizontalPanel>
+		<g:VerticalPanel horizontalAlignment="ALIGN_CENTER" width="310px">
+			<g:HorizontalPanel width="100%" horizontalAlignment="ALIGN_CENTER">
+				<p1:ImageMobileButton url="pics/btn_default_control.png" />
+				<p1:ImageMobileButton url="pics/btn_audio_config.png" />
+				<p1:ImageMobileButton url="pics/btn_user.png" />
+			</g:HorizontalPanel>
+		</g:VerticalPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 
