@@ -4,16 +4,16 @@
 	xmlns:p1="urn:import:com.scurab.web.remotecontrol.client.controls">
 	<g:HTMLPanel>
 		<g:HorizontalPanel>
-			<p1:ImageMobileButton url="pics/ic_quit.png"/>
-			<p1:ImageMobileButton url="pics/ic_mute.png"/>
-			<p1:ImageMobileButton url="pics/ic_fullscreen.png"/>
-			<p1:ImageMobileButton url="pics/ic_start.png"/>
+			<p1:ImageMobileButton url="pics/ic_quit.png" command="Quit" ui:field="btnQuit"/>
+			<p1:ImageMobileButton url="pics/ic_mute.png" command="Mute" ui:field="btnMute"/>
+			<p1:ImageMobileButton url="pics/ic_fullscreen.png" command="SwitchFullScreen" ui:field="btnFullScreen"/>
+			<p1:ImageMobileButton url="pics/ic_start.png" command="Start" ui:field="btnPlay"/>
 		</g:HorizontalPanel>
 		<g:HorizontalPanel>
-				<p1:ImageMobileButton url="pics/btn_default_control.png" />
-				<p1:ImageMobileButton url="pics/btn_tv_numeric.png" />
-				<p1:ImageMobileButton url="pics/btn_tv_record.png" />
-				<p1:ImageMobileButton url="pics/btn_user.png" />
+			<p1:ImageMobileButton url="pics/btn_default_control.png" command="DefaultControl" ui:field="btnDefault"/>
+			<p1:ImageMobileButton url="pics/btn_tv_numeric.png" command="NumericControl" ui:field="btnNumeric"/>
+			<p1:ImageMobileButton url="pics/btn_tv_record.png" command="RecordControl" ui:field="btnRecord"/>
+			<p1:ImageMobileButton url="pics/btn_user.png" command="UserControl" ui:field="btnUser"/>
 		</g:HorizontalPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

@@ -11,13 +11,12 @@ public abstract class BasePresenter implements IsWidget
 	protected HandlerManager mEventBus = null;
 	private IsWidget mDisplay = null;
 	
-	public BasePresenter(DataService dataService, HandlerManager eventBus, IsWidget display)
+	public  BasePresenter(DataService dataService, HandlerManager eventBus, IsWidget display)
 	{
 		mDataService = dataService;
 		mEventBus = eventBus;
 		mDisplay = display;
 	}
-	
 	
 	protected void onPause()
 	{
@@ -29,6 +28,7 @@ public abstract class BasePresenter implements IsWidget
 		
 	}
 	
+	@Override
 	public Widget asWidget()
 	{
 		return mDisplay.asWidget(); 	

@@ -5,16 +5,17 @@ import com.google.gwt.event.dom.client.TouchEndHandler;
 import com.google.gwt.event.dom.client.TouchStartEvent;
 import com.google.gwt.event.dom.client.TouchStartHandler;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.Image;
-import com.scurab.web.remotecontrol.client.interfaces.Commandable;
+import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 
-public class MobileButton extends Button implements Commandable
+public class MobileButton extends Button implements IsCommandableClickHandler
 {
 	private String mCommand;
-	private String preStyle = "";
+	private String mDefaultStyleName;
+	private String mActiveStyleName;
+	
 	public MobileButton()
 	{
-		setStyleName("rc-Button");
+		
 		/*getElement().setAttribute("style", "margin:3px");*/
 		
 		addTouchStartHandler(new TouchStartHandler()
@@ -38,15 +39,37 @@ public class MobileButton extends Button implements Commandable
 		});
 	}
 	
+	@Override
+	protected void onAttach()
+	{
+		super.onAttach();
+		setDefaultStyle();
+	}
+	
+	protected void setDefaultStyle()
+	{
+		if(mDefaultStyleName == null)
+			setStyleName("rc-Button");
+		else
+			setStyleName(mDefaultStyleName);
+	}
+	
+	protected void setActiveStyle()
+	{
+		if(mActiveStyleName == null)
+			setStyleName("rc-Button-Active");
+		else
+			setStyleName(mActiveStyleName);
+	}
+	
 	public void onStartTouch()
 	{
-		preStyle = getStyleName();
-		setStyleName("rc-Button-Active");
+		setActiveStyle();
 	}
 	
 	public void onEndTouch()
 	{
-		setStyleName("rc-Button");
+		setDefaultStyle();
 	}
 	
 	@Override
@@ -59,5 +82,25 @@ public class MobileButton extends Button implements Commandable
 	public String getCommand()
 	{
 		return mCommand;
+	}
+
+	public String getDefaultStyleName()
+	{
+		return mDefaultStyleName;
+	}
+
+	public void setDefaultStyleName(String styleName)
+	{
+		mDefaultStyleName = styleName;
+	}
+
+	public String getActiveStyleName()
+	{
+		return mActiveStyleName;
+	}
+
+	public void setActiveStyleName(String activeStyleName)
+	{
+		mActiveStyleName = activeStyleName;
 	}
 }

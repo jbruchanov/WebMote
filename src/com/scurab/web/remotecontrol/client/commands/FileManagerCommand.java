@@ -11,6 +11,7 @@ public class FileManagerCommand extends Command
 	public String Filter = null;
 	private final static String FILTER_KEY = "Filter";
 	
+	@Override
 	protected JSONObject getJsonObject()
 	{		
 		JSONObject jso = super.getJsonObject();

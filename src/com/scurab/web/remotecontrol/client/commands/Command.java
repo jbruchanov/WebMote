@@ -22,5 +22,11 @@ public abstract class Command
 		return jso;
 	}
 	
+	@Override
+	public String toString()
+	{	
+		return getJsonObject().toString();
+	}
+	
 	protected abstract String getCommandName();
 }

@@ -1,7 +1,6 @@
 package com.scurab.web.remotecontrol.client.commands;
 
 import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.json.client.JSONString;
 
 public class MCICommand extends Command
 {
@@ -23,6 +22,7 @@ public class MCICommand extends Command
 		this.Method = String.format(OPEN_DVD_TEMPLATE,drive);
 	}
 	
+	@Override
 	protected JSONObject getJsonObject()
 	{		
 		JSONObject jso = super.getJsonObject();

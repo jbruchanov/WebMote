@@ -17,6 +17,7 @@ public class WinLIRCCommand extends ApplicationCommand
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Override
 	public JSONObject getJsonObject()
 	{
 		JSONObject jso = super.getJsonObject();

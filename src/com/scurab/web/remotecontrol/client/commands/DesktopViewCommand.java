@@ -2,7 +2,6 @@ package com.scurab.web.remotecontrol.client.commands;
 
 import com.google.gwt.json.client.JSONNumber;
 import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.json.client.JSONString;
 
 public class DesktopViewCommand extends Command
 {
@@ -22,6 +21,7 @@ public class DesktopViewCommand extends Command
 	
 	
 	
+	@Override
 	protected JSONObject getJsonObject()
 	{		
 		JSONObject jso = super.getJsonObject();

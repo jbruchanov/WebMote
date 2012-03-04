@@ -9,6 +9,7 @@ public class VolumeCommand extends Command
 	private static final String VOLUME_KEY = "volume";
 	
 
+	@Override
 	public JSONObject getJsonObject()
 	{
 		JSONObject jso = super.getJsonObject();

@@ -88,10 +88,10 @@
 		</ui:style>
 	<g:HTMLPanel styleName="{style.containers}">
 		<g:InlineLabel styleName="{style.containers} {style.background} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.left} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.right} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.up} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.down} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.center} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.left} unselectable" ui:field="btnLeft"/>
+		<g:InlineLabel styleName="{style.containers} {style.right} unselectable" ui:field="btnRight" />
+		<g:InlineLabel styleName="{style.containers} {style.up} unselectable" ui:field="btnUp" />
+		<g:InlineLabel styleName="{style.containers} {style.down} unselectable" ui:field="btnDown" />
+		<g:InlineLabel styleName="{style.containers} {style.center} unselectable" ui:field="btnCenter" />
 	</g:HTMLPanel>
 </ui:UiBinder> 

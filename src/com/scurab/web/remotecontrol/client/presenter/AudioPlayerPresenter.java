@@ -1,7 +1,6 @@
 package com.scurab.web.remotecontrol.client.presenter;
 
 import com.google.gwt.event.shared.HandlerManager;
-import com.google.gwt.user.client.ui.IsWidget;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.AudioPlayerView;
 

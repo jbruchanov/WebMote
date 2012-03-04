@@ -13,5 +13,4 @@ public class AudioPlayerCommand extends ApplicationCommand
 	{
 		return "AudioPlayerCommand";
 	}
-
 }

@@ -18,10 +18,12 @@ public class ChangePresenterEvent extends GwtEvent<ChangePresenterEventHandler>
 		return mBasePresenter;
 	}
 
+	@Override
 	public com.google.gwt.event.shared.GwtEvent.Type<ChangePresenterEventHandler> getAssociatedType() {
 		return TYPE;
 	}
 
+	@Override
 	protected void dispatch(ChangePresenterEventHandler handler) {
 		handler.onChangePresenter(this);
 	}

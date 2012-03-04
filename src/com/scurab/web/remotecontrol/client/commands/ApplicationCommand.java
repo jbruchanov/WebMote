@@ -18,11 +18,13 @@ public abstract class ApplicationCommand extends Command
 		Application = appName;
 	}
 	
+	@Override
 	protected JSONObject getJsonObject()
 	{		
 		JSONObject jso = super.getJsonObject();
 		jso.put(APP_KEY, new JSONString(Application));		
-		jso.put(METHODMAPARM_KEY, new JSONString(MethodParameter));
+		if(MethodParameter != null)
+			jso.put(METHODMAPARM_KEY, new JSONString(MethodParameter));
 		return jso;
 	}
 }

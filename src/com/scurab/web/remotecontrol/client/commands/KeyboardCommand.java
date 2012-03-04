@@ -9,6 +9,7 @@ public class KeyboardCommand extends Command
 	public String KeyCode = "";
 	public final static String KEYCODE_KEY = "KeyCode";
 	
+	@Override
 	protected JSONObject getJsonObject()
 	{		
 		JSONObject jso = super.getJsonObject();

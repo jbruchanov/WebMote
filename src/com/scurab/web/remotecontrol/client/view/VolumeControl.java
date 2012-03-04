@@ -19,7 +19,6 @@ import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.scurab.web.remotecontrol.client.tools.RCMath;
-import com.sun.org.apache.xalan.internal.xsltc.runtime.MessageHandler;
 
 public class VolumeControl extends Composite implements HasValue<Integer>, HasValueChangeHandlers<Integer>
 {
@@ -181,6 +180,7 @@ public class VolumeControl extends Composite implements HasValue<Integer>, HasVa
 		}
 	}
 	
+	@Override
 	public void fireEvent(com.google.gwt.event.shared.GwtEvent<?> event) 
 	{
 		mHandler.fireEvent(event);

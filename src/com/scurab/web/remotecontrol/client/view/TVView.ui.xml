@@ -8,59 +8,55 @@
 		}
 		
 		.contentPanel {
-			top: 150px;
+			position: relative;
+			top: 20px;
 		}
 		
-		.btnNumber {
-			width: 30%;
-			font-size: 2em;
-			font-weight: bolder;
-		}
 	</ui:style>
-	<g:VerticalPanel>
+	<g:VerticalPanel width="100%" height="100%" horizontalAlignment="ALIGN_CENTER">
+		<p1:TVTopPanel styleName="{style.headerPanel}" width="100%" ui:field="topPanel" />
 		<g:VerticalPanel styleName="{style.contentPanel}"
-			width="100%">
-			<p1:TVTopPanel styleName="{style.headerPanel}" width="100%" />
-			<g:VerticalPanel width="100%">
+			width="100%"  horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_BOTTOM">
+			<g:VerticalPanel width="100%" horizontalAlignment="ALIGN_CENTER" ui:field="numericPanel">
 				<g:HTMLPanel>
-					<c:MobileButton text="1" styleName="{style.btnNumber}" />
-					<c:MobileButton text="2" styleName="{style.btnNumber}" />
-					<c:MobileButton text="3" styleName="{style.btnNumber}" />
+					<c:MobileButton text="1" styleName="rc-Button" ui:field="btn1" command="Num1"/>
+					<c:MobileButton text="2" styleName="rc-Button" ui:field="btn2" command="Num2"/>
+					<c:MobileButton text="3" styleName="rc-Button" ui:field="btn3" command="Num3"/>
 				</g:HTMLPanel>
 				<g:HTMLPanel>
-					<c:MobileButton text="4" styleName="{style.btnNumber}" />
-					<c:MobileButton text="5" styleName="{style.btnNumber}" />
-					<c:MobileButton text="6" styleName="{style.btnNumber}" />
+					<c:MobileButton text="4" styleName="rc-Button" ui:field="btn4" command="Num4" />
+					<c:MobileButton text="5" styleName="rc-Button" ui:field="btn5" command="Num5"/>
+					<c:MobileButton text="6" styleName="rc-Button" ui:field="btn6" command="Num6"/>
 				</g:HTMLPanel>
 				<g:HTMLPanel>
-					<c:MobileButton text="7" styleName="{style.btnNumber}" />
-					<c:MobileButton text="8" styleName="{style.btnNumber}" />
-					<c:MobileButton text="9" styleName="{style.btnNumber}" />
+					<c:MobileButton text="7" styleName="rc-Button" ui:field="btn7" command="Num7"/>
+					<c:MobileButton text="8" styleName="rc-Button" ui:field="btn8" command="Num8"/>
+					<c:MobileButton text="9" styleName="rc-Button" ui:field="btn9" command="Num9"/>
 				</g:HTMLPanel>
 				<g:HTMLPanel>
-					<c:MobileButton text="Audio" styleName="{style.btnNumber}" />
-					<c:MobileButton text="0" styleName="{style.btnNumber}" />
-					<c:MobileButton text="Loop" styleName="{style.btnNumber}" />
+					<c:MobileButton text="Audio" styleName="rc-Button" ui:field="btnAudio" command="AudioMode"/>
+					<c:MobileButton text="0" styleName="rc-Button" ui:field="btn0" command="Num0"/>
+					<c:MobileButton text="Loop" styleName="rc-Button" ui:field="btnLoop" command="Loop"/>
 				</g:HTMLPanel>
 			</g:VerticalPanel>
 
-			<g:VerticalPanel width="100%">
+			<g:VerticalPanel width="100%" horizontalAlignment="ALIGN_CENTER" ui:field="recordingPanel">
 				<g:VerticalPanel horizontalAlignment="ALIGN_CENTER">
 					<g:HTMLPanel>
-						<c:ImageMobileButton url="pics/btn_save_photo.png" />
-						<c:ImageMobileButton url="pics/btn_record.png" />
-						<c:ImageMobileButton url="pics/btn_stop.png" />
+						<c:ImageMobileButton url="pics/btn_save_photo.png" command="SavePicture" ui:field="btnSavePicture"/>
+						<c:ImageMobileButton url="pics/btn_record.png" command="StartRecord" ui:field="btnStartRecording"/>
+						<c:ImageMobileButton url="pics/btn_stop.png" command="StopRecord" ui:field="btnStopRecording"/>
 					</g:HTMLPanel>
 					<g:HTMLPanel>
-						<c:ImageMobileButton url="pics/btn_previous.png" />
-						<c:ImageMobileButton url="pics/btn_playpause.png" />
-						<c:ImageMobileButton url="pics/btn_next.png" />
-						<c:ImageMobileButton url="pics/btn_stop.png" />
+						<c:ImageMobileButton url="pics/btn_previous.png" command="RecordsPlayPrev" ui:field="btnPlayPrevious"/>
+						<c:ImageMobileButton url="pics/btn_playpause.png" command="RecordsPlay" ui:field="btnPlayPause"/>
+						<c:ImageMobileButton url="pics/btn_next.png" command="RecordsPlayNext" ui:field="btnPlayNext"/>
+						<c:ImageMobileButton url="pics/btn_stop.png" command="RecordsCancel" ui:field="btnStop"/>
 					</g:HTMLPanel>
 				</g:VerticalPanel>
 			</g:VerticalPanel>
-			<p1:JoyPad />
+			<p1:JoyPad ui:field="joyPad" />
+			<g:VerticalPanel ui:field="userContainer"/>
 		</g:VerticalPanel>
 	</g:VerticalPanel>
-
 </ui:UiBinder> 
