@@ -1,12 +1,13 @@
 package com.scurab.web.remotecontrol.client.view;
 
+import java.util.List;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Timer;
-import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.client.ui.Label;
@@ -18,9 +19,10 @@ import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.event.shared.HandlerRegistration;
+import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 import com.scurab.web.remotecontrol.client.tools.RCMath;
 
-public class VolumeControl extends Composite implements HasValue<Integer>, HasValueChangeHandlers<Integer>
+public class VolumeControl extends AbstractView implements HasValue<Integer>, HasValueChangeHandlers<Integer>
 {
 
 	private static VolumeControlUiBinder uiBinder = GWT.create(VolumeControlUiBinder.class);
@@ -49,6 +51,7 @@ public class VolumeControl extends Composite implements HasValue<Integer>, HasVa
 	{
 		initWidget(uiBinder.createAndBindUi(this));
 		imgPointer.setVisible(false);
+		lblInfo.setVisible(false);
 	}
 	
 	@Override
@@ -132,7 +135,7 @@ public class VolumeControl extends Composite implements HasValue<Integer>, HasVa
 	
 	private void log(int x, int y, double angle)
 	{
-		lblInfo.setText("X:" + x + " Y:" + y + "A:" + Math.round(angle) +" CX:" + centerX + " CY:" + centerY);
+		//lblInfo.setText("X:" + x + " Y:" + y + "A:" + Math.round(angle) +" CX:" + centerX + " CY:" + centerY);
 	}
 	
 	@UiHandler("imgBackground")
@@ -184,5 +187,11 @@ public class VolumeControl extends Composite implements HasValue<Integer>, HasVa
 	public void fireEvent(com.google.gwt.event.shared.GwtEvent<?> event) 
 	{
 		mHandler.fireEvent(event);
+	}
+
+	@Override
+	public List<IsCommandableClickHandler> getClickElements()
+	{
+		return null;
 	};
 }

@@ -3,15 +3,14 @@ package com.scurab.web.remotecontrol.client.presenter;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerManager;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
+import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.TelevisionCommand;
-import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.JoyPad;
 import com.scurab.web.remotecontrol.client.view.TVView;
 
-public class TVPresenter extends BasePresenter
+public class TVPresenter extends BaseControlPresenter
 {
 	private TVView mDisplay = null;
 	private Widget mCurrentVisibleWidget = null;
@@ -71,18 +70,7 @@ public class TVPresenter extends BasePresenter
 			}
 		});
 		
-		for(IsCommandableClickHandler ic : mDisplay.getClickElements())
-		{
-			final IsCommandableClickHandler source = ic;
-			ic.addClickHandler(new ClickHandler()
-			{
-				@Override
-				public void onClick(ClickEvent event)
-				{
-					onSendCommand(source.getCommand());
-				}
-			});
-		}
+		
 	}
 	
 	protected void onClickButton(ShowPanel what)
@@ -102,20 +90,6 @@ public class TVPresenter extends BasePresenter
 			mCurrentVisibleWidget.setVisible(true);
 	}
 	
-	protected void onSendCommand(String command)
-	{
-		try
-		{
-			TelevisionCommand tvc = new TelevisionCommand("Avermedia TV");
-			tvc.Method = translateCommand(command);		
-			mDataService.sendCommand(tvc);
-		}
-		catch(Exception e)
-		{
-			Window.alert(e.getMessage());
-		}
-	}
-	
 	private String translateCommand(String command)
 	{
 		String result = command;
@@ -130,5 +104,13 @@ public class TVPresenter extends BasePresenter
 		else if (command.equals(JoyPad.COMMAND_CENTER))
 			result = "ShowInfo";
 		return result;
+	}
+
+	@Override
+	protected Command getCommand(String command)
+	{
+		TelevisionCommand tvc = new TelevisionCommand("Avermedia TV");
+		tvc.Method = translateCommand(command);
+		return tvc;
 	}
 }

@@ -1,11 +1,95 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:p1="urn:import:com.scurab.web.remotecontrol.client.view">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:p1="urn:import:com.scurab.web.remotecontrol.client.view"
+	xmlns:c="urn:import:com.scurab.web.remotecontrol.client.controls">
 	<ui:style>
 		
 	</ui:style>
+	<ui:with type="com.scurab.web.remotecontrol.language.Words"
+		field="words"></ui:with>
 	<g:HTMLPanel>
-		<p1:VideoPlayerTopPanel/>
-		<p1:PlayerPad />
+		<g:VerticalPanel horizontalAlignment="ALIGN_CENTER"
+			width="100%">
+			<p1:VideoPlayerTopPanel width="100%" ui:field="topPanel" />
+			<g:VerticalPanel horizontalAlignment="ALIGN_CENTER"
+				width="100%">
+				<p1:PlayerPad width="" ui:field="playerPad" />
+				<g:VerticalPanel width="100%" horizontalAlignment="ALIGN_CENTER"
+					ui:field="videoPanel">
+					<g:Label text="{words.VideoSize}" />
+					<g:HTMLPanel width="100%">
+						<c:MobileButton text="{words.FullScreen}"
+							styleName="rc-Button" command="FullScreen" ui:field="btnFullScreen" />
+						<c:MobileButton text="{words.Ratio}" styleName="rc-Button"
+							command="VideoRatio" ui:field="btnRatio" />
+						<c:MobileButton text="{words.SaveScreen}"
+							styleName="rc-Button" command="SaveScreen" ui:field="btnSaveScreen" />
+					</g:HTMLPanel>
+					<g:HTMLPanel width="100%">
+						<c:MobileButton text="{words.Bigger}" width="49%"
+							styleName="rc-Button" command="WindowBigger" ui:field="btnWindowBigger" />
+						<c:MobileButton text="{words.Smaller}" styleName="rc-Button"
+							width="49%" command="WindowSmaller" ui:field="btnWindowSmaller" />
+					</g:HTMLPanel>
+					<g:Label text="{words.VideoSpeed}" />
+					<g:HTMLPanel width="100%">
+						<c:MobileButton text="{words.ArrowDown}" styleName="rc-Button"
+							command="VideoSpeedDown" ui:field="btnVideoSpeedDown" />
+						<c:MobileButton text="{words.Reset}" styleName="rc-Button"
+							command="VideoSpeedReset" ui:field="btnVideoSpeedReset" />
+						<c:MobileButton text="{words.ArrowUp}" styleName="rc-Button"
+							command="VideoSpeedUp" ui:field="btnVideoSpeedUp" />
+					</g:HTMLPanel>
+				</g:VerticalPanel>
+				<g:VerticalPanel width="100%" horizontalAlignment="ALIGN_CENTER"
+					ui:field="audioPanel">
+					<g:Label text="{words.VideoSize}" />
+					<g:HTMLPanel width="100%">
+						<c:MobileButton text="{words.ArrowUp}" width="49%"
+							styleName="rc-Button" command="AudioDelayUp" ui:field="btnAudioDelayUp" />
+						<c:MobileButton text="{words.ArrowDown}" styleName="rc-Button"
+							width="49%" command="AudioDelayDown" ui:field="btnAudioDelayDown" />
+					</g:HTMLPanel>
+					<g:Label text="{words.ChangeAudio}" />
+					<g:HTMLPanel width="100%">
+						<c:MobileButton text="{words.Track}" width="49%"
+							styleName="rc-Button" command="AudioChangeTrack" ui:field="btnTrack" />
+						<c:MobileButton text="{words.Output}" styleName="rc-Button"
+							width="49%" command="AudioChangeOutput" ui:field="btnOutput" />
+					</g:HTMLPanel>
+				</g:VerticalPanel>
+				<g:VerticalPanel width="100%" horizontalAlignment="ALIGN_CENTER"
+					ui:field="subtitlesPanel">
+					<g:Label text="{words.Delay}" />
+					<g:HTMLPanel width="100%">
+						<c:MobileButton text="{words.ArrowUp}" width="49%"
+							styleName="rc-Button" command="SubtitlesDelayUp" ui:field="btnSubDelayUp" />
+						<c:MobileButton text="{words.ArrowDown}" styleName="rc-Button"
+							width="49%" command="SubtitlesDelayDown" ui:field="btnSubDelayDown" />
+					</g:HTMLPanel>
+					<g:Label text="{words.Subtitles}" />
+					<g:HTMLPanel width="100%">
+						<c:MobileButton text="{words.ArrowUp}" width="25%"
+							styleName="rc-Button" command="SubtitlesPositionUp" ui:field="btnSubUp" />
+						<c:MobileButton text="{words.Change}" styleName="rc-Button"
+							width="48%" command="SubtitlesChange" ui:field="btnSubChange" />
+						<c:MobileButton text="{words.ArrowDown}" styleName="rc-Button"
+							width="25%" command="SubtitlesPositionDown" ui:field="btnSubDown" />
+					</g:HTMLPanel>
+				</g:VerticalPanel>
+				<g:VerticalPanel width="100%" horizontalAlignment="ALIGN_CENTER"
+					ui:field="dvdPanel">
+					<g:HTMLPanel width="100%">
+						<c:MobileButton text="{words.ShowDVDMenu}"
+							styleName="rc-Button" width="100%" command="ShowDVDMenu" ui:field="btnShowDVDMenu" />
+						<p1:JoyPad ui:field="joyPad" />
+					</g:HTMLPanel>
+				</g:VerticalPanel>
+				<g:VerticalPanel width="100%" horizontalAlignment="ALIGN_CENTER" ui:field="userPanel">
+					<g:HTMLPanel width="100%">
+					</g:HTMLPanel>
+				</g:VerticalPanel>
+			</g:VerticalPanel>
+		</g:VerticalPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

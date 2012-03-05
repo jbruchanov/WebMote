@@ -15,20 +15,20 @@
 	</ui:style>
 	<g:HTMLPanel>
 		<g:HorizontalPanel>
-			<p1:ImageMobileButton url="pics/ic_quit.png"/>
+			<p1:ImageMobileButton url="pics/ic_quit.png" ui:field="btnQuit" command="Quit"/>
 			<g:ListBox styleName="{style.cmbItems}" ui:field="cmbItems"/>
-			<p1:ImageMobileButton url="pics/ic_start.png"/>
+			<p1:ImageMobileButton url="pics/ic_start.png" ui:field="btnStart" command="Start"/>
 		</g:HorizontalPanel>
 		<g:VerticalPanel horizontalAlignment="ALIGN_CENTER" width="310px">
-			<g:HorizontalPanel width="100%" horizontalAlignment="ALIGN_CENTER">
-				<p1:ImageMobileButton url="pics/btn_default_control.png" />
-				<p1:ImageMobileButton url="pics/btn_movie.png" />
-				<p1:ImageMobileButton url="pics/btn_audio.png" />
+			<g:HorizontalPanel width="100%" horizontalAlignment="ALIGN_CENTER" >
+				<p1:ImageMobileButton url="pics/btn_default_control.png" ui:field="btnDefault"/>
+				<p1:ImageMobileButton url="pics/btn_movie.png" ui:field="btnVideoSettings" />
+				<p1:ImageMobileButton url="pics/btn_audio.png" ui:field="btnAudioSettings" />
 			</g:HorizontalPanel>
 			<g:HorizontalPanel width="100%" horizontalAlignment="ALIGN_CENTER">
-				<p1:ImageMobileButton url="pics/btn_subtitles.png" />
-				<p1:ImageMobileButton url="pics/btn_video_dvdmenu.png" />
-				<p1:ImageMobileButton url="pics/btn_user.png" />
+				<p1:ImageMobileButton url="pics/btn_subtitles.png" ui:field="btnSubtitlesSettings" />
+				<p1:ImageMobileButton url="pics/btn_video_dvdmenu.png" ui:field="btnDVDMenu" />
+				<p1:ImageMobileButton url="pics/btn_user.png" ui:field="btnUser" />
 			</g:HorizontalPanel>
 		</g:VerticalPanel>
 	</g:HTMLPanel>

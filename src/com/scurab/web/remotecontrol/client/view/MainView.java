@@ -1,13 +1,15 @@
 package com.scurab.web.remotecontrol.client.view;
 
+import java.util.List;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.controls.ImageMobileButton;
+import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 
-public class MainView extends Composite
+public class MainView extends AbstractView
 {
 	private static MainViewUiBinder uiBinder = GWT.create(MainViewUiBinder.class);
 	@UiField ImageMobileButton btnTV;
@@ -59,5 +61,13 @@ public class MainView extends Composite
 	public ImageMobileButton getNextButton()
 	{
 		return btnNext;
+	}
+
+
+	@Override
+	public List<IsCommandableClickHandler> getClickElements()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -173,15 +173,15 @@
 	</ui:style>
 	<g:HTMLPanel styleName="{style.containers}">
 		<g:InlineLabel styleName="{style.containers} {style.background} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.minus} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.plus} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.speaker} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.stop} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.pause} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.play} unselectable" />	
-		<g:InlineLabel styleName="{style.containers} {style.seekback} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.skipback} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.seekforward} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.skipnext} unselectable" />
+		<g:InlineLabel styleName="{style.containers} {style.minus} unselectable" ui:field="btnMinus" />
+		<g:InlineLabel styleName="{style.containers} {style.plus} unselectable" ui:field="btnPlus" />
+		<g:InlineLabel styleName="{style.containers} {style.speaker} unselectable" ui:field="btnMute" />
+		<g:InlineLabel styleName="{style.containers} {style.stop} unselectable" ui:field="btnStop" />
+		<g:InlineLabel styleName="{style.containers} {style.pause} unselectable" ui:field="btnPause" />
+		<g:InlineLabel styleName="{style.containers} {style.play} unselectable" ui:field="btnPlay" />	
+		<g:InlineLabel styleName="{style.containers} {style.seekback} unselectable" ui:field="btnSeekBack" />
+		<g:InlineLabel styleName="{style.containers} {style.skipback} unselectable" ui:field="btnPrevious" />
+		<g:InlineLabel styleName="{style.containers} {style.seekforward} unselectable" ui:field="btnSeekForward" />
+		<g:InlineLabel styleName="{style.containers} {style.skipnext} unselectable" ui:field="btnNext" />
 	</g:HTMLPanel>
 </ui:UiBinder> 

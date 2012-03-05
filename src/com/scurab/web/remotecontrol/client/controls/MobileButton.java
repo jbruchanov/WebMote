@@ -4,6 +4,7 @@ import com.google.gwt.event.dom.client.TouchEndEvent;
 import com.google.gwt.event.dom.client.TouchEndHandler;
 import com.google.gwt.event.dom.client.TouchStartEvent;
 import com.google.gwt.event.dom.client.TouchStartHandler;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.Button;
 import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 
@@ -12,9 +13,18 @@ public class MobileButton extends Button implements IsCommandableClickHandler
 	private String mCommand;
 	private String mDefaultStyleName;
 	private String mActiveStyleName;
+	private static Timer sTimer = null;
 	
 	public MobileButton()
 	{
+		sTimer = new Timer()
+		{
+			@Override
+			public void run()
+			{		
+				onEndTouch();
+			}
+		};
 		
 		/*getElement().setAttribute("style", "margin:3px");*/
 		
@@ -65,6 +75,8 @@ public class MobileButton extends Button implements IsCommandableClickHandler
 	public void onStartTouch()
 	{
 		setActiveStyle();
+		sTimer.cancel();
+		sTimer.schedule(1000);
 	}
 	
 	public void onEndTouch()

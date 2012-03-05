@@ -3,6 +3,7 @@ package com.scurab.web.remotecontrol.client.presenter;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerManager;
+import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.AudioPlayerView;
@@ -13,7 +14,7 @@ import com.scurab.web.remotecontrol.client.view.TVView;
 import com.scurab.web.remotecontrol.client.view.VideoPlayerView;
 import com.scurab.web.remotecontrol.client.view.VolumeControl;
 
-public class MainViewPresenter extends BasePresenter
+public class MainViewPresenter extends BaseControlPresenter
 {
 	public MainView mDisplay;
 	private enum ButtonType
@@ -77,5 +78,11 @@ public class MainViewPresenter extends BasePresenter
 		mEventBus.fireEvent(new ChangePresenterEvent(presenter));
 //		RootPanel.get().clear();
 //		RootPanel.get().add(presenter.asWidget());
+	}
+
+	@Override
+	protected Command getCommand(String command)
+	{
+		return null;
 	}
 }

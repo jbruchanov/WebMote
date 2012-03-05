@@ -1,11 +1,12 @@
 package com.scurab.web.remotecontrol.client.presenter;
 
 import com.google.gwt.event.shared.HandlerManager;
+import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.DiskBrowserItem;
 import com.scurab.web.remotecontrol.client.view.DiskBrowserView;
 
-public class DiskBrowserPresenter extends BasePresenter
+public class DiskBrowserPresenter extends BaseControlPresenter
 {
 	private DiskBrowserView mDisplay = null;
 	
@@ -23,6 +24,13 @@ public class DiskBrowserPresenter extends BasePresenter
 			DiskBrowserItem dbi = new DiskBrowserItem();			
 			mDisplay.getContentPanel().add(dbi);
 		}
+	}
+
+	@Override
+	protected Command getCommand(String command)
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

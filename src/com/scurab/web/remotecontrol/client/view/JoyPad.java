@@ -14,11 +14,11 @@ import com.google.gwt.user.client.ui.InlineLabel;
 
 public class JoyPad extends AbstractView
 {
-	public static final Object COMMAND_LEFT = "Left";
-	public static final Object COMMAND_UP = "Up";
-	public static final Object COMMAND_DOWN = "Down";
-	public static final Object COMMAND_RIGHT = "Right";
-	public static final Object COMMAND_CENTER = "Center";
+	public static final String COMMAND_LEFT = "Left";
+	public static final String COMMAND_UP = "Up";
+	public static final String COMMAND_DOWN = "Down";
+	public static final String COMMAND_RIGHT = "Right";
+	public static final String COMMAND_CENTER = "Center";
 	
 	private static JoyPadUiBinder uiBinder = GWT.create(JoyPadUiBinder.class);
 	@UiField InlineLabel btnLeft;
@@ -41,11 +41,11 @@ public class JoyPad extends AbstractView
 	public JoyPad()
 	{
 		initWidget(uiBinder.createAndBindUi(this));
-		btnL = CommandableClickHandlerWrapper.asCommandableClickObject(btnLeft, "Left");
-		btnR = CommandableClickHandlerWrapper.asCommandableClickObject(btnRight, "Right");
-		btnU = CommandableClickHandlerWrapper.asCommandableClickObject(btnUp, "Up");
-		btnD = CommandableClickHandlerWrapper.asCommandableClickObject(btnDown, "Down");
-		btnC = CommandableClickHandlerWrapper.asCommandableClickObject(btnCenter, "Center");
+		btnL = CommandableClickHandlerWrapper.asCommandableClickObject(btnLeft, COMMAND_LEFT);
+		btnR = CommandableClickHandlerWrapper.asCommandableClickObject(btnRight, COMMAND_RIGHT);
+		btnU = CommandableClickHandlerWrapper.asCommandableClickObject(btnUp, COMMAND_UP);
+		btnD = CommandableClickHandlerWrapper.asCommandableClickObject(btnDown, COMMAND_DOWN);
+		btnC = CommandableClickHandlerWrapper.asCommandableClickObject(btnCenter, COMMAND_CENTER);
 		
 		mList = new ArrayList<IsCommandableClickHandler>();
 		mList.addAll(Arrays.asList(new IsCommandableClickHandler[]{btnL,btnU,btnR,btnD,btnC}));

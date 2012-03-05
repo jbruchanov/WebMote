@@ -5,11 +5,12 @@ import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.Window;
+import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.VolumeCommand;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.VolumeControl;
 
-public class VolumeControlPresenter extends BasePresenter
+public class VolumeControlPresenter extends BaseControlPresenter
 {
 	private VolumeControl mDisplay = null;
 	private int mLastSendVolume = -1;
@@ -23,7 +24,7 @@ public class VolumeControlPresenter extends BasePresenter
 	}
 	
 	private void bind()
-	{
+	{		
 		mDisplay.addValueChangeHandler(new ValueChangeHandler<Integer>()
 		{
 			@Override
@@ -42,14 +43,18 @@ public class VolumeControlPresenter extends BasePresenter
 	
 	public void onVolumeChange(int i)
 	{
+		onSendCommand(String.valueOf(i));
+	}
+	
+	@Override
+	protected void onSendCommand(String command)
+	{
 		try
 		{
 			long now = System.currentTimeMillis();
 			if(now > mLastSend + 250)//500ms
 			{
-				VolumeCommand vc = new VolumeCommand();
-				vc.volume = i;
-				mDataService.sendCommand(vc);
+				mDataService.sendCommand(getCommand(command));
 				mLastSend = now;
 			}
 		}
@@ -57,6 +62,14 @@ public class VolumeControlPresenter extends BasePresenter
 		{
 			Window.alert(e.getMessage());
 		}
+	}
+
+	@Override
+	protected Command getCommand(String command)
+	{
+		VolumeCommand vc = new VolumeCommand();
+		vc.volume = Integer.parseInt(command);
+		return vc;
 	}
 
 }
