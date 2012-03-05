@@ -137,9 +137,12 @@ public class VideoPlayerPresenter extends BaseControlPresenter
 		if(command.equals("Start"))
 		{
 			ListBox lb = mDisplay.getTopPanel().getCmbItems();
-			String v = lb.getValue(lb.getSelectedIndex()); 
-			if(v != null && v.trim().length() != 0)
-				vpc.MethodParameter = v;
+			if(lb.getSelectedIndex() > -1)
+			{
+				String v = lb.getValue(lb.getSelectedIndex()); 
+				if(v != null && v.trim().length() != 0)
+					vpc.MethodParameter = v;
+			}
 		}
 		return vpc;
 	}

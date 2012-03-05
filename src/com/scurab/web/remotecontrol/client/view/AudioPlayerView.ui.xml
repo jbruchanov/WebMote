@@ -1,14 +1,29 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui"
-	xmlns:p1="urn:import:com.scurab.web.remotecontrol.client.view">
-	<ui:style>
-		.important {
-			font-weight: bold;
-		}
-	</ui:style>
-	<g:HTMLPanel>
-		<p1:AudioPlayerTopPanel/>
-		<p1:PlayerPad />
-	</g:HTMLPanel>
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:p1="urn:import:com.scurab.web.remotecontrol.client.view"
+	xmlns:c="urn:import:com.scurab.web.remotecontrol.client.controls">
+	<ui:with type="com.scurab.web.remotecontrol.language.Words"
+		field="words"></ui:with>
+		<g:VerticalPanel horizontalAlignment="ALIGN_CENTER">
+			<p1:AudioPlayerTopPanel ui:field="topPanel" />
+			<g:VerticalPanel width="100%" horizontalAlignment="ALIGN_CENTER"
+				ui:field="layoutPanel">
+				<g:Label text="{words.Playing}" styleName="rc-ControlDivider-Label" />
+				<g:HTMLPanel width="100%">
+					<c:MobileButton text="{words.Repeat}" width="49%"
+						styleName="rc-Button" command="RepeatMode" ui:field="btnRepeat" />
+					<c:MobileButton text="{words.Shuffle}" styleName="rc-Button"
+						width="49%" command="ShuffleMode" ui:field="btnShuffle" />
+				</g:HTMLPanel>
+				<g:Label text="{words.Layout}" styleName="rc-ControlDivider-Label" />
+				<g:HTMLPanel width="100%">
+					<c:MobileButton text="{words.Collapse}" width="49%"
+						styleName="rc-Button" command="Collapse" ui:field="btnCollapse" />
+					<c:MobileButton text="{words.Hide}" styleName="rc-Button"
+						width="49%" command="Hide" ui:field="btnHide" />
+				</g:HTMLPanel>
+			</g:VerticalPanel>
+			<g:VerticalPanel ui:field="userPanel" />
+			<p1:PlayerPad ui:field="playerPad" />
+		</g:VerticalPanel>
 </ui:UiBinder> 

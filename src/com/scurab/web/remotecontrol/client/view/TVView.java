@@ -37,10 +37,10 @@ public class TVView extends AbstractView
 	@UiField ImageMobileButton btnPlayPause;
 	@UiField ImageMobileButton btnPlayNext;
 	@UiField ImageMobileButton btnStop;
-	@UiField JoyPad joyPad;
 	@UiField VerticalPanel numericPanel;
 	@UiField VerticalPanel recordingPanel;
 	@UiField VerticalPanel userContainer;
+	@UiField JoyPad joyPad;
 	
 	private List<IsCommandableClickHandler> mButtons = null;
 

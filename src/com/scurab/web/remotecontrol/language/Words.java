@@ -34,6 +34,24 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   String ArrowRight();
 
   /**
+   * Translated "↶".
+   * 
+   * @return translated "↶"
+   */
+  @DefaultStringValue("↶")
+  @Key("ArrowRotLeft")
+  String ArrowRotLeft();
+
+  /**
+   * Translated "↷".
+   * 
+   * @return translated "↷"
+   */
+  @DefaultStringValue("↷")
+  @Key("ArrowRotRight")
+  String ArrowRotRight();
+
+  /**
    * Translated "↑".
    * 
    * @return translated "↑"
@@ -41,6 +59,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   @DefaultStringValue("↑")
   @Key("ArrowUp")
   String ArrowUp();
+
+  /**
+   * Translated "Audio Delay".
+   * 
+   * @return translated "Audio Delay"
+   */
+  @DefaultStringValue("Audio Delay")
+  @Key("AudioDelay")
+  String AudioDelay();
 
   /**
    * Translated "Bigger".
@@ -70,6 +97,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   String ChangeAudio();
 
   /**
+   * Translated "Collapse".
+   * 
+   * @return translated "Collapse"
+   */
+  @DefaultStringValue("Collapse")
+  @Key("Collapse")
+  String Collapse();
+
+  /**
    * Translated "Delay".
    * 
    * @return translated "Delay"
@@ -88,13 +124,31 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   String Filter();
 
   /**
-   * Translated "FullScreen".
+   * Translated "Full Screen".
    * 
-   * @return translated "FullScreen"
+   * @return translated "Full Screen"
    */
-  @DefaultStringValue("FullScreen")
+  @DefaultStringValue("Full Screen")
   @Key("FullScreen")
   String FullScreen();
+
+  /**
+   * Translated "Hide".
+   * 
+   * @return translated "Hide"
+   */
+  @DefaultStringValue("Hide")
+  @Key("Hide")
+  String Hide();
+
+  /**
+   * Translated "Layout".
+   * 
+   * @return translated "Layout"
+   */
+  @DefaultStringValue("Layout")
+  @Key("Layout")
+  String Layout();
 
   /**
    * Translated "Output".
@@ -106,6 +160,24 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   String Output();
 
   /**
+   * Translated "Pause".
+   * 
+   * @return translated "Pause"
+   */
+  @DefaultStringValue("Pause")
+  @Key("Pause")
+  String Pause();
+
+  /**
+   * Translated "Playing".
+   * 
+   * @return translated "Playing"
+   */
+  @DefaultStringValue("Playing")
+  @Key("Playing")
+  String Playing();
+
+  /**
    * Translated "Ratio".
    * 
    * @return translated "Ratio"
@@ -113,6 +185,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   @DefaultStringValue("Ratio")
   @Key("Ratio")
   String Ratio();
+
+  /**
+   * Translated "Repeat".
+   * 
+   * @return translated "Repeat"
+   */
+  @DefaultStringValue("Repeat")
+  @Key("Repeat")
+  String Repeat();
 
   /**
    * Translated "Reset".
@@ -124,11 +205,11 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   String Reset();
 
   /**
-   * Translated "SaveScreen".
+   * Translated "Save Screen".
    * 
-   * @return translated "SaveScreen"
+   * @return translated "Save Screen"
    */
-  @DefaultStringValue("SaveScreen")
+  @DefaultStringValue("Save Screen")
   @Key("SaveScreen")
   String SaveScreen();
 
@@ -142,6 +223,24 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   String ShowDVDMenu();
 
   /**
+   * Translated "Shuffle".
+   * 
+   * @return translated "Shuffle"
+   */
+  @DefaultStringValue("Shuffle")
+  @Key("Shuffle")
+  String Shuffle();
+
+  /**
+   * Translated "Slideshow".
+   * 
+   * @return translated "Slideshow"
+   */
+  @DefaultStringValue("Slideshow")
+  @Key("Slideshow")
+  String Slideshow();
+
+  /**
    * Translated "Smaller".
    * 
    * @return translated "Smaller"
@@ -149,6 +248,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   @DefaultStringValue("Smaller")
   @Key("Smaller")
   String Smaller();
+
+  /**
+   * Translated "Start".
+   * 
+   * @return translated "Start"
+   */
+  @DefaultStringValue("Start")
+  @Key("Start")
+  String Start();
 
   /**
    * Translated "Subtitles".
@@ -185,4 +293,13 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   @DefaultStringValue("Video speed")
   @Key("VideoSpeed")
   String VideoSpeed();
+
+  /**
+   * Translated "View".
+   * 
+   * @return translated "View"
+   */
+  @DefaultStringValue("View")
+  @Key("View")
+  String View();
 }

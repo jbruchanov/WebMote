@@ -15,15 +15,15 @@
 	</ui:style>
 	<g:HTMLPanel>
 		<g:HorizontalPanel>
-			<p1:ImageMobileButton url="pics/ic_quit.png"/>
+			<p1:ImageMobileButton url="pics/ic_quit.png" command="Quit" ui:field="btnQuit"/>
 			<g:ListBox styleName="{style.cmbItems}" ui:field="cmbItems"/>
-			<p1:ImageMobileButton url="pics/ic_start.png"/>
+			<p1:ImageMobileButton url="pics/ic_start.png" command="Start" ui:field="btnStart"/>
 		</g:HorizontalPanel>
 		<g:VerticalPanel horizontalAlignment="ALIGN_CENTER" width="310px">
 			<g:HorizontalPanel width="100%" horizontalAlignment="ALIGN_CENTER">
-				<p1:ImageMobileButton url="pics/btn_default_control.png" />
-				<p1:ImageMobileButton url="pics/btn_audio_config.png" />
-				<p1:ImageMobileButton url="pics/btn_user.png" />
+				<p1:ImageMobileButton url="pics/btn_default_control.png" ui:field="btnDefault" />
+				<p1:ImageMobileButton url="pics/btn_audio_config.png" ui:field="btnOptions" />
+				<p1:ImageMobileButton url="pics/btn_user.png" ui:field="btnUser" />
 			</g:HorizontalPanel>
 		</g:VerticalPanel>
 	</g:HTMLPanel>

@@ -61,7 +61,7 @@ public class PlayerPad extends AbstractView
 		
 		cmdMinus = CommandableClickHandlerWrapper.asCommandableClickObject(btnMinus, COMMAND_VOLUME_DOWN);  
 		cmdPlus = CommandableClickHandlerWrapper.asCommandableClickObject(btnPlus, COMMAND_VOLUME_UP);  
-		cmdMute = CommandableClickHandlerWrapper.asCommandableClickObject(btnMinus, COMMAND_VOLUME_MUTE);  
+		cmdMute = CommandableClickHandlerWrapper.asCommandableClickObject(btnMute, COMMAND_VOLUME_MUTE);  
 		
 		cmdStop = CommandableClickHandlerWrapper.asCommandableClickObject(btnStop, COMMAND_STOP);  
 		cmdPause = CommandableClickHandlerWrapper.asCommandableClickObject(btnPause, COMMAND_PAUSE);  

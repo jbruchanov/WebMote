@@ -98,3 +98,9 @@ body {
 	-moz-border-radius: 3px;*/
 	background-color: #fda511;
 }
+
+.rc-ControlDivider-Label
+{
+	font-size: 1.3em;
+	color: #FAFAFA;
+}

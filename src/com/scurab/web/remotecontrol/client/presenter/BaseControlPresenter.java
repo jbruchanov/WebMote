@@ -13,6 +13,7 @@ public abstract class BaseControlPresenter extends BasePresenter
 {
 	private AbstractView mDisplay = null;
 	
+	
 	public  BaseControlPresenter(DataService dataService, HandlerManager eventBus, AbstractView display)
 	{
 		super(dataService, eventBus, display);
