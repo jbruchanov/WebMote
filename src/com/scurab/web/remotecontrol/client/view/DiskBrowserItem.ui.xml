@@ -1,14 +1,26 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:p1="urn:import:com.scurab.web.remotecontrol.client.controls">
 	<ui:style>
-	.label
+	.btn 
 	{
-		color: #FFF;
+		min-height: 50px;
+	}
+	.btn2 
+	{
+		min-height: 66px;
 	}
 	</ui:style>
-	<g:HTMLPanel width="480" height="800">
-		<g:Image url="pics/ic_filemanager_folder.png" width="50px"/>
-		<g:InlineLabel text="New InlineLabel" styleName="{style.label}"/>
-	</g:HTMLPanel>
+	<g:HorizontalPanel width="100%">
+		<g:Cell width="15%">
+			<g:HTMLPanel styleName="gwt-Button {style.btn}">
+<!-- 			<g:Button ui:field="btnContext" text="^" styleName="{style.btn} gwt-Button" width="100%" /> -->
+				<p1:ImageMobileButton url="pics/small/ic_quit.png"  altText="." ui:field="btnContext"/>
+			</g:HTMLPanel>
+		</g:Cell>
+		<g:Cell width="85%">
+			<g:Button ui:field="btnItem" text="." styleName="{style.btn2} gwt-Button" width="100%" />
+		</g:Cell>
+		
+	</g:HorizontalPanel>
 </ui:UiBinder> 

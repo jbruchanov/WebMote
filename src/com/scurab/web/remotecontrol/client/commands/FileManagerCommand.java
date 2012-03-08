@@ -15,8 +15,10 @@ public class FileManagerCommand extends Command
 	protected JSONObject getJsonObject()
 	{		
 		JSONObject jso = super.getJsonObject();
-		jso.put(ROOT_KEY, new JSONString(Root));		
-		jso.put(FILTER_KEY, new JSONString(Filter));		
+		if(Root != null)
+			jso.put(ROOT_KEY, new JSONString(Root));
+		if(Filter != null)
+			jso.put(FILTER_KEY, new JSONString(Filter));		
 		return jso;
 	}
 	

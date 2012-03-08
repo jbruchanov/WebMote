@@ -10,6 +10,9 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.ToggleButton;
 import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
+import com.scurab.web.remotecontrol.client.controls.ImageMobileButton;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.Image;
 
 public class DiskBrowserView extends AbstractView
 {
@@ -18,6 +21,9 @@ public class DiskBrowserView extends AbstractView
 	@UiField TextBox txtFilter;
 	@UiField ToggleButton tglFilter;
 	@UiField HTMLPanel contentPanel;
+	@UiField ImageMobileButton btnQuit;
+	@UiField Label lblCurrentLocation;
+	@UiField Image imgLoader;
 
 	interface DiskBrowserViewUiBinder extends UiBinder<Widget, DiskBrowserView>
 	{
@@ -46,7 +52,31 @@ public class DiskBrowserView extends AbstractView
 	@Override
 	public List<IsCommandableClickHandler> getClickElements()
 	{
-		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public TextBox getTxtFilter()
+	{
+		return txtFilter;
+	}
+
+	public ToggleButton getTglFilter()
+	{
+		return tglFilter;
+	}
+
+	public ImageMobileButton getBtnQuit()
+	{
+		return btnQuit;
+	}
+
+	public Label getLblCurrentLocation()
+	{
+		return lblCurrentLocation;
+	}
+	
+	public void setProgressVisible(boolean value)
+	{
+		imgLoader.setVisible(value);
 	}
 }
