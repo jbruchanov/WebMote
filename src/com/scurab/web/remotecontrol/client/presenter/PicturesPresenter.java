@@ -5,6 +5,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
+import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.PhotoViewerCommand;
 import com.scurab.web.remotecontrol.client.server.DataService;
@@ -82,7 +83,7 @@ public class PicturesPresenter extends BaseControlPresenter
 	@Override
 	protected Command getCommand(String command)
 	{
-		PhotoViewerCommand pvc = new PhotoViewerCommand("Windows Photo Viewer");
+		PhotoViewerCommand pvc = new PhotoViewerCommand(RemoteControl.PicturesViewer);
 		pvc.Method = translateCommand(command);
 		if(command.equals("Start"))
 		{
@@ -105,6 +106,12 @@ public class PicturesPresenter extends BaseControlPresenter
 		else if (command.equals(JoyPad.COMMAND_RIGHT))
 			result = "Next";		
 		return result;
+	}
+
+	@Override
+	public String getName()
+	{
+		return "Pictures";
 	}
 
 

@@ -9,6 +9,11 @@ import com.scurab.web.remotecontrol.client.view.RootView;
  */
 public class RemoteControl implements EntryPoint
 {
+	public static final String TVAppliation = "Avermedia TV";
+	public static final String VideoPlayer = "VLC Player";
+	public static final String AudioPlayer = "WinAmp";
+	public static final String PicturesViewer = "Windows Photo Viewer";
+	
 	
 	@Override
 	public void onModuleLoad()

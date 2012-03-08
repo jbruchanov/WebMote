@@ -44,7 +44,7 @@
 	<g:HTMLPanel >
 		<g:HorizontalPanel width="100%">
 			<g:Image altText="l" ui:field="imgLoader" url="pics/ajax-loader.gif" styleName="gwt-Image {style.loader}"/>
-			<my:ImageMobileButton url="pics/small/ic_quit.png" altText="Quit" ui:field="btnQuit"/>
+			<my:ImageMobileButton url="pics/btn_mc_write.png" altText="Cust" ui:field="btnCustomLocation"/>
 			<g:ToggleButton text="{res.Filter}" ui:field="tglFilter" styleName="gwt-ToggleButton {style.tglButton}"/>
 			<g:TextBox ui:field="txtFilter" styleName="gwt-TextBox {style.txtBox}"/>
 		</g:HorizontalPanel>

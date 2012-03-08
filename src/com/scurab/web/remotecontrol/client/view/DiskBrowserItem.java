@@ -129,6 +129,11 @@ public class DiskBrowserItem extends Composite implements HasClickHandlers
 		return btnItem.addClickHandler(handler);
 	}
 	
+	public Type getType()
+	{
+		return mType;
+	}
+	
 	private String getImage(Type t)
 	{
 		String img = null; 

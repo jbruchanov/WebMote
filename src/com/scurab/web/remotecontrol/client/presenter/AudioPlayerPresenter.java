@@ -5,6 +5,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
+import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.AudioPlayerCommand;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.server.DataService;
@@ -80,7 +81,7 @@ public class AudioPlayerPresenter extends BaseControlPresenter
 	@Override
 	protected Command getCommand(String command)
 	{
-		AudioPlayerCommand apc = new AudioPlayerCommand("WinAmp");
+		AudioPlayerCommand apc = new AudioPlayerCommand(RemoteControl.AudioPlayer);
 		apc.Method =command;
 		if(command.equals("Start"))
 		{
@@ -93,5 +94,11 @@ public class AudioPlayerPresenter extends BaseControlPresenter
 			}
 		}
 		return apc;
+	}
+
+	@Override
+	public String getName()
+	{
+		return "AudioPlayer";
 	}
 }

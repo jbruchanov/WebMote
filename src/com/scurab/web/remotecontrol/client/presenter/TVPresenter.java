@@ -4,6 +4,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.ui.Widget;
+import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.TelevisionCommand;
 import com.scurab.web.remotecontrol.client.server.DataService;
@@ -109,8 +110,14 @@ public class TVPresenter extends BaseControlPresenter
 	@Override
 	protected Command getCommand(String command)
 	{
-		TelevisionCommand tvc = new TelevisionCommand("Avermedia TV");
+		TelevisionCommand tvc = new TelevisionCommand(RemoteControl.TVAppliation);
 		tvc.Method = translateCommand(command);
 		return tvc;
+	}
+
+	@Override
+	public String getName()
+	{
+		return "Television";
 	}
 }

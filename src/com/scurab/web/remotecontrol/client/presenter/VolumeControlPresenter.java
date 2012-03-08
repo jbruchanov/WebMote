@@ -72,4 +72,9 @@ public class VolumeControlPresenter extends BaseControlPresenter
 		return vc;
 	}
 
+	@Override
+	public String getName()
+	{
+		return "VolumeControl";
+	}
 }

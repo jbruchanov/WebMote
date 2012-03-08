@@ -14,7 +14,7 @@ import com.scurab.web.remotecontrol.client.view.TVView;
 import com.scurab.web.remotecontrol.client.view.VideoPlayerView;
 import com.scurab.web.remotecontrol.client.view.VolumeControl;
 
-public class MainViewPresenter extends BaseControlPresenter
+public class MainViewPresenter extends BasePresenter
 {
 	public MainView mDisplay;
 	private enum ButtonType
@@ -81,8 +81,8 @@ public class MainViewPresenter extends BaseControlPresenter
 	}
 
 	@Override
-	protected Command getCommand(String command)
+	public String getName()
 	{
-		return null;
+		return "MainView";
 	}
 }

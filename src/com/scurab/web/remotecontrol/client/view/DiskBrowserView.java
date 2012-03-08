@@ -21,7 +21,7 @@ public class DiskBrowserView extends AbstractView
 	@UiField TextBox txtFilter;
 	@UiField ToggleButton tglFilter;
 	@UiField HTMLPanel contentPanel;
-	@UiField ImageMobileButton btnQuit;
+	@UiField ImageMobileButton btnCustomLocation;
 	@UiField Label lblCurrentLocation;
 	@UiField Image imgLoader;
 
@@ -65,9 +65,9 @@ public class DiskBrowserView extends AbstractView
 		return tglFilter;
 	}
 
-	public ImageMobileButton getBtnQuit()
+	public ImageMobileButton getBtnCustomLocation()
 	{
-		return btnQuit;
+		return btnCustomLocation;
 	}
 
 	public Label getLblCurrentLocation()

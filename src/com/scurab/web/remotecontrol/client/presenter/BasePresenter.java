@@ -33,4 +33,6 @@ public abstract class BasePresenter implements IsWidget
 	{
 		return mDisplay.asWidget(); 	
 	}
+	
+	public abstract String getName();
 }

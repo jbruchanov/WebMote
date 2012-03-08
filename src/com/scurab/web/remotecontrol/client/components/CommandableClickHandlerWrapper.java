@@ -14,7 +14,7 @@ public class CommandableClickHandlerWrapper implements IsCommandableClickHandler
 
 	HasClickHandlers mSource = null;
 	String mCommand = null;
-
+	
 	public static CommandableClickHandlerWrapper asCommandableClickObject(HasClickHandlers i, String command)
 	{
 		CommandableClickHandlerWrapper c = new CommandableClickHandlerWrapper();

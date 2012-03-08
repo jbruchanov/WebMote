@@ -5,6 +5,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
+import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.VideoPlayerCommand;
 import com.scurab.web.remotecontrol.client.server.DataService;
@@ -132,7 +133,7 @@ public class VideoPlayerPresenter extends BaseControlPresenter
 	@Override
 	protected Command getCommand(String command)
 	{
-		VideoPlayerCommand vpc =  new VideoPlayerCommand("VLC Player");
+		VideoPlayerCommand vpc =  new VideoPlayerCommand(RemoteControl.VideoPlayer);
 		vpc.Method = translateCommand(command);
 		if(command.equals("Start"))
 		{
@@ -145,5 +146,11 @@ public class VideoPlayerPresenter extends BaseControlPresenter
 			}
 		}
 		return vpc;
+	}
+
+	@Override
+	public String getName()
+	{
+		return "VideoPlayer";
 	}
 }

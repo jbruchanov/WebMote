@@ -13,8 +13,15 @@ import com.google.gwt.http.client.RequestException;
 import com.google.gwt.http.client.Response;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
+import com.scurab.web.remotecontrol.client.RemoteControl;
+import com.scurab.web.remotecontrol.client.commands.AudioPlayerCommand;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.FileManagerCommand;
+import com.scurab.web.remotecontrol.client.commands.MCICommand;
+import com.scurab.web.remotecontrol.client.commands.PhotoViewerCommand;
+import com.scurab.web.remotecontrol.client.commands.ProcessCommand;
+import com.scurab.web.remotecontrol.client.commands.VideoPlayerCommand;
+import com.scurab.web.remotecontrol.client.components.FileBrowserContextMenu;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.tools.JsonSimpleParser;
 import com.scurab.web.remotecontrol.client.tools.StringUtils;
@@ -41,17 +48,36 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 	
 	private void bind()
 	{
-		mDisplay.getBtnQuit().addClickHandler(new ClickHandler()
+		mDisplay.getBtnCustomLocation().addClickHandler(new ClickHandler()
 		{
 			@Override
 			public void onClick(ClickEvent event)
 			{
-				onQuitClick();
+				onCustomLocationClick();
+			}
+		});
+		
+		mDisplay.getTglFilter().addClickHandler(new ClickHandler()
+		{
+			@Override
+			public void onClick(ClickEvent event)
+			{
+				loadData(mCurrentDir);
 			}
 		});
 	}
 	
-	protected void onQuitClick()
+	private String getFilter()
+	{
+		boolean enabled = mDisplay.getTglFilter().getValue();
+		String filter = mDisplay.getTxtFilter().getText();
+		if(!enabled || filter.trim().length() == 0)
+			return null;
+		else
+			return filter;
+	}
+	
+	protected void onCustomLocationClick()
 	{
 		String custom = Window.prompt("Custom location", "");
 		loadData(custom);
@@ -62,6 +88,8 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 		FileManagerCommand fmc = new FileManagerCommand();
 		if(location != null)
 			fmc.Root = location;
+		fmc.Filter = getFilter();
+		
 		try
 		{
 			mDisplay.setProgressVisible(true);
@@ -104,7 +132,7 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 			final String dir = n;
 			String t = row.get("T");
 			final int type = Integer.parseInt(t);
-			DiskBrowserItem b = new DiskBrowserItem(t,dir);
+			final DiskBrowserItem b = new DiskBrowserItem(t,dir);
 			b.setWidth("100%");
 			b.setOnContextButtonClickListener(new DiskBrowserItem.OnContextButtonClickListener()
 			{
@@ -115,7 +143,7 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 						onItemClick(dir,type);
 					else
 					{
-						Window.alert(t.toString());
+						onContextItemClick(b);
 					}
 				}
 			});
@@ -130,6 +158,96 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 			mDisplay.getContentPanel().add(b);
 		}
 		mDisplay.setProgressVisible(false);
+	}
+	
+	protected void onContextItemClick(DiskBrowserItem item)
+	{
+		FileBrowserContextMenu.showDialog(item, new FileBrowserContextMenu.OnClickListener()
+		{
+			@Override
+			public void onClick(DiskBrowserItem item, FileBrowserContextMenu.ContextType command)
+			{
+				String loc = item.getValue();
+				if(item.getType().getCode() >= 10)
+				{
+					String cd = (mCurrentDir == null ||  mCurrentDir.trim().length() == 0) ? "" : mCurrentDir;
+					if(cd.trim().length() > 0 && !cd.endsWith("\\")) cd += "\\";
+					loc = "\"" + cd + item.getValue() + "\"";
+				}
+				onContextSendCommand(loc,command);
+			}
+		});
+	}
+	
+	protected void onContextSendCommand(String location, FileBrowserContextMenu.ContextType what)
+	{
+		Command c = getCommand(location, what);
+		try
+		{
+			mDisplay.setProgressVisible(true);
+			mDataService.sendCommand(c, new RequestCallback()
+			{
+				@Override
+				public void onResponseReceived(Request request, Response response)
+				{
+					mDisplay.setProgressVisible(false);
+					//done
+				}
+				
+				@Override
+				public void onError(Request request, Throwable exception)
+				{
+					mDisplay.setProgressVisible(false);
+					Window.alert("ERROR " + exception.getMessage());
+				}
+			});
+		}
+		catch(Exception e)
+		{
+			Window.alert(e.getMessage());
+		}
+	}
+	
+	private Command getCommand(String location, FileBrowserContextMenu.ContextType what)
+	{
+		Command c = null;
+		switch(what)
+		{
+			case AudioPlayer:
+				AudioPlayerCommand apc = new AudioPlayerCommand(RemoteControl.AudioPlayer);
+				apc.Method = "Start";
+				apc.MethodParameter = location;
+				c = apc;
+				break;
+			case VideoPlayer:
+				VideoPlayerCommand vpc = new VideoPlayerCommand(RemoteControl.VideoPlayer);
+				vpc.Method = "Start";
+				vpc.MethodParameter = location;
+				c = vpc;
+				break;
+			case PicturesViewer:
+				PhotoViewerCommand ppc = new PhotoViewerCommand(RemoteControl.PicturesViewer);
+				ppc.Method = "Start";
+				ppc.MethodParameter = location;
+				c = ppc;
+				break;
+			case StartByOS:
+				ProcessCommand pc = new ProcessCommand();
+				pc.Run(location, null);
+				c = pc;
+				break;
+			case Open:
+				MCICommand mcic = new MCICommand();
+				mcic.openCD(location);
+				c = mcic;
+				break;
+			case Close:
+				MCICommand mcic2 = new MCICommand();
+				mcic2.closeCD(location);
+				c = mcic2;
+				break;
+		}
+		return c;
 	}
 	
 	protected void onItemClick(String dir, int type)
@@ -223,5 +341,11 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 			};
 			rc.onResponseReceived(null, r);
 		}
+	}
+
+	@Override
+	public String getName()
+	{
+		return "DiskBrowser";
 	}
 }

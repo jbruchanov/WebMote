@@ -31,9 +31,11 @@ public class ProcessCommand extends Command
 	protected JSONObject getJsonObject()
 	{		
 		JSONObject jso = super.getJsonObject();
-		jso.put(METHODPARAMETER_KEY, new JSONString(MethodParameter));		
 		jso.put(FILELOCATION_KEY, new JSONString(FileLocation));
-		jso.put(STARTPARAMETERS_KEY, new JSONString(StartParameters));
+		if(MethodParameter != null)
+			jso.put(METHODPARAMETER_KEY, new JSONString(MethodParameter));
+		if(StartParameters != null)
+			jso.put(STARTPARAMETERS_KEY, new JSONString(StartParameters));
 		if(ProcessID != null)
 			jso.put(PROCESSID_KEY, new JSONNumber(ProcessID));		
 		return jso;
