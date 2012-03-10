@@ -5,6 +5,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.controls.MobileButton;
 import com.scurab.web.remotecontrol.client.view.DiskBrowserItem;
@@ -40,7 +41,7 @@ public class FileBrowserContextMenu extends DialogBox
 	private Widget buildFolderWidget(final DiskBrowserItem item, final OnClickListener listener)
 	{
 		FlowPanel fp = new FlowPanel();
-		fp.getElement().setAttribute("style", "backgroud:#000;");
+		fp.add(new Label(item.getValue()));
 		fp.add(getButton(item,listener,ContextType.AudioPlayer));
 		fp.add(getButton(item,listener,ContextType.PicturesViewer));
 		fp.add(getButton(item,listener,ContextType.VideoPlayer));
