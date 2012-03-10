@@ -1,5 +1,6 @@
 package com.scurab.web.remotecontrol.client.view;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gwt.core.client.GWT;
@@ -16,7 +17,7 @@ public class MainView2 extends AbstractView
 	@UiField ImageMobileButton btnTaskManager;
 	@UiField ImageMobileButton btnRemoteDesktop;
 	@UiField ImageMobileButton btnKeyboard;
-	@UiField ImageMobileButton btnWakeOnLan;
+//	@UiField ImageMobileButton btnWakeOnLan;
 	@UiField ImageMobileButton btnDisplay;
 	@UiField ImageMobileButton btnIRDevices;
 	@UiField ImageMobileButton btnJoyPad;
@@ -33,7 +34,7 @@ public class MainView2 extends AbstractView
 	@Override
 	public List<IsCommandableClickHandler> getClickElements()
 	{
-		return null;
+		return new ArrayList<IsCommandableClickHandler>();
 	}
 
 
@@ -61,10 +62,10 @@ public class MainView2 extends AbstractView
 	}
 
 
-	public ImageMobileButton getWakeOnLanButton()
-	{
-		return btnWakeOnLan;
-	}
+//	public ImageMobileButton getWakeOnLanButton()
+//	{
+//		return btnWakeOnLan;
+//	}
 
 
 	public ImageMobileButton getDisplayButton()

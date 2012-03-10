@@ -4,7 +4,7 @@ package com.scurab.web.remotecontrol.language;
  * Interface to represent the constants contained in resource bundle:
  * 	'F:/0Work/eclipse-workspace-j2ee/RemoteControl/src/com/scurab/web/remotecontrol/language/Words.properties'.
  */
-public interface Words extends com.google.gwt.i18n.client.Constants {
+public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   
   /**
    * Translated "Abort now".
@@ -14,6 +14,24 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   @DefaultStringValue("Abort now")
   @Key("AbortNow")
   String AbortNow();
+
+  /**
+   * Translated "Activate".
+   * 
+   * @return translated "Activate"
+   */
+  @DefaultStringValue("Activate")
+  @Key("Activate")
+  String Activate();
+
+  /**
+   * Translated "Add to favorites".
+   * 
+   * @return translated "Add to favorites"
+   */
+  @DefaultStringValue("Add to favorites")
+  @Key("AddToFavorites")
+  String AddToFavorites();
 
   /**
    * Translated "Are you sure ?".
@@ -88,6 +106,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   String AudioDelay();
 
   /**
+   * Translated "Audio player".
+   * 
+   * @return translated "Audio player"
+   */
+  @DefaultStringValue("Audio player")
+  @Key("AudioPlayer")
+  String AudioPlayer();
+
+  /**
    * Translated "Bigger".
    * 
    * @return translated "Bigger"
@@ -95,6 +122,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   @DefaultStringValue("Bigger")
   @Key("Bigger")
   String Bigger();
+
+  /**
+   * Translated "Cancel".
+   * 
+   * @return translated "Cancel"
+   */
+  @DefaultStringValue("Cancel")
+  @Key("Cancel")
+  String Cancel();
 
   /**
    * Translated "Change".
@@ -113,6 +149,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   @DefaultStringValue("Change audio")
   @Key("ChangeAudio")
   String ChangeAudio();
+
+  /**
+   * Translated "Close".
+   * 
+   * @return translated "Close"
+   */
+  @DefaultStringValue("Close")
+  @Key("Close")
+  String Close();
 
   /**
    * Translated "Collapse".
@@ -196,6 +241,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   String Hide();
 
   /**
+   * Translated "Kill".
+   * 
+   * @return translated "Kill"
+   */
+  @DefaultStringValue("Kill")
+  @Key("Kill")
+  String Kill();
+
+  /**
    * Translated "Layout".
    * 
    * @return translated "Layout"
@@ -203,6 +257,33 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   @DefaultStringValue("Layout")
   @Key("Layout")
   String Layout();
+
+  /**
+   * Translated "Off".
+   * 
+   * @return translated "Off"
+   */
+  @DefaultStringValue("Off")
+  @Key("Off")
+  String Off();
+
+  /**
+   * Translated "On".
+   * 
+   * @return translated "On"
+   */
+  @DefaultStringValue("On")
+  @Key("On")
+  String On();
+
+  /**
+   * Translated "Open".
+   * 
+   * @return translated "Open"
+   */
+  @DefaultStringValue("Open")
+  @Key("Open")
+  String Open();
 
   /**
    * Translated "Operation start time".
@@ -230,6 +311,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   @DefaultStringValue("Pause")
   @Key("Pause")
   String Pause();
+
+  /**
+   * Translated "Pictures viewer".
+   * 
+   * @return translated "Pictures viewer"
+   */
+  @DefaultStringValue("Pictures viewer")
+  @Key("PicturesViewer")
+  String PicturesViewer();
 
   /**
    * Translated "Playing".
@@ -340,6 +430,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   String Start();
 
   /**
+   * Translated "Start by OS".
+   * 
+   * @return translated "Start by OS"
+   */
+  @DefaultStringValue("Start by OS")
+  @Key("StartByOS")
+  String StartByOS();
+
+  /**
    * Translated "Subtitles".
    * 
    * @return translated "Subtitles"
@@ -356,6 +455,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   @DefaultStringValue("Track")
   @Key("Track")
   String Track();
+
+  /**
+   * Translated "Video player".
+   * 
+   * @return translated "Video player"
+   */
+  @DefaultStringValue("Video player")
+  @Key("VideoPlayer")
+  String VideoPlayer();
 
   /**
    * Translated "Video size".
