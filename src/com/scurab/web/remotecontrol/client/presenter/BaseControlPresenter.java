@@ -23,9 +23,14 @@ public abstract class BaseControlPresenter extends BasePresenter
 	
 	protected void onSendCommand(String command)
 	{
+		onSendCommand(getCommand(command));
+	}
+	
+	protected void onSendCommand(Command command)
+	{
 		try
 		{
-			mDataService.sendCommand(getCommand(command));
+			mDataService.sendCommand(command);
 		}
 		catch(Exception e)
 		{

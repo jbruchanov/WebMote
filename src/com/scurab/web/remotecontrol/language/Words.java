@@ -124,6 +124,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   String Collapse();
 
   /**
+   * Translated "Custom process start".
+   * 
+   * @return translated "Custom process start"
+   */
+  @DefaultStringValue("Custom process start")
+  @Key("CustomStart")
+  String CustomStart();
+
+  /**
    * Translated "Delay".
    * 
    * @return translated "Delay"

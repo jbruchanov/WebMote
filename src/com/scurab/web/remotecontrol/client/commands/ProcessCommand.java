@@ -31,7 +31,8 @@ public class ProcessCommand extends Command
 	protected JSONObject getJsonObject()
 	{		
 		JSONObject jso = super.getJsonObject();
-		jso.put(FILELOCATION_KEY, new JSONString(FileLocation));
+		if(FileLocation != null)
+			jso.put(FILELOCATION_KEY, new JSONString(FileLocation));
 		if(MethodParameter != null)
 			jso.put(METHODPARAMETER_KEY, new JSONString(MethodParameter));
 		if(StartParameters != null)

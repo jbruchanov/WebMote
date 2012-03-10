@@ -12,6 +12,7 @@ import com.scurab.web.remotecontrol.client.view.MainView2;
 import com.scurab.web.remotecontrol.client.view.PicturesView;
 import com.scurab.web.remotecontrol.client.view.ShutdownView;
 import com.scurab.web.remotecontrol.client.view.TVView;
+import com.scurab.web.remotecontrol.client.view.TaskManagerView;
 import com.scurab.web.remotecontrol.client.view.VideoPlayerView;
 import com.scurab.web.remotecontrol.client.view.VolumeControl;
 
@@ -52,8 +53,11 @@ public class MainView2Presenter extends BasePresenter
 //				break;
 		case ShutDown:
 			pres = new ShutdownPresenter(mDataService, mEventBus, new ShutdownView());
-			default:
+			break;
+		case TaskManager:
+			pres = new TaskManagerPresenter(mDataService, mEventBus, new TaskManagerView());			
 				break;
+		default:
 		}
 		
 		onChangePresenter(pres);
