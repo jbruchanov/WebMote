@@ -20,7 +20,7 @@ public class DataService
 	{
 		if(rc == null)
 			rc = mDoNothingCallback;
-		GWT.log("abc");
+		
 		RequestBuilder rb = new RequestBuilder(RequestBuilder.POST,GWT.getHostPageBaseURL());
 		rb.setHeader("Content-Type","application/x-www-form-urlencoded");
 		rb.sendRequest(c.toString(), rc);

@@ -1,0 +1,52 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:p1="urn:import:com.scurab.web.remotecontrol.client.controls">
+	<ui:style>
+	.container
+	{
+		background-color: #d0d0d0;
+		padding: 15px;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	</ui:style>
+	<g:HTMLPanel styleName="{style.container}">
+		<g:FlowPanel width="250px">
+			<g:Grid >
+			<g:row>
+				<g:customCell>
+					<p1:ImageMobileButton altText="sh" url="pics/ic_main_shutdown.png" ui:field="btnShutdown" />
+				</g:customCell>
+				<g:customCell>
+					<p1:ImageMobileButton altText="vp" url="pics/ic_main_taskmanager.png" ui:field="btnTaskManager" />
+				</g:customCell>
+			</g:row>
+			<g:row>
+				<g:customCell>
+					<p1:ImageMobileButton altText="ap" url="pics/ic_main_remotedesktop.png" ui:field="btnRemoteDesktop" />
+				</g:customCell>
+				<g:customCell>
+					<p1:ImageMobileButton altText="pv" url="pics/ic_main_keyboard.png" ui:field="btnKeyboard" />
+				</g:customCell>
+			</g:row>
+			<g:row>
+				<g:customCell>
+					<p1:ImageMobileButton altText="v" url="pics/ic_main_wakeonlan.png" ui:field="btnWakeOnLan" /> 
+				</g:customCell>
+				<g:customCell>
+					<p1:ImageMobileButton altText="f" url="pics/ic_main_monitor.png" ui:field="btnDisplay" />
+				</g:customCell>
+			</g:row>
+			<g:row>
+				<g:customCell>
+					<p1:ImageMobileButton altText="mc" url="pics/ic_main_joypad.png" ui:field="btnJoyPad" />
+				</g:customCell>
+				<g:customCell>
+					<p1:ImageMobileButton altText="BBB" url="pics/ic_main_ir.png" ui:field="btnIRDevices" />
+				</g:customCell>
+			</g:row>
+		</g:Grid>
+		</g:FlowPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

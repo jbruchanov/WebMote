@@ -1,0 +1,37 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.time
+		{
+			text-align: center;
+			font-size: 2.5em;
+			width: 150px;
+			background-color: #FFF;
+			margin-top: 2px;
+			margin-bottom: -2px;
+		}
+		
+		.buttons
+		{
+			font-size: 2.0em;
+			font-weight: bold;
+			margin-top: 5px;
+		}
+		
+	</ui:style>
+	<g:HTMLPanel>
+		<g:VerticalPanel >
+			<g:HorizontalPanel width="100%">
+				<g:Button width="100%" text="+" styleName="{style.buttons} gwt-Button" ui:field="btnAddHour"/>
+				<g:Button width="100%" text="+" styleName="{style.buttons} gwt-Button" ui:field="btnAddMinute"/>
+			</g:HorizontalPanel>
+<!-- 			<g:TextBox styleName="{style.time}" text="00:00" ui:field="txtTime"/> -->
+			<g:Label styleName="{style.time}" text="00:00" ui:field="txtTime"/>
+			<g:HorizontalPanel width="100%">
+				<g:Button width="100%" text="-" styleName="{style.buttons} gwt-Button" ui:field="btnRemoveHour"/>
+				<g:Button width="100%" text="-" styleName="{style.buttons} gwt-Button" ui:field="btnRemoveMinute"/>
+			</g:HorizontalPanel>
+		</g:VerticalPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

@@ -8,9 +8,8 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.Button;
 import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 
-public class MobileButton extends Button implements IsCommandableClickHandler
+public class MobileButton extends CommandButton
 {
-	private String mCommand;
 	private String mDefaultStyleName;
 	private String mActiveStyleName;
 	private static Timer sTimer = null;
@@ -84,18 +83,6 @@ public class MobileButton extends Button implements IsCommandableClickHandler
 		setDefaultStyle();
 	}
 	
-	@Override
-	public void setCommand(String command)
-	{
-		mCommand = command;
-	}
-
-	@Override
-	public String getCommand()
-	{
-		return mCommand;
-	}
-
 	public String getDefaultStyleName()
 	{
 		return mDefaultStyleName;

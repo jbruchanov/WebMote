@@ -9,6 +9,7 @@ import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.AudioPlayerView;
 import com.scurab.web.remotecontrol.client.view.DiskBrowserView;
 import com.scurab.web.remotecontrol.client.view.MainView;
+import com.scurab.web.remotecontrol.client.view.MainView2;
 import com.scurab.web.remotecontrol.client.view.PicturesView;
 import com.scurab.web.remotecontrol.client.view.TVView;
 import com.scurab.web.remotecontrol.client.view.VideoPlayerView;
@@ -53,7 +54,9 @@ public class MainViewPresenter extends BasePresenter
 				pres= new DiskBrowserPresenter(mDataService,mEventBus,new DiskBrowserView());
 				break;
 			case MediaCenter:break;
-			case Next:break;
+			case Next:
+				pres = new MainView2Presenter(mDataService, mEventBus, new MainView2());
+				break;
 			case Pictures:
 				pres = new PicturesPresenter(mDataService, mEventBus, new PicturesView());
 				break;

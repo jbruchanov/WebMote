@@ -7,6 +7,24 @@ package com.scurab.web.remotecontrol.language;
 public interface Words extends com.google.gwt.i18n.client.Constants {
   
   /**
+   * Translated "Abort now".
+   * 
+   * @return translated "Abort now"
+   */
+  @DefaultStringValue("Abort now")
+  @Key("AbortNow")
+  String AbortNow();
+
+  /**
+   * Translated "Are you sure ?".
+   * 
+   * @return translated "Are you sure ?"
+   */
+  @DefaultStringValue("Are you sure ?")
+  @Key("AreYouSure")
+  String AreYouSure();
+
+  /**
    * Translated "↓".
    * 
    * @return translated "↓"
@@ -124,6 +142,24 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   String Filter();
 
   /**
+   * Translated "Force".
+   * 
+   * @return translated "Force"
+   */
+  @DefaultStringValue("Force")
+  @Key("Force")
+  String Force();
+
+  /**
+   * Translated "Force close any running application".
+   * 
+   * @return translated "Force close any running application"
+   */
+  @DefaultStringValue("Force close any running application")
+  @Key("ForceClose")
+  String ForceClose();
+
+  /**
    * Translated "Full Screen".
    * 
    * @return translated "Full Screen"
@@ -131,6 +167,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   @DefaultStringValue("Full Screen")
   @Key("FullScreen")
   String FullScreen();
+
+  /**
+   * Translated "Hibernate".
+   * 
+   * @return translated "Hibernate"
+   */
+  @DefaultStringValue("Hibernate")
+  @Key("Hibernate")
+  String Hibernate();
 
   /**
    * Translated "Hide".
@@ -149,6 +194,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   @DefaultStringValue("Layout")
   @Key("Layout")
   String Layout();
+
+  /**
+   * Translated "Operation start time".
+   * 
+   * @return translated "Operation start time"
+   */
+  @DefaultStringValue("Operation start time")
+  @Key("OperStartTime")
+  String OperStartTime();
 
   /**
    * Translated "Output".
@@ -185,6 +239,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   @DefaultStringValue("Ratio")
   @Key("Ratio")
   String Ratio();
+
+  /**
+   * Translated "Reboot".
+   * 
+   * @return translated "Reboot"
+   */
+  @DefaultStringValue("Reboot")
+  @Key("Reboot")
+  String Reboot();
 
   /**
    * Translated "Repeat".
@@ -230,6 +293,15 @@ public interface Words extends com.google.gwt.i18n.client.Constants {
   @DefaultStringValue("Shuffle")
   @Key("Shuffle")
   String Shuffle();
+
+  /**
+   * Translated "Shutdown".
+   * 
+   * @return translated "Shutdown"
+   */
+  @DefaultStringValue("Shutdown")
+  @Key("Shutdown")
+  String Shutdown();
 
   /**
    * Translated "Slideshow".

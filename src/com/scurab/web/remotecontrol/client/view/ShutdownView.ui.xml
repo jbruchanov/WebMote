@@ -1,0 +1,44 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+	xmlns:p1="urn:import:com.scurab.web.remotecontrol.client.view"
+	xmlns:my="urn:import:com.scurab.web.remotecontrol.client.controls">
+	<ui:style>
+		.labels {
+			font-size: 1.5em;
+			color: #FFF;
+			margin:5px;
+		}
+		
+		.values {
+			font-size: 2.0em;
+			font-weight: bold;
+			color: #FFF:
+			margin:10px;
+		}
+		
+		.buttons
+		{
+			font-size: 1.25em;
+			font-weight: bold;
+			margin-top: 5px;	
+			min-height: 45px;		
+		}
+	</ui:style>
+	<ui:with type="com.scurab.web.remotecontrol.language.Words"
+		field="res"></ui:with>
+	<g:VerticalPanel horizontalAlignment="ALIGN_CENTER" width="100%">
+		<g:Label text="{res.ForceClose}" styleName="{style.labels}" />
+		<g:CheckBox text="{res.Force}" styleName="{style.values}" ui:field="chkForce"  checked="true"/>
+		<g:Label text="{res.Delay}" styleName="{style.labels}" />
+		<p1:TimePickerWidget ui:field="timePicker" />
+		<g:Label text="{res.OperStartTime}" styleName="{style.labels}" />
+		<g:Label text="00:00" styleName="{style.values}" ui:field="lblOperationStartTime" />
+		<g:HorizontalPanel width="100%"> 
+			<my:CommandButton width="100%" text="{res.Reboot}" styleName="{style.buttons} gwt-Button" ui:field="btnReboot" command="Reboot"/>
+			<my:CommandButton width="100%" text="{res.Shutdown}" styleName="{style.buttons} gwt-Button" ui:field="btnShutdown" command="Shutdown"/>
+			<my:CommandButton width="100%" text="{res.Hibernate}" styleName="{style.buttons} gwt-Button" ui:field="btnHibernate" command="Shutdown"/>
+		</g:HorizontalPanel>
+		<my:CommandButton width="100%" text="{res.AbortNow}" styleName="{style.buttons} gwt-Button" ui:field="btnAbort" command="Abort"/>
+	</g:VerticalPanel>
+</ui:UiBinder> 
