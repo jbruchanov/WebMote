@@ -69,4 +69,9 @@ public class PicturesView extends AbstractView
 		return userPanel;
 	}
 
+	public void setJoyPad(JoyPad joyPad)
+	{
+		this.joyPad = joyPad;
+	}
+
 }

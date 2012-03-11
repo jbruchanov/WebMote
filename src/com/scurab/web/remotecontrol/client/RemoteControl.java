@@ -15,8 +15,10 @@ public class RemoteControl implements EntryPoint
 	public static final String VideoPlayer = "VLC Player";
 	public static final String AudioPlayer = "WinAmp";
 	public static final String PicturesViewer = "Windows Photo Viewer";
+	public static final String MediaCenter = "Media Center";
 	
 	public static final Words Words = GWT.create(Words.class);
+	
 	
 	@Override
 	public void onModuleLoad()

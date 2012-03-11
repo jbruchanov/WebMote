@@ -4,7 +4,7 @@
 	<ui:style>
 		.containers
 		{
-			position: absolute;
+			position: relative;
 		}
 		.left
 		{

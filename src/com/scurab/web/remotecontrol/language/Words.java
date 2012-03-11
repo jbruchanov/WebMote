@@ -367,6 +367,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   String Reset();
 
   /**
+   * Translated "Run specialized activity".
+   * 
+   * @return translated "Run specialized activity"
+   */
+  @DefaultStringValue("Run specialized activity")
+  @Key("RunSpecAct")
+  String RunSpecAct();
+
+  /**
    * Translated "Save Screen".
    * 
    * @return translated "Save Screen"

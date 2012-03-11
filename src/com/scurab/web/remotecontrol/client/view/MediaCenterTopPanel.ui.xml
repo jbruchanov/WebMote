@@ -1,0 +1,19 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+	xmlns:p1="urn:import:com.scurab.web.remotecontrol.client.controls">
+	<g:HTMLPanel>
+		<g:HorizontalPanel>
+				<p1:ImageMobileButton url="pics/ic_quit.png" command="Quit" ui:field="btnQuit"/>
+				<p1:ImageMobileButton url="pics/android_ic_menu_back.png" command="Back" ui:field="btnBack" />
+				<p1:ImageMobileButton url="pics/android_ic_menu_friendslist.png" command="ShowContextMenu" ui:field="btnShowContextMenu" />
+				<p1:ImageMobileButton url="pics/ic_start.png" command="Start" ui:field="btnStart"/>
+		</g:HorizontalPanel>
+		<g:HorizontalPanel>
+			<p1:ImageMobileButton url="pics/btn_default_control.png" command="DefaultControl" ui:field="btnDefault"/>
+			<p1:ImageMobileButton url="pics/btn_mc_spec.png" command="NumericControl" ui:field="btnSpecializedActivity"/>
+			<p1:ImageMobileButton url="pics/btn_mc_write.png" command="RecordControl" ui:field="btnKeyboard"/>
+			<p1:ImageMobileButton url="pics/btn_user.png" command="UserControl" ui:field="btnUser"/>
+		</g:HorizontalPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

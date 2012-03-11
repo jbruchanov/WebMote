@@ -1,0 +1,47 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+	xmlns:p1="urn:import:com.scurab.web.remotecontrol.client.view" 
+	xmlns:p2="urn:import:com.scurab.web.remotecontrol.client.controls">
+	<ui:with type="com.scurab.web.remotecontrol.language.Words" field="res"/>
+	<ui:style>
+		.chkRunSpec
+		{
+			padding-top:15px;
+			padding-bottom:15px;
+			color: #FFF;
+			font-size: 2em;
+		}
+	</ui:style>
+	<g:VerticalPanel width="100%" horizontalAlignment="ALIGN_CENTER">
+		<p1:MediaCenterTopPanel ui:field="topPanel"/>
+		<p1:JoyPad ui:field="joyPad"/>
+		<g:VerticalPanel horizontalAlignment="ALIGN_CENTER" width="100%" ui:field="specializedContainer">
+			<g:HTMLPanel styleName="{style.chkRunSpec}">
+				<g:CheckBox text="{res.RunSpecAct}" ui:field="chkRunSpecActivity" />
+			</g:HTMLPanel>
+			<g:FlowPanel>
+			<g:Grid >
+			<g:row>
+				<g:customCell>
+					<p2:ImageMobileButton altText="tv" url="pics/ic_main_tv.png" ui:field="btnTV" command="OpenTelevision"/>
+				</g:customCell>
+				<g:customCell>
+					<p2:ImageMobileButton altText="vp" url="pics/ic_main_videoplayer.png" ui:field="btnVideo" command="OpenVideo"/>
+				</g:customCell>
+			</g:row>
+			<g:row>
+				<g:customCell>
+					<p2:ImageMobileButton altText="ap" url="pics/ic_main_audioplayer.png" ui:field="btnAudio" command="OpenAudio"/>
+				</g:customCell>
+				<g:customCell>
+					<p2:ImageMobileButton altText="pv" url="pics/ic_main_pictures.png" ui:field="btnPictures"  command="OpenPicture"/>
+				</g:customCell>
+			</g:row>
+		</g:Grid>
+		</g:FlowPanel>
+		</g:VerticalPanel>
+		<g:VerticalPanel ui:field="userPanel" />
+		
+	</g:VerticalPanel>
+</ui:UiBinder> 
