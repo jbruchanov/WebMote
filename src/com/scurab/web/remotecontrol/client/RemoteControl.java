@@ -25,4 +25,9 @@ public class RemoteControl implements EntryPoint
 	{
 		RootPanel.get("content").add(new RootView());
 	}
+	
+	public static String getPIN()
+	{
+		return "0000";
+	}
 }

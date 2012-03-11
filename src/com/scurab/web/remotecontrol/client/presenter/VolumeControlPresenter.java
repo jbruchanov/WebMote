@@ -36,7 +36,6 @@ public class VolumeControlPresenter extends BaseControlPresenter
 					mLastSendVolume = volume;
 					onVolumeChange(volume);
 				}
-				
 			}
 		});
 	}

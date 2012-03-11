@@ -64,6 +64,8 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 				loadData(mCurrentDir);
 			}
 		});
+		
+		
 	}
 	
 	private String getFilter()

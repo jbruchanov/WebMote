@@ -9,6 +9,7 @@ import com.scurab.web.remotecontrol.client.components.MonitorDialog;
 import com.scurab.web.remotecontrol.client.components.MonitorDialog.ContextType;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
+import com.scurab.web.remotecontrol.client.view.DesktopView;
 import com.scurab.web.remotecontrol.client.view.JoyPadView;
 import com.scurab.web.remotecontrol.client.view.KeyboardView;
 import com.scurab.web.remotecontrol.client.view.MainView2;
@@ -64,6 +65,9 @@ public class MainView2Presenter extends BaseControlPresenter
 			break;
 		case Keyboard:
 			pres = new KeyboardPresenter(mDataService, mEventBus, new KeyboardView());
+			break;
+		case RemoteDesktop:
+			pres = new DesktopViewPresenter(mDataService, mEventBus, new DesktopView());
 			break;
 		default:
 		}
