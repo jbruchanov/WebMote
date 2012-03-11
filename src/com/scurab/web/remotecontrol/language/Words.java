@@ -34,6 +34,24 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   String AddToFavorites();
 
   /**
+   * Translated "App1".
+   * 
+   * @return translated "App1"
+   */
+  @DefaultStringValue("App1")
+  @Key("App1")
+  String App1();
+
+  /**
+   * Translated "App2".
+   * 
+   * @return translated "App2"
+   */
+  @DefaultStringValue("App2")
+  @Key("App2")
+  String App2();
+
+  /**
    * Translated "Are you sure ?".
    * 
    * @return translated "Are you sure ?"
@@ -97,6 +115,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   String ArrowUp();
 
   /**
+   * Translated "Arrows".
+   * 
+   * @return translated "Arrows"
+   */
+  @DefaultStringValue("Arrows")
+  @Key("Arrows")
+  String Arrows();
+
+  /**
    * Translated "Audio Delay".
    * 
    * @return translated "Audio Delay"
@@ -113,6 +140,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("Audio player")
   @Key("AudioPlayer")
   String AudioPlayer();
+
+  /**
+   * Translated "Back".
+   * 
+   * @return translated "Back"
+   */
+  @DefaultStringValue("Back")
+  @Key("Back")
+  String Back();
 
   /**
    * Translated "Bigger".
@@ -178,6 +214,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   String CustomStart();
 
   /**
+   * Translated "Default".
+   * 
+   * @return translated "Default"
+   */
+  @DefaultStringValue("Default")
+  @Key("Default")
+  String Default();
+
+  /**
    * Translated "Delay".
    * 
    * @return translated "Delay"
@@ -185,6 +230,24 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("Delay")
   @Key("Delay")
   String Delay();
+
+  /**
+   * Translated "Email".
+   * 
+   * @return translated "Email"
+   */
+  @DefaultStringValue("Email")
+  @Key("Email")
+  String Email();
+
+  /**
+   * Translated "Favorites".
+   * 
+   * @return translated "Favorites"
+   */
+  @DefaultStringValue("Favorites")
+  @Key("Favorites")
+  String Favorites();
 
   /**
    * Translated "Filter".
@@ -214,6 +277,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   String ForceClose();
 
   /**
+   * Translated "Forward".
+   * 
+   * @return translated "Forward"
+   */
+  @DefaultStringValue("Forward")
+  @Key("Forward")
+  String Forward();
+
+  /**
    * Translated "Full Screen".
    * 
    * @return translated "Full Screen"
@@ -221,6 +293,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("Full Screen")
   @Key("FullScreen")
   String FullScreen();
+
+  /**
+   * Translated "Functional".
+   * 
+   * @return translated "Functional"
+   */
+  @DefaultStringValue("Functional")
+  @Key("Functional")
+  String Functional();
 
   /**
    * Translated "Hibernate".
@@ -241,6 +322,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   String Hide();
 
   /**
+   * Translated "Home".
+   * 
+   * @return translated "Home"
+   */
+  @DefaultStringValue("Home")
+  @Key("Home")
+  String Home();
+
+  /**
    * Translated "Kill".
    * 
    * @return translated "Kill"
@@ -257,6 +347,51 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("Layout")
   @Key("Layout")
   String Layout();
+
+  /**
+   * Translated "Media".
+   * 
+   * @return translated "Media"
+   */
+  @DefaultStringValue("Media")
+  @Key("Media")
+  String Media();
+
+  /**
+   * Translated "Music".
+   * 
+   * @return translated "Music"
+   */
+  @DefaultStringValue("Music")
+  @Key("Music")
+  String Music();
+
+  /**
+   * Translated "Mute".
+   * 
+   * @return translated "Mute"
+   */
+  @DefaultStringValue("Mute")
+  @Key("Mute")
+  String Mute();
+
+  /**
+   * Translated "Next".
+   * 
+   * @return translated "Next"
+   */
+  @DefaultStringValue("Next")
+  @Key("Next")
+  String Next();
+
+  /**
+   * Translated "Numeric".
+   * 
+   * @return translated "Numeric"
+   */
+  @DefaultStringValue("Numeric")
+  @Key("Numeric")
+  String Numeric();
 
   /**
    * Translated "Off".
@@ -322,6 +457,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   String PicturesViewer();
 
   /**
+   * Translated "Play/Pause".
+   * 
+   * @return translated "Play/Pause"
+   */
+  @DefaultStringValue("Play/Pause")
+  @Key("PlayPause")
+  String PlayPause();
+
+  /**
    * Translated "Playing".
    * 
    * @return translated "Playing"
@@ -329,6 +473,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("Playing")
   @Key("Playing")
   String Playing();
+
+  /**
+   * Translated "Previous".
+   * 
+   * @return translated "Previous"
+   */
+  @DefaultStringValue("Previous")
+  @Key("Previous")
+  String Previous();
 
   /**
    * Translated "Ratio".
@@ -347,6 +500,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("Reboot")
   @Key("Reboot")
   String Reboot();
+
+  /**
+   * Translated "Reload".
+   * 
+   * @return translated "Reload"
+   */
+  @DefaultStringValue("Reload")
+  @Key("Reload")
+  String Reload();
 
   /**
    * Translated "Repeat".
@@ -383,6 +545,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("Save Screen")
   @Key("SaveScreen")
   String SaveScreen();
+
+  /**
+   * Translated "Search".
+   * 
+   * @return translated "Search"
+   */
+  @DefaultStringValue("Search")
+  @Key("Search")
+  String Search();
 
   /**
    * Translated "Show DVD Menu".
@@ -430,6 +601,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   String Smaller();
 
   /**
+   * Translated "Special".
+   * 
+   * @return translated "Special"
+   */
+  @DefaultStringValue("Special")
+  @Key("Special")
+  String Special();
+
+  /**
    * Translated "Start".
    * 
    * @return translated "Start"
@@ -446,6 +626,24 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("Start by OS")
   @Key("StartByOS")
   String StartByOS();
+
+  /**
+   * Translated "Stop".
+   * 
+   * @return translated "Stop"
+   */
+  @DefaultStringValue("Stop")
+  @Key("Stop")
+  String Stop();
+
+  /**
+   * Translated "Stop playing".
+   * 
+   * @return translated "Stop playing"
+   */
+  @DefaultStringValue("Stop playing")
+  @Key("StopPlaying")
+  String StopPlaying();
 
   /**
    * Translated "Subtitles".
@@ -500,4 +698,22 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("View")
   @Key("View")
   String View();
+
+  /**
+   * Translated "Volume Down".
+   * 
+   * @return translated "Volume Down"
+   */
+  @DefaultStringValue("Volume Down")
+  @Key("VolumeDown")
+  String VolumeDown();
+
+  /**
+   * Translated "Volume Up".
+   * 
+   * @return translated "Volume Up"
+   */
+  @DefaultStringValue("Volume Up")
+  @Key("VolumeUp")
+  String VolumeUp();
 }

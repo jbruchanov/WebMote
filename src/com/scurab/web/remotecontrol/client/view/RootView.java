@@ -9,7 +9,6 @@ import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEventHandler;
@@ -59,6 +58,7 @@ public class RootView extends Composite
 		
 		Window.addWindowClosingHandler(new Window.ClosingHandler()
 		{
+			@Override
 			public void onWindowClosing(Window.ClosingEvent closingEvent)
 			{
 				closingEvent.setMessage("Do you really want to leave the page?");
@@ -94,5 +94,6 @@ public class RootView extends Composite
 		mWorkingComposites.put(bp.getName(), bp);
 		RootPanel.get("content").clear();
 		RootPanel.get("content").add(bp.asWidget());
+		Window.scrollTo(0, 1);
 	}
 }

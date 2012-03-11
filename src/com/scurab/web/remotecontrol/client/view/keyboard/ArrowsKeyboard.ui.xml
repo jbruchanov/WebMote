@@ -1,0 +1,53 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:my="urn:import:com.scurab.web.remotecontrol.client.controls">
+	<ui:with type="com.scurab.web.remotecontrol.language.Words" field="res"/>
+	<ui:with type="com.scurab.web.remotecontrol.language.Keys" field="kc"/>
+	<ui:style>
+		.key {
+			font-family: Lucida Console;
+			font-size: 1.2em;
+			min-width: 50px;
+		}
+		
+		.row0 {
+			height: 50px;
+			font-family: Courier New;
+		}
+		
+		.row1 {
+			height: 50px;
+			font-family: Courier New;
+		}
+		
+		.row2 {
+			height: 50px;
+			font-family: Courier New;
+		}
+		
+		.row3 {
+			height: 50px;
+			font-family: Courier New;
+			margin-top: -2px;
+		}
+		
+		.topPanel {
+			margin-top: 5px;
+			margin-bottom: 15px;
+		}
+	</ui:style>
+	<g:HTMLPanel ui:field="container">
+		<g:VerticalPanel width="100%">
+			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
+				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowUp}" width="20%" height="50px" keyCode="{kc.KEY_UP}"/>
+			</g:HorizontalPanel>
+			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
+				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowLeft}" width="40%" height="50px" keyCode="{kc.KEY_LEFT}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowRight}" width="40%" height="50px" keyCode="{kc.KEY_RIGHT}"/>
+			</g:HorizontalPanel>
+			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
+				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowDown}" width="20%" height="50px" keyCode="{kc.KEY_DOWN}"/>
+			</g:HorizontalPanel>
+		</g:VerticalPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

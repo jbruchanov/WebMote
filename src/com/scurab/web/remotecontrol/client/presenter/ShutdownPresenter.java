@@ -1,15 +1,11 @@
 package com.scurab.web.remotecontrol.client.presenter;
 
-import java.awt.SystemColor;
 import java.util.Date;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.IsWidget;
 import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.SystemCommand;

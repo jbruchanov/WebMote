@@ -4,15 +4,9 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.controls.MobileButton;
-import com.scurab.web.remotecontrol.client.datamodel.Proc;
-import com.scurab.web.remotecontrol.client.view.DiskBrowserItem;
-import com.scurab.web.remotecontrol.client.view.DiskBrowserItem.Type;
-import com.scurab.web.remotecontrol.language.Words;
 
 public class MonitorDialog extends DialogBox
 {

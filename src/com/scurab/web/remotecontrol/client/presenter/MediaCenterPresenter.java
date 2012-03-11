@@ -10,7 +10,6 @@ import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.MediaCenterCommand;
 import com.scurab.web.remotecontrol.client.server.DataService;
-import com.scurab.web.remotecontrol.client.view.AbstractView;
 import com.scurab.web.remotecontrol.client.view.JoyPad;
 import com.scurab.web.remotecontrol.client.view.MediaCenterView;
 

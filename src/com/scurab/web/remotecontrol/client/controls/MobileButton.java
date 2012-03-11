@@ -5,8 +5,6 @@ import com.google.gwt.event.dom.client.TouchEndHandler;
 import com.google.gwt.event.dom.client.TouchStartEvent;
 import com.google.gwt.event.dom.client.TouchStartHandler;
 import com.google.gwt.user.client.Timer;
-import com.google.gwt.user.client.ui.Button;
-import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 
 public class MobileButton extends CommandButton
 {

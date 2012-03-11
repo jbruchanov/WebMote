@@ -25,7 +25,6 @@ public abstract class BasePresenter implements IsWidget
 	
 	protected void onResume()
 	{
-		
 	}
 	
 	@Override

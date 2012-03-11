@@ -1,19 +1,8 @@
 package com.scurab.web.remotecontrol.client;
 
-import java.io.IOException;
-import java.io.StringReader;
 import java.util.HashMap;
 import java.util.List;
 
-import com.google.gwt.dev.json.JsonArray;
-import com.google.gwt.dev.json.JsonException;
-import com.google.gwt.dev.json.JsonObject;
-import com.google.gwt.http.client.RequestException;
-import com.google.gwt.json.client.JSONArray;
-import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.json.client.JSONParser;
-import com.google.gwt.json.client.JSONValue;
-import com.google.gwt.junit.client.GWTTestCase;
 import com.scurab.web.remotecontrol.client.tools.JsonSimpleParser;
 
 import junit.framework.TestCase;

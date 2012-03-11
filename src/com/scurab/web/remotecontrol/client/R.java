@@ -25,5 +25,6 @@ public final class R
 		public static final String KEY_RIGHT = "0x27";
 		public static final String KEY_DOWN = "0x28";
 		public static final String KEY_ENTER = "0x0D";
+		public static final String KEY_SHIFT = "0x10";
 	}
 }

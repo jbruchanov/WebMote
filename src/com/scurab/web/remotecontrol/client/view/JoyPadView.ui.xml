@@ -17,6 +17,5 @@
 			</g:HorizontalPanel>
 			<p2:JoyPad ui:field="joyPad"/>
 		</g:VerticalPanel>
-		
 	</g:HTMLPanel>
 </ui:UiBinder> 

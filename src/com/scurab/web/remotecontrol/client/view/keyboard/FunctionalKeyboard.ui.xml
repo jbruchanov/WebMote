@@ -1,0 +1,89 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:my="urn:import:com.scurab.web.remotecontrol.client.controls">
+	<ui:with type="com.scurab.web.remotecontrol.language.Words"	field="res" />
+	<ui:with type="com.scurab.web.remotecontrol.language.Keys" field="kc"/>
+	<ui:style>
+		.key {
+			font-family: Lucida Console;
+			font-size: 1.2em;
+			min-width: 50px;
+		}
+		
+		.row0 {
+			height: 50px;
+			font-family: Courier New;
+		}
+		
+		.row1 {
+			height: 50px;
+			font-family: Courier New;
+		}
+		
+		.row2 {
+			height: 50px;
+			font-family: Courier New;
+		}
+		
+		.row3 {
+			height: 50px;
+			font-family: Courier New;
+			margin-top: -5px;
+		}
+		
+		.topPanel {
+			margin-top: 5px;
+			margin-bottom: 15px;
+		}
+	</ui:style>
+	<g:HTMLPanel ui:field="container">
+		<g:VerticalPanel width="100%" ui:field="kbShiftContainer">
+			<g:HorizontalPanel width="100%" styleName="{style.row0}"
+				height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="F1" keyCode="{kc.KEY_F1}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="F2" keyCode="{kc.KEY_F2}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="F3" keyCode="{kc.KEY_F3}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="F4" keyCode="{kc.KEY_F4}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="F5" keyCode="{kc.KEY_F5}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="F6" keyCode="{kc.KEY_F6}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="PRN" keyCode="{kc.KEY_PRINT}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="SCR" keyCode="{kc.KEY_SCROLL}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="PAU" keyCode="{kc.KEY_PAUSE}"/>
+			</g:HorizontalPanel>
+			<g:HorizontalPanel width="100%" styleName="{style.row0}"
+				height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="F7" keyCode="{kc.KEY_F7}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="F8" keyCode="{kc.KEY_F8}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="F9" keyCode="{kc.KEY_F9}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="F10" keyCode="{kc.KEY_F10}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="F11" keyCode="{kc.KEY_F11}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="F12" keyCode="{kc.KEY_F12}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="INS" keyCode="{kc.KEY_INSERT}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="HOME" keyCode="{kc.KEY_HOME}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="PGUP" keyCode="{kc.KEY_PRIOR}"/>
+			</g:HorizontalPanel>
+			<g:HorizontalPanel width="100%" styleName="{style.row0}"
+				height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="ESC" keyCode="{kc.KEY_ESCAPE}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="TAB" keyCode="{kc.KEY_TAB}"/>
+				
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="DEL" keyCode="{kc.KEY_DELETE}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="END" keyCode="{kc.KEY_END}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" width="100%" height="50px" text="PGDN" keyCode="{kc.KEY_NEXT}"/>
+			</g:HorizontalPanel>
+			<g:HorizontalPanel height="" horizontalAlignment="ALIGN_CENTER"
+				styleName="{style.row3}" verticalAlignment="ALIGN_MIDDLE" width="100%">
+				<my:KeyToggleButton height="35px" text="CTRL" width="80%" keyCode="{kc.KEY_LCONTROL}"/>
+				<my:KeyToggleButton height="35px" text="WIN" width="80%" keyCode="{kc.KEY_LWIN}"/>
+				<my:KeyToggleButton height="35px" text="ALT" width="80%" keyCode="{kc.KEY_LMENU}"/>
+				<my:KeyButton height="43px" styleName="{style.key} gwt-Button" text="SPACE" width="100%" keyCode="{kc.KEY_SPACE}"/>
+				<my:KeyToggleButton height="35px" text="RALT" width="82%" keyCode="{kc.KEY_RMENU}"/>
+				<my:KeyToggleButton height="35px" text="APP" width="80%" keyCode="{kc.KEY_APPS}"/>
+				<my:KeyToggleButton height="35px" text="CTRL" width="80%" keyCode="{kc.KEY_RCONTROL}"/>
+				<my:KeyButton height="43px" styleName="{style.key} gwt-Button" text="ENTER" width="100%" keyCode="{kc.KEY_RETURN}"/>
+			</g:HorizontalPanel>
+		</g:VerticalPanel>
+
+	</g:HTMLPanel>
+</ui:UiBinder> 

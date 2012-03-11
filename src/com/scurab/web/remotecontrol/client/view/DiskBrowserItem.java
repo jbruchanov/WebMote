@@ -9,10 +9,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.InlineLabel;
-import com.google.gwt.user.client.ui.HTMLPanel;
 import com.scurab.web.remotecontrol.client.controls.ImageMobileButton;
-import com.scurab.web.remotecontrol.client.controls.MobileButton;
 import com.google.gwt.user.client.ui.Button;
 
 public class DiskBrowserItem extends Composite implements HasClickHandlers

@@ -20,7 +20,6 @@ import com.scurab.web.remotecontrol.client.components.TaskManagerContextMenu.Con
 import com.scurab.web.remotecontrol.client.datamodel.Proc;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.tools.JsonSimpleParser;
-import com.scurab.web.remotecontrol.client.view.AbstractView;
 import com.scurab.web.remotecontrol.client.view.ProcessItem;
 import com.scurab.web.remotecontrol.client.view.TaskManagerView;
 
