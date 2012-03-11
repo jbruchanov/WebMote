@@ -11,6 +11,7 @@ import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.AudioPlayerView;
 import com.scurab.web.remotecontrol.client.view.DiskBrowserView;
+import com.scurab.web.remotecontrol.client.view.JoyPadView;
 import com.scurab.web.remotecontrol.client.view.MainView;
 import com.scurab.web.remotecontrol.client.view.MainView2;
 import com.scurab.web.remotecontrol.client.view.PicturesView;
@@ -63,6 +64,9 @@ public class MainView2Presenter extends BaseControlPresenter
 				break;
 		case Display:
 			onDisplayClick();
+			break;
+		case JoyPad:
+			pres= new JoyPadViewPresenter(mDataService, mEventBus, new JoyPadView());
 			break;
 		default:
 		}
