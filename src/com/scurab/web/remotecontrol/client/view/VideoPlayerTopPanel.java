@@ -34,9 +34,6 @@ public class VideoPlayerTopPanel extends AbstractView
 	public VideoPlayerTopPanel()
 	{
 		initWidget(uiBinder.createAndBindUi(this));
-		
-		cmbItems.addItem("");
-		cmbItems.addItem("HelloWorld!");
 		mButtons = new ArrayList<IsCommandableClickHandler>();
 		mButtons.addAll(Arrays.asList(new IsCommandableClickHandler[] {btnQuit,btnStart}));
 	}

@@ -105,7 +105,7 @@
 				<my:KeyButton height="50px" styleName="{style.key} gwt-Button"
 					text="m" keyCode="{kc.KEY_VK_M}" width="100%" />
 				<my:KeyButton height="50px" styleName="{style.key} gwt-Button"
-					text="BCK" keyCode="{kc.KEY_DELETE}" width="100%" />
+					text="BCK" keyCode="{kc.KEY_BACK}" width="100%" />
 			</g:HorizontalPanel>
 			<g:HorizontalPanel height="" horizontalAlignment="ALIGN_CENTER"
 				styleName="{style.row3}" verticalAlignment="ALIGN_MIDDLE" width="100%">

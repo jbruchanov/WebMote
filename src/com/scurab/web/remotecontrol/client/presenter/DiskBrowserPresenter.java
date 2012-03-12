@@ -12,6 +12,7 @@ import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.RequestException;
 import com.google.gwt.http.client.Response;
 import com.google.gwt.user.client.Window;
+import com.scurab.web.remotecontrol.client.R;
 import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.AudioPlayerCommand;
 import com.scurab.web.remotecontrol.client.commands.Command;
@@ -21,6 +22,7 @@ import com.scurab.web.remotecontrol.client.commands.PhotoViewerCommand;
 import com.scurab.web.remotecontrol.client.commands.ProcessCommand;
 import com.scurab.web.remotecontrol.client.commands.VideoPlayerCommand;
 import com.scurab.web.remotecontrol.client.components.FileBrowserContextMenu;
+import com.scurab.web.remotecontrol.client.components.FileBrowserContextMenu.ContextType;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.tools.JsonSimpleParser;
 import com.scurab.web.remotecontrol.client.tools.StringUtils;
@@ -141,7 +143,7 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 				public void onClick(Type t, String value)
 				{
 					if(t == Type.Return)
-						onItemClick(dir,type);
+						onItemClick(dir,type);					
 					else
 					{
 						onContextItemClick(b);
@@ -175,9 +177,37 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 					if(cd.trim().length() > 0 && !cd.endsWith("\\")) cd += "\\";
 					loc = "\"" + cd + item.getValue() + "\"";
 				}
-				onContextSendCommand(loc,command);
+				
+				if(command == ContextType.AddToFavorites)
+					showAddToFavsMenu(item, loc);
+				else
+					onContextSendCommand(loc,command);
 			}
 		});
+	}
+	
+	private void showAddToFavsMenu(DiskBrowserItem item, final String locality)
+	{
+		FileBrowserContextMenu.showDialog(item, new FileBrowserContextMenu.OnClickListener()
+		{
+			@Override
+			public void onClick(DiskBrowserItem item, FileBrowserContextMenu.ContextType command)
+			{
+				try
+				{
+					String category = "";
+					if(command == ContextType.VideoPlayer) category = RemoteControl.PropertyKeys.VIDEOPLAYER;
+					else if(command == ContextType.AudioPlayer) category = RemoteControl.PropertyKeys.AUDIOPLAYER;
+					else if(command == ContextType.PicturesViewer) category = RemoteControl.PropertyKeys.PICTURESVIEWER;
+					String name = item.getValue().replace(R.Constants.VALUE_SEPARATOR, "");
+					RemoteControl.addToFavorites(category, name, locality);
+				}
+				catch(Exception e)
+				{
+					Window.alert(e.getMessage());
+				}
+			}
+		},true);
 	}
 	
 	protected void onContextSendCommand(String location, FileBrowserContextMenu.ContextType what)
@@ -286,23 +316,19 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 		public MockDataService()
 		{			
 		}
-		
+		private int a = 0;
 		@Override
 		public void sendCommand(Command c, RequestCallback rc) throws RequestException
 		{
 			Response r = new Response()
 			{
-				String diska = "[{\"N\":\"C:\\\",\"T\":1},{\"N\":\"D:\\\",\"T\":1},{\"N\":\"F:\\\",\"T\":1},{\"N\":\"G:\\\",\"T\":3},{\"N\":\"H:\\\",\"T\":3},{\"N\":\"L:\\\",\"T\":1},{\"N\":\"R:\\\",\"T\":2},{\"N\":\"W:\\\",\"T\":2},{\"N\":\"X:\\\",\"T\":2}]";
-				String diskb = "[{\"N\":\"..\",\"T\":-1},{\"N\":\"PlatbyDatumy.xls\",\"T\":20},{\"N\":\"Visual Studio 2008.zip\",\"T\":20}]";
-				String diskc = "[{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"1Skola\",\"T\":10},{\"N\":\"Release\",\"T\":10},{\"N\":\"System Volume Information\",\"T\":10},{\"N\":\"tmp\",\"T\":10},{\"N\":\"Utils\",\"T\":10},{\"N\":\"VMS\",\"T\":10},{\"N\":\"CV-Resume.pdf\",\"T\":20},{\"N\":\"EnglishDictionary.xls\",\"T\":20},{\"N\":\"LEDs_Hack_1.2.10.apk\",\"T\":20},{\"N\":\"Nolf Disc 2.bin\",\"T\":20},{\"N\":\"Nolf Disc 2.cue\",\"T\":20},{\"N\":\"NOLF_CD1.iso\",\"T\":20},{\"N\":\"PlatbyDatumy.xls\",\"T\":20},{\"N\":\"Visual Studio 2008.zip\",\"T\":20}]";
-				String diskd = "[{\"N\":\"..\",\"T\":-1},{\"N\":\"ReleaseReleaseReleaseReleaseReleaseReleaseRelease\",\"T\":10},{\"N\":\"System Volume Information\",\"T\":10},{\"N\":\"tmp\",\"T\":10},{\"N\":\"Utils\",\"T\":10},{\"N\":\"VMS\",\"T\":10},{\"N\":\"CV-Resume.pdf\",\"T\":20},{\"N\":\"EnglishDictionary.xls\",\"T\":20},{\"N\":\"LEDs_Hack_1.2.10.apk\",\"T\":20},{\"N\":\"Nolf Disc 2.bin\",\"T\":20},{\"N\":\"Nolf Disc 2.cue\",\"T\":20},{\"N\":\"NOLF_CD1.iso\",\"T\":20},{\"N\":\"PlatbyDatumy.xls\",\"T\":20},{\"N\":\"Visual Studio 2008.zip\",\"T\":20}]";
-				String diske = "[{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10}]";
-				String diskf = "[{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =--= Photos =--= Photos =--= Photos =--= Photos =--= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},]";
-				String[] data = new String[] {diska,diskb,diskc,diskd,diske,diskf};
+				String diska = "[{\"N\":\"C:\\\",\"T\":1},{\"N\":\"D:\\\",\"T\":1},{\"N\":\"F:\\\",\"T\":1},{\"N\":\"G:\\\",\"T\":3},{\"N\":\"H:\\\",\"T\":3},{\"N\":\"L:\\\",\"T\":1},{\"N\":\"R:\\\",\"T\":2},{\"N\":\"W:\\\",\"T\":2},{\"N\":\"X:\\\",\"T\":2}]";				
+				String diskc = "[{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"1Skola\",\"T\":10},{\"N\":\"Release\",\"T\":10},{\"N\":\"System Volume Information\",\"T\":10},{\"N\":\"tmp\",\"T\":10},{\"N\":\"Utils\",\"T\":10},{\"N\":\"VMS\",\"T\":10},{\"N\":\"CV-Resume.pdf\",\"T\":20},{\"N\":\"EnglishDictionary.xls\",\"T\":20},{\"N\":\"LEDs_Hack_1.2.10.apk\",\"T\":20},{\"N\":\"Nolf Disc 2.bin\",\"T\":20},{\"N\":\"Nolf Disc 2.cue\",\"T\":20},{\"N\":\"NOLF_CD1.iso\",\"T\":20},{\"N\":\"PlatbyDatumy.xls\",\"T\":20},{\"N\":\"Visual Studio 2008.zip\",\"T\":20}]";				
+				String[] data = new String[] {diska,diskc,diskc,diskc,diskc,diskc,diskc};
 				@Override
 				public String getText()
 				{
-					return data[Math.abs((int)System.currentTimeMillis() % data.length)];
+					return data[a++ % data.length];
 				}
 				
 				@Override

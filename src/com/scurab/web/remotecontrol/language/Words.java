@@ -25,6 +25,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   String Activate();
 
   /**
+   * Translated "Add".
+   * 
+   * @return translated "Add"
+   */
+  @DefaultStringValue("Add")
+  @Key("Add")
+  String Add();
+
+  /**
    * Translated "Add to favorites".
    * 
    * @return translated "Add to favorites"
@@ -50,6 +59,24 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("App2")
   @Key("App2")
   String App2();
+
+  /**
+   * Translated "Application".
+   * 
+   * @return translated "Application"
+   */
+  @DefaultStringValue("Application")
+  @Key("Application")
+  String Application();
+
+  /**
+   * Translated "Application is not set!\nGo to settings and choose app first!".
+   * 
+   * @return translated "Application is not set!\nGo to settings and choose app first!"
+   */
+  @DefaultStringValue("Application is not set!\nGo to settings and choose app first!")
+  @Key("ApplicationNotSet")
+  String ApplicationNotSet();
 
   /**
    * Translated "Are you sure ?".
@@ -232,6 +259,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   String Delay();
 
   /**
+   * Translated "Delete".
+   * 
+   * @return translated "Delete"
+   */
+  @DefaultStringValue("Delete")
+  @Key("Delete")
+  String Delete();
+
+  /**
    * Translated "Email".
    * 
    * @return translated "Email"
@@ -376,6 +412,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   String Layout();
 
   /**
+   * Translated "Location".
+   * 
+   * @return translated "Location"
+   */
+  @DefaultStringValue("Location")
+  @Key("Location")
+  String Location();
+
+  /**
    * Translated "Media".
    * 
    * @return translated "Media"
@@ -394,6 +439,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   String MediaCenter();
 
   /**
+   * Translated "Missing name or value ".
+   * 
+   * @return translated "Missing name or value "
+   */
+  @DefaultStringValue("Missing name or value ")
+  @Key("MissingNameOrValue")
+  String MissingNameOrValue();
+
+  /**
    * Translated "Music".
    * 
    * @return translated "Music"
@@ -410,6 +464,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("Mute")
   @Key("Mute")
   String Mute();
+
+  /**
+   * Translated "Name".
+   * 
+   * @return translated "Name"
+   */
+  @DefaultStringValue("Name")
+  @Key("Name")
+  String Name();
 
   /**
    * Translated "Next".

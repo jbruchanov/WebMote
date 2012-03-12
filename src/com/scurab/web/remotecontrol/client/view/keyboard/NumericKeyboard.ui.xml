@@ -81,7 +81,7 @@
 						<my:KeyButton styleName="{style.key} gwt-Button" text="DEL" width="100%" height="50px" keyCode="{kc.KEY_DELETE}"/>		
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="BACK" width="100%" height="50px" keyCode="{kc.KEY_DELETE}"/>			
+						<my:KeyButton styleName="{style.key} gwt-Button" text="BACK" width="100%" height="50px" keyCode="{kc.KEY_BACK}"/>			
 					</g:customCell>
 				</g:row>
 			</g:Grid>
@@ -160,7 +160,7 @@
 						<my:KeyButton styleName="{style.key} gwt-Button" text="ENTER" width="100%" height="50px" keyCode="{kc.KEY_RETURN}"/>
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="BACK" width="100%" height="50px" keyCode="{kc.KEY_DELETE}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="BACK" width="100%" height="50px" keyCode="{kc.KEY_BACK}"/>
 					</g:customCell>
 				</g:row>
 			</g:Grid>

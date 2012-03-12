@@ -3,6 +3,7 @@ package com.scurab.web.remotecontrol.client.presenter;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
+import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.server.DataService;
 
 public abstract class BasePresenter implements IsWidget
@@ -31,6 +32,12 @@ public abstract class BasePresenter implements IsWidget
 	public Widget asWidget()
 	{
 		return mDisplay.asWidget(); 	
+	}
+	
+	protected void checkApp(String app) throws Exception
+	{
+		if(!(app != null && app.length() > 0))
+			throw new Exception(RemoteControl.Words.ApplicationNotSet());
 	}
 	
 	public abstract String getName();

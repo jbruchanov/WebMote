@@ -60,6 +60,8 @@ public class AudioPlayerPresenter extends BaseControlPresenter
 				onClickButton(ShowPanel.User);
 			}
 		});
+		
+		initFavorities(mDisplay.getTopPanel().getCmbItems(), RemoteControl.PropertyKeys.AUDIOPLAYER);
 	}
 	
 	protected void onClickButton(ShowPanel what)

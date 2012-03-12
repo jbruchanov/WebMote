@@ -33,9 +33,6 @@ public class AudioPlayerTopPanel extends AbstractView
 		initWidget(uiBinder.createAndBindUi(this));
 		mButtons = new ArrayList<IsCommandableClickHandler>();
 		mButtons.addAll(Arrays.asList(new IsCommandableClickHandler[] {btnQuit,btnStart}));
-		
-		cmbItems.addItem("", "");
-		cmbItems.addItem("Progressive", "http://listen.di.fm/public2/progressive.pls");
 	}
 	
 	@Override

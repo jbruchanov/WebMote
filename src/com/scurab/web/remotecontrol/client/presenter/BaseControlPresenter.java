@@ -1,11 +1,17 @@
 package com.scurab.web.remotecontrol.client.presenter;
 
+import java.util.List;
+
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.http.client.RequestCallback;
+import com.google.gwt.storage.client.Storage;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.ListBox;
+import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.Command;
+import com.scurab.web.remotecontrol.client.datamodel.KeyValueItem;
 import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.AbstractView;
@@ -68,6 +74,22 @@ public abstract class BaseControlPresenter extends BasePresenter
 				}
 			});
 		}
+	}
+	
+	protected void initFavorities(ListBox lb, String key)
+	{
+		lb.clear();
+		if(Storage.isLocalStorageSupported())
+		{
+			List<KeyValueItem> items = RemoteControl.getFavorities(key);
+			lb.addItem("", "");
+			for(KeyValueItem kvi : items)
+			{
+				lb.addItem(kvi.Key, kvi.Value);
+			}
+		}
+		else
+			lb.setEnabled(false);
 	}
 	
 	protected abstract Command getCommand(String command);

@@ -59,7 +59,7 @@ public class VolumeControl extends AbstractView implements HasValue<Integer>, Ha
 	{
 		super.onLoad();
 		Timer t = new Timer(){@Override public void run(){init();}};
-		t.schedule(100);
+		t.schedule(1000);
 		
 	}
 	

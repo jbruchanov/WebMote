@@ -3,6 +3,8 @@ package com.scurab.web.remotecontrol.client.presenter;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerManager;
+import com.google.gwt.user.client.Window;
+import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.AudioPlayerView;
@@ -44,37 +46,48 @@ public class MainViewPresenter extends BasePresenter
 	
 	public void onButtonClick(ButtonType type)
 	{
-		BasePresenter pres = null;
-		switch(type)
+		try
 		{
-			case Audio:
-				pres = new AudioPlayerPresenter(mDataService, mEventBus, new AudioPlayerView());
-				break;
-			case FileBrowser:
-				pres= new DiskBrowserPresenter(mDataService,mEventBus,new DiskBrowserView());
-				break;
-			case Next:
-				pres = new MainView2Presenter(mDataService, mEventBus, new MainView2());
-				break;
-			case Pictures:
-				pres = new PicturesPresenter(mDataService, mEventBus, new PicturesView());
-				break;
-			case TV:
-				pres= new TVPresenter(mDataService,mEventBus,new TVView());
-				break;
-			case Video:
-				pres = new VideoPlayerPresenter(mDataService, mEventBus, new VideoPlayerView());
-				break;
-			case Volume:
-				pres = new VolumeControlPresenter(mDataService, mEventBus, new VolumeControl());
-				break;
-			case Config:
-				pres = new ConfigPresenter(mDataService, mEventBus, new ConfigView());
-				break;
-			default:
-				break;
+			BasePresenter pres = null;
+			switch(type)
+			{
+				case Audio:
+					checkApp(RemoteControl.AudioPlayer);
+					pres = new AudioPlayerPresenter(mDataService, mEventBus, new AudioPlayerView());
+					break;
+				case FileBrowser:
+					pres= new DiskBrowserPresenter(mDataService,mEventBus,new DiskBrowserView());
+					break;
+				case Next:
+					pres = new MainView2Presenter(mDataService, mEventBus, new MainView2());
+					break;
+				case Pictures:
+					checkApp(RemoteControl.PicturesViewer);
+					pres = new PicturesPresenter(mDataService, mEventBus, new PicturesView());
+					break;
+				case TV:
+					checkApp(RemoteControl.TVAppliation);
+					pres= new TVPresenter(mDataService,mEventBus,new TVView());
+					break;
+				case Video:
+					checkApp(RemoteControl.VideoPlayer);
+					pres = new VideoPlayerPresenter(mDataService, mEventBus, new VideoPlayerView());
+					break;
+				case Volume:
+					pres = new VolumeControlPresenter(mDataService, mEventBus, new VolumeControl());
+					break;
+				case Config:
+					pres = new ConfigPresenter(mDataService, mEventBus, new ConfigView());
+					break;
+				default:
+					break;
+			}
+			onChangePresenter(pres);
 		}
-		onChangePresenter(pres);
+		catch(Exception e)
+		{
+			Window.alert(e.getMessage());
+		}
 	}
 	
 	public void onChangePresenter(BasePresenter presenter)

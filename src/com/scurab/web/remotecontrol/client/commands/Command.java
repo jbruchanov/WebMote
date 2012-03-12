@@ -2,11 +2,11 @@ package com.scurab.web.remotecontrol.client.commands;
 
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONString;
+import com.scurab.web.remotecontrol.client.RemoteControl;
 
 public abstract class Command
 {
 	private static final String PIN_KEY = "IMEI";
-	protected String PIN = "0000";
 	private static final String COMMAND_KEY = "Command";
 	
 	public String Method = null;
@@ -15,7 +15,7 @@ public abstract class Command
 	protected JSONObject getJsonObject()
 	{		
 		JSONObject jso = new JSONObject();
-		jso.put(PIN_KEY, new JSONString(PIN));		
+		jso.put(PIN_KEY, new JSONString(RemoteControl.getPIN()));		
 		jso.put(COMMAND_KEY, new JSONString(getCommandName()));
 		if(Method != null)
 			jso.put(METHOD_KEY, new JSONString(Method));

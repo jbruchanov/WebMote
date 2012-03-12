@@ -61,6 +61,8 @@ public class PicturesPresenter extends BaseControlPresenter
 				onClickButton(ShowPanel.User);
 			}
 		});
+		
+		initFavorities(mDisplay.getTopPanel().getCmbItems(), RemoteControl.PropertyKeys.PICTURESVIEWER);
 	}
 	
 	protected void onClickButton(ShowPanel what)

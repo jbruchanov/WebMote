@@ -15,7 +15,7 @@
 		<g:Cell width="15%">
 			<g:HTMLPanel styleName="gwt-Button {style.btn}">
 <!-- 			<g:Button ui:field="btnContext" text="^" styleName="{style.btn} gwt-Button" width="100%" /> -->
-				<p1:ImageMobileButton url="pics/small/ic_quit.png"  altText="." ui:field="btnContext"/>
+				<p1:ImageMobileButton altText="." ui:field="btnContext"/>
 			</g:HTMLPanel>
 		</g:Cell>
 		<g:Cell width="85%">

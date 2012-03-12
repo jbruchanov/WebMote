@@ -18,15 +18,18 @@ import com.google.gwt.http.client.Request;
 import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.RequestException;
 import com.google.gwt.http.client.Response;
+import com.google.gwt.storage.client.Storage;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.ListBox;
 import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.RemoteControl.PropertyKeys;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.GetApplicationsCommand;
+import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.tools.JsonSimpleParser;
 import com.scurab.web.remotecontrol.client.view.ConfigView;
+import com.scurab.web.remotecontrol.client.view.FavoritiesView;
 
 public class ConfigPresenter extends BaseControlPresenter
 {
@@ -36,7 +39,7 @@ public class ConfigPresenter extends BaseControlPresenter
 	{
 		super(dataService, eventBus, display);
 		mDisplay = display;
-		mDataService = new MockDataService();
+//		mDataService = new MockDataService();
 		bind();
 		load();
 	}
@@ -133,9 +136,11 @@ public class ConfigPresenter extends BaseControlPresenter
 			@Override
 			public void onClick(ClickEvent event)
 			{
-				Window.alert("Favs");
+				mEventBus.fireEvent(new ChangePresenterEvent(new FavoritiesPresenter(mDataService, mEventBus, new FavoritiesView())));
 			}
 		});
+		
+		mDisplay.getBtnFavorites().setEnabled(Storage.isLocalStorageSupported());
 		
 	}
 	
@@ -151,9 +156,7 @@ public class ConfigPresenter extends BaseControlPresenter
 				throw new Exception(RemoteControl.Words.InvalidPIN());
 			}
 			
-			String[] keys = new String[] {RemoteControl.PropertyKeys.AUDIOPLAYER,RemoteControl.PropertyKeys.IRDEVICE,
-					RemoteControl.PropertyKeys.MEDIACENTER,RemoteControl.PropertyKeys.PICTURESVIEWER,
-					RemoteControl.PropertyKeys.TVAPPLIATION,RemoteControl.PropertyKeys.VIDEOPLAYER}; 
+			String[] keys = RemoteControl.PropertyKeys.ALL_APP_PROPERTY_KEYS;
 			for(String key : keys)
 			{
 				ListBox lb = getListBox(key);

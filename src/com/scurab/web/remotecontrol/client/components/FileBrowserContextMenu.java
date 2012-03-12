@@ -2,6 +2,7 @@ package com.scurab.web.remotecontrol.client.components;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.storage.client.Storage;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
@@ -23,18 +24,21 @@ public class FileBrowserContextMenu extends DialogBox
 	}
 
 	
-	private FileBrowserContextMenu(DiskBrowserItem item, OnClickListener listener)
+	private FileBrowserContextMenu(DiskBrowserItem item, OnClickListener listener, boolean favs)
 	{
 		setTitle("Open in...");		
 		setModal(true);		
 		setGlassEnabled(true);
-		setWidget(buildWidget(item, listener));
+		setWidget(buildWidget(item, listener, favs));
 		setWidth("70%");
 	}
 	
-	private Widget buildWidget(DiskBrowserItem item, OnClickListener listener)
+	private Widget buildWidget(DiskBrowserItem item, OnClickListener listener,boolean favs)
 	{
-		return buildFolderWidget(item, listener);	
+		if(favs)
+			return buildFavsWidget(item, listener);
+		else
+			return buildFolderWidget(item, listener);	
 	}
 	
 	private Widget buildFolderWidget(final DiskBrowserItem item, final OnClickListener listener)
@@ -45,12 +49,24 @@ public class FileBrowserContextMenu extends DialogBox
 		fp.add(getButton(item,listener,ContextType.PicturesViewer));
 		fp.add(getButton(item,listener,ContextType.VideoPlayer));
 		fp.add(getButton(item,listener,ContextType.StartByOS));
-		//fp.add(getButton(item,listener,ContextType.AddToFavorites));
+		if(Storage.isLocalStorageSupported())
+			fp.add(getButton(item,listener,ContextType.AddToFavorites));
 		if(item.getType() == Type.OpticalDevice)
 		{
 			fp.add(getButton(item,listener,ContextType.Open));
 			fp.add(getButton(item,listener,ContextType.Close));
 		}
+		fp.add(getButton(item,listener,ContextType.Cancel));
+		return fp;
+	}
+	
+	private Widget buildFavsWidget(final DiskBrowserItem item, final OnClickListener listener)
+	{
+		FlowPanel fp = new FlowPanel();
+		fp.add(new Label(item.getValue()));
+		fp.add(getButton(item,listener,ContextType.AudioPlayer));
+		fp.add(getButton(item,listener,ContextType.PicturesViewer));
+		fp.add(getButton(item,listener,ContextType.VideoPlayer));
 		fp.add(getButton(item,listener,ContextType.Cancel));
 		return fp;
 	}
@@ -75,7 +91,12 @@ public class FileBrowserContextMenu extends DialogBox
 	}
 	public static void showDialog(DiskBrowserItem item, OnClickListener listener)
 	{
-		FileBrowserContextMenu fbcm = new FileBrowserContextMenu(item, listener);		
+		showDialog(item, listener, false);
+	}
+	
+	public static void showDialog(DiskBrowserItem item, OnClickListener listener, boolean addToFavorities)
+	{
+		FileBrowserContextMenu fbcm = new FileBrowserContextMenu(item, listener, addToFavorities);		
 		fbcm.show();
 		fbcm.center();
 	}

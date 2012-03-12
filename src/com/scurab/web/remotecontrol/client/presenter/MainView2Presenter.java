@@ -3,6 +3,8 @@ package com.scurab.web.remotecontrol.client.presenter;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerManager;
+import com.google.gwt.user.client.Window;
+import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.SystemCommand;
 import com.scurab.web.remotecontrol.client.components.MonitorDialog;
@@ -47,37 +49,45 @@ public class MainView2Presenter extends BaseControlPresenter
 	
 	public void onButtonClick(ButtonType type)
 	{
-		BasePresenter pres = null;
-		switch(type)
+		try
 		{
-		case ShutDown:
-			pres = new ShutdownPresenter(mDataService, mEventBus, new ShutdownView());
-			break;
-		case TaskManager:
-			pres = new TaskManagerPresenter(mDataService, mEventBus, new TaskManagerView());			
-			break;
-		case MediaCenter:
-			pres = new MediaCenterPresenter(mDataService, mEventBus, new MediaCenterView());
-			break;
-		case Display:
-			onDisplayClick();
-			break;
-		case JoyPad:
-			pres= new JoyPadViewPresenter(mDataService, mEventBus, new JoyPadView());
-			break;
-		case Keyboard:
-			pres = new KeyboardPresenter(mDataService, mEventBus, new KeyboardView());
-			break;
-		case RemoteDesktop:
-			pres = new DesktopViewPresenter(mDataService, mEventBus, new DesktopView());
-			break;
-		case IRDevices:
-			pres = new IRDevicePresenter(mDataService, mEventBus, new IRDeviceView());
-			break;
-		default:
+			BasePresenter pres = null;
+			switch(type)
+			{
+			case ShutDown:
+				pres = new ShutdownPresenter(mDataService, mEventBus, new ShutdownView());
+				break;
+			case TaskManager:
+				pres = new TaskManagerPresenter(mDataService, mEventBus, new TaskManagerView());			
+				break;
+			case MediaCenter:
+				checkApp(RemoteControl.MediaCenter);
+				pres = new MediaCenterPresenter(mDataService, mEventBus, new MediaCenterView());
+				break;
+			case Display:
+				onDisplayClick();
+				return;//just popup				
+			case JoyPad:
+				pres= new JoyPadViewPresenter(mDataService, mEventBus, new JoyPadView());
+				break;
+			case Keyboard:
+				pres = new KeyboardPresenter(mDataService, mEventBus, new KeyboardView());
+				break;
+			case RemoteDesktop:
+				pres = new DesktopViewPresenter(mDataService, mEventBus, new DesktopView());
+				break;
+			case IRDevices:
+				pres = new IRDevicePresenter(mDataService, mEventBus, new IRDeviceView());
+				break;
+			default:
+			}
+			
+			onChangePresenter(pres);
 		}
-		
-		onChangePresenter(pres);
+		catch(Exception e)
+		{
+			Window.alert(e.getMessage());
+		}
 	}
 	
 	private void onDisplayClick()
