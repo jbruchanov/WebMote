@@ -3,6 +3,7 @@ package com.scurab.web.remotecontrol.client.presenter;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerManager;
+import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.user.client.Window;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
@@ -31,6 +32,18 @@ public abstract class BaseControlPresenter extends BasePresenter
 		try
 		{
 			mDataService.sendCommand(command);
+		}
+		catch(Exception e)
+		{
+			Window.alert(e.getMessage());
+		}
+	}
+	
+	protected void onSendCommand(Command command, RequestCallback rc)
+	{
+		try
+		{
+			mDataService.sendCommand(command,rc);
 		}
 		catch(Exception e)
 		{

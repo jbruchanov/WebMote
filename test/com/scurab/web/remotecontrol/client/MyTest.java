@@ -19,9 +19,9 @@ public class MyTest extends TestCase
 //		List<HashMap<String,String>> d = JsonSimpleParser.parse(disk);
 //		assertEquals(1,d.size());
 //		List<HashMap<String,String>> d1 = JsonSimpleParser.parse(diska);
-		
-		List<HashMap<String,String>> d2 = JsonSimpleParser.parse(diskF);
-		
+		String q = "{\"power\":\"power\",\"test\":\"test\",\"input\":\"input\",\"effect\":\"effect\",\"settings\":\"settings\",\"sub+\":\"sub+\",\"sub-\":\"sub-\",\"center+\":\"center+\",\"center-\":\"center-\",\"surround+\":\"surround+\",\"surround-\":\"surround-\",\"vol+\":\"vol+\",\"vol-\":\"vol-\",\"mute\":\"mute\"}";
+		List<HashMap<String,String>> d2 = JsonSimpleParser.parse(q);
+		assertEquals(1,d2.size());
 	}
 
 //	@Override

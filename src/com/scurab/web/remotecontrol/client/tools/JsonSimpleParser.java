@@ -39,6 +39,11 @@ public class JsonSimpleParser
 				{
 					if(isWhitespace(c)) continue;
 					if(c == '[') state = STATE_PARSINGSTARTITEM;
+					if(c == '{') 
+					{
+						currentItem = new HashMap<String, String>();
+						state = STATE_PARSINGSTARTED;
+					}
 				}
 				break;
 				case STATE_PARSINGSTARTITEM:

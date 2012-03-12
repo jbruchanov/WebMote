@@ -14,7 +14,7 @@ public class WinLIRCCommand extends ApplicationCommand
 	public WinLIRCCommand(String appName)
 	{
 		super(appName);
-		// TODO Auto-generated constructor stub
+		RemoteControl = appName;
 	}
 	
 	@Override

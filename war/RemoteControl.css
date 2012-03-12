@@ -104,3 +104,10 @@ body {
 	font-size: 1.3em;
 	color: #FAFAFA;
 }
+
+.rc-IRButton
+{
+	min-width: 80px;
+	min-height: 50px;
+	font-size: 1.1em;
+}
