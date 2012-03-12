@@ -17,10 +17,10 @@ public class MainView2 extends AbstractView
 	@UiField ImageMobileButton btnTaskManager;
 	@UiField ImageMobileButton btnRemoteDesktop;
 	@UiField ImageMobileButton btnKeyboard;
-//	@UiField ImageMobileButton btnWakeOnLan;
 	@UiField ImageMobileButton btnDisplay;
 	@UiField ImageMobileButton btnIRDevices;
 	@UiField ImageMobileButton btnJoyPad;
+	@UiField ImageMobileButton btnMediaCenter;
 	interface MainView2UiBinder extends UiBinder<Widget, MainView2>
 	{
 	}
@@ -62,17 +62,15 @@ public class MainView2 extends AbstractView
 	}
 
 
-//	public ImageMobileButton getWakeOnLanButton()
-//	{
-//		return btnWakeOnLan;
-//	}
-
-
 	public ImageMobileButton getDisplayButton()
 	{
 		return btnDisplay;
 	}
 
+	public ImageMobileButton getMediaCenterButton()
+	{
+		return btnMediaCenter;
+	}
 
 	public ImageMobileButton getIRDevicesButton()
 	{

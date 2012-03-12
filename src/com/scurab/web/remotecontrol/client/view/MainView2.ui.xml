@@ -32,8 +32,7 @@
 			</g:row>
 			<g:row>
 				<g:customCell>
-						<g:Label />
-<!-- 					<p1:ImageMobileButton altText="v" url="pics/ic_main_wakeonlan.png" ui:field="btnWakeOnLan" />  -->
+					<p1:ImageMobileButton altText="v" url="pics/ic_main_mediacenter.png" ui:field="btnMediaCenter"  /> 
 				</g:customCell>
 				<g:customCell>
 					<p1:ImageMobileButton altText="f" url="pics/ic_main_monitor.png" ui:field="btnDisplay" />

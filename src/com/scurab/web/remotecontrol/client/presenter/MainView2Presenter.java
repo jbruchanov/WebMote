@@ -14,6 +14,7 @@ import com.scurab.web.remotecontrol.client.view.IRDeviceView;
 import com.scurab.web.remotecontrol.client.view.JoyPadView;
 import com.scurab.web.remotecontrol.client.view.KeyboardView;
 import com.scurab.web.remotecontrol.client.view.MainView2;
+import com.scurab.web.remotecontrol.client.view.MediaCenterView;
 import com.scurab.web.remotecontrol.client.view.ShutdownView;
 import com.scurab.web.remotecontrol.client.view.TaskManagerView;
 
@@ -22,7 +23,7 @@ public class MainView2Presenter extends BaseControlPresenter
 	public MainView2 mDisplay;
 	private enum ButtonType
 	{
-		ShutDown, TaskManager, RemoteDesktop, Keyboard, WakeOnLan, Display, JoyPad, IRDevices
+		ShutDown, TaskManager, RemoteDesktop, Keyboard, MediaCenter, Display, JoyPad, IRDevices
 	}
 	
 	public MainView2Presenter(DataService dataService, HandlerManager eventBus, MainView2 display)
@@ -38,7 +39,7 @@ public class MainView2Presenter extends BaseControlPresenter
 		mDisplay.getTaskManagerButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.TaskManager);}});
 		mDisplay.getRemoteDesktopButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.RemoteDesktop);}});
 		mDisplay.getKeyboardButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.Keyboard);}});
-//		mDisplay.getWakeOnLanButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.WakeOnLan);}});
+		mDisplay.getMediaCenterButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.MediaCenter);}});
 		mDisplay.getDisplayButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.Display);}});
 		mDisplay.getJoyPadButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.JoyPad);}});
 		mDisplay.getIRDevicesButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.IRDevices);}});
@@ -54,7 +55,10 @@ public class MainView2Presenter extends BaseControlPresenter
 			break;
 		case TaskManager:
 			pres = new TaskManagerPresenter(mDataService, mEventBus, new TaskManagerView());			
-				break;
+			break;
+		case MediaCenter:
+			pres = new MediaCenterPresenter(mDataService, mEventBus, new MediaCenterView());
+			break;
 		case Display:
 			onDisplayClick();
 			break;

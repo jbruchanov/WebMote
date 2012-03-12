@@ -16,6 +16,8 @@ public class JsonSimpleParser
 	private static final int STATE_PARSINGVALUE = 5;
 	private static final int STATE_PARSEDVALUE = 6;
 	private static final int STATE_PARSINGVALUESTRING = 7;
+	private static final int STATE_PARSINGVALUELIST = 8;
+	private static final int STATE_STARTPARSINGVALUELIST = 98;
 	
 	private static final int STATE_ENDED = 9;
 	
@@ -49,11 +51,16 @@ public class JsonSimpleParser
 				case STATE_PARSINGSTARTITEM:
 				{
 					if(isWhitespace(c)) continue;
-					if(c == '{') 
+					else if(c == '{') 
 					{
 						currentItem = new HashMap<String, String>();
 						state = STATE_PARSINGSTARTED;
 					}
+					else if(c == '\"')
+					{
+						state = STATE_PARSINGKEY;
+					}
+					
 				}	
 				break;
 				case STATE_PARSINGSTARTED:
@@ -111,7 +118,23 @@ public class JsonSimpleParser
 					{
 						state = STATE_PARSINGVALUESTRING;
 					}
+					else if(c == '[')
+					{
+						current.append(c);
+						state = STATE_PARSINGVALUELIST;
+					}
 					else if(!isWhitespace(c))
+						current.append(c);
+				}
+				break;
+				case STATE_PARSINGVALUELIST:
+				{
+					if(c == ']')
+					{
+						current.append(c);
+						state = STATE_PARSINGVALUE;
+					}				
+					else
 						current.append(c);
 				}
 				break;
@@ -140,6 +163,97 @@ public class JsonSimpleParser
 			}
 		}
 		return data;
+	}	
+	
+	public static HashMap<String, List<String>> parseApps(String text) throws Exception
+	{
+		HashMap<String, List<String>> result = new HashMap<String, List<String>>();
+		List<String> list = new ArrayList<String>();
+		char[] chars = text.toCharArray();
+		
+		StringBuilder current = new StringBuilder();
+		String key = null;
+		String value = null;
+		
+		for(char c : chars)
+		{
+			switch(state)
+			{
+				case STATE_START:
+				{
+					if(c == '{')
+						state = STATE_PARSINGSTARTED;
+				}				
+				break;
+				case STATE_PARSINGSTARTED:
+				{
+					if(isWhitespace(c))continue;
+					if(c == '\"')
+						state = STATE_PARSINGKEY;
+					else if(c ==  ',') //next item
+					{
+						continue;
+					}
+				}
+				break;
+				case STATE_PARSINGKEY:
+				{
+					if(c == '\"')
+						state = STATE_PARSEDKEY;
+					else
+						current.append(c);
+				}
+				break;
+				case STATE_PARSEDKEY:
+				{					
+					key = current.toString();
+					current.setLength(0);
+					if(c == ':')
+						state = STATE_PARSINGVALUELIST;
+					else
+						throw new Exception("Not implemented state!");
+				}
+				break;
+				case STATE_STARTPARSINGVALUELIST:
+				{
+					if(isWhitespace(c))continue;
+					if(c == '[')
+						state = STATE_PARSINGVALUELIST;
+				}
+				break;
+				case STATE_PARSINGVALUELIST:
+				{
+					if(isWhitespace(c))continue;
+					if(c == '\"')
+						state = STATE_PARSINGVALUE;
+					else if(c == ',')
+					{
+						continue; //next item in lis
+					}
+					else if(c == ']')//list is empty
+					{
+						result.put(key, list);
+						list = new ArrayList<String>();
+						key = "";
+						state = STATE_PARSINGSTARTED;
+					}
+				}				
+				break;
+				case STATE_PARSINGVALUE:
+				{
+					if(c == '\"')
+					{
+						list.add(current.toString());
+						current.setLength(0);
+						state = STATE_PARSINGVALUELIST;
+					}
+					else 
+						current.append(c);
+				}				
+				break;
+			}
+		}
+		return result;
 	}
 	
 	private static boolean isWhitespace(char c)

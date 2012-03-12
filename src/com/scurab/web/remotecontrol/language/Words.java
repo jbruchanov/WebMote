@@ -250,6 +250,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   String Favorites();
 
   /**
+   * Translated "Favorities".
+   * 
+   * @return translated "Favorities"
+   */
+  @DefaultStringValue("Favorities")
+  @Key("Favorities")
+  String Favorities();
+
+  /**
    * Translated "Filter".
    * 
    * @return translated "Filter"
@@ -331,6 +340,24 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   String Home();
 
   /**
+   * Translated "IR Device".
+   * 
+   * @return translated "IR Device"
+   */
+  @DefaultStringValue("IR Device")
+  @Key("IRDevice")
+  String IRDevice();
+
+  /**
+   * Translated "Invalid PIN".
+   * 
+   * @return translated "Invalid PIN"
+   */
+  @DefaultStringValue("Invalid PIN")
+  @Key("InvalidPIN")
+  String InvalidPIN();
+
+  /**
    * Translated "Kill".
    * 
    * @return translated "Kill"
@@ -356,6 +383,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("Media")
   @Key("Media")
   String Media();
+
+  /**
+   * Translated "Media center".
+   * 
+   * @return translated "Media center"
+   */
+  @DefaultStringValue("Media center")
+  @Key("MediaCenter")
+  String MediaCenter();
 
   /**
    * Translated "Music".
@@ -392,6 +428,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("Numeric")
   @Key("Numeric")
   String Numeric();
+
+  /**
+   * Translated "OK".
+   * 
+   * @return translated "OK"
+   */
+  @DefaultStringValue("OK")
+  @Key("OK")
+  String OK();
 
   /**
    * Translated "Off".
@@ -437,6 +482,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("Output")
   @Key("Output")
   String Output();
+
+  /**
+   * Translated "PIN".
+   * 
+   * @return translated "PIN"
+   */
+  @DefaultStringValue("PIN")
+  @Key("PIN")
+  String PIN();
 
   /**
    * Translated "Pause".
@@ -536,6 +590,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("Run specialized activity")
   @Key("RunSpecAct")
   String RunSpecAct();
+
+  /**
+   * Translated "Save".
+   * 
+   * @return translated "Save"
+   */
+  @DefaultStringValue("Save")
+  @Key("Save")
+  String Save();
 
   /**
    * Translated "Save Screen".
@@ -653,6 +716,15 @@ public interface Words extends com.google.gwt.i18n.client.ConstantsWithLookup {
   @DefaultStringValue("Subtitles")
   @Key("Subtitles")
   String Subtitles();
+
+  /**
+   * Translated "TV Application".
+   * 
+   * @return translated "TV Application"
+   */
+  @DefaultStringValue("TV Application")
+  @Key("TVApplication")
+  String TVApplication();
 
   /**
    * Translated "Track".

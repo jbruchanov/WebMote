@@ -15,7 +15,6 @@ import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.KeyboardCommand;
 import com.scurab.web.remotecontrol.client.commands.MouseCommand;
 import com.scurab.web.remotecontrol.client.server.DataService;
-import com.scurab.web.remotecontrol.client.view.AbstractView;
 import com.scurab.web.remotecontrol.client.view.DesktopView;
 
 public class DesktopViewPresenter extends BaseControlPresenter

@@ -18,8 +18,8 @@ public class MainView extends AbstractView
 	@UiField ImageMobileButton btnPictures;
 	@UiField ImageMobileButton btnVolume;
 	@UiField ImageMobileButton btnFileBrowser;
-	@UiField ImageMobileButton btnMediaCenter;
 	@UiField ImageMobileButton btnNext;
+	@UiField ImageMobileButton btnConfig;
 	interface MainViewUiBinder extends UiBinder<Widget, MainView>
 	{
 	}
@@ -54,9 +54,9 @@ public class MainView extends AbstractView
 	{
 		return btnFileBrowser;
 	}
-	public ImageMobileButton getMediaCenterButton()
+	public ImageMobileButton getConfigButton()
 	{
-		return btnMediaCenter;
+		return btnConfig;
 	}
 	public ImageMobileButton getNextButton()
 	{

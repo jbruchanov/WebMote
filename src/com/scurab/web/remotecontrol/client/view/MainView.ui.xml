@@ -40,7 +40,7 @@
 			</g:row>
 			<g:row>
 				<g:customCell>
-					<p1:ImageMobileButton altText="mc" url="pics/ic_main_mediacenter.png" ui:field="btnMediaCenter"/>
+					<p1:ImageMobileButton altText="mc" url="pics/ic_main_config.png" ui:field="btnConfig"/>
 				</g:customCell>
 				<g:customCell>
 					<p1:ImageMobileButton altText="BBB" url="pics/ic_main_next.png" ui:field="btnNext"/>

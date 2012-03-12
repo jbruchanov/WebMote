@@ -1,0 +1,239 @@
+package com.scurab.web.remotecontrol.client.presenter;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.FocusEvent;
+import com.google.gwt.event.dom.client.FocusHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.event.shared.HandlerManager;
+import com.google.gwt.http.client.Header;
+import com.google.gwt.http.client.Request;
+import com.google.gwt.http.client.RequestCallback;
+import com.google.gwt.http.client.RequestException;
+import com.google.gwt.http.client.Response;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.ListBox;
+import com.scurab.web.remotecontrol.client.RemoteControl;
+import com.scurab.web.remotecontrol.client.RemoteControl.PropertyKeys;
+import com.scurab.web.remotecontrol.client.commands.Command;
+import com.scurab.web.remotecontrol.client.commands.GetApplicationsCommand;
+import com.scurab.web.remotecontrol.client.server.DataService;
+import com.scurab.web.remotecontrol.client.tools.JsonSimpleParser;
+import com.scurab.web.remotecontrol.client.view.ConfigView;
+
+public class ConfigPresenter extends BaseControlPresenter
+{
+	ConfigView mDisplay = null;
+	
+	public ConfigPresenter(DataService dataService, HandlerManager eventBus, ConfigView display)
+	{
+		super(dataService, eventBus, display);
+		mDisplay = display;
+		mDataService = new MockDataService();
+		bind();
+		load();
+	}
+	
+	protected void load()
+	{
+		GetApplicationsCommand fic = new GetApplicationsCommand();
+		onSendCommand(fic, new RequestCallback()
+		{
+			@Override
+			public void onResponseReceived(Request request, Response response)
+			{
+				try
+				{
+					HashMap<String, List<String>> data = JsonSimpleParser.parseApps(response.getText());
+					onLoadedData(data);
+				}
+				catch(Exception e)
+				{
+					Window.alert(e.getMessage());
+				}
+			}
+			
+			@Override
+			public void onError(Request request, Throwable exception)
+			{
+				Window.alert(exception.getMessage());
+			}
+		});
+	}
+	
+	protected void onLoadedData(HashMap<String, List<String>> data) throws Exception
+	{
+		for(String key : data.keySet())
+		{
+			initValues(key,data.get(key));
+		}
+	}
+	
+	private void initValues(String key, List<String> items) throws Exception
+	{
+		
+		ListBox cmb = getListBox(key);
+		if(cmb != null)
+		{
+			Collections.sort(items);
+			cmb.setSelectedIndex(-1);
+			cmb.addItem("", "");
+			for(int i = 0;i<items.size();i++)
+			{
+				String item = items.get(i);
+				cmb.addItem(item, item);
+				if(RemoteControl.getProperty(key,"").equals(item))
+					cmb.setSelectedIndex(i+1);//because first is not selected
+			}
+		}
+		else
+		{
+			throw new Exception("Wrong key:" + key);
+		}
+	}
+	
+	private ListBox getListBox(String key)
+	{
+		if(RemoteControl.PropertyKeys.TVAPPLIATION.equals(key))
+			return mDisplay.getCmbTV();
+		else if(RemoteControl.PropertyKeys.VIDEOPLAYER.equals(key))
+			return mDisplay.getCmbVideoPlayer();
+		else if(RemoteControl.PropertyKeys.AUDIOPLAYER.equals(key))
+			return mDisplay.getCmbAudioPlayer();
+		else if(RemoteControl.PropertyKeys.PICTURESVIEWER.equals(key))
+			return mDisplay.getCmbPictureViewer();
+		else if(RemoteControl.PropertyKeys.MEDIACENTER.equals(key))
+			return mDisplay.getCmbMediaCenter();
+		else if(RemoteControl.PropertyKeys.IRDEVICE.equals(key))
+			return mDisplay.getCmbIRDevices();
+		else
+			return null;
+	}
+	
+	private void bind()
+	{
+		mDisplay.getTxtPIN().setText(RemoteControl.getPIN());
+		mDisplay.getBtnSave().addClickHandler(new ClickHandler()
+		{
+			@Override
+			public void onClick(ClickEvent event)
+			{			
+				onSave();
+			}
+		});
+		mDisplay.getBtnFavorites().addClickHandler(new ClickHandler()
+		{
+			@Override
+			public void onClick(ClickEvent event)
+			{
+				Window.alert("Favs");
+			}
+		});
+		
+	}
+	
+	public void onSave()
+	{
+		try
+		{
+			String pin = mDisplay.getTxtPIN().getValue();
+			if(pin != null && pin.trim().length() > 0)
+				RemoteControl.setProperty(PropertyKeys.PIN, pin);
+			else
+			{
+				throw new Exception(RemoteControl.Words.InvalidPIN());
+			}
+			
+			String[] keys = new String[] {RemoteControl.PropertyKeys.AUDIOPLAYER,RemoteControl.PropertyKeys.IRDEVICE,
+					RemoteControl.PropertyKeys.MEDIACENTER,RemoteControl.PropertyKeys.PICTURESVIEWER,
+					RemoteControl.PropertyKeys.TVAPPLIATION,RemoteControl.PropertyKeys.VIDEOPLAYER}; 
+			for(String key : keys)
+			{
+				ListBox lb = getListBox(key);
+				String value = lb.getValue(lb.getSelectedIndex());
+				if(value != null && value.length() > 0)
+					RemoteControl.setProperty(key, value);
+			}
+			Window.alert(RemoteControl.Words.OK());
+		}
+		catch(Exception e)
+		{
+			Window.alert(e.getMessage());
+		}
+	}
+	
+	@Override
+	public String getName()
+	{
+		return "ConfigPresenter";
+	}
+
+	@Override
+	protected Command getCommand(String command)
+	{
+		return null;
+	}
+	
+	private class MockDataService extends DataService
+	{
+		public MockDataService()
+		{			
+		}
+		
+		@Override
+		public void sendCommand(Command c, RequestCallback rc) throws RequestException
+		{
+			Response r = new Response()
+			{
+				@Override
+				public String getText()
+				{
+					return "{\"Audio\":[\"WinAmp\"],\"MediaCenter\":[],\"Picture\":[\"Media Center Pictures\",\"Windows Photo Viewer\"],\"Television\":[\"Avermedia TV\"],\"Video\":[\"Media Player classic\",\"VLC Player\"],\"WinLIRC\":[\"logitech_z680\",\"Panasonic_EUR644340\"]}";
+				}
+				
+				@Override
+				public String getStatusText()
+				{
+					// TODO Auto-generated method stub
+					return null;
+				}
+				
+				@Override
+				public int getStatusCode()
+				{
+					// TODO Auto-generated method stub
+					return 0;
+				}
+				
+				@Override
+				public String getHeadersAsString()
+				{
+					// TODO Auto-generated method stub
+					return null;
+				}
+				
+				@Override
+				public Header[] getHeaders()
+				{
+					// TODO Auto-generated method stub
+					return null;
+				}
+				
+				@Override
+				public String getHeader(String header)
+				{
+					// TODO Auto-generated method stub
+					return null;
+				}
+			};
+			rc.onResponseReceived(null, r);
+		}
+	}
+}
