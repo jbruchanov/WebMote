@@ -77,6 +77,7 @@ public class MainView2Presenter extends BaseControlPresenter
 				pres = new DesktopViewPresenter(mDataService, mEventBus, new DesktopView());
 				break;
 			case IRDevices:
+				checkApp(RemoteControl.IRDevice);
 				pres = new IRDevicePresenter(mDataService, mEventBus, new IRDeviceView());
 				break;
 			default:

@@ -8,6 +8,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Timer;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.client.ui.Label;
@@ -15,6 +16,8 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.event.dom.client.TouchMoveEvent;
 import com.google.gwt.event.logical.shared.HasValueChangeHandlers;
+import com.google.gwt.event.logical.shared.ResizeEvent;
+import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerManager;
@@ -26,14 +29,14 @@ public class VolumeControl extends AbstractView implements HasValue<Integer>, Ha
 {
 
 	private static VolumeControlUiBinder uiBinder = GWT.create(VolumeControlUiBinder.class);
-	@UiField Label lblInfo;
+//	@UiField Label lblInfo;
 	@UiField Image imgPointer;
 	@UiField Image imgBackground;
 	@UiField Label lblVolume;
 	
 	private int centerX;
 	private int centerY;
-	private int lenFromCenter = centerX - 85;
+	private int lenFromCenter = centerX - 85;//dont change it
 	private int imgPointerHalfSize = 0;
 	private int leftOffset = 0;
 	private int topOffset = 0;
@@ -51,7 +54,15 @@ public class VolumeControl extends AbstractView implements HasValue<Integer>, Ha
 	{
 		initWidget(uiBinder.createAndBindUi(this));
 		imgPointer.setVisible(false);
-		lblInfo.setVisible(false);
+//		lblInfo.setVisible(false);
+		Window.addResizeHandler(new ResizeHandler()
+		{
+			@Override
+			public void onResize(ResizeEvent event)
+			{
+				handleMove(mLastAngle);//refresh pointer if there is winresize	
+			}
+		});
 	}
 	
 	@Override
@@ -64,16 +75,18 @@ public class VolumeControl extends AbstractView implements HasValue<Integer>, Ha
 	}
 	
 	private void init()
-	{
-		int width = imgBackground.getWidth();
+	{		
 		int height = imgBackground.getHeight();
-		leftOffset = imgBackground.getAbsoluteLeft();
 		topOffset = imgBackground.getAbsoluteTop(); 
-		centerX = leftOffset + (width / 2);
 		centerY = topOffset + (height / 2);
+		centerX = Window.getClientWidth() / 2;
 		imgPointerHalfSize = imgPointer.getWidth() / 2;
-		Timer t = new Timer(){@Override public void run(){imgPointer.setVisible(true);}};
-		t.schedule(1000);
+		Timer t = new Timer(){@Override public void run()
+		{
+			handleMove(30,false); //to set value to 0
+			imgPointer.setVisible(true);			
+		}};
+		t.schedule(100);
 		
 	}
 	
@@ -106,7 +119,7 @@ public class VolumeControl extends AbstractView implements HasValue<Integer>, Ha
 	}
 	private void handleMove(int x, int y)
 	{
-		double angle = RCMath.getAngle(x, y, centerX, centerY);
+		double angle = RCMath.getAngle(x, y, getCenterX(), centerY);
 		if(angle < mMin) angle = mMin;
 		if(angle > mMax) angle = mMax;
 		if(Math.abs(mLastAngle-angle) > 50)
@@ -120,14 +133,25 @@ public class VolumeControl extends AbstractView implements HasValue<Integer>, Ha
 		}
 	}
 	
+	private int getCenterX()
+	{
+		centerX = Window.getClientWidth() / 2;
+		return centerX;
+	}
+	
 	private void handleMove(double angle)
+	{
+		handleMove(angle, true);
+	}
+	private void handleMove(double angle, boolean fireEvent)
 	{		
 		int volume = getPercent(angle);
-		ValueChangeEvent.fire(this, volume);
+		if(fireEvent)
+			ValueChangeEvent.fire(this, volume);
 		lblVolume.setText(String.valueOf(volume));
 		angle = angle + 90;//offset		
 		angle = angle * Math.PI/180;
-		double posX = (Math.cos(angle) * lenFromCenter) + centerX - leftOffset - imgPointerHalfSize;
+		double posX = (Math.cos(angle) * lenFromCenter) + getCenterX() - leftOffset - imgPointerHalfSize;
 		double posY = (Math.sin(angle) * lenFromCenter) + centerY - topOffset - imgPointerHalfSize;
 		imgPointer.getElement().getStyle().setLeft(posX, Unit.PX);
 		imgPointer.getElement().getStyle().setTop(posY, Unit.PX);

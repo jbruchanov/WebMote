@@ -39,7 +39,7 @@ public class ConfigPresenter extends BaseControlPresenter
 	{
 		super(dataService, eventBus, display);
 		mDisplay = display;
-//		mDataService = new MockDataService();
+		mDataService = new MockDataService();
 		bind();
 		load();
 	}
@@ -77,6 +77,9 @@ public class ConfigPresenter extends BaseControlPresenter
 		{
 			initValues(key,data.get(key));
 		}
+
+		if(!data.containsKey(RemoteControl.PropertyKeys.IRDEVICE)) //fix for no WinLIRC
+			getListBox(RemoteControl.PropertyKeys.IRDEVICE).addItem("", "");
 	}
 	
 	private void initValues(String key, List<String> items) throws Exception
@@ -198,7 +201,8 @@ public class ConfigPresenter extends BaseControlPresenter
 				@Override
 				public String getText()
 				{
-					return "{\"Audio\":[\"WinAmp\"],\"MediaCenter\":[],\"Picture\":[\"Media Center Pictures\",\"Windows Photo Viewer\"],\"Television\":[\"Avermedia TV\"],\"Video\":[\"Media Player classic\",\"VLC Player\"],\"WinLIRC\":[\"logitech_z680\",\"Panasonic_EUR644340\"]}";
+					//return "{\"Audio\":[\"WinAmp\"],\"MediaCenter\":[],\"Picture\":[\"Media Center Pictures\",\"Windows Photo Viewer\"],\"Television\":[\"Avermedia TV\"],\"Video\":[\"Media Player classic\",\"VLC Player\"],\"WinLIRC\":[\"logitech_z680\",\"Panasonic_EUR644340\"]}";
+					return "{\"Audio\":[\"WinAmp\"],\"MediaCenter\":[],\"Picture\":[\"Media Center Pictures\",\"Windows Photo Viewer\"],\"Television\":[\"Avermedia TV\"],\"Video\":[\"Media Player classic\",\"VLC Player\"]}";
 				}
 				
 				@Override

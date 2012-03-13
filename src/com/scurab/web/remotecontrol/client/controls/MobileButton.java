@@ -31,7 +31,7 @@ public class MobileButton extends CommandButton
 			@Override
 			public void onTouchStart(TouchStartEvent event)
 			{			
-				onStartTouch();
+//				onStartTouch();
 			}
 		});
 		
@@ -41,7 +41,7 @@ public class MobileButton extends CommandButton
 			@Override
 			public void onTouchEnd(TouchEndEvent event)
 			{
-				onEndTouch();
+//				onEndTouch();
 			}
 		});
 	}
@@ -50,7 +50,7 @@ public class MobileButton extends CommandButton
 	protected void onAttach()
 	{
 		super.onAttach();
-		setDefaultStyle();
+//		setDefaultStyle();
 	}
 	
 	protected void setDefaultStyle()

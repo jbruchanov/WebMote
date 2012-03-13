@@ -48,8 +48,8 @@ public class RemoteControl implements EntryPoint
 	public static String getPIN()
 	{
 		String p = getProperty(PropertyKeys.PIN); 
-//		if(p == null || p.length() == 0)
-//			p = "0000";
+		if(p == null || p.length() == 0)
+			p = "0000";
 		return p;
 	}
 	

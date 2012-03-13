@@ -9,14 +9,12 @@
 		
 		.containers
 		{
-			position: absolute;
+			position: relative;
 		}
 		
 		.pointer
 		{
 			position: absolute;
-			left:178px;
-			top:65px;	
 		}
 		.volumeLabel
 		{			
@@ -30,11 +28,23 @@
 			text-shadow: 2px 2px 2px #000;		
 		}
 		
+		.volumeLabela
+		{			
+			position:absolute;
+			width:100%;
+			top:110px;
+			font-size: 4em;
+			font-family: verdana;			
+			color: #FFF;
+			text-shadow: 2px 2px 2px #000;		
+			z-index: 1000;
+		}
+		
 	</ui:style>
-	<g:HTMLPanel styleName="{style.containers} unselectable">			
+	<g:HorizontalPanel styleName="{style.containers} unselectable" width="100%" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_TOP">
+		<g:Label text="0" ui:field="lblVolume" styleName="{style.volumeLabela} unselectable"/>			
 		<g:Image url="pics/volumebckrnd.png" ui:field="imgBackground" styleName="{style.containers} unselectable" />
 		<g:Image url="pics/volumecontrol.png" styleName="{style.pointer}" ui:field="imgPointer" width="28px" height="28px" />
-		<g:Label text="New Label" ui:field="lblInfo" styleName="{style.label} unselectable"/>
-		<g:Label text="0" ui:field="lblVolume" styleName="{style.volumeLabel} unselectable"/>
-	</g:HTMLPanel>
+<!-- 		<g:Label text="New Label" ui:field="lblInfo" styleName="{style.label} unselectable"/> -->
+	</g:HorizontalPanel>
 </ui:UiBinder>
