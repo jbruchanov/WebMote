@@ -39,7 +39,7 @@ public class ConfigPresenter extends BaseControlPresenter
 	{
 		super(dataService, eventBus, display);
 		mDisplay = display;
-		mDataService = new MockDataService();
+//		mDataService = new MockDataService();
 		bind();
 		load();
 	}

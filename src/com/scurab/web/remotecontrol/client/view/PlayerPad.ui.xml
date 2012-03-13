@@ -6,44 +6,15 @@
 		{
 			position: absolute;
 		}
-		.left
-		{
-			background-image: url("pics/cp_left_normal.png");
-			background-repeat: no-repeat;
-			background-position:center; 
-			position: absolute;
-			width: 80px;
-			height: 80px;
-			left: 0px;
-			top: 80px;
-			z-index: 100;
-		/*	border: solid 1px #FFF;*/
-		}
-					
-		.background
-		{
-			background-image: url("pics/cp_type1_background.png");
-			position: absolute;
-			width: 300px;
-			height: 240px;
-			left: 0px;
-			top: 0px;
-			z-index: 0;
-		}
-		
 		
 		.minus
 		{
 			background-image: url("pics/cp_minus_normal.png");
 			background-repeat: no-repeat;
 			background-position:center; 
-			position: absolute;
 			width: 60px;
 			height: 60px;
-			left: 50px;
-			top: 150px;
 			z-index: 100;
-		/*	border: solid 1px #FFF;*/
 		}
 		
 		.plus
@@ -51,13 +22,9 @@
 			background-image: url("pics/cp_plus_normal.png");
 			background-repeat: no-repeat;
 			background-position:center; 
-			position: absolute;
 			width: 60px;
 			height: 60px;
-			left: 200px;
-			top: 150px;
 			z-index: 100;
-		/*	border: solid 1px #FFF;*/
 		}
 		
 		.speaker
@@ -65,13 +32,9 @@
 			background-image: url("pics/cp_speaker_normal.png");
 			background-repeat: no-repeat;
 			background-position:center; 
-			position: absolute;
 			width: 70px;
 			height: 70px;
-			left: 115px;
-			top: 160px;
 			z-index: 100;
-		/*	border: solid 1px #FFF;*/
 		}
 		
 		.stop
@@ -79,39 +42,27 @@
 			background-image: url("pics/cp_stop_normal.png");
 			background-repeat: no-repeat;
 			background-position:center; 
-			position: absolute;
 			width: 60px;
 			height: 60px;
-			left: 152px;
-			top: 92px;
 			z-index: 100;
-		/*	border: solid 1px #FFF;*/
 		}
 		.pause
 		{
 			background-image: url("pics/cp_pause_normal.png");
 			background-repeat: no-repeat;
 			background-position:center; 
-			position: absolute;
 			width: 60px;
 			height: 60px;
-			left: 88px;
-			top: 92px;
 			z-index: 100;
-		/*	border: solid 1px #FFF;*/
 		}
 		.play
 		{
 			background-image: url("pics/cp_play_normal.png");
 			background-repeat: no-repeat;
 			background-position:center; 
-			position: absolute;
 			width: 120px;
 			height: 70px;
-			left: 90px;
-			top: 18px;
 			z-index: 100;
-		/*	border: solid 1px #FFF;*/
 		}
 		
 		.seekback
@@ -119,13 +70,9 @@
 			background-image: url("pics/cp_seekb_normal.png");
 			background-repeat: no-repeat;
 			background-position:center; 
-			position: absolute;
 			width: 80px;
 			height: 80px;
-			left: 15px;
-			top: 5px;
 			z-index: 100;
-		/*	border: solid 1px #FFF;*/
 		}
 		
 		.skipback
@@ -133,13 +80,9 @@
 			background-image: url("pics/cp_skipb_normal.png");
 			background-repeat: no-repeat;
 			background-position:center; 
-			position: absolute;
 			width: 80px;
 			height: 60px;
-			left: 10px;
-			top: 90px;
 			z-index: 100;
-		/*	border: solid 1px #FFF;*/
 		}
 		
 		.seekforward
@@ -147,13 +90,10 @@
 			background-image: url("pics/cp_seekf_normal.png");
 			background-repeat: no-repeat;
 			background-position:center; 
-			position: absolute;
 			width: 80px;
 			height: 80px;
-			left: 205px;
 			top: 5px;
 			z-index: 100;
-		/*	border: solid 1px #FFF;*/
 		}
 		
 		.skipnext
@@ -161,27 +101,48 @@
 			background-image: url("pics/cp_skipn_normal.png");
 			background-repeat: no-repeat;
 			background-position:center; 
-			position: absolute;
 			width: 80px;
 			height: 60px;
-			left: 210px;
-			top: 90px;
 			z-index: 100;
-		/*	border: solid 1px #FFF;*/
 		}
 		
 	</ui:style>
-	<g:HTMLPanel styleName="{style.containers}">
-		<g:InlineLabel styleName="{style.containers} {style.background} unselectable" />
-		<g:InlineLabel styleName="{style.containers} {style.minus} unselectable" ui:field="btnMinus" />
-		<g:InlineLabel styleName="{style.containers} {style.plus} unselectable" ui:field="btnPlus" />
-		<g:InlineLabel styleName="{style.containers} {style.speaker} unselectable" ui:field="btnMute" />
-		<g:InlineLabel styleName="{style.containers} {style.stop} unselectable" ui:field="btnStop" />
-		<g:InlineLabel styleName="{style.containers} {style.pause} unselectable" ui:field="btnPause" />
-		<g:InlineLabel styleName="{style.containers} {style.play} unselectable" ui:field="btnPlay" />	
-		<g:InlineLabel styleName="{style.containers} {style.seekback} unselectable" ui:field="btnSeekBack" />
-		<g:InlineLabel styleName="{style.containers} {style.skipback} unselectable" ui:field="btnPrevious" />
-		<g:InlineLabel styleName="{style.containers} {style.seekforward} unselectable" ui:field="btnSeekForward" />
-		<g:InlineLabel styleName="{style.containers} {style.skipnext} unselectable" ui:field="btnNext" />
-	</g:HTMLPanel>
+	
+	<g:VerticalPanel width="100%" horizontalAlignment="ALIGN_CENTER" height="100%" verticalAlignment="ALIGN_TOP">
+		<g:AbsolutePanel width="300px" height="300px">
+			<g:at left="0" top="0">
+					<g:Image url="pics/cp_type1_background.png"/>
+			</g:at>
+			<g:at left="50" top="150">
+				<g:InlineLabel styleName="{style.minus} unselectable"  ui:field="btnMinus"/>
+			</g:at>
+			<g:at left="200" top="150">
+				<g:InlineLabel styleName="{style.plus} unselectable"  ui:field="btnPlus"/>
+			</g:at>
+			<g:at left="115" top="160">
+				<g:InlineLabel styleName="{style.speaker} unselectable"  ui:field="btnMute"/>
+			</g:at>
+			<g:at left="152" top="92">
+				<g:InlineLabel styleName="{style.stop} unselectable"  ui:field="btnStop"/>
+			</g:at>
+			<g:at left="88" top="92">
+				<g:InlineLabel styleName="{style.pause} unselectable"  ui:field="btnPause"/>
+			</g:at>
+			<g:at left="90" top="18">
+				<g:InlineLabel styleName="{style.play} unselectable"  ui:field="btnPlay"/>
+			</g:at>
+			<g:at left="15" top="5">
+				<g:InlineLabel styleName="{style.seekback} unselectable"  ui:field="btnSeekBack"/>
+			</g:at>
+			<g:at left="205" top="18">
+				<g:InlineLabel styleName="{style.seekforward} unselectable"  ui:field="btnSeekForward"/>
+			</g:at>
+			<g:at left="10" top="90">
+				<g:InlineLabel styleName="{style.skipback} unselectable"  ui:field="btnPrevious"/>
+			</g:at>
+			<g:at left="210" top="90">
+				<g:InlineLabel styleName="{style.skipnext} unselectable"  ui:field="btnNext"/>
+			</g:at>
+			</g:AbsolutePanel>
+	</g:VerticalPanel>
 </ui:UiBinder> 

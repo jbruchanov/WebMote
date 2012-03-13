@@ -23,7 +23,7 @@ public class MobileButton extends CommandButton
 			}
 		};
 		
-		/*getElement().setAttribute("style", "margin:3px");*/
+		getElement().setAttribute("style", "margin:3px;min-height:45px");
 		
 		addTouchStartHandler(new TouchStartHandler()
 		{

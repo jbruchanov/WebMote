@@ -11,6 +11,7 @@ import com.scurab.web.remotecontrol.client.components.CommandableClickHandlerWra
 import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.InlineLabel;
+import com.google.gwt.user.client.ui.Image;
 
 public class JoyPad extends AbstractView
 {
@@ -22,8 +23,8 @@ public class JoyPad extends AbstractView
 	
 	private static JoyPadUiBinder uiBinder = GWT.create(JoyPadUiBinder.class);
 	@UiField InlineLabel btnLeft;
-	@UiField InlineLabel btnRight;
 	@UiField InlineLabel btnUp;
+	@UiField InlineLabel btnRight;
 	@UiField InlineLabel btnDown;
 	@UiField InlineLabel btnCenter;
 

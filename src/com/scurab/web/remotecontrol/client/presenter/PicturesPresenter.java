@@ -8,7 +8,9 @@ import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.PhotoViewerCommand;
+import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
+import com.scurab.web.remotecontrol.client.view.ConfigView;
 import com.scurab.web.remotecontrol.client.view.JoyPad;
 import com.scurab.web.remotecontrol.client.view.PicturesView;
 
@@ -58,7 +60,7 @@ public class PicturesPresenter extends BaseControlPresenter
 			@Override
 			public void onClick(ClickEvent event)
 			{
-				onClickButton(ShowPanel.User);
+				mEventBus.fireEvent(new ChangePresenterEvent(new ConfigPresenter(mDataService, mEventBus, new ConfigView())));
 			}
 		});
 		

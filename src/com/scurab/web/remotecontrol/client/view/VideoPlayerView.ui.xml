@@ -69,7 +69,7 @@
 						<c:MobileButton text="{words.ArrowUp}" width="24%"
 							styleName="rc-Button" command="SubtitlesPositionUp" ui:field="btnSubUp" />
 						<c:MobileButton text="{words.Change}" styleName="rc-Button"
-							width="48%" command="SubtitlesChange" ui:field="btnSubChange" />
+							width="45%" command="SubtitlesChange" ui:field="btnSubChange" />
 						<c:MobileButton text="{words.ArrowDown}" styleName="rc-Button"
 							width="24%" command="SubtitlesPositionDown" ui:field="btnSubDown" />
 					</g:HTMLPanel>

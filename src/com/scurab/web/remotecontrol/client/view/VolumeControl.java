@@ -86,7 +86,7 @@ public class VolumeControl extends AbstractView implements HasValue<Integer>, Ha
 			handleMove(30,false); //to set value to 0
 			imgPointer.setVisible(true);			
 		}};
-		t.schedule(100);
+		t.schedule(1000);
 		
 	}
 	
@@ -135,7 +135,7 @@ public class VolumeControl extends AbstractView implements HasValue<Integer>, Ha
 	
 	private int getCenterX()
 	{
-		centerX = Window.getClientWidth() / 2;
+		centerX = ((Window.getClientWidth() / 2) - (imgPointer.getWidth() / 2)) ;
 		return centerX;
 	}
 	

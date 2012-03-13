@@ -9,8 +9,11 @@ import com.scurab.web.remotecontrol.client.R;
 import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.MediaCenterCommand;
+import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
+import com.scurab.web.remotecontrol.client.view.ConfigView;
 import com.scurab.web.remotecontrol.client.view.JoyPad;
+import com.scurab.web.remotecontrol.client.view.KeyboardView;
 import com.scurab.web.remotecontrol.client.view.MediaCenterView;
 
 public class MediaCenterPresenter extends BaseControlPresenter
@@ -38,7 +41,7 @@ public class MediaCenterPresenter extends BaseControlPresenter
 		mDisplay.getTopPanel().getBtnDefault().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onClickButton(ShowPanel.Default);}});
 		mDisplay.getTopPanel().getBtnSpecializedActivity().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onClickButton(ShowPanel.Spec);}});
 		mDisplay.getTopPanel().getBtnKeyboard().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onClickButton(ShowPanel.Keyboard);}});
-		mDisplay.getTopPanel().getBtnUser().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onClickButton(ShowPanel.User);}});
+		mDisplay.getTopPanel().getBtnUser().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){mEventBus.fireEvent(new ChangePresenterEvent(new ConfigPresenter(mDataService, mEventBus, new ConfigView())));}});
 		
 		onClickButton(ShowPanel.Default);
 	}
@@ -52,7 +55,11 @@ public class MediaCenterPresenter extends BaseControlPresenter
 		{
 			case Default: mCurrentVisibleWidget =   mDisplay.getJoyPad();break;
 			case Spec: mCurrentVisibleWidget =    mDisplay.getSpecializedContainer();break;
-//			case Keyboard: mCurrentVisibleWidget =    mDisplay.getOptionsPanel();break;
+			case Keyboard: 
+			{
+				mEventBus.fireEvent(new ChangePresenterEvent(new KeyboardPresenter(mDataService, mEventBus, new KeyboardView())));
+				return;
+			}
 			case User: mCurrentVisibleWidget =      mDisplay.getUserPanel();break;			
 		}
 		
