@@ -167,6 +167,7 @@ public class JsonSimpleParser
 	
 	public static HashMap<String, List<String>> parseApps(String text) throws Exception
 	{
+		state = STATE_START;
 		HashMap<String, List<String>> result = new HashMap<String, List<String>>();
 		List<String> list = new ArrayList<String>();
 		char[] chars = text.toCharArray();
