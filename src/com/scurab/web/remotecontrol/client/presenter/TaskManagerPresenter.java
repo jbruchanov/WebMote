@@ -132,7 +132,7 @@ public class TaskManagerPresenter extends BaseControlPresenter
 		ProcessCommand pc = new ProcessCommand();
 		switch(cmd)
 		{
-			case Active:
+			case Activate:
 				pc.ActivateProcess(item.ID);
 				break;
 			case Kill:

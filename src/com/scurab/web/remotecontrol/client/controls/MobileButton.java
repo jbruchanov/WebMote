@@ -14,15 +14,6 @@ public class MobileButton extends CommandButton
 	
 	public MobileButton()
 	{
-		sTimer = new Timer()
-		{
-			@Override
-			public void run()
-			{		
-				onEndTouch();
-			}
-		};
-		
 		getElement().setAttribute("style", "margin:3px;min-height:45px");
 		
 		addTouchStartHandler(new TouchStartHandler()
@@ -55,30 +46,33 @@ public class MobileButton extends CommandButton
 	
 	protected void setDefaultStyle()
 	{
-		if(mDefaultStyleName == null)
-			setStyleName("rc-Button");
-		else
-			setStyleName(mDefaultStyleName);
+//		if(mDefaultStyleName == null)
+//			setStyleName("rc-Button");
+//		else
+//			setStyleName(mDefaultStyleName);
 	}
 	
 	protected void setActiveStyle()
 	{
-		if(mActiveStyleName == null)
-			setStyleName("rc-Button-Active");
-		else
-			setStyleName(mActiveStyleName);
+//		if(mActiveStyleName == null)
+//			setStyleName("rc-Button-Active");
+//		else
+//			setStyleName(mActiveStyleName);
 	}
 	
 	public void onStartTouch()
 	{
-		setActiveStyle();
-		sTimer.cancel();
-		sTimer.schedule(1000);
+//		setActiveStyle();
+//		if(sTimer != null)
+//			sTimer.cancel();
+//		sTimer = new Timer(){@Override public void run(){onEndTouch();}};
+//		sTimer.schedule(1000);
 	}
 	
 	public void onEndTouch()
 	{
-		setDefaultStyle();
+//		setDefaultStyle();
+//		sTimer = null;
 	}
 	
 	public String getDefaultStyleName()

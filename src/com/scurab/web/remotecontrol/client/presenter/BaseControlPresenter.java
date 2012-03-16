@@ -28,6 +28,15 @@ public abstract class BaseControlPresenter extends BasePresenter
 		onBindCommandButtons();
 	}
 	
+	/**
+	 * Don't use it by default, it's only for calling from MediaCenter, to override app to media center player
+	 * @param appName
+	 */
+	public void setApplication(String appName)
+	{
+		
+	}
+	
 	protected void onSendCommand(String command)
 	{
 		onSendCommand(getCommand(command));

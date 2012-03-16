@@ -10,21 +10,27 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.scurab.web.remotecontrol.client.R;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEventHandler;
 import com.scurab.web.remotecontrol.client.presenter.BasePresenter;
 import com.scurab.web.remotecontrol.client.presenter.MainViewPresenter;
 import com.scurab.web.remotecontrol.client.server.DataService;
+import com.scurab.web.remotecontrol.client.server.WebClientDataService;
 
 public class RootView extends Composite
 {
-	private final static DataService sDataService = new DataService();
+	private static DataService sDataService;
 	private final static HandlerManager sEventBus = new HandlerManager(null);
 	private HashMap<String, BasePresenter> mWorkingComposites = null;
 	private MainViewPresenter mMainViewPresenter = null;
 	
 	public RootView()
 	{
+		if(R.WebClientDemo)
+			sDataService = new WebClientDataService();
+		else
+			sDataService = new DataService();
 		mWorkingComposites = new HashMap<String, BasePresenter>();
 		bind();
 		init();
@@ -55,15 +61,17 @@ public class RootView extends Composite
 				onHistoryChange(event.getValue());
 			}
 		});
-		
-		Window.addWindowClosingHandler(new Window.ClosingHandler()
+		if(!R.WebClientDemo)
 		{
-			@Override
-			public void onWindowClosing(Window.ClosingEvent closingEvent)
+			Window.addWindowClosingHandler(new Window.ClosingHandler()
 			{
-				closingEvent.setMessage("Do you really want to leave the page?");
-			}
-		});
+				@Override
+				public void onWindowClosing(Window.ClosingEvent closingEvent)
+				{
+					closingEvent.setMessage("Do you really want to leave the page?");
+				}
+			});
+		}
 	}
 	
 	protected void onHistoryChange(String token)

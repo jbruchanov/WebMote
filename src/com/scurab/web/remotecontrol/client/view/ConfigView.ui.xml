@@ -21,7 +21,7 @@
 		margin-top: 20px;
 	}
 	</ui:style>
-	<g:VerticalPanel>
+	<g:VerticalPanel width="100%">
 		<g:Label text="{res.PIN}" width="100%" styleName="{style.label}"/>
 		<g:TextBox width="100%" ui:field="txtPIN" styleName="{style.item}"/>
 		<g:Label text="{res.TVApplication}" width="100%" styleName="{style.label}"/>

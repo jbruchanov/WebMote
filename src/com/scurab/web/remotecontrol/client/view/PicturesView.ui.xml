@@ -4,32 +4,34 @@
 	xmlns:c="urn:import:com.scurab.web.remotecontrol.client.controls">
 	<ui:with type="com.scurab.web.remotecontrol.language.Words"
 		field="words"></ui:with>
-			<g:VerticalPanel horizontalAlignment="ALIGN_CENTER">
+		<g:HTMLPanel>
+			<g:VerticalPanel horizontalAlignment="ALIGN_CENTER" width="100%">
 				<p1:PicturesTopPanel ui:field="topPanel" />
 				<g:VerticalPanel width="100%" horizontalAlignment="ALIGN_CENTER"
 				ui:field="optionsPanel">
 				<g:Label text="{words.Slideshow}" styleName="rc-ControlDivider-Label" />
 				<g:HTMLPanel width="100%">
-					<c:MobileButton text="{words.Start}" width="49%"
-						styleName="rc-Button" command="StartSlideShow" ui:field="btnStart" />
-					<c:MobileButton text="{words.Pause}" styleName="rc-Button"
-						width="49%" command="CancelSlideShow" ui:field="btnPause" />
+					<c:MobileButton text="{words.Start}" width="45%"
+						command="StartSlideShow" ui:field="btnStart" />
+					<c:MobileButton text="{words.Pause}" 
+						width="45%" command="CancelSlideShow" ui:field="btnPause" />
 				</g:HTMLPanel>
 				<g:Label text="{words.View}" styleName="rc-ControlDivider-Label" />
 				<g:HTMLPanel width="100%">
-					<c:MobileButton text="+" width="49%"
-						styleName="rc-Button" command="ZoomIn" ui:field="btnZoomIn" />
-					<c:MobileButton text="-" styleName="rc-Button"
-						width="49%" command="ZoomOut" ui:field="btnZoomOut" />
+					<c:MobileButton text="+" width="45%"
+						command="ZoomIn" ui:field="btnZoomIn" />
+					<c:MobileButton text="-" 
+						width="45%" command="ZoomOut" ui:field="btnZoomOut" />
 				</g:HTMLPanel>
 				<g:HTMLPanel width="100%">
-					<c:MobileButton text="{words.ArrowRotLeft}" width="49%"
-						styleName="rc-Button" command="RotateLeft" ui:field="btnRotateLeft" />
-					<c:MobileButton text="{words.ArrowRotRight}" styleName="rc-Button"
-						width="49%" command="RotateRight" ui:field="btnRotateRight" />
+					<c:MobileButton text="{words.ArrowRotLeft}" width="45%"
+						command="RotateLeft" ui:field="btnRotateLeft" />
+					<c:MobileButton text="{words.ArrowRotRight}" 
+						width="45%" command="RotateRight" ui:field="btnRotateRight" />
 				</g:HTMLPanel>
 			</g:VerticalPanel>
 				<g:VerticalPanel ui:field="userPanel" />
 				<p1:JoyPad ui:field="joyPad" />
 			</g:VerticalPanel>
+		</g:HTMLPanel>
 </ui:UiBinder> 

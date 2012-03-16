@@ -33,7 +33,7 @@
 		<g:Label text="{res.Delay}" styleName="{style.labels}" />
 		<p1:TimePickerWidget ui:field="timePicker" />
 		<g:Label text="{res.OperStartTime}" styleName="{style.labels}" />
-		<g:Label text="00:00" styleName="{style.values}" ui:field="lblOperationStartTime" />
+		<g:Label text="00&colon;00" styleName="{style.values}" ui:field="lblOperationStartTime" />
 		<g:HorizontalPanel width="100%"> 
 			<my:CommandButton width="100%" text="{res.Reboot}" styleName="{style.buttons} gwt-Button" ui:field="btnReboot" command="Reboot"/>
 			<my:CommandButton width="100%" text="{res.Shutdown}" styleName="{style.buttons} gwt-Button" ui:field="btnShutdown" command="Shutdown"/>

@@ -10,6 +10,7 @@ import com.google.gwt.event.dom.client.TouchStartHandler;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
+import com.scurab.web.remotecontrol.client.R;
 import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.KeyboardCommand;
@@ -32,19 +33,14 @@ public class DesktopViewPresenter extends BaseControlPresenter
 	private static final String COMPRESS_KEY = "%COMPRESS_KEY%";
 	private static final String PIN_KEY = "%PIN_KEY%";
 	private static final String ITER_KEY = "%ITER_KEY%";
-	private static final String TEMPLATE = "/DesktopView.jpg?w=" + WIDTH_KEY + 
+	private static final String TEMPLATE = "DesktopView.jpg?w=" + WIDTH_KEY + 
 														   "&h=" + HEIGHT_KEY + 
 														   "&scale=" + SCALE_KEY + 
 														   "&compress="+ COMPRESS_KEY + 
 														   "&PIN=" + PIN_KEY + 
 														   "&iter=" + ITER_KEY;
-	private static final String TEMPLATE2 = "http://192.168.100.11:98/DesktopView.jpg?w=" + WIDTH_KEY + 
-			   "&h=" + HEIGHT_KEY + 
-			   "&scale=" + SCALE_KEY + 
-			   "&compress="+ COMPRESS_KEY + 
-			   "&PIN=" + PIN_KEY + 
-			   "&iter=" + ITER_KEY;
 	
+	private static final String TEMPLATE_WEBCLIENT = "desktop/desktop%s.jpg";
 	
 	public DesktopViewPresenter(DataService dataService, HandlerManager eventBus, DesktopView display)
 	{
@@ -139,12 +135,20 @@ public class DesktopViewPresenter extends BaseControlPresenter
 	
 	private void onReloadDesktop()
 	{
-		String reqUrl = TEMPLATE.replace(WIDTH_KEY, String.valueOf(mDisplay.getImage().getWidth()));
-		reqUrl = reqUrl.replace(HEIGHT_KEY, String.valueOf(mDisplay.getImage().getHeight()));
-		reqUrl = reqUrl.replace(SCALE_KEY, String.valueOf(0.8));
-		reqUrl = reqUrl.replace(COMPRESS_KEY,String.valueOf(80));
-		reqUrl = reqUrl.replace(PIN_KEY, RemoteControl.getPIN());
-		reqUrl = reqUrl.replace(ITER_KEY, String.valueOf(mRepeaterCounter++));		
+		String reqUrl = "";
+		if(R.WebClientDemo)
+		{
+			reqUrl = TEMPLATE_WEBCLIENT.replace("%s", String.valueOf((mRepeaterCounter++)%17));
+		}
+		else
+		{
+			reqUrl = TEMPLATE.replace(WIDTH_KEY, String.valueOf(mDisplay.getImage().getWidth()));
+			reqUrl = reqUrl.replace(HEIGHT_KEY, String.valueOf(mDisplay.getImage().getHeight()));
+			reqUrl = reqUrl.replace(SCALE_KEY, String.valueOf(0.8));
+			reqUrl = reqUrl.replace(COMPRESS_KEY,String.valueOf(80));
+			reqUrl = reqUrl.replace(PIN_KEY, RemoteControl.getPIN());
+			reqUrl = reqUrl.replace(ITER_KEY, String.valueOf(mRepeaterCounter++));		
+		}
 		mDisplay.getImage().setUrl(reqUrl);
 	}
 

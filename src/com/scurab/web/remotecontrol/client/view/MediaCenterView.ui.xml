@@ -18,7 +18,7 @@
 		<p1:JoyPad ui:field="joyPad"/>
 		<g:VerticalPanel horizontalAlignment="ALIGN_CENTER" width="100%" ui:field="specializedContainer">
 			<g:HTMLPanel styleName="{style.chkRunSpec}">
-				<g:CheckBox text="{res.RunSpecAct}" ui:field="chkRunSpecActivity" />
+				<g:CheckBox text="{res.RunSpecAct}" ui:field="chkRunSpecActivity" checked="true"/>
 			</g:HTMLPanel>
 			<g:FlowPanel>
 			<g:Grid >

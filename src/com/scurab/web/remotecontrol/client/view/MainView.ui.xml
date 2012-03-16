@@ -11,6 +11,7 @@
 		padding-right: 30px;
 	}
 	</ui:style>
+	<g:HorizontalPanel horizontalAlignment="ALIGN_CENTER" width="100%">
 	<g:HTMLPanel styleName="{style.container}">
 		<g:FlowPanel width="100%">
 			<g:Grid >
@@ -49,4 +50,5 @@
 		</g:Grid>
 		</g:FlowPanel>
 	</g:HTMLPanel>
+	</g:HorizontalPanel>
 </ui:UiBinder> 

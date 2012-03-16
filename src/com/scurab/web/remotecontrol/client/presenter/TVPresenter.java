@@ -17,6 +17,7 @@ public class TVPresenter extends BaseControlPresenter
 {
 	private TVView mDisplay = null;
 	private Widget mCurrentVisibleWidget = null;
+	private String mAppName = null;
 	
 	private enum ShowPanel
 	{
@@ -27,7 +28,15 @@ public class TVPresenter extends BaseControlPresenter
 	{
 		super(dataService, eventBus, display);
 		mDisplay = display;
+		mAppName = RemoteControl.TVAppliation;
 		bind();
+	}
+	
+	@Override
+	public void setApplication(String appName)
+	{
+		if(appName != null && appName.length() > 0)
+			mAppName = appName;
 	}
 	
 	private void bind()
@@ -112,7 +121,7 @@ public class TVPresenter extends BaseControlPresenter
 	@Override
 	protected Command getCommand(String command)
 	{
-		TelevisionCommand tvc = new TelevisionCommand(RemoteControl.TVAppliation);
+		TelevisionCommand tvc = new TelevisionCommand(mAppName);
 		tvc.Method = translateCommand(command);
 		return tvc;
 	}

@@ -21,17 +21,26 @@ public class VideoPlayerPresenter extends BaseControlPresenter
 {
 	private VideoPlayerView mDisplay;
 	private Widget mCurrentVisibleWidget = null;
+	private String mAppName = null;
 	
 	public VideoPlayerPresenter(DataService dataService, HandlerManager eventBus, VideoPlayerView display)
 	{
 		super(dataService, eventBus, display);
 		mDisplay = display;
+		mAppName = RemoteControl.VideoPlayer;
 		bind();
 	}
 	
 	private enum ShowPanel
 	{
 		Default, Video, Audio, Subtitles, DVD, User
+	}
+	
+	@Override
+	public void setApplication(String appName)
+	{
+		if(appName != null && appName.length() > 0)
+			mAppName = appName;
 	}
 	
 	private void bind()
@@ -140,7 +149,7 @@ public class VideoPlayerPresenter extends BaseControlPresenter
 	@Override
 	protected Command getCommand(String command)
 	{
-		VideoPlayerCommand vpc =  new VideoPlayerCommand(RemoteControl.VideoPlayer);
+		VideoPlayerCommand vpc =  new VideoPlayerCommand(mAppName);
 		vpc.Method = translateCommand(command);
 		if(command.equals("Start"))
 		{

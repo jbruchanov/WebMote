@@ -17,6 +17,7 @@ public class AudioPlayerPresenter extends BaseControlPresenter
 {
 	private AudioPlayerView mDisplay = null;
 	private Widget mCurrentVisibleWidget;
+	private String mAppName = null;
 	
 	private enum ShowPanel
 	{
@@ -27,7 +28,15 @@ public class AudioPlayerPresenter extends BaseControlPresenter
 	{
 		super(dataService, eventBus, display);
 		mDisplay = display;
-		bind();
+		mAppName = RemoteControl.AudioPlayer;
+		bind();		
+	}
+	
+	@Override
+	public void setApplication(String appName)
+	{
+		if(appName != null && appName.length() > 0)
+			mAppName = appName;
 	}
 	
 	private void bind()
@@ -85,8 +94,8 @@ public class AudioPlayerPresenter extends BaseControlPresenter
 	@Override
 	protected Command getCommand(String command)
 	{
-		AudioPlayerCommand apc = new AudioPlayerCommand(RemoteControl.AudioPlayer);
-		apc.Method =command;
+		AudioPlayerCommand apc = new AudioPlayerCommand(mAppName);
+		apc.Method = command;
 		if(command.equals("Start"))
 		{
 			ListBox lb = mDisplay.getTopPanel().getCmbItems();

@@ -18,6 +18,7 @@ public class PicturesPresenter extends BaseControlPresenter
 {
 	private PicturesView mDisplay = null;
 	private Widget mCurrentVisibleWidget;
+	private String mAppName = null;
 	
 	private enum ShowPanel
 	{
@@ -28,7 +29,15 @@ public class PicturesPresenter extends BaseControlPresenter
 	{
 		super(dataService, eventBus, display);
 		mDisplay = display;
+		mAppName = RemoteControl.PicturesViewer;
 		bind();
+	}
+	
+	@Override
+	public void setApplication(String appName)
+	{
+		if(appName != null && appName.length() > 0)
+			mAppName = appName;
 	}
 	
 	private void bind()
@@ -87,7 +96,7 @@ public class PicturesPresenter extends BaseControlPresenter
 	@Override
 	protected Command getCommand(String command)
 	{
-		PhotoViewerCommand pvc = new PhotoViewerCommand(RemoteControl.PicturesViewer);
+		PhotoViewerCommand pvc = new PhotoViewerCommand(mAppName);
 		pvc.Method = translateCommand(command);
 		if(command.equals("Start"))
 		{

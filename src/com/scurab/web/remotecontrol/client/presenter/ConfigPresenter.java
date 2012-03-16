@@ -19,6 +19,7 @@ import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.RequestException;
 import com.google.gwt.http.client.Response;
 import com.google.gwt.storage.client.Storage;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.ListBox;
 import com.scurab.web.remotecontrol.client.RemoteControl;
@@ -41,7 +42,7 @@ public class ConfigPresenter extends BaseControlPresenter
 		mDisplay = display;
 //		mDataService = new MockDataService();
 		bind();
-		load();
+		new Timer() {@Override public void run(){load();}}.schedule(50); 
 	}
 	
 	protected void load()
@@ -86,10 +87,11 @@ public class ConfigPresenter extends BaseControlPresenter
 	{
 		
 		ListBox cmb = getListBox(key);
+		
 		if(cmb != null)
 		{
 			Collections.sort(items);
-			cmb.setSelectedIndex(-1);
+			//cmb.setSelectedIndex(-1);
 			cmb.addItem("", "");
 			for(int i = 0;i<items.size();i++)
 			{
@@ -162,10 +164,17 @@ public class ConfigPresenter extends BaseControlPresenter
 			String[] keys = RemoteControl.PropertyKeys.ALL_APP_PROPERTY_KEYS;
 			for(String key : keys)
 			{
-				ListBox lb = getListBox(key);
-				String value = lb.getValue(lb.getSelectedIndex());
-				if(value != null && value.length() > 0)
-					RemoteControl.setProperty(key, value);
+				try
+				{
+					ListBox lb = getListBox(key);
+					String value = lb.getValue(lb.getSelectedIndex());
+					if(value != null && value.length() > 0)
+						RemoteControl.setProperty(key, value);
+				}
+				catch(Exception e)
+				{
+					//ignore trouble about reading
+				}
 			}
 			Window.alert(RemoteControl.Words.OK());
 		}

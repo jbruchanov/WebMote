@@ -17,7 +17,7 @@ public class TaskManagerContextMenu extends DialogBox
 	}
 	public enum ContextType
 	{
-		Active, Kill, Cancel
+		Activate, Kill, Cancel
 	}
 
 	
@@ -38,7 +38,7 @@ public class TaskManagerContextMenu extends DialogBox
 	{
 		FlowPanel fp = new FlowPanel();
 		fp.add(new Label(item.Name));
-		fp.add(getButton(item,listener,ContextType.Active));
+		fp.add(getButton(item,listener,ContextType.Activate));
 		fp.add(getButton(item,listener,ContextType.Kill));		
 		fp.add(getButton(item,listener,ContextType.Cancel));
 		return fp;

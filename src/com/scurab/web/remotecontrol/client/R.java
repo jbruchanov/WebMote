@@ -2,7 +2,7 @@ package com.scurab.web.remotecontrol.client;
 
 public final class R
 {
-
+	public static final boolean WebClientDemo = false;
 	public static final class Images
 	{
 		private static final String prefix = "pics/";

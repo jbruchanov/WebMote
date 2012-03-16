@@ -8,9 +8,16 @@ public class ChangePresenterEvent extends GwtEvent<ChangePresenterEventHandler>
 	public static Type<ChangePresenterEventHandler> TYPE = new Type<ChangePresenterEventHandler>();
 
 	private BasePresenter mBasePresenter = null;
+	private String mApplication = null;
 	
 	public ChangePresenterEvent(BasePresenter newPresenter) {
 		mBasePresenter = newPresenter;
+	}
+	
+	public ChangePresenterEvent(BasePresenter newPresenter, String overrideApp) 
+	{
+		mBasePresenter = newPresenter;
+		mApplication = overrideApp;
 	}
 	
 	public BasePresenter getPresenter()
@@ -26,5 +33,10 @@ public class ChangePresenterEvent extends GwtEvent<ChangePresenterEventHandler>
 	@Override
 	protected void dispatch(ChangePresenterEventHandler handler) {
 		handler.onChangePresenter(this);
+	}
+
+	public String getApplication()
+	{
+		return mApplication;
 	}
 }

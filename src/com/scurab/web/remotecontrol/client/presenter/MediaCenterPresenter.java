@@ -1,20 +1,32 @@
 package com.scurab.web.remotecontrol.client.presenter;
 
+import java.util.HashMap;
+import java.util.List;
+
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerManager;
+import com.google.gwt.http.client.Request;
+import com.google.gwt.http.client.RequestCallback;
+import com.google.gwt.http.client.Response;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.R;
 import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.Command;
+import com.scurab.web.remotecontrol.client.commands.GetApplicationsCommand;
 import com.scurab.web.remotecontrol.client.commands.MediaCenterCommand;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
+import com.scurab.web.remotecontrol.client.tools.JsonSimpleParser;
+import com.scurab.web.remotecontrol.client.view.AudioPlayerView;
 import com.scurab.web.remotecontrol.client.view.ConfigView;
 import com.scurab.web.remotecontrol.client.view.JoyPad;
 import com.scurab.web.remotecontrol.client.view.KeyboardView;
 import com.scurab.web.remotecontrol.client.view.MediaCenterView;
+import com.scurab.web.remotecontrol.client.view.PicturesView;
+import com.scurab.web.remotecontrol.client.view.TVView;
+import com.scurab.web.remotecontrol.client.view.VideoPlayerView;
 
 public class MediaCenterPresenter extends BaseControlPresenter
 {
@@ -79,13 +91,87 @@ public class MediaCenterPresenter extends BaseControlPresenter
 		{
 			boolean open = mDisplay.getChkRunSpecActivity().getValue();
 			if(open)
-				onOpenSpecializedActivity(command.Method);
+				handleOpeningSpecActivity(translateCommandMethod(command.Method));
 		}
 	}
 	
-	public void onOpenSpecializedActivity(String cmd)
+	private String translateCommandMethod(String cmd)
 	{
-		Window.alert(cmd);
+		if(R.MediaCenter.OPEN_AUDIO.equals(cmd))
+			return RemoteControl.PropertyKeys.AUDIOPLAYER;
+		else if(R.MediaCenter.OPEN_PICTURE.equals(cmd))
+			return RemoteControl.PropertyKeys.PICTURESVIEWER;
+		else if(R.MediaCenter.OPEN_TELEVISION.equals(cmd))				
+			return RemoteControl.PropertyKeys.TVAPPLIATION;
+		else if(R.MediaCenter.OPEN_VIDEO.equals(cmd))				
+			return RemoteControl.PropertyKeys.VIDEOPLAYER;
+		else
+			return null;
+	}
+	
+	private void handleOpeningSpecActivity(final String command)
+	{
+		try
+		{
+		mDataService.sendCommand(new GetApplicationsCommand(), new RequestCallback()
+		{
+			@Override
+			public void onResponseReceived(Request request, Response response)
+			{
+				try
+				{
+					HashMap<String, List<String>> data = JsonSimpleParser.parseApps(response.getText());
+					onOpenSpecializedActivity(command,data.get(command));
+				}
+				catch(Exception e)				
+				{
+					Window.alert(e.getMessage());
+				}
+			}
+			
+			@Override
+			public void onError(Request request, Throwable exception)
+			{
+				Window.alert(exception.getMessage());
+			}
+		});
+		}
+		catch(Exception e)
+		{
+			Window.alert(e.getMessage());
+		}
+	}
+	
+	public void onOpenSpecializedActivity(String cmd, List<String> apps)
+	{
+		
+		BaseControlPresenter bcp = null;
+		String mceName = getApplication(RemoteControl.MediaCenter,apps);
+		if(RemoteControl.PropertyKeys.AUDIOPLAYER.equals(cmd))
+			bcp = new AudioPlayerPresenter(mDataService, mEventBus, new AudioPlayerView());
+		else if(RemoteControl.PropertyKeys.VIDEOPLAYER.equals(cmd))
+			bcp = new VideoPlayerPresenter(mDataService, mEventBus, new VideoPlayerView());
+		else if(RemoteControl.PropertyKeys.TVAPPLIATION.equals(cmd))				
+			bcp = new TVPresenter(mDataService, mEventBus, new TVView());
+		else if(RemoteControl.PropertyKeys.PICTURESVIEWER.equals(cmd))				
+			bcp = new PicturesPresenter(mDataService, mEventBus, new PicturesView());
+		
+		if(bcp != null)
+		{
+			bcp.setApplication(mceName);
+			ChangePresenterEvent cpe = new ChangePresenterEvent(bcp);		
+			mEventBus.fireEvent(cpe);
+		}
+	}
+	
+	private String getApplication(String mediaCenterName, List<String> apps)
+	{
+		for(String app : apps)
+		{
+			if(app.startsWith(mediaCenterName))
+				return app;
+		}
+		return null;
 	}
 	
 	@Override
