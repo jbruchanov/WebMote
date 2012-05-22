@@ -22,6 +22,7 @@ import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.event.shared.HandlerRegistration;
+import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 import com.scurab.web.remotecontrol.client.tools.RCMath;
 
@@ -44,6 +45,10 @@ public class VolumeControl extends AbstractView implements HasValue<Integer>, Ha
 	private int mMax = 330;
 	private int mLastAngle = 0;
 	private HandlerManager mHandler = new HandlerManager(this);
+	private boolean mIsPCInternetExplorer = false;
+	
+	private static final int[] MSIE_CENTER_OFFSET = new int[] {12,15};
+	private static final int[] CENTER_OFFSET = new int[] {-3,0}; 
 
 	interface VolumeControlUiBinder extends UiBinder<Widget, VolumeControl>
 	{
@@ -53,6 +58,8 @@ public class VolumeControl extends AbstractView implements HasValue<Integer>, Ha
 	public VolumeControl()
 	{
 		initWidget(uiBinder.createAndBindUi(this));
+		String agent = RemoteControl.getUserAgent().toLowerCase();
+		//mIsPCInternetExplorer = agent.contains("msie") && !agent.contains("iemobile");
 		imgPointer.setVisible(false);
 //		lblInfo.setVisible(false);
 		Window.addResizeHandler(new ResizeHandler()
@@ -70,7 +77,8 @@ public class VolumeControl extends AbstractView implements HasValue<Integer>, Ha
 	{
 		super.onLoad();
 		Timer t = new Timer(){@Override public void run(){init();}};
-		t.schedule(1000);
+		t.schedule(500);
+		init();
 		
 	}
 	
@@ -80,14 +88,25 @@ public class VolumeControl extends AbstractView implements HasValue<Integer>, Ha
 		topOffset = imgBackground.getAbsoluteTop(); 
 		centerY = topOffset + (height / 2);
 		centerX = Window.getClientWidth() / 2;
+		if(mIsPCInternetExplorer)
+		{
+			centerX -= MSIE_CENTER_OFFSET[0];
+			centerY -= MSIE_CENTER_OFFSET[1];
+		}
+		else
+		{
+			centerX -= CENTER_OFFSET[0];
+			centerY -= CENTER_OFFSET[1];
+		}
 		imgPointerHalfSize = imgPointer.getWidth() / 2;
 		Timer t = new Timer(){@Override public void run()
 		{
 			handleMove(30,false); //to set value to 0
 			imgPointer.setVisible(true);			
-		}};
-		t.schedule(1000);
-		
+		}};		
+		handleMove(30,false); 
+		imgPointer.setVisible(true);
+		t.schedule(1000);				
 	}
 	
 		
@@ -136,8 +155,12 @@ public class VolumeControl extends AbstractView implements HasValue<Integer>, Ha
 	private int getCenterX()
 	{
 		centerX = ((Window.getClientWidth() / 2) - (imgPointer.getWidth() / 2)) ;
+		if(mIsPCInternetExplorer)
+			centerX -= MSIE_CENTER_OFFSET[0];
+		else
+			centerX -= CENTER_OFFSET[0];
 		return centerX;
-	}
+	}	
 	
 	private void handleMove(double angle)
 	{

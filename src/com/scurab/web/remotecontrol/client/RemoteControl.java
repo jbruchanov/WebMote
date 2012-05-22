@@ -7,6 +7,7 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.storage.client.Storage;
 import com.google.gwt.user.client.Cookies;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.scurab.web.remotecontrol.client.controls.CommandButton;
 import com.scurab.web.remotecontrol.client.datamodel.KeyValueItem;
@@ -31,9 +32,13 @@ public class RemoteControl implements EntryPoint
 	@Override
 	public void onModuleLoad()
 	{
-		initDefaultApps();
+		initDefaultApps();		
 		RootPanel.get("content").add(new RootView());
 	}
+	
+	public static native String getUserAgent() /*-{
+	return navigator.userAgent.toLowerCase();
+	}-*/;
 	
 	private static void initDefaultApps()
 	{	
