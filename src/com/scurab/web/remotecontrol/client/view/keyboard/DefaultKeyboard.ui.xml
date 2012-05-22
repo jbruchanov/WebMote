@@ -89,7 +89,7 @@
 			<g:HorizontalPanel height="" horizontalAlignment="ALIGN_CENTER"
 				styleName="{style.row2}" verticalAlignment="ALIGN_MIDDLE" width="100%">
 				<my:KeyButton height="50px" styleName="{style.key} gwt-Button"
-					text="SHFT" width="100%" />
+					text="SHIFT" width="100%" />
 				<my:KeyButton height="50px" styleName="{style.key} gwt-Button"
 					text="z" keyCode="{kc.KEY_VK_Z}" width="100%" />
 				<my:KeyButton height="50px" styleName="{style.key} gwt-Button"
