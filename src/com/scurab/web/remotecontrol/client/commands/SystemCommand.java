@@ -47,12 +47,12 @@ public class SystemCommand extends Command
 
 	public void turnMonitorOn()
 	{
-		Operation = "MonitorTurnOn";
+		Operation = "MonitorOn";
 	}
 
 	public void turnMonitorOff()
 	{
-		Operation = "MonitorTurnOff";
+		Operation = "MonitorOff";
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class SystemCommand extends Command
 	protected JSONObject getJsonObject()
 	{
 		JSONObject jso = super.getJsonObject();
-		jso.put(OPERATION_KEY, new JSONString(Operation));
+		jso.put(METHOD_KEY, new JSONString(Operation));
 		jso.put(DELAY_KEY, new JSONNumber(Delay));
 		jso.put(FORCE_KEY, JSONBoolean.getInstance(Force));
 		return jso;

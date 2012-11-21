@@ -9,7 +9,7 @@ public abstract class Command
 {
 	private static final String PIN_KEY = "PIN";
 	private static final String COMMAND_KEY = "Command";
-	private static final String METHOD_KEY = "Method";
+	protected static final String METHOD_KEY = "Method";
 	private static final String PROTOCOL_KEY = "ProtocolVersion";
 	private static final String PLATFORM_KEY = "SourcePlatform";
 	
