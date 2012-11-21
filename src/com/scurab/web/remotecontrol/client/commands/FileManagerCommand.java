@@ -6,19 +6,24 @@ import com.google.gwt.json.client.JSONString;
 public class FileManagerCommand extends Command
 {
 
-	public String Root = null;
 	private final static String ROOT_KEY = "Root";
-	public String Filter = null;
 	private final static String FILTER_KEY = "Filter";
 	
+	private String mRoot = null;
+	public String mFilter = null;
+	
+    public FileManagerCommand() {
+    	setMethod(GET);
+    }
+
 	@Override
 	protected JSONObject getJsonObject()
 	{		
 		JSONObject jso = super.getJsonObject();
-		if(Root != null)
-			jso.put(ROOT_KEY, new JSONString(Root));
-		if(Filter != null)
-			jso.put(FILTER_KEY, new JSONString(Filter));		
+		if(getRoot() != null)
+			jso.put(ROOT_KEY, new JSONString(getRoot()));
+		if(mFilter != null)
+			jso.put(FILTER_KEY, new JSONString(mFilter));		
 		return jso;
 	}
 	
@@ -28,4 +33,13 @@ public class FileManagerCommand extends Command
 		return "FileManagerCommand";
 	}
 
+	public String getRoot()
+	{
+		return mRoot;
+	}
+
+	public void setRoot(String root)
+	{
+		mRoot = root;
+	}
 }

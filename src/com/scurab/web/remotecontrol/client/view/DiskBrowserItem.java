@@ -30,7 +30,7 @@ public class DiskBrowserItem extends Composite implements HasClickHandlers
 	
 	public enum Type
 	{		
-		Return(-1), Folder(10), File(20), Disk(1), OpticalDevice(2), UsbDevice(3), Network(4), Ram(5);
+		Return(-1), Folder(10), File(20), Disk(0), OpticalDevice(2), UsbDevice(3), Network(4), Ram(5);
 		private int code;
 		
 		 private Type(int c) {
@@ -48,7 +48,7 @@ public class DiskBrowserItem extends Composite implements HasClickHandlers
 			 	case -1:return Return;
 			 	case 10:return Folder;
 			 	case 20:return File;
-			 	case 1:return Disk;
+			 	case 0:return Disk;
 			 	case 2:return OpticalDevice;
 			 	case 3:return UsbDevice;
 			 	case 4:return Network;

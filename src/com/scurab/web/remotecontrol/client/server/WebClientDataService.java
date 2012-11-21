@@ -40,9 +40,9 @@ public class WebClientDataService extends DataService
 		else if(c instanceof FileManagerCommand)
 		{
 			FileManagerCommand fmc = ((FileManagerCommand) c);
-			if(fmc.Root == null)
+			if(fmc.getRoot() == null)
 				vr.setResponseText(VirtualResponse.DISKS);
-			else if(fmc.Root.equals("C:\\"))
+			else if(fmc.getRoot().equals("C:\\"))
 				vr.setResponseText(VirtualResponse.DISK_C);
 			else
 				vr.setResponseText(VirtualResponse.DISK_EMPTY);
