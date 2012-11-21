@@ -150,7 +150,7 @@ public class VideoPlayerPresenter extends BaseControlPresenter
 	protected Command getCommand(String command)
 	{
 		VideoPlayerCommand vpc =  new VideoPlayerCommand(mAppName);
-		vpc.Method = translateCommand(command);
+		vpc.setMethod(translateCommand(command));
 		if(command.equals("Start"))
 		{
 			ListBox lb = mDisplay.getTopPanel().getCmbItems();

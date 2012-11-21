@@ -97,7 +97,7 @@ public class PicturesPresenter extends BaseControlPresenter
 	protected Command getCommand(String command)
 	{
 		PhotoViewerCommand pvc = new PhotoViewerCommand(mAppName);
-		pvc.Method = translateCommand(command);
+		pvc.setMethod(translateCommand(command));
 		if(command.equals("Start"))
 		{
 			ListBox lb = mDisplay.getTopPanel().getCmbItems();

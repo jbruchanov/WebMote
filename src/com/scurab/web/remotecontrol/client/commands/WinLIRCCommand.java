@@ -27,7 +27,7 @@ public class WinLIRCCommand extends ApplicationCommand
 	
 	public void GetAvailableCodes()
 	{
-		Method = "GetCodes";
+		setMethod("GetCodes");
 	}
 	
 	@Override

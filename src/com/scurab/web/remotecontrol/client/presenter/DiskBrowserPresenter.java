@@ -246,19 +246,19 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 		{
 			case AudioPlayer:
 				AudioPlayerCommand apc = new AudioPlayerCommand(RemoteControl.AudioPlayer);
-				apc.Method = "Start";
+				apc.setMethod("Start");
 				apc.MethodParameter = location;
 				c = apc;
 				break;
 			case VideoPlayer:
 				VideoPlayerCommand vpc = new VideoPlayerCommand(RemoteControl.VideoPlayer);
-				vpc.Method = "Start";
+				vpc.setMethod("Start");
 				vpc.MethodParameter = location;
 				c = vpc;
 				break;
 			case PicturesViewer:
 				PhotoViewerCommand ppc = new PhotoViewerCommand(RemoteControl.PicturesViewer);
-				ppc.Method = "Start";
+				ppc.setMethod("Start");
 				ppc.MethodParameter = location;
 				c = ppc;
 				break;

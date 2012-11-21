@@ -122,7 +122,7 @@ public class TVPresenter extends BaseControlPresenter
 	protected Command getCommand(String command)
 	{
 		TelevisionCommand tvc = new TelevisionCommand(mAppName);
-		tvc.Method = translateCommand(command);
+		tvc.setMethod(translateCommand(command));
 		return tvc;
 	}
 

@@ -12,14 +12,14 @@ public class MCICommand extends Command
 	{
 		if(drive.length() > 1)
 			drive = drive.substring(0,1);
-		this.Method = CLOSE_DVD_TEMPLATE.replace("%1$s", drive);
+		this.setMethod(CLOSE_DVD_TEMPLATE.replace("%1$s", drive));
 	}
 	
 	public void  openCD(String drive)
 	{
 		if(drive.length() > 1)
 			drive = drive.substring(0,1);
-		this.Method = OPEN_DVD_TEMPLATE.replace("%1$s", drive);
+		this.setMethod(OPEN_DVD_TEMPLATE.replace("%1$s", drive));
 	}
 	
 	@Override

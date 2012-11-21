@@ -67,7 +67,7 @@ public class VolumeControlPresenter extends BaseControlPresenter
 	protected Command getCommand(String command)
 	{
 		VolumeCommand vc = new VolumeCommand();
-		vc.volume = Integer.parseInt(command);
+		vc.setVolume(Integer.parseInt(command));
 		return vc;
 	}
 

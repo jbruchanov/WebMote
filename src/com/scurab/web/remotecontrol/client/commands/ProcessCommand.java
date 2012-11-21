@@ -44,25 +44,25 @@ public class ProcessCommand extends Command
 
 	public void Get()
 	{
-		Method = GET_COMMAND;
+		setMethod(GET_COMMAND);
 	}
 
 	public void Run(String fileLocation, String startParameters)
 	{
-		Method = RUN_COMMAND;
+		setMethod(RUN_COMMAND);
 		this.FileLocation = fileLocation;
 		this.StartParameters = startParameters;
 	}
 
 	public void Kill(int processId)
 	{
-		Method = KILL_COMMAND;
+		setMethod(KILL_COMMAND);
 		ProcessID = processId;
 	}
 
 	public void ActivateProcess(int processId)
 	{
-		Method = ACTIVATE_COMMAND;
+		setMethod(ACTIVATE_COMMAND);
 		ProcessID = processId;
 	}
 	

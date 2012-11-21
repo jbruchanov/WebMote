@@ -95,7 +95,7 @@ public class AudioPlayerPresenter extends BaseControlPresenter
 	protected Command getCommand(String command)
 	{
 		AudioPlayerCommand apc = new AudioPlayerCommand(mAppName);
-		apc.Method = command;
+		apc.setMethod(command);
 		if(command.equals("Start"))
 		{
 			ListBox lb = mDisplay.getTopPanel().getCmbItems();

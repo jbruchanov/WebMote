@@ -98,7 +98,7 @@ public class IRDevicePresenter extends BaseControlPresenter
 	protected Command getCommand(String command)
 	{
 		WinLIRCCommand wlc = new WinLIRCCommand(RemoteControl.IRDevice);
-		wlc.Method = command;
+		wlc.setMethod(command);
 		return wlc;
 	}
 

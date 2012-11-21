@@ -165,7 +165,7 @@ public class DesktopViewPresenter extends BaseControlPresenter
 		else
 		{
 			MouseCommand mc = new MouseCommand();
-			mc.Method = command;
+			mc.setMethod(command);
 			c = mc;
 		}
 		return c;

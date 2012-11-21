@@ -84,14 +84,14 @@ public class MediaCenterPresenter extends BaseControlPresenter
 	{
 		
 		super.onSendCommand(command);
-		if(R.MediaCenter.OPEN_AUDIO.equals(command.Method) 
-				|| R.MediaCenter.OPEN_PICTURE.equals(command.Method)
-				|| R.MediaCenter.OPEN_TELEVISION.equals(command.Method)
-				|| R.MediaCenter.OPEN_VIDEO.equals(command.Method))
+		if(R.MediaCenter.OPEN_AUDIO.equals(command.getMethod()) 
+				|| R.MediaCenter.OPEN_PICTURE.equals(command.getMethod())
+				|| R.MediaCenter.OPEN_TELEVISION.equals(command.getMethod())
+				|| R.MediaCenter.OPEN_VIDEO.equals(command.getMethod()))
 		{
 			boolean open = mDisplay.getChkRunSpecActivity().getValue();
 			if(open)
-				handleOpeningSpecActivity(translateCommandMethod(command.Method));
+				handleOpeningSpecActivity(translateCommandMethod(command.getMethod()));
 		}
 	}
 	
@@ -178,7 +178,7 @@ public class MediaCenterPresenter extends BaseControlPresenter
 	protected Command getCommand(String command)
 	{
 		MediaCenterCommand mcc = new MediaCenterCommand(RemoteControl.MediaCenter);
-		mcc.Method = translateCommand(command);
+		mcc.setMethod(translateCommand(command));
 		return mcc;
 	}
 	
