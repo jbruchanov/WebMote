@@ -16,7 +16,6 @@ public class ProcessCommand extends Command
 	public Integer ProcessID = null;
 	public final static String PROCESSID_KEY = "ProcessID";
 
-	private static String GET_COMMAND = "Get";
 	private static String RUN_COMMAND = "Run";
 	private static String KILL_COMMAND = "Kill";
 	private static String ACTIVATE_COMMAND = "Activate";
@@ -44,7 +43,7 @@ public class ProcessCommand extends Command
 
 	public void Get()
 	{
-		setMethod(GET_COMMAND);
+		setMethod(GET);
 	}
 
 	public void Run(String fileLocation, String startParameters)
