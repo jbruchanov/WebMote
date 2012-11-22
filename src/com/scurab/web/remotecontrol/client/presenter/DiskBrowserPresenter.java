@@ -263,7 +263,7 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 				break;
 			case StartByOS:
 				ProcessCommand pc = new ProcessCommand();
-				pc.Run(location, null);
+				pc.Run("", location);
 				c = pc;
 				break;
 			case Open:
