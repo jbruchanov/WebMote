@@ -28,7 +28,7 @@ public class FileManagerCommand extends Command
 	}
 	
 	@Override
-	protected String getCommandName()
+	protected String getCommand()
 	{
 		return "FileManagerCommand";
 	}

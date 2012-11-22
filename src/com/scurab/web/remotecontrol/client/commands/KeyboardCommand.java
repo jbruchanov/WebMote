@@ -18,7 +18,7 @@ public class KeyboardCommand extends Command
 	}
 	
 	@Override
-	protected String getCommandName()
+	protected String getCommand()
 	{
 		return "KeyboardCommand";
 	}

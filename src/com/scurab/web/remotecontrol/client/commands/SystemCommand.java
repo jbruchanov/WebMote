@@ -56,7 +56,7 @@ public class SystemCommand extends Command
 	}
 
 	@Override
-	protected String getCommandName()
+	protected String getCommand()
 	{
 		return "SystemCommand";
 	}

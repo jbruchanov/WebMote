@@ -4,7 +4,7 @@ public class GetApplicationsCommand extends Command
 {
 
 	@Override
-	protected String getCommandName()
+	protected String getCommand()
 	{
 		return "GetApplicationsCommand";
 	}

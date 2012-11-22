@@ -105,7 +105,7 @@ public class PicturesPresenter extends BaseControlPresenter
 			{
 				String v = lb.getValue(lb.getSelectedIndex()); 
 				if(v != null && v.trim().length() != 0)
-					pvc.MethodParameter = v;
+					pvc.setMethodParameter(v);
 			}
 		}
 		return pvc;

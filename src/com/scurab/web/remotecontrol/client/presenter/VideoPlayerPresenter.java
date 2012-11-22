@@ -8,8 +8,9 @@ import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.RemoteControl;
+import com.scurab.web.remotecontrol.client.commands.ApplicationCommand;
 import com.scurab.web.remotecontrol.client.commands.Command;
-import com.scurab.web.remotecontrol.client.commands.VideoPlayerCommand;
+import com.scurab.web.remotecontrol.client.commands.ApplicationCommand.AppType;
 import com.scurab.web.remotecontrol.client.datamodel.KeyValueItem;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
@@ -149,7 +150,7 @@ public class VideoPlayerPresenter extends BaseControlPresenter
 	@Override
 	protected Command getCommand(String command)
 	{
-		VideoPlayerCommand vpc =  new VideoPlayerCommand(mAppName);
+		ApplicationCommand vpc =  new ApplicationCommand(mAppName, AppType.Video);
 		vpc.setMethod(translateCommand(command));
 		if(command.equals("Start"))
 		{
@@ -158,7 +159,7 @@ public class VideoPlayerPresenter extends BaseControlPresenter
 			{
 				String v = lb.getValue(lb.getSelectedIndex()); 
 				if(v != null && v.trim().length() != 0)
-					vpc.MethodParameter = v;
+					vpc.setMethodParameter(v);
 			}
 		}
 		return vpc;

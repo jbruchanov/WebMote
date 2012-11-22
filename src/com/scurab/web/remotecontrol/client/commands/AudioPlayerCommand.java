@@ -9,7 +9,7 @@ public class AudioPlayerCommand extends ApplicationCommand
 	}
 
 	@Override
-	protected String getCommandName()
+	public String getCommand()
 	{
 		return "AudioPlayerCommand";
 	}

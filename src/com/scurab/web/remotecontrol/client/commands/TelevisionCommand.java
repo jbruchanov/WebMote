@@ -9,7 +9,7 @@ public class TelevisionCommand extends ApplicationCommand
 	}
 
 	@Override
-	protected String getCommandName()
+	public String getCommand()
 	{
 		return "TelevisionCommand";
 	}

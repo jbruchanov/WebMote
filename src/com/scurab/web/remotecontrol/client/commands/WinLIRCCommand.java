@@ -31,7 +31,7 @@ public class WinLIRCCommand extends ApplicationCommand
 	}
 	
 	@Override
-	protected String getCommandName()
+	public String getCommand()
 	{
 		return "WinLIRCCommand";
 	}

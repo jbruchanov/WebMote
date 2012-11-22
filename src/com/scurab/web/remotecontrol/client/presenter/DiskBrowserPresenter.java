@@ -14,13 +14,12 @@ import com.google.gwt.http.client.Response;
 import com.google.gwt.user.client.Window;
 import com.scurab.web.remotecontrol.client.R;
 import com.scurab.web.remotecontrol.client.RemoteControl;
-import com.scurab.web.remotecontrol.client.commands.AudioPlayerCommand;
+import com.scurab.web.remotecontrol.client.commands.ApplicationCommand;
+import com.scurab.web.remotecontrol.client.commands.ApplicationCommand.AppType;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.FileManagerCommand;
 import com.scurab.web.remotecontrol.client.commands.MCICommand;
-import com.scurab.web.remotecontrol.client.commands.PhotoViewerCommand;
 import com.scurab.web.remotecontrol.client.commands.ProcessCommand;
-import com.scurab.web.remotecontrol.client.commands.VideoPlayerCommand;
 import com.scurab.web.remotecontrol.client.components.FileBrowserContextMenu;
 import com.scurab.web.remotecontrol.client.components.FileBrowserContextMenu.ContextType;
 import com.scurab.web.remotecontrol.client.server.DataService;
@@ -245,21 +244,21 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 		switch(what)
 		{
 			case AudioPlayer:
-				AudioPlayerCommand apc = new AudioPlayerCommand(RemoteControl.AudioPlayer);
+				ApplicationCommand apc = new ApplicationCommand(RemoteControl.AudioPlayer, AppType.Audio);
 				apc.setMethod("Start");
-				apc.MethodParameter = location;
+				apc.setMethodParameter(location);
 				c = apc;
 				break;
 			case VideoPlayer:
-				VideoPlayerCommand vpc = new VideoPlayerCommand(RemoteControl.VideoPlayer);
+				ApplicationCommand vpc = new ApplicationCommand(RemoteControl.VideoPlayer, AppType.Video);
 				vpc.setMethod("Start");
-				vpc.MethodParameter = location;
+				vpc.setMethodParameter(location);
 				c = vpc;
 				break;
 			case PicturesViewer:
-				PhotoViewerCommand ppc = new PhotoViewerCommand(RemoteControl.PicturesViewer);
+				ApplicationCommand ppc = new ApplicationCommand(RemoteControl.PicturesViewer, AppType.Picture);
 				ppc.setMethod("Start");
-				ppc.MethodParameter = location;
+				ppc.setMethodParameter(location);
 				c = ppc;
 				break;
 			case StartByOS:

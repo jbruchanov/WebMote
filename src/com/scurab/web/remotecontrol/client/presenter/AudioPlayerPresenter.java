@@ -103,7 +103,7 @@ public class AudioPlayerPresenter extends BaseControlPresenter
 			{
 				String v = lb.getValue(lb.getSelectedIndex()); 
 				if(v != null && v.trim().length() != 0)
-					apc.MethodParameter = v;
+					apc.setMethodParameter(v);
 			}
 		}
 		return apc;

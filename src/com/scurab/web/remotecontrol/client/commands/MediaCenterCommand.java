@@ -9,7 +9,7 @@ public class MediaCenterCommand extends ApplicationCommand
 	}
 
 	@Override
-	protected String getCommandName()
+	public String getCommand()
 	{
 		return "MediaCenterCommand";
 	}

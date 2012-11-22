@@ -58,7 +58,7 @@ public class InfoCommand extends Command
 	}
 
 	@Override
-	protected String getCommandName()
+	protected String getCommand()
 	{
 		return "InfoCommand";
 	}

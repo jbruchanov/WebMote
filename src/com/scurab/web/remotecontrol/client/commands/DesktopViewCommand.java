@@ -35,7 +35,7 @@ public class DesktopViewCommand extends Command
 	}
 	
 	@Override
-	protected String getCommandName()
+	protected String getCommand()
 	{
 		return "DesktopViewCommand";
 	}

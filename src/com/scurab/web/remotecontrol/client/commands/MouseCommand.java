@@ -21,7 +21,7 @@ public class MouseCommand extends Command
 	}
 	
 	@Override
-	protected String getCommandName()
+	protected String getCommand()
 	{
 		return "MouseCommand";
 	}

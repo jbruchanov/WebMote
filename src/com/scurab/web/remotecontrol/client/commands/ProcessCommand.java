@@ -21,7 +21,7 @@ public class ProcessCommand extends Command
 	private static String ACTIVATE_COMMAND = "Activate";
 	
 	@Override
-	protected String getCommandName()
+	protected String getCommand()
 	{
 		return "ProcessCommand";
 	}
