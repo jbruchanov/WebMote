@@ -64,7 +64,7 @@ public class ShutdownPresenter extends BaseControlPresenter
 	protected Command getCommand(String command)
 	{
 		SystemCommand sc = new SystemCommand();
-		sc.Operation = command;
+		sc.setMethod(command);
 		sc.Force = mDisplay.getChkForce().getValue();
 		sc.Delay = getDelay();
 		return sc;

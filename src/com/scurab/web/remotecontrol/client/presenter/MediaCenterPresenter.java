@@ -13,9 +13,10 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.R;
 import com.scurab.web.remotecontrol.client.RemoteControl;
+import com.scurab.web.remotecontrol.client.commands.ApplicationCommand;
 import com.scurab.web.remotecontrol.client.commands.Command;
-import com.scurab.web.remotecontrol.client.commands.GetApplicationsCommand;
-import com.scurab.web.remotecontrol.client.commands.MediaCenterCommand;
+import com.scurab.web.remotecontrol.client.commands.InfoCommand;
+import com.scurab.web.remotecontrol.client.commands.ApplicationCommand.AppType;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.tools.JsonSimpleParser;
@@ -113,14 +114,15 @@ public class MediaCenterPresenter extends BaseControlPresenter
 	{
 		try
 		{
-		mDataService.sendCommand(new GetApplicationsCommand(), new RequestCallback()
+		mDataService.sendCommand(new InfoCommand(), new RequestCallback()
 		{
 			@Override
 			public void onResponseReceived(Request request, Response response)
 			{
 				try
 				{
-					HashMap<String, List<String>> data = JsonSimpleParser.parseApps(response.getText());
+					InfoCommand ic = JsonSimpleParser.parseInfoCommand(response.getText());
+					HashMap<String, List<String>> data = ic.getApplications();
 					onOpenSpecializedActivity(command,data.get(command));
 				}
 				catch(Exception e)				
@@ -177,7 +179,7 @@ public class MediaCenterPresenter extends BaseControlPresenter
 	@Override
 	protected Command getCommand(String command)
 	{
-		MediaCenterCommand mcc = new MediaCenterCommand(RemoteControl.MediaCenter);
+		ApplicationCommand mcc = new ApplicationCommand(RemoteControl.MediaCenter, AppType.MediaCenter);
 		mcc.setMethod(translateCommand(command));
 		return mcc;
 	}

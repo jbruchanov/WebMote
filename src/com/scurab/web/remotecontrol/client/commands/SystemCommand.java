@@ -3,13 +3,9 @@ package com.scurab.web.remotecontrol.client.commands;
 import com.google.gwt.json.client.JSONBoolean;
 import com.google.gwt.json.client.JSONNumber;
 import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.json.client.JSONString;
 
 public class SystemCommand extends Command
 {
-
-	public String Operation = null;
-	public final static String OPERATION_KEY = "Operation";
 	public int Delay = 0;
 	public final static String DELAY_KEY = "Delay";
 	public boolean Force = true;
@@ -27,32 +23,32 @@ public class SystemCommand extends Command
 
 	public void reboot()
 	{
-		Operation = "Reboot";
+		setMethod("Reboot");
 	}
 
 	public void shutdown()
 	{
-		Operation = "Shutdown";
+		setMethod("Shutdown");
 	}
 
 	public void abort()
 	{
-		Operation = "Abort";
+		setMethod("Abort");
 	}
 
 	public void hibernate()
 	{
-		Operation = "Hibernate";
+		setMethod("Hibernate");
 	}
 
 	public void turnMonitorOn()
 	{
-		Operation = "MonitorOn";
+		setMethod("MonitorOn");
 	}
 
 	public void turnMonitorOff()
 	{
-		Operation = "MonitorOff";
+		setMethod("MonitorOff");
 	}
 
 	@Override
@@ -60,16 +56,14 @@ public class SystemCommand extends Command
 	{
 		return "SystemCommand";
 	}
-	
+
 	@Override
 	protected JSONObject getJsonObject()
 	{
 		JSONObject jso = super.getJsonObject();
-		jso.put(METHOD_KEY, new JSONString(Operation));
 		jso.put(DELAY_KEY, new JSONNumber(Delay));
 		jso.put(FORCE_KEY, JSONBoolean.getInstance(Force));
 		return jso;
 	}
-	
-	
+
 }

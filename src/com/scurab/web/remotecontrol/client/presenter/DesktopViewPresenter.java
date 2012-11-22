@@ -96,9 +96,9 @@ public class DesktopViewPresenter extends BaseControlPresenter
 			MouseCommand mc = new MouseCommand();
 			int x = t.getScreenX();
 			int y = t.getScreenY();
-			mc.X = x - mLastX;
-			mc.Y = y - mLastY;
-			if(mc.X != 0 && mc.Y != 0)
+			mc.setX(x - mLastX);
+			mc.setY(y - mLastY);
+			if(mc.getX() != 0 && mc.getY() != 0)
 				onSendCommand(mc);
 			mLastX = x;
 			mLastY = y;

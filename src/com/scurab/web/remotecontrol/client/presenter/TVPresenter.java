@@ -5,8 +5,9 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.RemoteControl;
+import com.scurab.web.remotecontrol.client.commands.ApplicationCommand;
 import com.scurab.web.remotecontrol.client.commands.Command;
-import com.scurab.web.remotecontrol.client.commands.TelevisionCommand;
+import com.scurab.web.remotecontrol.client.commands.ApplicationCommand.AppType;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.ConfigView;
@@ -121,7 +122,7 @@ public class TVPresenter extends BaseControlPresenter
 	@Override
 	protected Command getCommand(String command)
 	{
-		TelevisionCommand tvc = new TelevisionCommand(mAppName);
+		ApplicationCommand tvc = new ApplicationCommand(mAppName, AppType.Television);
 		tvc.setMethod(translateCommand(command));
 		return tvc;
 	}

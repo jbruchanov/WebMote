@@ -6,7 +6,6 @@ import java.util.List;
 
 public class InfoCommand extends Command
 {
-
 	private String mComputerName;
 	private HashMap<String, List<String>> mApps;
 	private String mAddress;

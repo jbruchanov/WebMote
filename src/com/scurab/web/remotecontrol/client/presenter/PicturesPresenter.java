@@ -6,8 +6,9 @@ import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.RemoteControl;
+import com.scurab.web.remotecontrol.client.commands.ApplicationCommand;
+import com.scurab.web.remotecontrol.client.commands.ApplicationCommand.AppType;
 import com.scurab.web.remotecontrol.client.commands.Command;
-import com.scurab.web.remotecontrol.client.commands.PhotoViewerCommand;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.ConfigView;
@@ -96,7 +97,7 @@ public class PicturesPresenter extends BaseControlPresenter
 	@Override
 	protected Command getCommand(String command)
 	{
-		PhotoViewerCommand pvc = new PhotoViewerCommand(mAppName);
+		ApplicationCommand pvc = new ApplicationCommand(mAppName, AppType.Picture);
 		pvc.setMethod(translateCommand(command));
 		if(command.equals("Start"))
 		{

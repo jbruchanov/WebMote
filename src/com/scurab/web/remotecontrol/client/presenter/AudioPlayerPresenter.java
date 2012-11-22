@@ -6,8 +6,9 @@ import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.RemoteControl;
-import com.scurab.web.remotecontrol.client.commands.AudioPlayerCommand;
+import com.scurab.web.remotecontrol.client.commands.ApplicationCommand;
 import com.scurab.web.remotecontrol.client.commands.Command;
+import com.scurab.web.remotecontrol.client.commands.ApplicationCommand.AppType;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.AudioPlayerView;
@@ -94,7 +95,7 @@ public class AudioPlayerPresenter extends BaseControlPresenter
 	@Override
 	protected Command getCommand(String command)
 	{
-		AudioPlayerCommand apc = new AudioPlayerCommand(mAppName);
+		ApplicationCommand apc = new ApplicationCommand(mAppName, AppType.Audio);
 		apc.setMethod(command);
 		if(command.equals("Start"))
 		{

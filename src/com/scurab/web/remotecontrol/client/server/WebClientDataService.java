@@ -9,7 +9,7 @@ import com.google.gwt.http.client.RequestException;
 import com.google.gwt.http.client.Response;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.FileManagerCommand;
-import com.scurab.web.remotecontrol.client.commands.GetApplicationsCommand;
+import com.scurab.web.remotecontrol.client.commands.InfoCommand;
 import com.scurab.web.remotecontrol.client.commands.ProcessCommand;
 import com.scurab.web.remotecontrol.client.commands.WinLIRCCommand;
 
@@ -31,7 +31,7 @@ public class WebClientDataService extends DataService
 		}
 		catch(Exception e){}
 		VirtualResponse vr = new VirtualResponse();
-		if(c instanceof GetApplicationsCommand)
+		if(c instanceof InfoCommand)
 			vr.setResponseText(VirtualResponse.APPS);
 		else if(c instanceof WinLIRCCommand)
 			vr.setResponseText(VirtualResponse.IR);

@@ -25,7 +25,6 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.RemoteControl.PropertyKeys;
 import com.scurab.web.remotecontrol.client.commands.Command;
-import com.scurab.web.remotecontrol.client.commands.GetApplicationsCommand;
 import com.scurab.web.remotecontrol.client.commands.InfoCommand;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
@@ -48,8 +47,7 @@ public class ConfigPresenter extends BaseControlPresenter
 	
 	protected void load()
 	{
-		GetApplicationsCommand fic = new GetApplicationsCommand();
-		onSendCommand(fic, new RequestCallback()
+		onSendCommand(new InfoCommand(), new RequestCallback()
 		{
 			@Override
 			public void onResponseReceived(Request request, Response response)
