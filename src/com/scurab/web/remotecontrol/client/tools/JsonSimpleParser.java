@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.google.gwt.json.client.JSONArray;
+import com.google.gwt.json.client.JSONBoolean;
+import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONParser;
+import com.google.gwt.json.client.JSONValue;
+import com.scurab.web.remotecontrol.client.commands.InfoCommand;
+
 public class JsonSimpleParser
 {
 	
@@ -255,6 +262,36 @@ public class JsonSimpleParser
 			}
 		}
 		return result;
+	}
+	
+	public static InfoCommand parseInfoCommand(String value){		
+		JSONValue v = JSONParser.parseStrict(value);
+		JSONObject obj = v.isObject();
+		
+		String compName = obj.get("ComputerName").isString().stringValue();
+		int proto = (int) obj.get("ProtocolVersion").isNumber().doubleValue();
+		
+				
+		HashMap<String, List<String>> apps = new HashMap<String, List<String>>();
+		JSONObject jsonApps = obj.get("Applications").isObject();
+		
+		for(String key : jsonApps.keySet()){
+			List<String> appForKey = apps.get(key);
+			if(appForKey == null){
+				appForKey = new ArrayList<String>();
+				apps.put(key, appForKey);
+			}
+			JSONArray list = jsonApps.get(key).isArray();
+			for(int i = 0,n=list.size();i<n;i++){
+				appForKey.add(list.get(i).isString().stringValue());
+			}
+		}
+		
+		InfoCommand ic = new InfoCommand();
+		ic.setComputerName(compName);
+		ic.setProtocolVersion(proto);
+		ic.setApplications(apps);
+		return ic;
 	}
 	
 	private static boolean isWhitespace(char c)

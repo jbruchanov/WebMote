@@ -24,7 +24,7 @@ public abstract class Command
 		JSONObject jso = new JSONObject();
 		jso.put(PIN_KEY, new JSONString(RemoteControl.getPIN()));		
 		jso.put(COMMAND_KEY, new JSONString(getCommandName()));
-		jso.put(PROTOCOL_KEY, new JSONNumber(mProtocolVersion));
+		jso.put(PROTOCOL_KEY, new JSONNumber(getProtocolVersion()));
 		jso.put(PLATFORM_KEY, new JSONString("Web"));
 		if(mMethod != null){
 			jso.put(METHOD_KEY, new JSONString(mMethod));
@@ -48,5 +48,15 @@ public abstract class Command
 	public void setMethod(String method)
 	{
 		mMethod = method;
+	}
+
+	public int getProtocolVersion()
+	{
+		return mProtocolVersion;
+	}
+
+	public void setProtocolVersion(int protocolVersion)
+	{
+		mProtocolVersion = protocolVersion;
 	}
 }

@@ -26,6 +26,7 @@ import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.RemoteControl.PropertyKeys;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.GetApplicationsCommand;
+import com.scurab.web.remotecontrol.client.commands.InfoCommand;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.tools.JsonSimpleParser;
@@ -40,7 +41,7 @@ public class ConfigPresenter extends BaseControlPresenter
 	{
 		super(dataService, eventBus, display);
 		mDisplay = display;
-//		mDataService = new MockDataService();
+		mDataService = new MockDataService();
 		bind();
 		new Timer() {@Override public void run(){load();}}.schedule(50); 
 	}
@@ -55,7 +56,8 @@ public class ConfigPresenter extends BaseControlPresenter
 			{
 				try
 				{
-					HashMap<String, List<String>> data = JsonSimpleParser.parseApps(response.getText());
+					InfoCommand ic = JsonSimpleParser.parseInfoCommand(response.getText());
+					HashMap<String, List<String>> data = ic.getApplications();
 					onLoadedData(data);
 				}
 				catch(Exception e)
@@ -211,7 +213,8 @@ public class ConfigPresenter extends BaseControlPresenter
 				public String getText()
 				{
 					//return "{\"Audio\":[\"WinAmp\"],\"MediaCenter\":[],\"Picture\":[\"Media Center Pictures\",\"Windows Photo Viewer\"],\"Television\":[\"Avermedia TV\"],\"Video\":[\"Media Player classic\",\"VLC Player\"],\"WinLIRC\":[\"logitech_z680\",\"Panasonic_EUR644340\"]}";
-					return "{\"Audio\":[\"WinAmp\"],\"MediaCenter\":[],\"Picture\":[\"Media Center Pictures\",\"Windows Photo Viewer\"],\"Television\":[\"Avermedia TV\"],\"Video\":[\"Media Player classic\",\"VLC Player\"]}";
+//					return "{\"Audio\":[\"WinAmp\"],\"MediaCenter\":[],\"Picture\":[\"Media Center Pictures\",\"Windows Photo Viewer\"],\"Television\":[\"Avermedia TV\"],\"Video\":[\"Media Player classic\",\"VLC Player\"]}";
+					return "{\"ComputerName\":\"ELEPHANT-W8\",\"Applications\":{\"Picture\":[\"Windows Photo Viewer\",\"Media Portal Pictures\",\"Media Center Pictures\",\"XBMC Pictures\",\"IrfanView\",\"Picasa\"],\"Video\":[\"VLC PLayer\",\"Media Center Video\",\"Media Portal Video\",\"Media Player classic\",\"Windows Media Player Video\",\"XBMC Video\"],\"Television\":[\"Media Portal TV\",\"Media Center TV\",\"Avermedia TV\"],\"Audio\":[\"Media Center Audio\",\"WinAmp\",\"XBMC Audio\",\"Media Portal Audio\",\"Windows Media Player Audio\"],\"MediaCenter\":[\"Media Center\",\"XBMC\",\"Media Portal\"]},\"MACs\":[\"DC:A9:71:1A:0A:C2\",\"DC:A9:71:1A:0A:C3\",\"00:15:5D:C1:F8:F9\",\"08:00:27:00:F0:B2\"],\"Command\":\"InfoCommand\",\"ProtocolVersion\":0}";
 				}
 				
 				@Override

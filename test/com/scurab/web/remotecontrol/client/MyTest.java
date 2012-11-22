@@ -3,11 +3,14 @@ package com.scurab.web.remotecontrol.client;
 import java.util.HashMap;
 import java.util.List;
 
+import com.google.gwt.json.client.JSONParser;
+import com.google.gwt.json.client.JSONValue;
+import com.google.gwt.junit.client.GWTTestCase;
 import com.scurab.web.remotecontrol.client.tools.JsonSimpleParser;
 
 import junit.framework.TestCase;
 
-public class MyTest extends TestCase
+public class MyTest extends GWTTestCase
 {
 	@SuppressWarnings("unused")
 	public void testDisk() throws Exception
@@ -34,4 +37,16 @@ public class MyTest extends TestCase
 //		// TODO Auto-generated method stub
 //		return "com.scurab.web.remotecontrol.RemoteControl";
 //	}
+	
+	public void testParse(){
+		String q = "{\"ComputerName\":\"ELEPHANT-W8\",\"Applications\":{\"Video\":[\"VLC PLayer\",\"Media Center Video\",\"Media Portal Video\",\"Media Player classic\",\"Windows Media Player Video\",\"XBMC Video\"],\"Audio\":[\"Media Center Audio\",\"WinAmp\",\"XBMC Audio\",\"Media Portal Audio\",\"Windows Media Player Audio\"],\"MediaCenter\":[\"Media Center\",\"XBMC\",\"Media Portal\"],\"Television\":[\"Media Portal TV\",\"Media Center TV\",\"Avermedia TV\"],\"Picture\":[\"Windows Photo Viewer\",\"Media Portal Pictures\",\"Media Center Pictures\",\"XBMC Pictures\",\"IrfanView\",\"Picasa\"]},\"MACs\":[\"DC:A9:71:1A:0A:C2\",\"DC:A9:71:1A:0A:C3\",\"00:15:5D:C1:F8:F9\",\"08:00:27:00:F0:B2\"],\"Command\":\"InfoCommand\",\"ProtocolVersion\":0}";
+		JSONValue v = JSONParser.parseStrict(q);
+		String n = v.isObject().get("ComputerName").isString().stringValue();
+	}
+
+	@Override
+	public String getModuleName()
+	{
+		return null;
+	}
 }
