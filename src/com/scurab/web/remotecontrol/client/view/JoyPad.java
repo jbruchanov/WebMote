@@ -11,7 +11,6 @@ import com.scurab.web.remotecontrol.client.components.CommandableClickHandlerWra
 import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.InlineLabel;
-import com.google.gwt.user.client.ui.Image;
 
 public class JoyPad extends AbstractView
 {

@@ -1,7 +1,5 @@
 package com.scurab.web.remotecontrol.client.presenter;
 
-import java.util.List;
-
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerManager;
@@ -11,7 +9,6 @@ import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.ApplicationCommand;
 import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.ApplicationCommand.AppType;
-import com.scurab.web.remotecontrol.client.datamodel.KeyValueItem;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.ConfigView;

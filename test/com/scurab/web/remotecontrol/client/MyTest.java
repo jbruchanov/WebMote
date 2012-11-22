@@ -8,8 +8,6 @@ import com.google.gwt.json.client.JSONValue;
 import com.google.gwt.junit.client.GWTTestCase;
 import com.scurab.web.remotecontrol.client.tools.JsonSimpleParser;
 
-import junit.framework.TestCase;
-
 public class MyTest extends GWTTestCase
 {
 	@SuppressWarnings("unused")

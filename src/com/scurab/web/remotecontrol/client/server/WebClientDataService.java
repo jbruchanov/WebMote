@@ -1,9 +1,7 @@
 package com.scurab.web.remotecontrol.client.server;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.http.client.Header;
 import com.google.gwt.http.client.Request;
-import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.RequestException;
 import com.google.gwt.http.client.Response;
@@ -15,11 +13,13 @@ import com.scurab.web.remotecontrol.client.commands.WinLIRCCommand;
 
 public class WebClientDataService extends DataService
 {
+	@Override
 	public void sendCommand(Command c) throws RequestException
 	{
 		sendCommand(c,null);
 	}
 	
+	@Override
 	public void sendCommand(Command c, RequestCallback rc) throws RequestException
 	{
 		if(rc == null)

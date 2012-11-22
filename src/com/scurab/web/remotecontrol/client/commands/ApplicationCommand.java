@@ -8,7 +8,6 @@ public class ApplicationCommand extends Command
 	private String mApplication;
 	private String mMethodParameter;
 	private AppType mApplicationType;
-	private String mCommand;// appType
 
 	public enum AppType
 	{
