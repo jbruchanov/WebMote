@@ -5,15 +5,14 @@ import com.google.gwt.json.client.JSONString;
 
 public class KeyboardCommand extends Command
 {
-
-	public String KeyCode = "";
-	public final static String KEYCODE_KEY = "KeyCode";
+	private String mKeyCode = "";
+	public final static String KEYCODE_KEY = "KeyCodes";
 	
 	@Override
 	protected JSONObject getJsonObject()
 	{		
 		JSONObject jso = super.getJsonObject();
-		jso.put(KEYCODE_KEY, new JSONString(KeyCode));					
+		jso.put(KEYCODE_KEY, new JSONString(getKeyCode()));					
 		return jso;
 	}
 	
@@ -21,6 +20,16 @@ public class KeyboardCommand extends Command
 	protected String getCommand()
 	{
 		return "KeyboardCommand";
+	}
+
+	public String getKeyCode()
+	{
+		return mKeyCode;
+	}
+
+	public void setKeyCode(String keyCode)
+	{
+		mKeyCode = keyCode;
 	}
 
 }

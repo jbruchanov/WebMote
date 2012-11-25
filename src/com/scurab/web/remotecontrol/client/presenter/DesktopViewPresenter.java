@@ -160,7 +160,7 @@ public class DesktopViewPresenter extends BaseControlPresenter
 		if("0x1B".equals(command))//ESCAPE
 		{
 			KeyboardCommand kc = new KeyboardCommand();
-			kc.KeyCode = command;
+			kc.setKeyCode(command);
 			c = kc;
 		}
 		else

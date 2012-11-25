@@ -1,66 +1,66 @@
-<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
-<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:my="urn:import:com.scurab.web.remotecontrol.client.controls">
-	<ui:with type="com.scurab.web.remotecontrol.language.Words" field="res"/>
-	<ui:with type="com.scurab.web.remotecontrol.language.Keys" field="kc"/>
-	<ui:style>
-		.key {
-			font-family: Lucida Console;
-			font-size: 1.2em;
-		}
+<!-- <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent"> -->
+<!-- <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" -->
+<!-- 	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:my="urn:import:com.scurab.web.remotecontrol.client.controls"> -->
+<!-- 	<ui:with type="com.scurab.web.remotecontrol.language.Words" field="res"/> -->
+<!-- 	<ui:with type="com.scurab.web.remotecontrol.language.Keys" field="kc"/> -->
+<!-- 	<ui:style> -->
+<!-- 		.key { -->
+<!-- 			font-family: Lucida Console; -->
+<!-- 			font-size: 1.2em; -->
+<!-- 		} -->
 		
-		.row0 {
-			height: 50px;
-			font-family: Courier New;
-		}
+<!-- 		.row0 { -->
+<!-- 			height: 50px; -->
+<!-- 			font-family: Courier New; -->
+<!-- 		} -->
 		
-		.row1 {
-			height: 50px;
-			font-family: Courier New;
-		}
+<!-- 		.row1 { -->
+<!-- 			height: 50px; -->
+<!-- 			font-family: Courier New; -->
+<!-- 		} -->
 		
-		.row2 {
-			height: 50px;
-			font-family: Courier New;
-		}
+<!-- 		.row2 { -->
+<!-- 			height: 50px; -->
+<!-- 			font-family: Courier New; -->
+<!-- 		} -->
 		
-		.row3 {
-			height: 50px;
-			font-family: Courier New;
-			margin-top: -2px;
-		}
+<!-- 		.row3 { -->
+<!-- 			height: 50px; -->
+<!-- 			font-family: Courier New; -->
+<!-- 			margin-top: -2px; -->
+<!-- 		} -->
 		
-		.topPanel {
-			margin-top: 5px;
-			margin-bottom: 15px;
-		}
-	</ui:style>
-	<g:HTMLPanel ui:field="container">
-		<g:VerticalPanel width="100%">
-			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Back}" width="100%" height="50px" keyCode="{kc.KEY_BROWSER_BACK}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Forward}" width="100%" height="50px" keyCode="{kc.KEY_BROWSER_FORWARD}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Stop}" width="100%" height="50px" keyCode="{kc.KEY_BROWSER_STOP}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Reload}" width="100%" height="50px" keyCode="{kc.KEY_BROWSER_REFRESH}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Search}" width="100%" height="50px" keyCode="{kc.KEY_BROWSER_SEARCH}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Favorites}" width="100%" height="50px" keyCode="{kc.KEY_BROWSER_FAVORITES}"/>
-			</g:HorizontalPanel>
-			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Home}" width="100%" height="50px" keyCode="{kc.KEY_BROWSER_HOME}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Media}" width="100%" height="50px" keyCode="{kc.KEY_LAUNCH_MEDIA_SELECT}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.PlayPause}" width="100%" height="50px" keyCode="{kc.KEY_MEDIA_PLAY_PAUSE}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.StopPlaying}" width="100%" height="50px" keyCode="{kc.KEY_MEDIA_STOP}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Previous}" width="100%" height="50px" keyCode="{kc.KEY_MEDIA_PREV_TRACK}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Next}" width="100%" height="50px" keyCode="{kc.KEY_MEDIA_NEXT_TRACK}"/>
-			</g:HorizontalPanel>
-			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Mute}" width="100%" height="50px" keyCode="{kc.KEY_VOLUME_MUTE}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.VolumeDown}" width="100%" height="50px" keyCode="{kc.KEY_VOLUME_DOWN}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.VolumeUp}" width="100%" height="50px" keyCode="{kc.KEY_VOLUME_UP}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.App1}" width="100%" height="50px" keyCode="{kc.KEY_LAUNCH_APP1}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.App2}" width="100%" height="50px" keyCode="{kc.KEY_LAUNCH_APP2}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Email}" width="100%" height="50px" keyCode="{kc.KEY_LAUNCH_MAIL}"/>
-			</g:HorizontalPanel>			
-		</g:VerticalPanel>
-	</g:HTMLPanel>
-</ui:UiBinder> 
+<!-- 		.topPanel { -->
+<!-- 			margin-top: 5px; -->
+<!-- 			margin-bottom: 15px; -->
+<!-- 		} -->
+<!-- 	</ui:style> -->
+<!-- 	<g:HTMLPanel ui:field="container"> -->
+<!-- 		<g:VerticalPanel width="100%"> -->
+<!-- 			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE"> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Back}" width="100%" height="50px" keyCode="{kc.KEY_BROWSER_BACK}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Forward}" width="100%" height="50px" keyCode="{kc.KEY_BROWSER_FORWARD}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Stop}" width="100%" height="50px" keyCode="{kc.KEY_BROWSER_STOP}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Reload}" width="100%" height="50px" keyCode="{kc.KEY_BROWSER_REFRESH}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Search}" width="100%" height="50px" keyCode="{kc.KEY_BROWSER_SEARCH}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Favorites}" width="100%" height="50px" keyCode="{kc.KEY_BROWSER_FAVORITES}"/> -->
+<!-- 			</g:HorizontalPanel> -->
+<!-- 			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE"> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Home}" width="100%" height="50px" keyCode="{kc.KEY_BROWSER_HOME}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Media}" width="100%" height="50px" keyCode="{kc.KEY_LAUNCH_MEDIA_SELECT}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.PlayPause}" width="100%" height="50px" keyCode="{kc.KEY_MEDIA_PLAY_PAUSE}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.StopPlaying}" width="100%" height="50px" keyCode="{kc.KEY_MEDIA_STOP}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Previous}" width="100%" height="50px" keyCode="{kc.KEY_MEDIA_PREV_TRACK}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Next}" width="100%" height="50px" keyCode="{kc.KEY_MEDIA_NEXT_TRACK}"/> -->
+<!-- 			</g:HorizontalPanel> -->
+<!-- 			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE"> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Mute}" width="100%" height="50px" keyCode="{kc.KEY_VOLUME_MUTE}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.VolumeDown}" width="100%" height="50px" keyCode="{kc.KEY_VOLUME_DOWN}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.VolumeUp}" width="100%" height="50px" keyCode="{kc.KEY_VOLUME_UP}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.App1}" width="100%" height="50px" keyCode="{kc.KEY_LAUNCH_APP1}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.App2}" width="100%" height="50px" keyCode="{kc.KEY_LAUNCH_APP2}"/> -->
+<!-- 				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Email}" width="100%" height="50px" keyCode="{kc.KEY_LAUNCH_MAIL}"/> -->
+<!-- 			</g:HorizontalPanel>			 -->
+<!-- 		</g:VerticalPanel> -->
+<!-- 	</g:HTMLPanel> -->
+<!-- </ui:UiBinder>  -->

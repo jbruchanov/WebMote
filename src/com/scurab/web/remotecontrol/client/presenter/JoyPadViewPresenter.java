@@ -37,7 +37,7 @@ public class JoyPadViewPresenter extends BaseControlPresenter
 	protected Command getCommand(String command)
 	{
 		KeyboardCommand kbc = new KeyboardCommand();
-		kbc.KeyCode = translateCommand(command);
+		kbc.setKeyCode(translateCommand(command));
 		return kbc;
 	}
 	

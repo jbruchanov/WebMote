@@ -35,9 +35,9 @@ public class KeyboardView extends AbstractView
 	@UiField Button btnArrows;
 	@UiField Button btnNumeric;
 	@UiField Button btnFunctional;
-	@UiField Button btnMedia;
+//	@UiField Button btnMedia;
 	@UiField ArrowsKeyboard arrowsKeyboard;
-	@UiField MediaKeyboard mediaKeyboard;
+//	@UiField MediaKeyboard mediaKeyboard;
 	@UiField NumericKeyboard numericKeyboard;
 	
 	private HashSet<KeyButton> mAllButtons = null;
@@ -62,7 +62,7 @@ public class KeyboardView extends AbstractView
 		initClickHandlers(specialKeyboard);
 		initClickHandlers(arrowsKeyboard);
 		initClickHandlers(funcKeyboard);
-		initClickHandlers(mediaKeyboard);
+//		initClickHandlers(mediaKeyboard);
 		initClickHandlers(numericKeyboard);
 	}
 	
@@ -172,15 +172,15 @@ public class KeyboardView extends AbstractView
 		this.btnFunctional = btnFunctional;
 	}
 
-	public Button getBtnMedia()
-	{
-		return btnMedia;
-	}
-
-	public void setBtnMedia(Button btnMedia)
-	{
-		this.btnMedia = btnMedia;
-	}
+//	public Button getBtnMedia()
+//	{
+//		return btnMedia;
+//	}
+//
+//	public void setBtnMedia(Button btnMedia)
+//	{
+//		this.btnMedia = btnMedia;
+//	}
 
 	public DefaultKeyboard getDefaultKeyboard()
 	{
@@ -222,10 +222,10 @@ public class KeyboardView extends AbstractView
 		return funcKeyboard;
 	}
 
-	public MediaKeyboard getMediaKeyboard()
-	{
-		return mediaKeyboard;
-	}
+//	public MediaKeyboard getMediaKeyboard()
+//	{
+//		return mediaKeyboard;
+//	}
 
 	public NumericKeyboard getNumericKeyboard()
 	{

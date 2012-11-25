@@ -14,7 +14,7 @@
 				<my:CommandButton width="90%" ui:field="btnLeft" text="Left" height="40px" command="VK_LBUTTON"/>
 			</g:Cell>
 			<g:Cell verticalAlignment="ALIGN_MIDDLE">
-				<my:CommandButton width="90%" ui:field="btnEscape" text="Escape" height="40px" command="{kc.KEY_ESCAPE}"/>
+				<my:CommandButton width="90%" ui:field="btnEscape" text="Escape" height="40px" command="{kc.VK_ESCAPE}"/>
 			</g:Cell>
 			<g:Cell verticalAlignment="ALIGN_MIDDLE">
 				<my:CommandButton width="90%" text="Right" ui:field="btnRight" height="40px" command="VK_RBUTTON"/>

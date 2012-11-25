@@ -42,46 +42,46 @@
 			<g:Grid>
 				<g:row>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Home}" width="100%" height="50px" keyCode="{kc.KEY_HOME}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="{res.Home}" width="100%" height="50px" keyCode="{kc.VK_HOME}"/>
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowUp}" width="100%" height="50px" keyCode="{kc.KEY_UP}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowUp}" width="100%" height="50px" keyCode="{kc.VK_UP}"/>
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="PGUP" width="100%" height="50px" keyCode="{kc.KEY_PRIOR}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="PGUP" width="100%" height="50px" keyCode="{kc.VK_PAGE_UP}"/>
 					</g:customCell>
 				</g:row>
 				<g:row>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowLeft}" width="100%" height="50px" keyCode="{kc.KEY_LEFT}"/>	
+						<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowLeft}" width="100%" height="50px" keyCode="{kc.VK_LEFT}"/>	
 					</g:customCell>
 					<g:customCell>
 						<g:Label />	
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowRight}" width="100%" height="50px" keyCode="{kc.KEY_RIGHT}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowRight}" width="100%" height="50px" keyCode="{kc.VK_RIGHT}"/>
 					</g:customCell>
 				</g:row>
 				<g:row>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="END" width="100%" height="50px" keyCode="{kc.KEY_END}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="END" width="100%" height="50px" keyCode="{kc.VK_END}"/>
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowDown}" width="100%" height="50px" keyCode="{kc.KEY_DOWN}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowDown}" width="100%" height="50px" keyCode="{kc.VK_DOWN}"/>
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="PGDN" width="100%" height="50px" keyCode="{kc.KEY_NEXT}"/>		
+						<my:KeyButton styleName="{style.key} gwt-Button" text="PGDN" width="100%" height="50px" keyCode="{kc.VK_PAGE_DOWN}"/>		
 					</g:customCell>
 				</g:row>
 				<g:row>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="INS" width="100%" height="50px" keyCode="{kc.KEY_INSERT}"/>		
+						<my:KeyButton styleName="{style.key} gwt-Button" text="INS" width="100%" height="50px" keyCode="{kc.VK_INSERT}"/>		
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="DEL" width="100%" height="50px" keyCode="{kc.KEY_DELETE}"/>		
+						<my:KeyButton styleName="{style.key} gwt-Button" text="DEL" width="100%" height="50px" keyCode="{kc.VK_DELETE}"/>		
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="BACK" width="100%" height="50px" keyCode="{kc.KEY_BACK}"/>			
+						<my:KeyButton styleName="{style.key} gwt-Button" text="BACK" width="100%" height="50px" keyCode="{kc.VK_BACK_SPACE}"/>			
 					</g:customCell>
 				</g:row>
 			</g:Grid>
@@ -89,66 +89,66 @@
 			<g:Grid>
 				<g:row>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="NUM" width="100%" height="50px" keyCode="{kc.KEY_NUMLOCK}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="NUM" width="100%" height="50px" keyCode="{kc.VK_NUM_LOCK}"/>
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="/" width="100%" height="50px" keyCode="{kc.KEY_DIVIDE}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="/" width="100%" height="50px" keyCode="{kc.VK_DIVIDE}"/>
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="*" width="100%" height="50px" keyCode="{kc.KEY_MULTIPLY}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="*" width="100%" height="50px" keyCode="{kc.VK_MULTIPLY}"/>
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="-" width="100%" height="50px" keyCode="{kc.KEY_SUBTRACT}"/>
-					</g:customCell>
-				</g:row>
-				<g:row>
-					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="7" width="100%" height="50px" keyCode="{kc.KEY_NUMPAD7}"/>
-					</g:customCell>
-					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="8" width="100%" height="50px" keyCode="{kc.KEY_NUMPAD8}"/>
-					</g:customCell>
-					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="9" width="100%" height="50px" keyCode="{kc.KEY_NUMPAD9}"/>
-					</g:customCell>
-					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="+" width="100%" height="50px" keyCode="{kc.KEY_ADD}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="-" width="100%" height="50px" keyCode="{kc.VK_SUBTRACT}"/>
 					</g:customCell>
 				</g:row>
 				<g:row>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="4" width="100%" height="50px" keyCode="{kc.KEY_NUMPAD4}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="7" width="100%" height="50px" keyCode="{kc.VK_NUMPAD7}"/>
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="5" width="100%" height="50px" keyCode="{kc.KEY_NUMPAD5}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="8" width="100%" height="50px" keyCode="{kc.VK_NUMPAD8}"/>
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="6" width="100%" height="50px" keyCode="{kc.KEY_NUMPAD6}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="9" width="100%" height="50px" keyCode="{kc.VK_NUMPAD9}"/>
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="+" width="100%" height="50px" keyCode="{kc.KEY_ADD}"/>
-					</g:customCell>
-				</g:row>
-				<g:row>
-					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="1" width="100%" height="50px" keyCode="{kc.KEY_NUMPAD1}"/>
-					</g:customCell>
-					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="2" width="100%" height="50px" keyCode="{kc.KEY_NUMPAD2}"/>
-					</g:customCell>
-					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="3" width="100%" height="50px" keyCode="{kc.KEY_NUMPAD3}"/>
-					</g:customCell>
-					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="ENTER" width="100%" height="50px" keyCode="{kc.KEY_RETURN}"/>
-					</g:customCell>
-					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="SPACE" width="100%" height="50px" keyCode="{kc.KEY_SPACE}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="+" width="100%" height="50px" keyCode="{kc.VK_ADD}"/>
 					</g:customCell>
 				</g:row>
 				<g:row>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="0" width="100%" height="50px" keyCode="{kc.KEY_NUMPAD0}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="4" width="100%" height="50px" keyCode="{kc.VK_NUMPAD4}"/>
+					</g:customCell>
+					<g:customCell>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="5" width="100%" height="50px" keyCode="{kc.VK_NUMPAD5}"/>
+					</g:customCell>
+					<g:customCell>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="6" width="100%" height="50px" keyCode="{kc.VK_NUMPAD6}"/>
+					</g:customCell>
+					<g:customCell>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="+" width="100%" height="50px" keyCode="{kc.VK_ADD}"/>
+					</g:customCell>
+				</g:row>
+				<g:row>
+					<g:customCell>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="1" width="100%" height="50px" keyCode="{kc.VK_NUMPAD1}"/>
+					</g:customCell>
+					<g:customCell>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="2" width="100%" height="50px" keyCode="{kc.VK_NUMPAD2}"/>
+					</g:customCell>
+					<g:customCell>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="3" width="100%" height="50px" keyCode="{kc.VK_NUMPAD3}"/>
+					</g:customCell>
+					<g:customCell>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="ENTER" width="100%" height="50px" keyCode="{kc.VK_ENTER}"/>
+					</g:customCell>
+					<g:customCell>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="SPACE" width="100%" height="50px" keyCode="{kc.VK_SPACE}"/>
+					</g:customCell>
+				</g:row>
+				<g:row>
+					<g:customCell>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="0" width="100%" height="50px" keyCode="{kc.VK_NUMPAD0}"/>
 					</g:customCell>
 					<g:customCell>
 						<my:KeyButton styleName="{style.key} gwt-Button" text="." width="100%" height="50px" />
@@ -157,10 +157,10 @@
 						<my:KeyButton styleName="{style.key} gwt-Button" text="," width="100%" height="50px" />
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="ENTER" width="100%" height="50px" keyCode="{kc.KEY_RETURN}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="ENTER" width="100%" height="50px" keyCode="{kc.VK_ENTER}"/>
 					</g:customCell>
 					<g:customCell>
-						<my:KeyButton styleName="{style.key} gwt-Button" text="BACK" width="100%" height="50px" keyCode="{kc.KEY_BACK}"/>
+						<my:KeyButton styleName="{style.key} gwt-Button" text="BACK" width="100%" height="50px" keyCode="{kc.VK_BACK_SPACE}"/>
 					</g:customCell>
 				</g:row>
 			</g:Grid>

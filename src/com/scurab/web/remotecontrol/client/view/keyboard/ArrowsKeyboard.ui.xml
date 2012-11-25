@@ -39,14 +39,14 @@
 	<g:HTMLPanel ui:field="container">
 		<g:VerticalPanel width="100%">
 			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowUp}" width="20%" height="50px" keyCode="{kc.KEY_UP}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowUp}" width="20%" height="50px" keyCode="{kc.VK_UP}"/>
 			</g:HorizontalPanel>
 			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowLeft}" width="40%" height="50px" keyCode="{kc.KEY_LEFT}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowRight}" width="40%" height="50px" keyCode="{kc.KEY_RIGHT}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowLeft}" width="40%" height="50px" keyCode="{kc.VK_LEFT}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowRight}" width="40%" height="50px" keyCode="{kc.VK_RIGHT}"/>
 			</g:HorizontalPanel>
 			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowDown}" width="20%" height="50px" keyCode="{kc.KEY_DOWN}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" text="{res.ArrowDown}" width="20%" height="50px" keyCode="{kc.VK_DOWN}"/>
 			</g:HorizontalPanel>
 		</g:VerticalPanel>
 	</g:HTMLPanel>

@@ -42,48 +42,48 @@
 			<g:HorizontalPanel width="100%" styleName="{style.row0}"
 				height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
 				<my:KeyButton styleName="{style.key} gwt-Button" text="Q"
-					width="100%" keyCode="{kc.KEY_VK_Q}" height="50px" />
+					width="100%" keyCode="{kc.VK_Q}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="W"
-					width="100%" keyCode="{kc.KEY_VK_W}" height="50px" />
+					width="100%" keyCode="{kc.VK_W}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="E"
-					width="100%" keyCode="{kc.KEY_VK_E}" height="50px" />
+					width="100%" keyCode="{kc.VK_E}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="R"
-					width="100%" keyCode="{kc.KEY_VK_R}" height="50px" />
+					width="100%" keyCode="{kc.VK_R}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="T"
-					width="100%" keyCode="{kc.KEY_VK_T}" height="50px" />
+					width="100%" keyCode="{kc.VK_T}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="Y"
-					width="100%" keyCode="{kc.KEY_VK_Y}" height="50px" />
+					width="100%" keyCode="{kc.VK_Y}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="U"
-					width="100%" keyCode="{kc.KEY_VK_U}" height="50px" />
+					width="100%" keyCode="{kc.VK_U}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="I"
-					width="100%" keyCode="{kc.KEY_VK_I}" height="50px" />
+					width="100%" keyCode="{kc.VK_I}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="O"
-					width="100%" keyCode="{kc.KEY_VK_O}" height="50px" />
+					width="100%" keyCode="{kc.VK_O}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="P"
-					width="100%" keyCode="{kc.KEY_VK_P}" height="50px" />
+					width="100%" keyCode="{kc.VK_P}" height="50px" />
 			</g:HorizontalPanel>
 			<g:HorizontalPanel width="100%"
 				horizontalAlignment="ALIGN_CENTER">
 				<g:HorizontalPanel width="90%" styleName="{style.row1}"
 					height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
 					<my:KeyButton styleName="{style.key} gwt-Button" text="A"
-						width="100%" keyCode="{kc.KEY_VK_A}" height="50px" />
+						width="100%" keyCode="{kc.VK_A}" height="50px" />
 					<my:KeyButton styleName="{style.key} gwt-Button" text="S"
-						width="100%" keyCode="{kc.KEY_VK_S}" height="50px" />
+						width="100%" keyCode="{kc.VK_S}" height="50px" />
 					<my:KeyButton styleName="{style.key} gwt-Button" text="D"
-						width="100%" keyCode="{kc.KEY_VK_D}" height="50px" />
+						width="100%" keyCode="{kc.VK_D}" height="50px" />
 					<my:KeyButton styleName="{style.key} gwt-Button" text="F"
-						width="100%" keyCode="{kc.KEY_VK_F}" height="50px" />
+						width="100%" keyCode="{kc.VK_F}" height="50px" />
 					<my:KeyButton styleName="{style.key} gwt-Button" text="G"
-						width="100%" keyCode="{kc.KEY_VK_G}" height="50px" />
+						width="100%" keyCode="{kc.VK_G}" height="50px" />
 					<my:KeyButton styleName="{style.key} gwt-Button" text="H"
-						width="100%" keyCode="{kc.KEY_VK_H}" height="50px" />
+						width="100%" keyCode="{kc.VK_H}" height="50px" />
 					<my:KeyButton styleName="{style.key} gwt-Button" text="J"
-						width="100%" keyCode="{kc.KEY_VK_J}" height="50px" />
+						width="100%" keyCode="{kc.VK_J}" height="50px" />
 					<my:KeyButton styleName="{style.key} gwt-Button" text="K"
-						width="100%" keyCode="{kc.KEY_VK_K}" height="50px" />
+						width="100%" keyCode="{kc.VK_K}" height="50px" />
 					<my:KeyButton styleName="{style.key} gwt-Button" text="L"
-						width="100%" keyCode="{kc.KEY_VK_L}" height="50px" />
+						width="100%" keyCode="{kc.VK_L}" height="50px" />
 				</g:HorizontalPanel>
 			</g:HorizontalPanel>
 			<g:HorizontalPanel width="100%" styleName="{style.row2}"
@@ -91,32 +91,32 @@
 				<my:KeyButton styleName="{style.key} gwt-Button" text="SHIFT"
 					width="100%" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="Z"
-					width="100%" keyCode="{kc.KEY_VK_Z}" height="50px" />
+					width="100%" keyCode="{kc.VK_Z}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="X"
-					width="100%" keyCode="{kc.KEY_VK_X}" height="50px" />
+					width="100%" keyCode="{kc.VK_X}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="C"
-					width="100%" keyCode="{kc.KEY_VK_C}" height="50px" />
+					width="100%" keyCode="{kc.VK_C}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="V"
-					width="100%" keyCode="{kc.KEY_VK_V}" height="50px" />
+					width="100%" keyCode="{kc.VK_V}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="B"
-					width="100%" keyCode="{kc.KEY_VK_B}" height="50px" />
+					width="100%" keyCode="{kc.VK_B}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="N"
-					width="100%" keyCode="{kc.KEY_VK_N}" height="50px" />
+					width="100%" keyCode="{kc.VK_N}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="M"
-					width="100%" keyCode="{kc.KEY_VK_M}" height="50px" />
+					width="100%" keyCode="{kc.VK_M}" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="BCK"
-					width="100%" keyCode="{kc.KEY_BACK}" height="50px" />
+					width="100%" keyCode="{kc.VK_BACK_SPACE}" height="50px" />
 			</g:HorizontalPanel>
 			<g:HorizontalPanel height="" horizontalAlignment="ALIGN_CENTER"
 				styleName="{style.row3}" verticalAlignment="ALIGN_MIDDLE" width="100%">
-				<my:KeyToggleButton height="35px" text="CTRL" width="80%" keyCode="{kc.KEY_LCONTROL}"/>
-				<my:KeyToggleButton height="35px" text="WIN" width="80%" keyCode="{kc.KEY_LWIN}"/>
-				<my:KeyToggleButton height="35px" text="ALT" width="80%" keyCode="{kc.KEY_LMENU}"/>
-				<my:KeyButton height="43px" styleName="{style.key} gwt-Button" text="SPACE" width="100%" keyCode="{kc.KEY_SPACE}"/>
-				<my:KeyToggleButton height="35px" text="RALT" width="82%" keyCode="{kc.KEY_RMENU}"/>
-				<my:KeyToggleButton height="35px" text="APP" width="80%" keyCode="{kc.KEY_APPS}"/>
-				<my:KeyToggleButton height="35px" text="CTRL" width="80%" keyCode="{kc.KEY_RCONTROL}"/>
-				<my:KeyButton height="43px" styleName="{style.key} gwt-Button" text="ENTER" width="100%" keyCode="{kc.KEY_RETURN}"/>
+				<my:KeyToggleButton height="35px" text="CTRL" width="80%" keyCode="{kc.VK_CONTROL}"/>
+				<my:KeyToggleButton height="35px" text="WIN" width="80%" keyCode="{kc.VK_WINDOWS}"/>
+				<my:KeyToggleButton height="35px" text="ALT" width="80%" keyCode="{kc.VK_ALT}"/>
+				<my:KeyButton height="43px" styleName="{style.key} gwt-Button" text="SPACE" width="100%" keyCode="{kc.VK_SPACE}"/>
+				<my:KeyToggleButton height="35px" text="RALT" width="82%" keyCode="{kc.VK_ALT}"/>
+				<my:KeyToggleButton height="35px" text="APP" width="80%" keyCode="{kc.VK_CONTEXT_MENU}"/>
+				<my:KeyToggleButton height="35px" text="CTRL" width="80%" keyCode="{kc.VK_CONTROL}"/>
+				<my:KeyButton height="43px" styleName="{style.key} gwt-Button" text="ENTER" width="100%" keyCode="{kc.VK_ENTER}"/>
 			</g:HorizontalPanel>
 		</g:VerticalPanel>
 

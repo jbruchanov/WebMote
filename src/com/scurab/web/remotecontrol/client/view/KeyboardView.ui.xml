@@ -24,7 +24,7 @@
 		<p1:SpecialKeyboard ui:field="specialKeyboard"/>
 		<p1:ArrowsKeyboard ui:field="arrowsKeyboard" />
 		<p1:FunctionalKeyboard ui:field="funcKeyboard"/>
-		<p1:MediaKeyboard ui:field="mediaKeyboard" />
+<!-- 		<p1:MediaKeyboard ui:field="mediaKeyboard" /> -->
 		<p1:NumericKeyboard ui:field="numericKeyboard" />
 	</g:HTMLPanel>
 </ui:UiBinder> 

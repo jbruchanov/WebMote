@@ -39,7 +39,7 @@
 	<g:HTMLPanel ui:field="container">
 		<g:VerticalPanel width="100%">
 			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
-				<my:KeyButton styleName="{style.key} gwt-Button" text="~" width="100%" height="50px" keyCode="{~}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" text="~" width="100%" height="50px" keyCode="{~}" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="!" width="100%" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="@" width="100%" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="#" width="100%" height="50px" />
@@ -72,20 +72,20 @@
 				<my:KeyButton styleName="{style.key} gwt-Button" text="." width="100%" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="&gt;" width="100%" height="50px" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="/" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="BACK" width="100%" height="50px" keyCode="{kc.KEY_BACK}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" text="BACK" width="100%" height="50px" keyCode="{kc.VK_BACK_SPACE}"/>
 			</g:HorizontalPanel>
 			<g:Cell verticalAlignment="ALIGN_BOTTOM">
 				<g:HorizontalPanel height="" horizontalAlignment="ALIGN_CENTER"
-					styleName="{style.row3}" verticalAlignment="ALIGN_MIDDLE" width="100%">
-					<my:KeyToggleButton height="35px" text="CTRL" width="80%" keyCode="{kc.KEY_LCONTROL}"/>
-					<my:KeyToggleButton height="35px" text="WIN" width="80%" keyCode="{kc.KEY_LWIN}"/>
-					<my:KeyToggleButton height="35px" text="ALT" width="80%" keyCode="{kc.KEY_LMENU}"/>
-					<my:KeyButton height="43px" styleName="{style.key} gwt-Button" text="SPACE" width="100%" keyCode="{kc.KEY_SPACE}"/>
-					<my:KeyToggleButton height="35px" text="RALT" width="82%" keyCode="{kc.KEY_RMENU}"/>
-					<my:KeyToggleButton height="35px" text="APP" width="80%" keyCode="{kc.KEY_APPS}"/>
-					<my:KeyToggleButton height="35px" text="CTRL" width="80%" keyCode="{kc.KEY_RCONTROL}"/>
-					<my:KeyButton height="43px" styleName="{style.key} gwt-Button" text="ENTER" width="100%" keyCode="{kc.KEY_RETURN}"/>
-				</g:HorizontalPanel>
+				styleName="{style.row3}" verticalAlignment="ALIGN_MIDDLE" width="100%">
+				<my:KeyToggleButton height="35px" text="CTRL" width="80%" keyCode="{kc.VK_CONTROL}"/>
+				<my:KeyToggleButton height="35px" text="WIN" width="80%" keyCode="{kc.VK_WINDOWS}"/>
+				<my:KeyToggleButton height="35px" text="ALT" width="80%" keyCode="{kc.VK_ALT}"/>
+				<my:KeyButton height="43px" styleName="{style.key} gwt-Button" text="SPACE" width="100%" keyCode="{kc.VK_SPACE}"/>
+				<my:KeyToggleButton height="35px" text="RALT" width="82%" keyCode="{kc.VK_ALT}"/>
+				<my:KeyToggleButton height="35px" text="APP" width="80%" keyCode="{kc.VK_CONTEXT_MENU}"/>
+				<my:KeyToggleButton height="35px" text="CTRL" width="80%" keyCode="{kc.VK_CONTROL}"/>
+				<my:KeyButton height="43px" styleName="{style.key} gwt-Button" text="ENTER" width="100%" keyCode="{kc.VK_ENTER}"/>
+			</g:HorizontalPanel>
 			</g:Cell>
 		</g:VerticalPanel>
 	</g:HTMLPanel>

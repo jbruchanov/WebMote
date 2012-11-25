@@ -27,7 +27,7 @@ public class KeyboardPresenter extends BaseControlPresenter
 	
 	private enum ShowPanel
 	{
-		Default, Shift, Special, Arrows, Numeric, Functional, Media
+		Default, Shift, Special, Arrows, Numeric, Functional//, Media
 	}
 	
 	private void bind()
@@ -36,13 +36,13 @@ public class KeyboardPresenter extends BaseControlPresenter
 		mDisplay.getSpecialKeyboard().setVisible(false);
 		mDisplay.getArrowsKeyboard().setVisible(false);
 		mDisplay.getFuncKeyboard().setVisible(false);
-		mDisplay.getMediaKeyboard().setVisible(false);
+//		mDisplay.getMediaKeyboard().setVisible(false);
 		mDisplay.getNumericKeyboard().setVisible(false);
 		
 		mDisplay.getBtnArrows().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onClickButton(ShowPanel.Arrows);}});
 		mDisplay.getBtnDefault().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onClickButton(ShowPanel.Default);}});
 		mDisplay.getBtnFunctional().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onClickButton(ShowPanel.Functional);}});
-		mDisplay.getBtnMedia().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onClickButton(ShowPanel.Media);}});
+//		mDisplay.getBtnMedia().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onClickButton(ShowPanel.Media);}});
 		mDisplay.getBtnNumeric().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onClickButton(ShowPanel.Numeric);}});
 		mDisplay.getBtnSpecial().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onClickButton(ShowPanel.Special);}});
 		
@@ -94,8 +94,8 @@ public class KeyboardPresenter extends BaseControlPresenter
 			String cmd = kb.getKeyCode() == null ? kb.getText() : kb.getKeyCode();
 			KeyboardCommand kc = new KeyboardCommand();
 			if(mShifted)
-				kc.KeyCode = R.Constants.KEY_SHIFT;
-			kc.KeyCode += getSpecialKeys() + cmd;
+				kc.setKeyCode(R.Constants.KEY_SHIFT);
+			kc.setKeyCode(kc.getKeyCode() + (getSpecialKeys() + cmd));
 			onSendCommand(kc);
 		}
 	}
@@ -116,8 +116,8 @@ public class KeyboardPresenter extends BaseControlPresenter
 		String cmd = kb.getKeyCode() == null ? kb.getText() : kb.getKeyCode();
 		KeyboardCommand kc = new KeyboardCommand();
 		if(mShifted)
-			kc.KeyCode = R.Constants.KEY_SHIFT;
-		kc.KeyCode += cmd;
+			kc.setKeyCode(R.Constants.KEY_SHIFT);
+		kc.setKeyCode(kc.getKeyCode() + cmd);
 		onSendCommand(kc);
 	}
 	
@@ -143,7 +143,7 @@ public class KeyboardPresenter extends BaseControlPresenter
 			case Special: mCurrentKeyboard =   mDisplay.getSpecialKeyboard();break;
 			case Arrows: mCurrentKeyboard = mDisplay.getArrowsKeyboard();break;
 			case Functional: mCurrentKeyboard = mDisplay.getFuncKeyboard();break;
-			case Media: mCurrentKeyboard = mDisplay.getMediaKeyboard();break;
+//			case Media: mCurrentKeyboard = mDisplay.getMediaKeyboard();break;
 			case Numeric: mCurrentKeyboard = mDisplay.getNumericKeyboard();break;
 		}
 		mShifted = false;
