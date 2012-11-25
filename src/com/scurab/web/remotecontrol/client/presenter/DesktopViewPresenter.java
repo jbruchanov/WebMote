@@ -98,8 +98,9 @@ public class DesktopViewPresenter extends BaseControlPresenter
 			int y = t.getScreenY();
 			mc.setX(x - mLastX);
 			mc.setY(y - mLastY);
-			if(mc.getX() != 0 && mc.getY() != 0)
+			if(mc.getX() != 0 || mc.getY() != 0){
 				onSendCommand(mc);
+			}
 			mLastX = x;
 			mLastY = y;
 			mLastMouseCommandSendTime = now;
