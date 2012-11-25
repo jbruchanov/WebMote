@@ -115,7 +115,7 @@ public class RemoteControl implements EntryPoint
 		public static final String AUDIOPLAYER = "Audio";
 		public static final String PICTURESVIEWER = "Picture";
 		public static final String MEDIACENTER = "MediaCenter";
-		public static final String IRDEVICE = "WinLIRC";
+		public static final String IRDEVICE = "InfraRed";
 		public static final String PIN = "PIN";
 		public static final String FIRST_START = "FIRST_START";
 		

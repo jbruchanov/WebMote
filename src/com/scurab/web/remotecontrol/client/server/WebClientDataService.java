@@ -9,7 +9,7 @@ import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.FileManagerCommand;
 import com.scurab.web.remotecontrol.client.commands.InfoCommand;
 import com.scurab.web.remotecontrol.client.commands.ProcessCommand;
-import com.scurab.web.remotecontrol.client.commands.WinLIRCCommand;
+import com.scurab.web.remotecontrol.client.commands.InfraRedCommand;
 
 public class WebClientDataService extends DataService
 {
@@ -33,7 +33,7 @@ public class WebClientDataService extends DataService
 		VirtualResponse vr = new VirtualResponse();
 		if(c instanceof InfoCommand)
 			vr.setResponseText(VirtualResponse.APPS);
-		else if(c instanceof WinLIRCCommand)
+		else if(c instanceof InfraRedCommand)
 			vr.setResponseText(VirtualResponse.IR);
 		else if(c instanceof ProcessCommand)
 			vr.setResponseText(VirtualResponse.PROCS);

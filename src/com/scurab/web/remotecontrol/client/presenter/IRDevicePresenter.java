@@ -1,6 +1,10 @@
 package com.scurab.web.remotecontrol.client.presenter;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+import java_cup.internal_error;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -10,10 +14,13 @@ import com.google.gwt.http.client.Request;
 import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.RequestException;
 import com.google.gwt.http.client.Response;
+import com.google.gwt.json.client.JSONArray;
+import com.google.gwt.json.client.JSONParser;
+import com.google.gwt.json.client.JSONValue;
 import com.google.gwt.user.client.Window;
 import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.Command;
-import com.scurab.web.remotecontrol.client.commands.WinLIRCCommand;
+import com.scurab.web.remotecontrol.client.commands.InfraRedCommand;
 import com.scurab.web.remotecontrol.client.controls.CommandButton;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.tools.JsonSimpleParser;
@@ -38,8 +45,8 @@ public class IRDevicePresenter extends BaseControlPresenter
 	
 	private void loadDefinitions()
 	{
-		WinLIRCCommand wlc = new WinLIRCCommand(RemoteControl.IRDevice);
-		wlc.GetAvailableCodes();
+		InfraRedCommand wlc = new InfraRedCommand(RemoteControl.IRDevice);
+		wlc.getAvailableCodes();
 		onSendCommand(wlc, new RequestCallback()
 		{
 			@Override
@@ -47,8 +54,14 @@ public class IRDevicePresenter extends BaseControlPresenter
 			{
 				try
 				{
-					HashMap<String,String> data = JsonSimpleParser.parse(response.getText()).get(0);
-					onLoadedDefinitions(data);
+					String json = response.getText();
+					JSONValue v = JSONParser.parseStrict(json);
+					JSONArray array = v.isArray();
+					List<String> commands = new ArrayList<String>();
+					for(int i = 0,n=array.size();i<n;i++){
+						commands.add(array.get(i).isString().stringValue());
+					}
+					onLoadedDefinitions(commands);
 				}
 				catch(Exception e)
 				{
@@ -64,19 +77,19 @@ public class IRDevicePresenter extends BaseControlPresenter
 		});
 	}
 	
-	protected void onLoadedDefinitions(HashMap<String,String> data)
+	protected void onLoadedDefinitions(List<String> data)
 	{
 		build(data);
 	}
 	
-	protected void build(HashMap<String,String> data)
+	protected void build(List<String> data)
 	{
-		for(String key : data.keySet())
+		for(String key : data)
 		{
 			final CommandButton cb = new CommandButton();			
 			cb.setStyleName("rc-IRButton gwt-Button");
 			cb.setText(key);
-			cb.setCommand(data.get(key));
+			cb.setCommand(key);
 			mDisplay.getContainer().add(cb);
 			cb.addClickHandler(new ClickHandler()
 			{
@@ -97,7 +110,7 @@ public class IRDevicePresenter extends BaseControlPresenter
 	@Override
 	protected Command getCommand(String command)
 	{
-		WinLIRCCommand wlc = new WinLIRCCommand(RemoteControl.IRDevice);
+		InfraRedCommand wlc = new InfraRedCommand(RemoteControl.IRDevice);
 		wlc.setMethod(command);
 		return wlc;
 	}
@@ -122,7 +135,7 @@ public class IRDevicePresenter extends BaseControlPresenter
 				@Override
 				public String getText()
 				{
-					return "{\"power\":\"power\",\"test\":\"test\",\"input\":\"input\",\"effect\":\"effect\",\"settings\":\"settings\",\"sub+\":\"sub+\",\"sub-\":\"sub-\",\"center+\":\"center+\",\"center-\":\"center-\",\"surround+\":\"surround+\",\"surround-\":\"surround-\",\"vol+\":\"vol+\",\"vol-\":\"vol-\",\"mute\":\"mute\"}";
+					return "[\"power\",\"test\",\"input\"]";
 				}
 				
 				@Override
