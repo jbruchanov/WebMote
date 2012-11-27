@@ -157,7 +157,7 @@ public class DesktopViewPresenter extends BaseControlPresenter
 	protected Command getCommand(String command)
 	{
 		Command c = null;
-		if("0x1B".equals(command))//ESCAPE
+		if("0x1b".equalsIgnoreCase(command))//ESCAPE
 		{
 			KeyboardCommand kc = new KeyboardCommand();
 			kc.setKeyCode(command);
