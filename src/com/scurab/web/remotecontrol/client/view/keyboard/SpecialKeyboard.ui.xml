@@ -40,38 +40,38 @@
 		<g:VerticalPanel width="100%">
 			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
 				<my:KeyButton styleName="{style.key} gwt-Button" text="~" width="100%" height="50px" keyCode="{~}" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="!" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="@" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="#" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="$" width="100%" height="50px" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="!" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="@" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="#" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="$" width="100%" height="50px" native="true" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="%" width="100%" height="50px" keyCode="{%}"/>
 				<my:KeyButton styleName="{style.key} gwt-Button" text="^" width="100%" height="50px" keyCode="{^}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="&amp;" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="*" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="?" width="100%" height="50px" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="&amp;" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="*" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="?" width="100%" height="50px" native="true" />
 			</g:HorizontalPanel>
 			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
 				<my:KeyButton styleName="{style.key} gwt-Button" text="(" width="100%" height="50px" keyCode="{(}"/>
 				<my:KeyButton styleName="{style.key} gwt-Button" text=")" width="100%" height="50px" keyCode="{)}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text="_" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="=" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="[" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="]" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="{" width="100%" height="50px" keyCode="{{}"/>
+				<my:KeyButton styleName="{style.key} gwt-Button" text="_" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="=" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="[" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="]" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="{" width="100%" height="50px" keyCode="{{{}"/>
 				<my:KeyButton styleName="{style.key} gwt-Button" text="}" width="100%" height="50px" keyCode="{}}"/>
-				<my:KeyButton styleName="{style.key} gwt-Button" text=";" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text=":" width="100%" height="50px" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text=";" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text=":" width="100%" height="50px" native="true" />
 			</g:HorizontalPanel>
 			<g:HorizontalPanel width="100%" styleName="{style.row0}" height="" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
-				<my:KeyButton styleName="{style.key} gwt-Button" text="'" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="&quot;" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="\" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="|" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="," width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="&lt;" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="." width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="&gt;" width="100%" height="50px" />
-				<my:KeyButton styleName="{style.key} gwt-Button" text="/" width="100%" height="50px" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="'" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="&quot;" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="\" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="|" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="," width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="&lt;" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="." width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="&gt;" width="100%" height="50px" native="true" />
+				<my:KeyButton styleName="{style.key} gwt-Button" text="/" width="100%" height="50px" native="true" />
 				<my:KeyButton styleName="{style.key} gwt-Button" text="BACK" width="100%" height="50px" keyCode="{kc.VK_BACK_SPACE}"/>
 			</g:HorizontalPanel>
 			<g:Cell verticalAlignment="ALIGN_BOTTOM">

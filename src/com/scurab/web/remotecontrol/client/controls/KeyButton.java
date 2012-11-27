@@ -4,7 +4,8 @@ import com.google.gwt.user.client.ui.Button;
 
 public class KeyButton extends Button
 {
-	String mKeyCode = null;
+	private String mKeyCode = null;
+	private boolean mNative = false;
 
 	public String getKeyCode()
 	{
@@ -14,6 +15,16 @@ public class KeyButton extends Button
 	public void setKeyCode(String keyCode)
 	{
 		mKeyCode = keyCode;
+	}
+
+	public boolean isNative()
+	{
+		return mNative;
+	}
+
+	public void setNative(boolean _native)
+	{
+		mNative = _native;
 	}
 	
 }
