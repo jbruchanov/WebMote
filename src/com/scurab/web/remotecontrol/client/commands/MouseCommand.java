@@ -7,7 +7,7 @@ public class MouseCommand extends Command
 {
 
 	private int mX;
-	private final static String X_KEY = "XX";
+	private final static String X_KEY = "DX";
 	private int mY;
 	private final static String Y_KEY = "DY";
 	private int mScroll;
