@@ -270,6 +270,8 @@ public class JsonSimpleParser
 		String compName = obj.get("ComputerName").isString().stringValue();
 		int proto = (int) obj.get("ProtocolVersion").isNumber().doubleValue();
 		
+		String pathSeparator = obj.get("PathSeparator").isString().stringValue();
+		String platform = obj.get("Platform").isString().stringValue();
 				
 		HashMap<String, List<String>> apps = new HashMap<String, List<String>>();
 		JSONObject jsonApps = obj.get("Applications").isObject();
@@ -290,6 +292,8 @@ public class JsonSimpleParser
 		ic.setComputerName(compName);
 		ic.setProtocolVersion(proto);
 		ic.setApplications(apps);
+		ic.setPathSeparator(pathSeparator);
+		ic.setPlatform(platform);
 		return ic;
 	}
 	

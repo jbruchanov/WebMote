@@ -35,15 +35,21 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 	private List<HashMap<String,String>> mCurrentData = null;
 	private String mCurrentDir = "";
 	
+	private static String PATH_SEPARATOR;
+	
 	private final static int TYPE_FILE = 20;
 	
 	public DiskBrowserPresenter(DataService dataService, HandlerManager eventBus, DiskBrowserView display)
 	{
 		super(dataService, eventBus, display);
 		mDisplay = display;
-//		mDataService = new MockDataService();
+		String sep = RemoteControl.getProperty(RemoteControl.PropertyKeys.PATH_SEPARATOR);
+		PATH_SEPARATOR = (sep != null && sep.length() > 0) ? sep : "\\";
+//		PATH_SEPARATOR = "/";
+//		mDataService = new MockDataServiceLinux();
 		loadData(null);
 		bind();
+		
 	}
 	
 	private void bind()
@@ -102,7 +108,7 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 				{					
 					mCurrentDir = location;
 					String s = response.getText();
-					mDisplay.getLblCurrentLocation().setText(mCurrentDir);
+					mDisplay.getLblCurrentLocation().setText(mCurrentDir == null ? "" : mCurrentDir);
 					mDisplay.getContentPanel().clear();
 					mCurrentData = JsonSimpleParser.parse(s);
 					onLoadData(mCurrentData);
@@ -129,7 +135,7 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 		for(HashMap<String,String> row : data)
 		{
 			String n = row.get("N");
-			if(n.endsWith("\\\\"))
+			if(n.endsWith(PATH_SEPARATOR + PATH_SEPARATOR))
 				n = n.substring(0,n.length()-1); //shit about double \\ on disks
 			final String dir = n;
 			String t = row.get("T");
@@ -173,7 +179,7 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 				if(item.getType().getCode() >= 10)
 				{
 					String cd = (mCurrentDir == null ||  mCurrentDir.trim().length() == 0) ? "" : mCurrentDir;
-					if(cd.trim().length() > 0 && !cd.endsWith("\\")) cd += "\\";
+					if(cd.trim().length() > 0 && !cd.endsWith(PATH_SEPARATOR)) cd += PATH_SEPARATOR;
 					loc = "\"" + cd + item.getValue() + "\"";
 				}
 				
@@ -293,10 +299,10 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 		{
 			if(type == 10)
 			{
-				if(mCurrentDir != null && !mCurrentDir.endsWith("\\"))				
-					file = mCurrentDir + "\\" + dir;
+				if(mCurrentDir != null && !mCurrentDir.endsWith(PATH_SEPARATOR))				
+					file = mCurrentDir + PATH_SEPARATOR + dir;
 				else
-					file = mCurrentDir + dir;
+					file = (mCurrentDir == null ? "" : mCurrentDir) + dir;
 			}
 			else
 				file = dir;
@@ -310,9 +316,9 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 		return null;
 	}
 	
-	private class MockDataService extends DataService
+	private class MockDataServiceLinux extends DataService
 	{
-		public MockDataService()
+		public MockDataServiceLinux()
 		{			
 		}
 		private int a = 0;
@@ -321,10 +327,10 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 		{
 			Response r = new Response()
 			{
-				String diska = "[{\"N\":\"C:\\\",\"T\":0},{\"N\":\"D:\\\",\"T\":0},{\"N\":\"F:\\\",\"T\":0},{\"N\":\"G:\\\",\"T\":3},{\"N\":\"H:\\\",\"T\":3},{\"N\":\"L:\\\",\"T\":0},{\"N\":\"R:\\\",\"T\":2},{\"N\":\"W:\\\",\"T\":2},{\"N\":\"X:\\\",\"T\":2}]";				
-				String diskc = "[{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"1Skola\",\"T\":10},{\"N\":\"Release\",\"T\":10},{\"N\":\"System Volume Information\",\"T\":10},{\"N\":\"tmp\",\"T\":10},{\"N\":\"Utils\",\"T\":10},{\"N\":\"VMS\",\"T\":10},{\"N\":\"CV-Resume.pdf\",\"T\":20},{\"N\":\"EnglishDictionary.xls\",\"T\":20},{\"N\":\"LEDs_Hack_1.2.10.apk\",\"T\":20},{\"N\":\"Nolf Disc 2.bin\",\"T\":20},{\"N\":\"Nolf Disc 2.cue\",\"T\":20},{\"N\":\"NOLF_CD1.iso\",\"T\":20},{\"N\":\"PlatbyDatumy.xls\",\"T\":20},{\"N\":\"Visual Studio 2008.zip\",\"T\":20}]";
-				String root = "[{\"N\":\"C:\\\\\",\"T\":0},{\"N\":\"F:\\\\\",\"T\":0},{\"N\":\"R:\\\\\",\"T\":0},{\"N\":\"X:\\\\\",\"T\":0}]";
-				String[] data = new String[] {root, diska,diskc,diskc,diskc,diskc,diskc,diskc};
+				String diska = "[{\"N\":\"..\",\"T\":-1}, {\"N\":\"a\",\"T\":10},{\"N\":\"b\",\"T\":10},{\"N\":\"c\",\"T\":10},{\"N\":\"d\",\"T\":20},{\"N\":\"e\",\"T\":20}]";								
+				String diskb = "[{\"N\":\"..\",\"T\":-1}, {\"N\":\"a\",\"T\":10},{\"N\":\"b\",\"T\":10},{\"N\":\"c\",\"T\":10},{\"N\":\"d\",\"T\":20},{\"N\":\"e\",\"T\":20}]";
+				String root = "[{\"N\":\"/root\",\"T\":10},{\"N\":\"/user\",\"T\":10}]";
+				String[] data = new String[] {root, diska, diskb,diska, diskb,diska, diskb,diska, diskb};
 				@Override
 				public String getText()
 				{
@@ -369,6 +375,66 @@ public class DiskBrowserPresenter extends BaseControlPresenter
 			rc.onResponseReceived(null, r);
 		}
 	}
+	
+	private class MockDataService extends DataService
+    {
+        public MockDataService()
+        {           
+        }
+        private int a = 0;
+        @Override
+        public void sendCommand(Command c, RequestCallback rc) throws RequestException
+        {
+            Response r = new Response()
+            {
+                String diska = "[{\"N\":\"C:\\\",\"T\":0},{\"N\":\"D:\\\",\"T\":0},{\"N\":\"F:\\\",\"T\":0},{\"N\":\"G:\\\",\"T\":3},{\"N\":\"H:\\\",\"T\":3},{\"N\":\"L:\\\",\"T\":0},{\"N\":\"R:\\\",\"T\":2},{\"N\":\"W:\\\",\"T\":2},{\"N\":\"X:\\\",\"T\":2}]";                
+                String diskc = "[{\"N\":\"..\",\"T\":-1},{\"N\":\"$RECYCLE.BIN\",\"T\":10},{\"N\":\"-= Photos =-\",\"T\":10},{\"N\":\"0Work\",\"T\":10},{\"N\":\"1Skola\",\"T\":10},{\"N\":\"Release\",\"T\":10},{\"N\":\"System Volume Information\",\"T\":10},{\"N\":\"tmp\",\"T\":10},{\"N\":\"Utils\",\"T\":10},{\"N\":\"VMS\",\"T\":10},{\"N\":\"CV-Resume.pdf\",\"T\":20},{\"N\":\"EnglishDictionary.xls\",\"T\":20},{\"N\":\"LEDs_Hack_1.2.10.apk\",\"T\":20},{\"N\":\"Nolf Disc 2.bin\",\"T\":20},{\"N\":\"Nolf Disc 2.cue\",\"T\":20},{\"N\":\"NOLF_CD1.iso\",\"T\":20},{\"N\":\"PlatbyDatumy.xls\",\"T\":20},{\"N\":\"Visual Studio 2008.zip\",\"T\":20}]";
+                String root = "[{\"N\":\"C:\\\\\",\"T\":0},{\"N\":\"F:\\\\\",\"T\":0},{\"N\":\"R:\\\\\",\"T\":0},{\"N\":\"X:\\\\\",\"T\":0}]";
+                String[] data = new String[] {root, diska,diskc,diskc,diskc,diskc,diskc,diskc};
+                @Override
+                public String getText()
+                {
+                    return data[a++ % data.length];
+                }
+                
+                @Override
+                public String getStatusText()
+                {
+                    // TODO Auto-generated method stub
+                    return null;
+                }
+                
+                @Override
+                public int getStatusCode()
+                {
+                    // TODO Auto-generated method stub
+                    return 0;
+                }
+                
+                @Override
+                public String getHeadersAsString()
+                {
+                    // TODO Auto-generated method stub
+                    return null;
+                }
+                
+                @Override
+                public Header[] getHeaders()
+                {
+                    // TODO Auto-generated method stub
+                    return null;
+                }
+                
+                @Override
+                public String getHeader(String header)
+                {
+                    // TODO Auto-generated method stub
+                    return null;
+                }
+            };
+            rc.onResponseReceived(null, r);
+        }
+    }
 
 	@Override
 	public String getName()

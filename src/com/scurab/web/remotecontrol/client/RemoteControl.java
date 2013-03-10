@@ -118,6 +118,7 @@ public class RemoteControl implements EntryPoint
 		public static final String IRDEVICE = "InfraRed";
 		public static final String PIN = "PIN";
 		public static final String FIRST_START = "FIRST_START";
+		public static final String PATH_SEPARATOR = "PATH_SEPARATOR";
 		
 		public static final String[] ALL_APP_PROPERTY_KEYS = new String[] {RemoteControl.PropertyKeys.AUDIOPLAYER,
 			RemoteControl.PropertyKeys.MEDIACENTER,RemoteControl.PropertyKeys.PICTURESVIEWER,

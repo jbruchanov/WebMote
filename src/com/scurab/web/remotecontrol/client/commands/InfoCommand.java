@@ -10,6 +10,8 @@ public class InfoCommand extends Command
 	private HashMap<String, List<String>> mApps;
 	private String mAddress;
 	private String[] mMACAddresses;
+	private String mPathSeparator;
+	private String mPlatform;
 	
 	public InfoCommand()
 	{
@@ -61,5 +63,21 @@ public class InfoCommand extends Command
 	{
 		return "InfoCommand";
 	}
+
+    public String getPathSeparator() {
+        return mPathSeparator;
+    }
+
+    public void setPathSeparator(String pathSeparator) {
+        mPathSeparator = pathSeparator;
+    }
+
+    public String getPlatform() {
+        return mPlatform;
+    }
+
+    public void setPlatform(String platform) {
+        mPlatform = platform;
+    }
 
 }

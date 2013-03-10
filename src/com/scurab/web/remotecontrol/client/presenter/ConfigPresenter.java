@@ -49,6 +49,7 @@ public class ConfigPresenter extends BaseControlPresenter
 				try
 				{
 					InfoCommand ic = JsonSimpleParser.parseInfoCommand(response.getText());
+					RemoteControl.setProperty(RemoteControl.PropertyKeys.PATH_SEPARATOR, ic.getPathSeparator());
 					HashMap<String, List<String>> data = ic.getApplications();
 					onLoadedData(data);
 				}
