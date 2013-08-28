@@ -20,110 +20,145 @@ import com.scurab.web.remotecontrol.client.view.MediaCenterView;
 import com.scurab.web.remotecontrol.client.view.ShutdownView;
 import com.scurab.web.remotecontrol.client.view.TaskManagerView;
 
-public class MainView2Presenter extends BaseControlPresenter
-{
-	public MainView2 mDisplay;
-	private enum ButtonType
-	{
-		ShutDown, TaskManager, RemoteDesktop, Keyboard, MediaCenter, Display, JoyPad, IRDevices
-	}
-	
-	public MainView2Presenter(DataService dataService, HandlerManager eventBus, MainView2 display)
-	{
-		super(dataService, eventBus, display);
-		mDisplay = display;
-		bind();
-	}
-	
-	private void bind()
-	{
-		mDisplay.getShutdownButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.ShutDown);}});
-		mDisplay.getTaskManagerButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.TaskManager);}});
-		mDisplay.getRemoteDesktopButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.RemoteDesktop);}});
-		mDisplay.getKeyboardButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.Keyboard);}});
-		mDisplay.getMediaCenterButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.MediaCenter);}});
-		mDisplay.getDisplayButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.Display);}});
-		mDisplay.getJoyPadButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.JoyPad);}});
-		mDisplay.getIRDevicesButton().addClickHandler(new ClickHandler(){@Override public void onClick(ClickEvent event){onButtonClick(ButtonType.IRDevices);}});
-	}
-	
-	public void onButtonClick(ButtonType type)
-	{
-		try
-		{
-			BasePresenter pres = null;
-			switch(type)
-			{
-			case ShutDown:
-				pres = new ShutdownPresenter(mDataService, mEventBus, new ShutdownView());
-				break;
-			case TaskManager:
-				pres = new TaskManagerPresenter(mDataService, mEventBus, new TaskManagerView());			
-				break;
-			case MediaCenter:
-				checkApp(RemoteControl.MediaCenter);
-				pres = new MediaCenterPresenter(mDataService, mEventBus, new MediaCenterView());
-				break;
-			case Display:
-				onDisplayClick();
-				return;//just popup				
-			case JoyPad:
-				pres= new JoyPadViewPresenter(mDataService, mEventBus, new JoyPadView());
-				break;
-			case Keyboard:
-				pres = new KeyboardPresenter(mDataService, mEventBus, new KeyboardView());
-				break;
-			case RemoteDesktop:
-				pres = new DesktopViewPresenter(mDataService, mEventBus, new DesktopView());
-				break;
-			case IRDevices:
-				checkApp(RemoteControl.IRDevice);
-				pres = new IRDevicePresenter(mDataService, mEventBus, new IRDeviceView());
-				break;
-			default:
-			}
-			
-			onChangePresenter(pres);
-		}
-		catch(Exception e)
-		{
-			Window.alert(e.getMessage());
-		}
-	}
-	
-	private void onDisplayClick()
-	{
-		MonitorDialog.showDialog(new MonitorDialog.OnClickListener()
-		{
-			@Override
-			public void onClick(ContextType contextCommand)
-			{
-				SystemCommand sc = new SystemCommand();
-				if(contextCommand == ContextType.On)
-					sc.turnMonitorOn();
-				else
-					sc.turnMonitorOff();
-				onSendCommand(sc);
-			}
-		});
-	}
-	
-	public void onChangePresenter(BasePresenter presenter)
-	{
-		mEventBus.fireEvent(new ChangePresenterEvent(presenter));
-//		RootPanel.get().clear();
-//		RootPanel.get().add(presenter.asWidget());
-	}
+public class MainView2Presenter extends BaseControlPresenter {
+    public MainView2 mDisplay;
 
-	@Override
-	public String getName()
-	{
-		return "MainView2";
-	}
+    private enum ButtonType {
+        ShutDown, TaskManager, RemoteDesktop, Keyboard, MediaCenter, Display, JoyPad, IRDevices
+    }
 
-	@Override
-	protected Command getCommand(String command)
-	{
-		return null;
-	}
+    public MainView2Presenter(DataService dataService, HandlerManager eventBus,
+            MainView2 display) {
+        super(dataService, eventBus, display);
+        mDisplay = display;
+        bind();
+    }
+
+    private void bind() {
+        mDisplay.getShutdownButton().addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                onButtonClick(ButtonType.ShutDown);
+            }
+        });
+        mDisplay.getTaskManagerButton().addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                onButtonClick(ButtonType.TaskManager);
+            }
+        });
+        mDisplay.getRemoteDesktopButton().addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                onButtonClick(ButtonType.RemoteDesktop);
+            }
+        });
+        mDisplay.getKeyboardButton().addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                onButtonClick(ButtonType.Keyboard);
+            }
+        });
+        mDisplay.getMediaCenterButton().addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                onButtonClick(ButtonType.MediaCenter);
+            }
+        });
+        mDisplay.getDisplayButton().addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                onButtonClick(ButtonType.Display);
+            }
+        });
+        mDisplay.getJoyPadButton().addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                onButtonClick(ButtonType.JoyPad);
+            }
+        });
+        mDisplay.getIRDevicesButton().addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                onButtonClick(ButtonType.IRDevices);
+            }
+        });
+    }
+
+    public void onButtonClick(ButtonType type) {
+        try {
+            BasePresenter pres = null;
+            switch (type) {
+                case ShutDown:
+                    pres = new ShutdownPresenter(mDataService, mEventBus,
+                            new ShutdownView());
+                    break;
+                case TaskManager:
+                    pres = new TaskManagerPresenter(mDataService, mEventBus,
+                            new TaskManagerView());
+                    break;
+                case MediaCenter:
+                    checkApp(RemoteControl.MediaCenter);
+                    pres = new MediaCenterPresenter(mDataService, mEventBus,
+                            new MediaCenterView());
+                    break;
+                case Display:
+                    onDisplayClick();
+                    return;// just popup
+                case JoyPad:
+                    pres = new JoyPadViewPresenter(mDataService, mEventBus,
+                            new JoyPadView());
+                    break;
+                case Keyboard:
+                    pres = new KeyboardPresenter(mDataService, mEventBus,
+                            new KeyboardView());
+                    break;
+                case RemoteDesktop:
+                    pres = new DesktopViewPresenter(mDataService, mEventBus,
+                            new DesktopView());
+                    break;
+                case IRDevices:
+                    checkApp(RemoteControl.IRDevice);
+                    pres = new IRDevicePresenter(mDataService, mEventBus,
+                            new IRDeviceView());
+                    break;
+                default:
+            }
+
+            onChangePresenter(pres);
+        } catch (Exception e) {
+            Window.alert(e.getMessage());
+        }
+    }
+
+    private void onDisplayClick() {
+        MonitorDialog.showDialog(new MonitorDialog.OnClickListener() {
+            @Override
+            public void onClick(ContextType contextCommand) {
+                SystemCommand sc = new SystemCommand();
+                if (contextCommand == ContextType.On) {
+                    sc.turnMonitorOn();
+                } else {
+                    sc.turnMonitorOff();
+                }
+                onSendCommand(sc);
+            }
+        });
+    }
+
+    public void onChangePresenter(BasePresenter presenter) {
+        mEventBus.fireEvent(new ChangePresenterEvent(presenter));
+        // RootPanel.get().clear();
+        // RootPanel.get().add(presenter.asWidget());
+    }
+
+    @Override
+    public String getName() {
+        return "MainView2";
+    }
+
+    @Override
+    protected Command getCommand(String command) {
+        return null;
+    }
 }

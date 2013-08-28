@@ -11,46 +11,46 @@ import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.controls.CommandButton;
 import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 
-public class JoyPadView extends AbstractView
-{
+public class JoyPadView extends AbstractView {
 
-	private static JoyPadViewUiBinder uiBinder = GWT.create(JoyPadViewUiBinder.class);
+    private static JoyPadViewUiBinder uiBinder = GWT
+            .create(JoyPadViewUiBinder.class);
 
-	interface JoyPadViewUiBinder extends UiBinder<Widget, JoyPadView>
-	{
-	}
+    interface JoyPadViewUiBinder extends UiBinder<Widget, JoyPadView> {
+    }
 
-	public JoyPadView()
-	{
-		initWidget(uiBinder.createAndBindUi(this));
-		
+    public JoyPadView() {
+        initWidget(uiBinder.createAndBindUi(this));
 
-		mList = new ArrayList<IsCommandableClickHandler>();
-		mList.addAll(joyPad.getClickElements());
-		mList.addAll(Arrays.asList(new IsCommandableClickHandler[] {btnEscape,btnSpace}));
-	}
+        mList = new ArrayList<IsCommandableClickHandler>();
+        mList.addAll(joyPad.getClickElements());
+        mList.addAll(Arrays.asList(new IsCommandableClickHandler[] { btnEscape,
+                btnSpace }));
+    }
 
-//	@UiField ImageMobileButton btnDefault;
-	@UiField CommandButton btnEscape;
-	@UiField CommandButton btnSpace;
-//	@UiField ImageMobileButton btnUser;
-	@UiField JoyPad joyPad;
+    // @UiField ImageMobileButton btnDefault;
+    @UiField
+    CommandButton btnEscape;
+    @UiField
+    CommandButton btnSpace;
+    // @UiField ImageMobileButton btnUser;
+    @UiField
+    JoyPad joyPad;
 
-	private ArrayList<IsCommandableClickHandler> mList;
-	
-//	public ImageMobileButton getBtnDefault()  
-//	{
-//		return btnDefault;	
-//	}
-//
-//	public ImageMobileButton getBtnUser()
-//	{
-//		return btnUser;
-//	}
+    private ArrayList<IsCommandableClickHandler> mList;
 
-	@Override
-	public List<IsCommandableClickHandler> getClickElements()
-	{
-		return mList;
-	}
+    // public ImageMobileButton getBtnDefault()
+    // {
+    // return btnDefault;
+    // }
+    //
+    // public ImageMobileButton getBtnUser()
+    // {
+    // return btnUser;
+    // }
+
+    @Override
+    public List<IsCommandableClickHandler> getClickElements() {
+        return mList;
+    }
 }

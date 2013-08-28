@@ -6,130 +6,127 @@ import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.ApplicationCommand;
-import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.ApplicationCommand.AppType;
+import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.ConfigView;
 import com.scurab.web.remotecontrol.client.view.JoyPad;
 import com.scurab.web.remotecontrol.client.view.TVView;
 
-public class TVPresenter extends BaseControlPresenter
-{
-	private TVView mDisplay = null;
-	private Widget mCurrentVisibleWidget = null;
-	private String mAppName = null;
-	
-	private enum ShowPanel
-	{
-		Default, Numeric, Recording, User
-	}
-	
-	public TVPresenter(DataService dataService, HandlerManager eventBus, TVView display)
-	{
-		super(dataService, eventBus, display);
-		mDisplay = display;
-		mAppName = RemoteControl.TVAppliation;
-		bind();
-	}
-	
-	@Override
-	public void setApplication(String appName)
-	{
-		if(appName != null && appName.length() > 0)
-			mAppName = appName;
-	}
-	
-	private void bind()
-	{				
-		onClickButton(ShowPanel.Default);
-		mDisplay.getUserContainer().setVisible(false);
-		mDisplay.getNumericPanel().setVisible(false);
-		mDisplay.getRecordingPanel().setVisible(false);
-		
-		mDisplay.getBtnDefault().addClickHandler(new ClickHandler()
-		{
-			@Override
-			public void onClick(ClickEvent event)
-			{
-				onClickButton(ShowPanel.Default);
-			}
-		});
-		
-		mDisplay.getBtnNumeric().addClickHandler(new ClickHandler()
-		{
-			@Override
-			public void onClick(ClickEvent event)
-			{			
-				onClickButton(ShowPanel.Numeric);
-			}
-		});
-		
-		mDisplay.getBtnRecord().addClickHandler(new ClickHandler()
-		{
-			@Override
-			public void onClick(ClickEvent event)
-			{		
-				onClickButton(ShowPanel.Recording);
-			}
-		});
-		
-		mDisplay.getBtnUser().addClickHandler(new ClickHandler()
-		{
-			@Override
-			public void onClick(ClickEvent event)
-			{
-				mEventBus.fireEvent(new ChangePresenterEvent(new ConfigPresenter(mDataService, mEventBus, new ConfigView())));
-			}
-		});
-		
-		
-	}
-	
-	protected void onClickButton(ShowPanel what)
-	{
-		if(mCurrentVisibleWidget != null)
-			mCurrentVisibleWidget.setVisible(false);
-		mCurrentVisibleWidget = null;
-		switch(what)
-		{
-			case Default: mCurrentVisibleWidget = mDisplay.getJoyPad();break;
-			case Numeric: mCurrentVisibleWidget = mDisplay.getNumericPanel();break;
-			case Recording: mCurrentVisibleWidget = mDisplay.getRecordingPanel();break;
-			case User: mCurrentVisibleWidget = mDisplay.getUserContainer();break;
-		}
-		
-		if(mCurrentVisibleWidget != null)
-			mCurrentVisibleWidget.setVisible(true);
-	}
-	
-	private String translateCommand(String command)
-	{
-		String result = command;
-		if (command.equals(JoyPad.COMMAND_LEFT))
-			result = "ChangeVolumeDown";
-		else if (command.equals(JoyPad.COMMAND_UP))
-			result = "ChangeChannelUp";
-		else if (command.equals(JoyPad.COMMAND_RIGHT))
-			result = "ChangeVolumeUp";
-		else if (command.equals(JoyPad.COMMAND_DOWN))
-			result = "ChangeChannelDown";
-		else if (command.equals(JoyPad.COMMAND_CENTER))
-			result = "ShowInfo";
-		return result;
-	}
+public class TVPresenter extends BaseControlPresenter {
+    private TVView mDisplay = null;
+    private Widget mCurrentVisibleWidget = null;
+    private String mAppName = null;
 
-	@Override
-	protected Command getCommand(String command)
-	{
-		ApplicationCommand tvc = new ApplicationCommand(mAppName, AppType.Television);
-		tvc.setMethod(translateCommand(command));
-		return tvc;
-	}
+    private enum ShowPanel {
+        Default, Numeric, Recording, User
+    }
 
-	@Override
-	public String getName()
-	{
-		return "Television";
-	}
+    public TVPresenter(DataService dataService, HandlerManager eventBus,
+            TVView display) {
+        super(dataService, eventBus, display);
+        mDisplay = display;
+        mAppName = RemoteControl.TVAppliation;
+        bind();
+    }
+
+    @Override
+    public void setApplication(String appName) {
+        if (appName != null && appName.length() > 0) {
+            mAppName = appName;
+        }
+    }
+
+    private void bind() {
+        onClickButton(ShowPanel.Default);
+        mDisplay.getUserContainer().setVisible(false);
+        mDisplay.getNumericPanel().setVisible(false);
+        mDisplay.getRecordingPanel().setVisible(false);
+
+        mDisplay.getBtnDefault().addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                onClickButton(ShowPanel.Default);
+            }
+        });
+
+        mDisplay.getBtnNumeric().addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                onClickButton(ShowPanel.Numeric);
+            }
+        });
+
+        mDisplay.getBtnRecord().addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                onClickButton(ShowPanel.Recording);
+            }
+        });
+
+        mDisplay.getBtnUser().addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                mEventBus.fireEvent(new ChangePresenterEvent(
+                        new ConfigPresenter(mDataService, mEventBus,
+                                new ConfigView())));
+            }
+        });
+
+    }
+
+    protected void onClickButton(ShowPanel what) {
+        if (mCurrentVisibleWidget != null) {
+            mCurrentVisibleWidget.setVisible(false);
+        }
+        mCurrentVisibleWidget = null;
+        switch (what) {
+            case Default:
+                mCurrentVisibleWidget = mDisplay.getJoyPad();
+                break;
+            case Numeric:
+                mCurrentVisibleWidget = mDisplay.getNumericPanel();
+                break;
+            case Recording:
+                mCurrentVisibleWidget = mDisplay.getRecordingPanel();
+                break;
+            case User:
+                mCurrentVisibleWidget = mDisplay.getUserContainer();
+                break;
+        }
+
+        if (mCurrentVisibleWidget != null) {
+            mCurrentVisibleWidget.setVisible(true);
+        }
+    }
+
+    private String translateCommand(String command) {
+        String result = command;
+        if (command.equals(JoyPad.COMMAND_LEFT)) {
+            result = "ChangeVolumeDown";
+        } else if (command.equals(JoyPad.COMMAND_UP)) {
+            result = "ChangeChannelUp";
+        } else if (command.equals(JoyPad.COMMAND_RIGHT)) {
+            result = "ChangeVolumeUp";
+        } else if (command.equals(JoyPad.COMMAND_DOWN)) {
+            result = "ChangeChannelDown";
+        } else if (command.equals(JoyPad.COMMAND_CENTER)) {
+            result = "ShowInfo";
+        }
+        return result;
+    }
+
+    @Override
+    protected Command getCommand(String command) {
+        ApplicationCommand tvc = new ApplicationCommand(mAppName,
+                AppType.Television);
+        tvc.setMethod(translateCommand(command));
+        return tvc;
+    }
+
+    @Override
+    public String getName() {
+        return "Television";
+    }
 }

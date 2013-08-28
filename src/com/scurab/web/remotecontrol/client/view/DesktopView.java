@@ -8,88 +8,84 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.ToggleButton;
+import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.controls.CommandButton;
 import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
-import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.ToggleButton;
-import com.google.gwt.user.client.ui.Image;
 
-public class DesktopView extends AbstractView
-{
+public class DesktopView extends AbstractView {
 
-	private static DesktopViewUiBinder uiBinder = GWT.create(DesktopViewUiBinder.class);
+    private static DesktopViewUiBinder uiBinder = GWT
+            .create(DesktopViewUiBinder.class);
 
-	interface DesktopViewUiBinder extends UiBinder<Widget, DesktopView>
-	{
-	}
-	@UiField HorizontalPanel topPanel;
-	@UiField HTMLPanel container;
-	@UiField ToggleButton tglOnOff;
-	@UiField CommandButton btnLeft;
-	@UiField CommandButton btnEscape;
-	@UiField CommandButton btnRight;
-	@UiField Image image;
-	
-	private List<IsCommandableClickHandler> mList = null;
-	
-	public DesktopView()
-	{
-		initWidget(uiBinder.createAndBindUi(this));
-		mList = new ArrayList<IsCommandableClickHandler>();
-		mList.addAll(Arrays.asList(new IsCommandableClickHandler[] {btnLeft,btnRight,btnEscape}));
-	}
-	
-	
-	@Override
-	public List<IsCommandableClickHandler> getClickElements()
-	{
-		return mList;
-	}
+    interface DesktopViewUiBinder extends UiBinder<Widget, DesktopView> {
+    }
 
-	public static DesktopViewUiBinder getUiBinder()
-	{
-		return uiBinder;
-	}
+    @UiField
+    HorizontalPanel topPanel;
+    @UiField
+    HTMLPanel container;
+    @UiField
+    ToggleButton tglOnOff;
+    @UiField
+    CommandButton btnLeft;
+    @UiField
+    CommandButton btnEscape;
+    @UiField
+    CommandButton btnRight;
+    @UiField
+    Image image;
 
-	public static void setUiBinder(DesktopViewUiBinder uiBinder)
-	{
-		DesktopView.uiBinder = uiBinder;
-	}
+    private List<IsCommandableClickHandler> mList = null;
 
-	public HTMLPanel getContainer()
-	{
-		return container;
-	}
+    public DesktopView() {
+        initWidget(uiBinder.createAndBindUi(this));
+        mList = new ArrayList<IsCommandableClickHandler>();
+        mList.addAll(Arrays.asList(new IsCommandableClickHandler[] { btnLeft,
+                btnRight, btnEscape }));
+    }
 
-	public ToggleButton getTglOnOff()
-	{
-		return tglOnOff;
-	}
+    @Override
+    public List<IsCommandableClickHandler> getClickElements() {
+        return mList;
+    }
 
-	public Button getBtnLeft()
-	{
-		return btnLeft;
-	}
+    public static DesktopViewUiBinder getUiBinder() {
+        return uiBinder;
+    }
 
-	public Button getBtnEscape()
-	{
-		return btnEscape;
-	}
+    public static void setUiBinder(DesktopViewUiBinder uiBinder) {
+        DesktopView.uiBinder = uiBinder;
+    }
 
-	public Button getBtnRight()
-	{
-		return btnRight;
-	}
+    public HTMLPanel getContainer() {
+        return container;
+    }
 
-	public Image getImage()
-	{
-		return image;
-	}
+    public ToggleButton getTglOnOff() {
+        return tglOnOff;
+    }
 
-	public HorizontalPanel getTopPanel()
-	{
-		return topPanel;
-	}
+    public Button getBtnLeft() {
+        return btnLeft;
+    }
+
+    public Button getBtnEscape() {
+        return btnEscape;
+    }
+
+    public Button getBtnRight() {
+        return btnRight;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public HorizontalPanel getTopPanel() {
+        return topPanel;
+    }
 }

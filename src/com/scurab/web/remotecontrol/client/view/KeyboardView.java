@@ -13,232 +13,210 @@ import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.controls.KeyButton;
 import com.scurab.web.remotecontrol.client.controls.KeyToggleButton;
 import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
+import com.scurab.web.remotecontrol.client.view.keyboard.ArrowsKeyboard;
 import com.scurab.web.remotecontrol.client.view.keyboard.DefaultKeyboard;
 import com.scurab.web.remotecontrol.client.view.keyboard.FunctionalKeyboard;
-import com.scurab.web.remotecontrol.client.view.keyboard.ShiftKeyboard;
-import com.scurab.web.remotecontrol.client.view.keyboard.SpecialKeyboard;
-import com.scurab.web.remotecontrol.client.view.keyboard.ArrowsKeyboard;
 import com.scurab.web.remotecontrol.client.view.keyboard.MediaKeyboard;
 import com.scurab.web.remotecontrol.client.view.keyboard.NumericKeyboard;
+import com.scurab.web.remotecontrol.client.view.keyboard.ShiftKeyboard;
+import com.scurab.web.remotecontrol.client.view.keyboard.SpecialKeyboard;
 
-public class KeyboardView extends AbstractView
-{
+public class KeyboardView extends AbstractView {
 
-	private static KeyboardViewUiBinder uiBinder = GWT.create(KeyboardViewUiBinder.class);
-	@UiField DefaultKeyboard defaultKeyboard;
-	@UiField ShiftKeyboard shiftKeyboard;
-	@UiField SpecialKeyboard specialKeyboard;
-	@UiField FunctionalKeyboard funcKeyboard;
-	
-	@UiField Button btnDefault;
-	@UiField Button btnSpecial;
-	@UiField Button btnArrows;
-	@UiField Button btnNumeric;
-	@UiField Button btnFunctional;
-	@UiField Button btnMedia;
-	@UiField ArrowsKeyboard arrowsKeyboard;
-	@UiField MediaKeyboard mediaKeyboard;
-	@UiField NumericKeyboard numericKeyboard;
-	
-	private HashSet<KeyButton> mAllButtons = null;
-	private HashSet<KeyToggleButton> mAllToggleButtons = null;
+    private static KeyboardViewUiBinder uiBinder = GWT
+            .create(KeyboardViewUiBinder.class);
+    @UiField
+    DefaultKeyboard defaultKeyboard;
+    @UiField
+    ShiftKeyboard shiftKeyboard;
+    @UiField
+    SpecialKeyboard specialKeyboard;
+    @UiField
+    FunctionalKeyboard funcKeyboard;
 
-	interface KeyboardViewUiBinder extends UiBinder<Widget, KeyboardView>
-	{
-	}
+    @UiField
+    Button btnDefault;
+    @UiField
+    Button btnSpecial;
+    @UiField
+    Button btnArrows;
+    @UiField
+    Button btnNumeric;
+    @UiField
+    Button btnFunctional;
+    @UiField
+    Button btnMedia;
+    @UiField
+    ArrowsKeyboard arrowsKeyboard;
+    @UiField
+    MediaKeyboard mediaKeyboard;
+    @UiField
+    NumericKeyboard numericKeyboard;
 
-	public KeyboardView()
-	{
-		initWidget(uiBinder.createAndBindUi(this));
-		mAllButtons = new HashSet<KeyButton>();
-		mAllToggleButtons = new HashSet<KeyToggleButton>();
-		bind();
-	}
-	
-	private void bind()
-	{
-		initClickHandlers(defaultKeyboard);
-		initClickHandlers(shiftKeyboard);
-		initClickHandlers(specialKeyboard);
-		initClickHandlers(arrowsKeyboard);
-		initClickHandlers(funcKeyboard);
-		initClickHandlers(mediaKeyboard);
-		initClickHandlers(numericKeyboard);
-	}
-	
-	private void initClickHandlers(HasWidgets hw)
-	{
-		Iterator<Widget> iter = hw.iterator();
-		while(iter.hasNext())
-		{
-			Widget w = iter.next();
-			if(w instanceof KeyButton)
-			{
-				KeyButton b = (KeyButton)w;
-				setClickHandler(b);
-			}
-			else if(w instanceof KeyToggleButton)
-			{
-				KeyToggleButton tb = (KeyToggleButton)w;
-				setClickHandler(tb);
-			}
-			else if(w instanceof HasWidgets)
-			{
-				HasWidgets h = (HasWidgets)w;
-				initClickHandlers(h);
-			}
-		}
-	}
-	
-	private void setClickHandler(final KeyButton b)
-	{
-		mAllButtons.add(b);
-//		b.addClickHandler(new ClickHandler()
-//		{
-//			@Override
-//			public void onClick(ClickEvent event)
-//			{
-//				Window.alert((b.getKeyCode() == null ? b.getText() : b.getKeyCode()));
-//			}
-//		});
-	}
-	
-	private void setClickHandler(final KeyToggleButton b)
-	{
-		mAllToggleButtons.add(b);
-//		b.addClickHandler(new ClickHandler()
-//		{
-//			@Override
-//			public void onClick(ClickEvent event)
-//			{
-//				Window.alert((b.getKeyCode() == null ? b.getText() : b.getKeyCode()) + " " + b.getValue());
-//			}
-//		});
-	}
+    private HashSet<KeyButton> mAllButtons = null;
+    private HashSet<KeyToggleButton> mAllToggleButtons = null;
 
-	@Override
-	public List<IsCommandableClickHandler> getClickElements()
-	{
-		return null;
-	}
+    interface KeyboardViewUiBinder extends UiBinder<Widget, KeyboardView> {
+    }
 
-	public Button getBtnDefault()
-	{
-		return btnDefault;
-	}
+    public KeyboardView() {
+        initWidget(uiBinder.createAndBindUi(this));
+        mAllButtons = new HashSet<KeyButton>();
+        mAllToggleButtons = new HashSet<KeyToggleButton>();
+        bind();
+    }
 
-	public void setBtnDefault(Button btnDefault)
-	{
-		this.btnDefault = btnDefault;
-	}
+    private void bind() {
+        initClickHandlers(defaultKeyboard);
+        initClickHandlers(shiftKeyboard);
+        initClickHandlers(specialKeyboard);
+        initClickHandlers(arrowsKeyboard);
+        initClickHandlers(funcKeyboard);
+        initClickHandlers(mediaKeyboard);
+        initClickHandlers(numericKeyboard);
+    }
 
-	public Button getBtnSpecial()
-	{
-		return btnSpecial;
-	}
+    private void initClickHandlers(HasWidgets hw) {
+        Iterator<Widget> iter = hw.iterator();
+        while (iter.hasNext()) {
+            Widget w = iter.next();
+            if (w instanceof KeyButton) {
+                KeyButton b = (KeyButton) w;
+                setClickHandler(b);
+            } else if (w instanceof KeyToggleButton) {
+                KeyToggleButton tb = (KeyToggleButton) w;
+                setClickHandler(tb);
+            } else if (w instanceof HasWidgets) {
+                HasWidgets h = (HasWidgets) w;
+                initClickHandlers(h);
+            }
+        }
+    }
 
-	public void setBtnSpecial(Button btnSpecial)
-	{
-		this.btnSpecial = btnSpecial;
-	}
+    private void setClickHandler(final KeyButton b) {
+        mAllButtons.add(b);
+        // b.addClickHandler(new ClickHandler()
+        // {
+        // @Override
+        // public void onClick(ClickEvent event)
+        // {
+        // Window.alert((b.getKeyCode() == null ? b.getText() :
+        // b.getKeyCode()));
+        // }
+        // });
+    }
 
-	public Button getBtnArrows()
-	{
-		return btnArrows;
-	}
+    private void setClickHandler(final KeyToggleButton b) {
+        mAllToggleButtons.add(b);
+        // b.addClickHandler(new ClickHandler()
+        // {
+        // @Override
+        // public void onClick(ClickEvent event)
+        // {
+        // Window.alert((b.getKeyCode() == null ? b.getText() : b.getKeyCode())
+        // + " " + b.getValue());
+        // }
+        // });
+    }
 
-	public void setBtnArrows(Button btnArrows)
-	{
-		this.btnArrows = btnArrows;
-	}
+    @Override
+    public List<IsCommandableClickHandler> getClickElements() {
+        return null;
+    }
 
-	public Button getBtnNumeric()
-	{
-		return btnNumeric;
-	}
+    public Button getBtnDefault() {
+        return btnDefault;
+    }
 
-	public void setBtnNumeric(Button btnNumeric)
-	{
-		this.btnNumeric = btnNumeric;
-	}
+    public void setBtnDefault(Button btnDefault) {
+        this.btnDefault = btnDefault;
+    }
 
-	public Button getBtnFunctional()
-	{
-		return btnFunctional;
-	}
+    public Button getBtnSpecial() {
+        return btnSpecial;
+    }
 
-	public void setBtnFunctional(Button btnFunctional)
-	{
-		this.btnFunctional = btnFunctional;
-	}
+    public void setBtnSpecial(Button btnSpecial) {
+        this.btnSpecial = btnSpecial;
+    }
 
-	public Button getBtnMedia()
-	{
-		return btnMedia;
-	}
+    public Button getBtnArrows() {
+        return btnArrows;
+    }
 
-	public void setBtnMedia(Button btnMedia)
-	{
-		this.btnMedia = btnMedia;
-	}
+    public void setBtnArrows(Button btnArrows) {
+        this.btnArrows = btnArrows;
+    }
 
-	public DefaultKeyboard getDefaultKeyboard()
-	{
-		return defaultKeyboard;
-	}
+    public Button getBtnNumeric() {
+        return btnNumeric;
+    }
 
-	public void setDefaultKeyboard(DefaultKeyboard defaultKeyboard)
-	{
-		this.defaultKeyboard = defaultKeyboard;
-	}
+    public void setBtnNumeric(Button btnNumeric) {
+        this.btnNumeric = btnNumeric;
+    }
 
-	public ShiftKeyboard getShiftKeyboard()
-	{
-		return shiftKeyboard;
-	}
+    public Button getBtnFunctional() {
+        return btnFunctional;
+    }
 
-	public void setShiftKeyboard(ShiftKeyboard shiftKeyboard)
-	{
-		this.shiftKeyboard = shiftKeyboard;
-	}
+    public void setBtnFunctional(Button btnFunctional) {
+        this.btnFunctional = btnFunctional;
+    }
 
-	public SpecialKeyboard getSpecialKeyboard()
-	{
-		return specialKeyboard;
-	}
+    public Button getBtnMedia() {
+        return btnMedia;
+    }
 
-	public void setSpecialKeyboard(SpecialKeyboard specialKeyboard)
-	{
-		this.specialKeyboard = specialKeyboard;
-	}
+    public void setBtnMedia(Button btnMedia) {
+        this.btnMedia = btnMedia;
+    }
 
-	public ArrowsKeyboard getArrowsKeyboard()
-	{
-		return arrowsKeyboard;
-	}
+    public DefaultKeyboard getDefaultKeyboard() {
+        return defaultKeyboard;
+    }
 
-	public FunctionalKeyboard getFuncKeyboard()
-	{
-		return funcKeyboard;
-	}
+    public void setDefaultKeyboard(DefaultKeyboard defaultKeyboard) {
+        this.defaultKeyboard = defaultKeyboard;
+    }
 
-	public MediaKeyboard getMediaKeyboard()
-	{
-		return mediaKeyboard;
-	}
+    public ShiftKeyboard getShiftKeyboard() {
+        return shiftKeyboard;
+    }
 
-	public NumericKeyboard getNumericKeyboard()
-	{
-		return numericKeyboard;
-	}
+    public void setShiftKeyboard(ShiftKeyboard shiftKeyboard) {
+        this.shiftKeyboard = shiftKeyboard;
+    }
 
-	public HashSet<KeyButton> getAllButtons()
-	{
-		return mAllButtons;
-	}
+    public SpecialKeyboard getSpecialKeyboard() {
+        return specialKeyboard;
+    }
 
-	public HashSet<KeyToggleButton> getAllToggleButtons()
-	{
-		return mAllToggleButtons;
-	}
+    public void setSpecialKeyboard(SpecialKeyboard specialKeyboard) {
+        this.specialKeyboard = specialKeyboard;
+    }
+
+    public ArrowsKeyboard getArrowsKeyboard() {
+        return arrowsKeyboard;
+    }
+
+    public FunctionalKeyboard getFuncKeyboard() {
+        return funcKeyboard;
+    }
+
+    public MediaKeyboard getMediaKeyboard() {
+        return mediaKeyboard;
+    }
+
+    public NumericKeyboard getNumericKeyboard() {
+        return numericKeyboard;
+    }
+
+    public HashSet<KeyButton> getAllButtons() {
+        return mAllButtons;
+    }
+
+    public HashSet<KeyToggleButton> getAllToggleButtons() {
+        return mAllToggleButtons;
+    }
 }

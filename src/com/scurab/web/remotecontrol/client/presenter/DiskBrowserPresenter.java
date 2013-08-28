@@ -30,9 +30,9 @@ import com.scurab.web.remotecontrol.client.view.DiskBrowserItem.Type;
 import com.scurab.web.remotecontrol.client.view.DiskBrowserView;
 
 public class DiskBrowserPresenter extends BaseControlPresenter {
-    
+
     private static final boolean SHOW_FILTER = false;
-    
+
     private DiskBrowserView mDisplay = null;
     private List<HashMap<String, String>> mCurrentData = null;
     private String mCurrentDir = "";
@@ -53,10 +53,10 @@ public class DiskBrowserPresenter extends BaseControlPresenter {
 
     }
 
-    private void bind() {        
+    private void bind() {
         mDisplay.getFilterToggleButton().setVisible(SHOW_FILTER);
         mDisplay.getFilterTextBox().setVisible(SHOW_FILTER);
-        
+
         mDisplay.getBtnCustomLocation().addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
