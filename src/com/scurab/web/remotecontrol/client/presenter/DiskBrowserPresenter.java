@@ -112,6 +112,7 @@ public class DiskBrowserPresenter extends BaseControlPresenter {
                 @Override
                 public void onResponseReceived(Request request,
                         Response response) {
+                    //TODO: autodected for folder separator for unix/win
                     mCurrentDir = location;
                     String s = response.getText();
                     mDisplay.getLblCurrentLocation().setText(
