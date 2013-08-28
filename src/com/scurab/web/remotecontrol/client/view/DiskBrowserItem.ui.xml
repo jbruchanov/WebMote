@@ -5,20 +5,22 @@
 	.btn 
 	{
 		min-height: 50px;
+		max-width: 60px;
+		text-align: center;		
 	}
 	.btn2 
 	{
 		min-height: 66px;
-	}
+	}		
 	</ui:style>
 	<g:HorizontalPanel width="100%">
-		<g:Cell width="15%">
+		<g:Cell width="60px">
 			<g:HTMLPanel styleName="gwt-Button {style.btn}">
 <!-- 			<g:Button ui:field="btnContext" text="^" styleName="{style.btn} gwt-Button" width="100%" /> -->
 				<p1:ImageMobileButton altText="." ui:field="btnContext"/>
 			</g:HTMLPanel>
 		</g:Cell>
-		<g:Cell width="85%">
+		<g:Cell width="100%">
 			<g:Button ui:field="btnItem" text="." styleName="{style.btn2} gwt-Button" width="100%" />
 		</g:Cell>
 		

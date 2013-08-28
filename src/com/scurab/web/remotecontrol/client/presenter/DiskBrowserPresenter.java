@@ -42,11 +42,8 @@ public class DiskBrowserPresenter extends BaseControlPresenter {
             HandlerManager eventBus, DiskBrowserView display) {
         super(dataService, eventBus, display);
         mDisplay = display;
-        String sep = RemoteControl
-                .getProperty(RemoteControl.PropertyKeys.PATH_SEPARATOR);
+        String sep = RemoteControl.getProperty(RemoteControl.PropertyKeys.PATH_SEPARATOR);
         PATH_SEPARATOR = (sep != null && sep.length() > 0) ? sep : "\\";
-        // PATH_SEPARATOR = "/";
-        // mDataService = new MockDataServiceLinux();
         loadData(null);
         bind();
 
