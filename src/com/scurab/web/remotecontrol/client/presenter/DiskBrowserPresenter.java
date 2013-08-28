@@ -40,6 +40,8 @@ public class DiskBrowserPresenter extends BaseControlPresenter {
     private static String PATH_SEPARATOR;
 
     private final static int TYPE_FILE = 20;
+    
+    private FileBrowserContextMenu mContextMenu;
 
     public DiskBrowserPresenter(DataService dataService,
             HandlerManager eventBus, DiskBrowserView display) {
@@ -71,6 +73,15 @@ public class DiskBrowserPresenter extends BaseControlPresenter {
             }
         });
 
+    }
+    
+    @Override
+    public void onPause() {     
+        super.onPause();
+        if(mContextMenu != null && mContextMenu.isShowing()){
+            mContextMenu.hide();
+            mContextMenu = null;
+        }
     }
 
     private String getFilter() {
@@ -155,7 +166,7 @@ public class DiskBrowserPresenter extends BaseControlPresenter {
     }
 
     protected void onContextItemClick(DiskBrowserItem item) {
-        FileBrowserContextMenu.showDialog(item,
+        mContextMenu = FileBrowserContextMenu.showDialog(item,
                 new FileBrowserContextMenu.OnClickListener() {
                     @Override
                     public void onClick(DiskBrowserItem item,
@@ -181,7 +192,7 @@ public class DiskBrowserPresenter extends BaseControlPresenter {
     }
 
     private void showAddToFavsMenu(DiskBrowserItem item, final String locality) {
-        FileBrowserContextMenu.showDialog(item,
+        mContextMenu = FileBrowserContextMenu.showDialog(item,
                 new FileBrowserContextMenu.OnClickListener() {
                     @Override
                     public void onClick(DiskBrowserItem item,
@@ -202,6 +213,7 @@ public class DiskBrowserPresenter extends BaseControlPresenter {
                         } catch (Exception e) {
                             Window.alert(e.getMessage());
                         }
+                        mContextMenu = null;
                     }
                 }, true);
     }

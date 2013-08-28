@@ -18,11 +18,11 @@ public abstract class BasePresenter implements IsWidget {
         mDisplay = display;
     }
 
-    protected void onPause() {
+    public void onPause() {
 
     }
 
-    protected void onResume() {
+    public void onResume() {
     }
 
     @Override

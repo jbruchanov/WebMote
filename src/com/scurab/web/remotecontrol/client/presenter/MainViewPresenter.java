@@ -133,8 +133,6 @@ public class MainViewPresenter extends BasePresenter {
 
     public void onChangePresenter(BasePresenter presenter) {
         mEventBus.fireEvent(new ChangePresenterEvent(presenter));
-        // RootPanel.get().clear();
-        // RootPanel.get().add(presenter.asWidget());
     }
 
     @Override

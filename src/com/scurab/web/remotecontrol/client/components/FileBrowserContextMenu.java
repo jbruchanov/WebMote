@@ -86,15 +86,16 @@ public class FileBrowserContextMenu extends DialogBox {
         return mb;
     }
 
-    public static void showDialog(DiskBrowserItem item, OnClickListener listener) {
-        showDialog(item, listener, false);
+    public static FileBrowserContextMenu showDialog(DiskBrowserItem item, OnClickListener listener) {
+        return showDialog(item, listener, false);
     }
 
-    public static void showDialog(DiskBrowserItem item,
+    public static FileBrowserContextMenu showDialog(DiskBrowserItem item,
             OnClickListener listener, boolean addToFavorities) {
         FileBrowserContextMenu fbcm = new FileBrowserContextMenu(item,
                 listener, addToFavorities);
         fbcm.show();
         fbcm.center();
+        return fbcm;
     }
 }

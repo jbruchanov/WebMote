@@ -22,6 +22,7 @@ public class RootView extends Composite {
     private static DataService sDataService;
     private final static HandlerManager sEventBus = new HandlerManager(null);
     private HashMap<String, BasePresenter> mWorkingComposites = null;
+    private BasePresenter mCurrentPresenter;
     private MainViewPresenter mMainViewPresenter = null;
 
     public RootView() {
@@ -88,10 +89,15 @@ public class RootView extends Composite {
     }
 
     protected void onChangePresenterImpl(BasePresenter bp) {
+        if(mCurrentPresenter != null){
+            mCurrentPresenter.onPause();
+        }
         History.newItem(bp.getName(), false);
         mWorkingComposites.put(bp.getName(), bp);
         RootPanel.get("content").clear();
         RootPanel.get("content").add(bp.asWidget());
         Window.scrollTo(0, 1);
+        mCurrentPresenter = bp;
+        mCurrentPresenter.onResume();
     }
 }
