@@ -2,8 +2,9 @@ package com.scurab.web.remotecontrol.language;
 
 /**
  * Interface to represent the constants contained in resource bundle:
- * 'F:/0Work/eclipse-workspace-j2ee/RemoteControl/src/com/scurab/web/remotecontrol/language/Keys.properties
- * ' .
+ *
+ * 'F:/0Work/eclipse-workspace-j2ee/RemoteControl/src/com/scurab/web/remotecontrol/language/Keys.properties'
+ * .
  */
 public interface Keys extends com.google.gwt.i18n.client.ConstantsWithLookup {
 
