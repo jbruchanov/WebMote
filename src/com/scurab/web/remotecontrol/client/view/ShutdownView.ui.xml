@@ -13,7 +13,7 @@
 		.values {
 			font-size: 2.0em;
 			font-weight: bold;
-			color: #FFF:
+			color: #FFF;
 			margin:10px;
 		}
 		
