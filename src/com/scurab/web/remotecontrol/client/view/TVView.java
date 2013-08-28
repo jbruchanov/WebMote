@@ -7,127 +7,135 @@ import java.util.List;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 import com.scurab.web.remotecontrol.client.controls.ImageMobileButton;
 import com.scurab.web.remotecontrol.client.controls.MobileButton;
-import com.google.gwt.user.client.ui.VerticalPanel;
+import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 
-public class TVView extends AbstractView 
-{
+public class TVView extends AbstractView {
 
-	private static TVViewUiBinder uiBinder = GWT.create(TVViewUiBinder.class);
-	@UiField TVTopPanel topPanel;
-	@UiField MobileButton btn1;
-	@UiField MobileButton btn2;
-	@UiField MobileButton btn3;
-	@UiField MobileButton btn4;
-	@UiField MobileButton btn5;
-	@UiField MobileButton btn6;
-	@UiField MobileButton btn7;
-	@UiField MobileButton btn8;
-	@UiField MobileButton btn9;
-	@UiField MobileButton btnAudio;
-	@UiField MobileButton btn0;
-	@UiField MobileButton btnLoop;
-	@UiField ImageMobileButton btnSavePicture;
-	@UiField ImageMobileButton btnStartRecording;
-	@UiField ImageMobileButton btnStopRecording;
-	@UiField ImageMobileButton btnPlayPause;
-	@UiField VerticalPanel numericPanel;
-	@UiField VerticalPanel recordingPanel;
-	@UiField VerticalPanel userContainer;
-	@UiField JoyPad joyPad;
-	@UiField ImageMobileButton btnPlayPrevious;
-	@UiField ImageMobileButton btnPlayNext;
-	@UiField ImageMobileButton btnStop;
-	
-	private List<IsCommandableClickHandler> mButtons = null;
+    private static TVViewUiBinder uiBinder = GWT.create(TVViewUiBinder.class);
+    @UiField
+    TVTopPanel topPanel;
+    @UiField
+    MobileButton btn1;
+    @UiField
+    MobileButton btn2;
+    @UiField
+    MobileButton btn3;
+    @UiField
+    MobileButton btn4;
+    @UiField
+    MobileButton btn5;
+    @UiField
+    MobileButton btn6;
+    @UiField
+    MobileButton btn7;
+    @UiField
+    MobileButton btn8;
+    @UiField
+    MobileButton btn9;
+    @UiField
+    MobileButton btnAudio;
+    @UiField
+    MobileButton btn0;
+    @UiField
+    MobileButton btnLoop;
+    @UiField
+    ImageMobileButton btnSavePicture;
+    @UiField
+    ImageMobileButton btnStartRecording;
+    @UiField
+    ImageMobileButton btnStopRecording;
+    @UiField
+    ImageMobileButton btnPlayPause;
+    @UiField
+    VerticalPanel numericPanel;
+    @UiField
+    VerticalPanel recordingPanel;
+    @UiField
+    VerticalPanel userContainer;
+    @UiField
+    JoyPad joyPad;
+    @UiField
+    ImageMobileButton btnPlayPrevious;
+    @UiField
+    ImageMobileButton btnPlayNext;
+    @UiField
+    ImageMobileButton btnStop;
 
-	interface TVViewUiBinder extends UiBinder<Widget, TVView>
-	{
-	}
+    private List<IsCommandableClickHandler> mButtons = null;
 
-	public TVView()
-	{
-		initWidget(uiBinder.createAndBindUi(this));
-		mButtons = new ArrayList<IsCommandableClickHandler>();
-		mButtons.addAll(topPanel.getClickElements());
-		mButtons.addAll(Arrays.asList(
-				new IsCommandableClickHandler[] {btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn0,btnAudio,btnLoop,
-				btnSavePicture,btnStopRecording, btnStartRecording,btnPlayPrevious,btnPlayNext, btnPlayPause,btnStop}));
-		mButtons.addAll(joyPad.getClickElements());
-	}
+    interface TVViewUiBinder extends UiBinder<Widget, TVView> {
+    }
 
-	@Override
-	public List<IsCommandableClickHandler> getClickElements()
-	{
-		return mButtons;
-	}
-	
-	public ImageMobileButton getBtnDefault()
-	{
-		return topPanel.btnDefault;
-	}
+    public TVView() {
+        initWidget(uiBinder.createAndBindUi(this));
+        mButtons = new ArrayList<IsCommandableClickHandler>();
+        mButtons.addAll(topPanel.getClickElements());
+        mButtons.addAll(Arrays.asList(new IsCommandableClickHandler[] { btn1,
+                btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnAudio,
+                btnLoop, btnSavePicture, btnStopRecording, btnStartRecording,
+                btnPlayPrevious, btnPlayNext, btnPlayPause, btnStop }));
+        mButtons.addAll(joyPad.getClickElements());
+    }
 
-	public ImageMobileButton getBtnNumeric()
-	{
-		return topPanel.btnNumeric;
-	}
+    @Override
+    public List<IsCommandableClickHandler> getClickElements() {
+        return mButtons;
+    }
 
-	public ImageMobileButton getBtnRecord()
-	{
-		return topPanel.btnRecord;
-	}
+    public ImageMobileButton getBtnDefault() {
+        return topPanel.btnDefault;
+    }
 
-	public ImageMobileButton getBtnUser()
-	{
-		return topPanel.btnUser;
-	}
+    public ImageMobileButton getBtnNumeric() {
+        return topPanel.btnNumeric;
+    }
 
-	public TVTopPanel getTopPanel()
-	{
-		return topPanel;
-	}
+    public ImageMobileButton getBtnRecord() {
+        return topPanel.btnRecord;
+    }
 
-	public void setTopPanel(TVTopPanel topPanel)
-	{
-		this.topPanel = topPanel;
-	}
+    public ImageMobileButton getBtnUser() {
+        return topPanel.btnUser;
+    }
 
-	public JoyPad getJoyPad()
-	{
-		return joyPad;
-	}
+    public TVTopPanel getTopPanel() {
+        return topPanel;
+    }
 
-	public void setJoyPad(JoyPad joyPad)
-	{
-		this.joyPad = joyPad;
-	}
+    public void setTopPanel(TVTopPanel topPanel) {
+        this.topPanel = topPanel;
+    }
 
-	public VerticalPanel getNumericPanel()
-	{
-		return numericPanel;
-	}
+    public JoyPad getJoyPad() {
+        return joyPad;
+    }
 
-	public void setNumericPanel(VerticalPanel numericPanel)
-	{
-		this.numericPanel = numericPanel;
-	}
+    public void setJoyPad(JoyPad joyPad) {
+        this.joyPad = joyPad;
+    }
 
-	public VerticalPanel getRecordingPanel()
-	{
-		return recordingPanel;
-	}
+    public VerticalPanel getNumericPanel() {
+        return numericPanel;
+    }
 
-	public void setRecordingPanel(VerticalPanel recordingPanel)
-	{
-		this.recordingPanel = recordingPanel;
-	}
+    public void setNumericPanel(VerticalPanel numericPanel) {
+        this.numericPanel = numericPanel;
+    }
 
-	public VerticalPanel getUserContainer()
-	{
-		return userContainer;
-	}
+    public VerticalPanel getRecordingPanel() {
+        return recordingPanel;
+    }
+
+    public void setRecordingPanel(VerticalPanel recordingPanel) {
+        this.recordingPanel = recordingPanel;
+    }
+
+    public VerticalPanel getUserContainer() {
+        return userContainer;
+    }
 
 }

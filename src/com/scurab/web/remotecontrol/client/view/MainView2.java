@@ -10,76 +10,67 @@ import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.controls.ImageMobileButton;
 import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 
-public class MainView2 extends AbstractView
-{
-	private static MainView2UiBinder uiBinder = GWT.create(MainView2UiBinder.class);
-	@UiField ImageMobileButton btnShutdown;
-	@UiField ImageMobileButton btnTaskManager;
-	@UiField ImageMobileButton btnRemoteDesktop;
-	@UiField ImageMobileButton btnKeyboard;
-	@UiField ImageMobileButton btnDisplay;
-	@UiField ImageMobileButton btnIRDevices;
-	@UiField ImageMobileButton btnJoyPad;
-	@UiField ImageMobileButton btnMediaCenter;
-	interface MainView2UiBinder extends UiBinder<Widget, MainView2>
-	{
-	}
+public class MainView2 extends AbstractView {
+    private static MainView2UiBinder uiBinder = GWT
+            .create(MainView2UiBinder.class);
+    @UiField
+    ImageMobileButton btnShutdown;
+    @UiField
+    ImageMobileButton btnTaskManager;
+    @UiField
+    ImageMobileButton btnRemoteDesktop;
+    @UiField
+    ImageMobileButton btnKeyboard;
+    @UiField
+    ImageMobileButton btnDisplay;
+    @UiField
+    ImageMobileButton btnIRDevices;
+    @UiField
+    ImageMobileButton btnJoyPad;
+    @UiField
+    ImageMobileButton btnMediaCenter;
 
-	public MainView2()
-	{
-		initWidget(uiBinder.createAndBindUi(this));
-	}	
-	
-	
-	@Override
-	public List<IsCommandableClickHandler> getClickElements()
-	{
-		return new ArrayList<IsCommandableClickHandler>();
-	}
+    interface MainView2UiBinder extends UiBinder<Widget, MainView2> {
+    }
 
+    public MainView2() {
+        initWidget(uiBinder.createAndBindUi(this));
+    }
 
-	public ImageMobileButton getShutdownButton()
-	{
-		return btnShutdown;
-	}
+    @Override
+    public List<IsCommandableClickHandler> getClickElements() {
+        return new ArrayList<IsCommandableClickHandler>();
+    }
 
+    public ImageMobileButton getShutdownButton() {
+        return btnShutdown;
+    }
 
-	public ImageMobileButton getTaskManagerButton()
-	{
-		return btnTaskManager;
-	}
+    public ImageMobileButton getTaskManagerButton() {
+        return btnTaskManager;
+    }
 
+    public ImageMobileButton getRemoteDesktopButton() {
+        return btnRemoteDesktop;
+    }
 
-	public ImageMobileButton getRemoteDesktopButton()
-	{
-		return btnRemoteDesktop;
-	}
+    public ImageMobileButton getKeyboardButton() {
+        return btnKeyboard;
+    }
 
+    public ImageMobileButton getDisplayButton() {
+        return btnDisplay;
+    }
 
-	public ImageMobileButton getKeyboardButton()
-	{
-		return btnKeyboard;
-	}
+    public ImageMobileButton getMediaCenterButton() {
+        return btnMediaCenter;
+    }
 
+    public ImageMobileButton getIRDevicesButton() {
+        return btnIRDevices;
+    }
 
-	public ImageMobileButton getDisplayButton()
-	{
-		return btnDisplay;
-	}
-
-	public ImageMobileButton getMediaCenterButton()
-	{
-		return btnMediaCenter;
-	}
-
-	public ImageMobileButton getIRDevicesButton()
-	{
-		return btnIRDevices;
-	}
-
-
-	public ImageMobileButton getJoyPadButton()
-	{
-		return btnJoyPad;
-	}
+    public ImageMobileButton getJoyPadButton() {
+        return btnJoyPad;
+    }
 }

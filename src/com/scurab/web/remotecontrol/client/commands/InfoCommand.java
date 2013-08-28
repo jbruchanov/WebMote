@@ -3,66 +3,54 @@ package com.scurab.web.remotecontrol.client.commands;
 import java.util.HashMap;
 import java.util.List;
 
+public class InfoCommand extends Command {
+    private String mComputerName;
+    private HashMap<String, List<String>> mApps;
+    private String mAddress;
+    private String[] mMACAddresses;
+    private String mPathSeparator;
+    private String mPlatform;
 
-public class InfoCommand extends Command
-{
-	private String mComputerName;
-	private HashMap<String, List<String>> mApps;
-	private String mAddress;
-	private String[] mMACAddresses;
-	private String mPathSeparator;
-	private String mPlatform;
-	
-	public InfoCommand()
-	{
-		setMethod(GET);
-	}
+    public InfoCommand() {
+        setMethod(GET);
+    }
 
-	public String getComputerName()
-	{
-		return mComputerName;
-	}
+    public String getComputerName() {
+        return mComputerName;
+    }
 
-	public void setComputerName(String computerName)
-	{
-		mComputerName = computerName;
-	}
+    public void setComputerName(String computerName) {
+        mComputerName = computerName;
+    }
 
-	public HashMap<String, List<String>> getApplications()
-	{
-		return mApps;
-	}
+    public HashMap<String, List<String>> getApplications() {
+        return mApps;
+    }
 
-	public void setApplications(HashMap<String, List<String>> apps)
-	{
-		mApps = apps;
-	}
+    public void setApplications(HashMap<String, List<String>> apps) {
+        mApps = apps;
+    }
 
-	public String getAddress()
-	{
-		return mAddress;
-	}
+    public String getAddress() {
+        return mAddress;
+    }
 
-	public void setAddress(String address)
-	{
-		mAddress = address;
-	}
+    public void setAddress(String address) {
+        mAddress = address;
+    }
 
-	public String[] getMACAddresses()
-	{
-		return mMACAddresses;
-	}
+    public String[] getMACAddresses() {
+        return mMACAddresses;
+    }
 
-	public void setMACAddresses(String[] mACAddresses)
-	{
-		mMACAddresses = mACAddresses;
-	}
+    public void setMACAddresses(String[] mACAddresses) {
+        mMACAddresses = mACAddresses;
+    }
 
-	@Override
-	protected String getCommand()
-	{
-		return "InfoCommand";
-	}
+    @Override
+    protected String getCommand() {
+        return "InfoCommand";
+    }
 
     public String getPathSeparator() {
         return mPathSeparator;

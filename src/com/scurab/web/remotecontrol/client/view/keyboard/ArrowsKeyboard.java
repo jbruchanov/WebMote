@@ -7,23 +7,22 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 
-public class ArrowsKeyboard extends AbstractKeyboard
-{
+public class ArrowsKeyboard extends AbstractKeyboard {
 
-	private static ArrowsKeyboardUiBinder uiBinder = GWT.create(ArrowsKeyboardUiBinder.class);
-	@UiField HTMLPanel container;
-	interface ArrowsKeyboardUiBinder extends UiBinder<Widget, ArrowsKeyboard>
-	{
-	}
+    private static ArrowsKeyboardUiBinder uiBinder = GWT
+            .create(ArrowsKeyboardUiBinder.class);
+    @UiField
+    HTMLPanel container;
 
-	public ArrowsKeyboard()
-	{
-		initWidget(uiBinder.createAndBindUi(this));
-	}
+    interface ArrowsKeyboardUiBinder extends UiBinder<Widget, ArrowsKeyboard> {
+    }
 
-	@Override
-	public HasWidgets getContainer()
-	{
-		return container;
-	}
+    public ArrowsKeyboard() {
+        initWidget(uiBinder.createAndBindUi(this));
+    }
+
+    @Override
+    public HasWidgets getContainer() {
+        return container;
+    }
 }

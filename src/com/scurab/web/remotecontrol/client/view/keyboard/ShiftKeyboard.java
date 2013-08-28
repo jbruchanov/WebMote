@@ -7,26 +7,24 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 
-public class ShiftKeyboard extends AbstractKeyboard
-{
+public class ShiftKeyboard extends AbstractKeyboard {
 
-	private static ShiftKeyboardUiBinder uiBinder = GWT.create(ShiftKeyboardUiBinder.class);
+    private static ShiftKeyboardUiBinder uiBinder = GWT
+            .create(ShiftKeyboardUiBinder.class);
 
-	interface ShiftKeyboardUiBinder extends UiBinder<Widget, ShiftKeyboard>
-	{
-	}
-	
-	@UiField HTMLPanel container;
+    interface ShiftKeyboardUiBinder extends UiBinder<Widget, ShiftKeyboard> {
+    }
 
-	public ShiftKeyboard()
-	{
-		initWidget(uiBinder.createAndBindUi(this));
-	}
+    @UiField
+    HTMLPanel container;
 
-	@Override
-	public HasWidgets getContainer()
-	{
-		return container;
-	}
-	
+    public ShiftKeyboard() {
+        initWidget(uiBinder.createAndBindUi(this));
+    }
+
+    @Override
+    public HasWidgets getContainer() {
+        return container;
+    }
+
 }

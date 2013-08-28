@@ -7,80 +7,80 @@ import java.util.List;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.Widget;
-import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.controls.ImageMobileButton;
+import com.scurab.web.remotecontrol.client.interfaces.IsCommandableClickHandler;
 
-public class MediaCenterView extends AbstractView
-{
+public class MediaCenterView extends AbstractView {
 
-	private static MediaCenterViewUiBinder uiBinder = GWT.create(MediaCenterViewUiBinder.class);
-	@UiField MediaCenterTopPanel topPanel;
-	@UiField JoyPad joyPad;
-	@UiField CheckBox chkRunSpecActivity;
-	@UiField VerticalPanel specializedContainer;
-	@UiField VerticalPanel userPanel;
-	@UiField ImageMobileButton btnTV;
-	@UiField ImageMobileButton btnVideo;
-	@UiField ImageMobileButton btnAudio;
-	@UiField ImageMobileButton btnPictures;
-	
-	private List<IsCommandableClickHandler> mButtons = null;
+    private static MediaCenterViewUiBinder uiBinder = GWT
+            .create(MediaCenterViewUiBinder.class);
+    @UiField
+    MediaCenterTopPanel topPanel;
+    @UiField
+    JoyPad joyPad;
+    @UiField
+    CheckBox chkRunSpecActivity;
+    @UiField
+    VerticalPanel specializedContainer;
+    @UiField
+    VerticalPanel userPanel;
+    @UiField
+    ImageMobileButton btnTV;
+    @UiField
+    ImageMobileButton btnVideo;
+    @UiField
+    ImageMobileButton btnAudio;
+    @UiField
+    ImageMobileButton btnPictures;
 
-	interface MediaCenterViewUiBinder extends UiBinder<Widget, MediaCenterView>
-	{
-	}
+    private List<IsCommandableClickHandler> mButtons = null;
 
-	public MediaCenterView()
-	{
-		initWidget(uiBinder.createAndBindUi(this));
-		mButtons = new ArrayList<IsCommandableClickHandler>();
-		mButtons.addAll(topPanel.getClickElements());
-		mButtons.addAll(joyPad.getClickElements());
-		mButtons.addAll(Arrays.asList(new IsCommandableClickHandler[] {btnTV,btnAudio,btnPictures,btnVideo}));
-	}
+    interface MediaCenterViewUiBinder extends UiBinder<Widget, MediaCenterView> {
+    }
 
-	public MediaCenterView(String firstName)
-	{
-		initWidget(uiBinder.createAndBindUi(this));
-	}
+    public MediaCenterView() {
+        initWidget(uiBinder.createAndBindUi(this));
+        mButtons = new ArrayList<IsCommandableClickHandler>();
+        mButtons.addAll(topPanel.getClickElements());
+        mButtons.addAll(joyPad.getClickElements());
+        mButtons.addAll(Arrays.asList(new IsCommandableClickHandler[] { btnTV,
+                btnAudio, btnPictures, btnVideo }));
+    }
 
-	@Override
-	public List<IsCommandableClickHandler> getClickElements()
-	{
-		return mButtons;
-	}
+    public MediaCenterView(String firstName) {
+        initWidget(uiBinder.createAndBindUi(this));
+    }
 
-	public MediaCenterTopPanel getTopPanel()
-	{
-		return topPanel;
-	}
+    @Override
+    public List<IsCommandableClickHandler> getClickElements() {
+        return mButtons;
+    }
 
-	public void setTopPanel(MediaCenterTopPanel topPanel)
-	{
-		this.topPanel = topPanel;
-	}
+    public MediaCenterTopPanel getTopPanel() {
+        return topPanel;
+    }
 
-	public JoyPad getJoyPad()
-	{
-		return joyPad;
-	}
+    public void setTopPanel(MediaCenterTopPanel topPanel) {
+        this.topPanel = topPanel;
+    }
 
-	public VerticalPanel getSpecializedContainer()
-	{
-		return specializedContainer;
-	}
+    public JoyPad getJoyPad() {
+        return joyPad;
+    }
 
-	public VerticalPanel getUserPanel()
-	{
-		return userPanel;
-	}
+    public VerticalPanel getSpecializedContainer() {
+        return specializedContainer;
+    }
 
-	public CheckBox getChkRunSpecActivity()
-	{
-		return chkRunSpecActivity;
-	}
+    public VerticalPanel getUserPanel() {
+        return userPanel;
+    }
+
+    public CheckBox getChkRunSpecActivity() {
+        return chkRunSpecActivity;
+    }
 
 }

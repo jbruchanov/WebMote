@@ -7,164 +7,165 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.RemoteControl;
 import com.scurab.web.remotecontrol.client.commands.ApplicationCommand;
-import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.commands.ApplicationCommand.AppType;
+import com.scurab.web.remotecontrol.client.commands.Command;
 import com.scurab.web.remotecontrol.client.event.ChangePresenterEvent;
 import com.scurab.web.remotecontrol.client.server.DataService;
 import com.scurab.web.remotecontrol.client.view.ConfigView;
 import com.scurab.web.remotecontrol.client.view.JoyPad;
 import com.scurab.web.remotecontrol.client.view.VideoPlayerView;
 
-public class VideoPlayerPresenter extends BaseControlPresenter
-{
-	private VideoPlayerView mDisplay;
-	private Widget mCurrentVisibleWidget = null;
-	private String mAppName = null;
-	
-	public VideoPlayerPresenter(DataService dataService, HandlerManager eventBus, VideoPlayerView display)
-	{
-		super(dataService, eventBus, display);
-		mDisplay = display;
-		mAppName = RemoteControl.VideoPlayer;
-		bind();
-	}
-	
-	private enum ShowPanel
-	{
-		Default, Video, Audio, Subtitles, DVD, User
-	}
-	
-	@Override
-	public void setApplication(String appName)
-	{
-		if(appName != null && appName.length() > 0)
-			mAppName = appName;
-	}
-	
-	private void bind()
-	{
-		mDisplay.getPlayerPad().setVisible(true);
-		mDisplay.getVideoPanel().setVisible(false);     
-		mDisplay.getAudioPanel().setVisible(false);
-		mDisplay.getSubtitlesPanel().setVisible(false); 
-		mDisplay.getUserPanel().setVisible(false);
-		mDisplay.getDvdPanel().setVisible(false);
-		onClickButton(ShowPanel.Default);
-		
-		mDisplay.getTopPanel().getBtnDefault().addClickHandler(new ClickHandler()
-		{
-			@Override
-			public void onClick(ClickEvent event)
-			{
-				onClickButton(ShowPanel.Default);
-			}
-		});
-		
-		mDisplay.getTopPanel().getBtnVideoSettings().addClickHandler(new ClickHandler()
-		{
-			@Override
-			public void onClick(ClickEvent event)
-			{
-				onClickButton(ShowPanel.Video);
-			}
-		});
-		
-		mDisplay.getTopPanel().getBtnAudioSettings().addClickHandler(new ClickHandler()
-		{
-			@Override
-			public void onClick(ClickEvent event)
-			{
-				onClickButton(ShowPanel.Audio);
-			}
-		});
-		
-		mDisplay.getTopPanel().getBtnSubtitlesSettings().addClickHandler(new ClickHandler()
-		{
-			@Override
-			public void onClick(ClickEvent event)
-			{
-				onClickButton(ShowPanel.Subtitles);
-			}
-		});
-		
-		mDisplay.getTopPanel().getBtnDVDMenu().addClickHandler(new ClickHandler()
-		{
-			@Override
-			public void onClick(ClickEvent event)
-			{
-				onClickButton(ShowPanel.DVD);
-			}
-		});
-		
-		mDisplay.getTopPanel().getBtnUser().addClickHandler(new ClickHandler()
-		{
-			@Override
-			public void onClick(ClickEvent event)
-			{
-				mEventBus.fireEvent(new ChangePresenterEvent(new ConfigPresenter(mDataService, mEventBus, new ConfigView())));
-			}
-		});
-		
-		initFavorities(mDisplay.getTopPanel().getCmbItems(), RemoteControl.PropertyKeys.VIDEOPLAYER);
-	}
-	
-	protected void onClickButton(ShowPanel what)
-	{
-		if(mCurrentVisibleWidget != null)
-			mCurrentVisibleWidget.setVisible(false);
-		mCurrentVisibleWidget = null;
-		switch(what)
-		{
-			case Default: mCurrentVisibleWidget =   mDisplay.getPlayerPad();break;
-			case Video:   mCurrentVisibleWidget =   mDisplay.getVideoPanel();break;
-			case Audio:   mCurrentVisibleWidget =   mDisplay.getAudioPanel();break;
-			case Subtitles: mCurrentVisibleWidget = mDisplay.getSubtitlesPanel();break;
-			case DVD :    mCurrentVisibleWidget =   mDisplay.getDvdPanel();break;
-			case User: mCurrentVisibleWidget =      mDisplay.getUserPanel();break;			
-		}
-		
-		if(mCurrentVisibleWidget != null)
-			mCurrentVisibleWidget.setVisible(true);
-	}
-	
-	private String translateCommand(String command)
-	{
-		String result = command;
-		if (command.equals(JoyPad.COMMAND_LEFT))
-			result = "DVDMenuLeft";
-		else if (command.equals(JoyPad.COMMAND_RIGHT))
-			result = "DVDMenuRight";
-		else if (command.equals(JoyPad.COMMAND_UP))
-			result = "DVDMenuUp";
-		else if (command.equals(JoyPad.COMMAND_DOWN))
-			result = "DVDMenuDown";
-		else if (command.equals(JoyPad.COMMAND_CENTER))
-			result = "DVDMenuEnter";
-		return result;
-	}
+public class VideoPlayerPresenter extends BaseControlPresenter {
+    private VideoPlayerView mDisplay;
+    private Widget mCurrentVisibleWidget = null;
+    private String mAppName = null;
 
+    public VideoPlayerPresenter(DataService dataService,
+            HandlerManager eventBus, VideoPlayerView display) {
+        super(dataService, eventBus, display);
+        mDisplay = display;
+        mAppName = RemoteControl.VideoPlayer;
+        bind();
+    }
 
-	@Override
-	protected Command getCommand(String command)
-	{
-		ApplicationCommand vpc =  new ApplicationCommand(mAppName, AppType.Video);
-		vpc.setMethod(translateCommand(command));
-		if(command.equals("Start"))
-		{
-			ListBox lb = mDisplay.getTopPanel().getCmbItems();
-			if(lb.getSelectedIndex() > -1)
-			{
-				String v = lb.getValue(lb.getSelectedIndex()); 
-				if(v != null && v.trim().length() != 0)
-					vpc.setMethodParameter(v);
-			}
-		}
-		return vpc;
-	}
+    private enum ShowPanel {
+        Default, Video, Audio, Subtitles, DVD, User
+    }
 
-	@Override
-	public String getName()
-	{
-		return "VideoPlayer";
-	}
+    @Override
+    public void setApplication(String appName) {
+        if (appName != null && appName.length() > 0) {
+            mAppName = appName;
+        }
+    }
+
+    private void bind() {
+        mDisplay.getPlayerPad().setVisible(true);
+        mDisplay.getVideoPanel().setVisible(false);
+        mDisplay.getAudioPanel().setVisible(false);
+        mDisplay.getSubtitlesPanel().setVisible(false);
+        mDisplay.getUserPanel().setVisible(false);
+        mDisplay.getDvdPanel().setVisible(false);
+        onClickButton(ShowPanel.Default);
+
+        mDisplay.getTopPanel().getBtnDefault()
+                .addClickHandler(new ClickHandler() {
+                    @Override
+                    public void onClick(ClickEvent event) {
+                        onClickButton(ShowPanel.Default);
+                    }
+                });
+
+        mDisplay.getTopPanel().getBtnVideoSettings()
+                .addClickHandler(new ClickHandler() {
+                    @Override
+                    public void onClick(ClickEvent event) {
+                        onClickButton(ShowPanel.Video);
+                    }
+                });
+
+        mDisplay.getTopPanel().getBtnAudioSettings()
+                .addClickHandler(new ClickHandler() {
+                    @Override
+                    public void onClick(ClickEvent event) {
+                        onClickButton(ShowPanel.Audio);
+                    }
+                });
+
+        mDisplay.getTopPanel().getBtnSubtitlesSettings()
+                .addClickHandler(new ClickHandler() {
+                    @Override
+                    public void onClick(ClickEvent event) {
+                        onClickButton(ShowPanel.Subtitles);
+                    }
+                });
+
+        mDisplay.getTopPanel().getBtnDVDMenu()
+                .addClickHandler(new ClickHandler() {
+                    @Override
+                    public void onClick(ClickEvent event) {
+                        onClickButton(ShowPanel.DVD);
+                    }
+                });
+
+        mDisplay.getTopPanel().getBtnUser().addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                mEventBus.fireEvent(new ChangePresenterEvent(
+                        new ConfigPresenter(mDataService, mEventBus,
+                                new ConfigView())));
+            }
+        });
+
+        initFavorities(mDisplay.getTopPanel().getCmbItems(),
+                RemoteControl.PropertyKeys.VIDEOPLAYER);
+    }
+
+    protected void onClickButton(ShowPanel what) {
+        if (mCurrentVisibleWidget != null) {
+            mCurrentVisibleWidget.setVisible(false);
+        }
+        mCurrentVisibleWidget = null;
+        switch (what) {
+            case Default:
+                mCurrentVisibleWidget = mDisplay.getPlayerPad();
+                break;
+            case Video:
+                mCurrentVisibleWidget = mDisplay.getVideoPanel();
+                break;
+            case Audio:
+                mCurrentVisibleWidget = mDisplay.getAudioPanel();
+                break;
+            case Subtitles:
+                mCurrentVisibleWidget = mDisplay.getSubtitlesPanel();
+                break;
+            case DVD:
+                mCurrentVisibleWidget = mDisplay.getDvdPanel();
+                break;
+            case User:
+                mCurrentVisibleWidget = mDisplay.getUserPanel();
+                break;
+        }
+
+        if (mCurrentVisibleWidget != null) {
+            mCurrentVisibleWidget.setVisible(true);
+        }
+    }
+
+    private String translateCommand(String command) {
+        String result = command;
+        if (command.equals(JoyPad.COMMAND_LEFT)) {
+            result = "DVDMenuLeft";
+        } else if (command.equals(JoyPad.COMMAND_RIGHT)) {
+            result = "DVDMenuRight";
+        } else if (command.equals(JoyPad.COMMAND_UP)) {
+            result = "DVDMenuUp";
+        } else if (command.equals(JoyPad.COMMAND_DOWN)) {
+            result = "DVDMenuDown";
+        } else if (command.equals(JoyPad.COMMAND_CENTER)) {
+            result = "DVDMenuEnter";
+        }
+        return result;
+    }
+
+    @Override
+    protected Command getCommand(String command) {
+        ApplicationCommand vpc = new ApplicationCommand(mAppName, AppType.Video);
+        vpc.setMethod(translateCommand(command));
+        if (command.equals("Start")) {
+            ListBox lb = mDisplay.getTopPanel().getCmbItems();
+            if (lb.getSelectedIndex() > -1) {
+                String v = lb.getValue(lb.getSelectedIndex());
+                if (v != null && v.trim().length() != 0) {
+                    vpc.setMethodParameter(v);
+                }
+            }
+        }
+        return vpc;
+    }
+
+    @Override
+    public String getName() {
+        return "VideoPlayer";
+    }
 }

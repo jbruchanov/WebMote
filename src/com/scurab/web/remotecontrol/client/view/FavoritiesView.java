@@ -5,60 +5,57 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Widget;
 
-public class FavoritiesView extends Composite
-{
+public class FavoritiesView extends Composite {
 
-	private static FavoritiesViewUiBinder uiBinder = GWT.create(FavoritiesViewUiBinder.class);
-	@UiField ListBox cmbType;
-	@UiField TextBox txtName;
-	@UiField TextBox txtLink;
-	@UiField Button btnAdd;
-	@UiField Button btnDelete;
-	@UiField VerticalPanel itemContainer;
+    private static FavoritiesViewUiBinder uiBinder = GWT
+            .create(FavoritiesViewUiBinder.class);
+    @UiField
+    ListBox cmbType;
+    @UiField
+    TextBox txtName;
+    @UiField
+    TextBox txtLink;
+    @UiField
+    Button btnAdd;
+    @UiField
+    Button btnDelete;
+    @UiField
+    VerticalPanel itemContainer;
 
-	interface FavoritiesViewUiBinder extends UiBinder<Widget, FavoritiesView>
-	{
-	}
+    interface FavoritiesViewUiBinder extends UiBinder<Widget, FavoritiesView> {
+    }
 
-	public FavoritiesView()
-	{
-		initWidget(uiBinder.createAndBindUi(this));
-	}
+    public FavoritiesView() {
+        initWidget(uiBinder.createAndBindUi(this));
+    }
 
-	public ListBox getCmbType()
-	{
-		return cmbType;
-	}
+    public ListBox getCmbType() {
+        return cmbType;
+    }
 
-	public TextBox getTxtName()
-	{
-		return txtName;
-	}
+    public TextBox getTxtName() {
+        return txtName;
+    }
 
-	public TextBox getTxtLink()
-	{
-		return txtLink;
-	}
+    public TextBox getTxtLink() {
+        return txtLink;
+    }
 
-	public Button getBtnAdd()
-	{
-		return btnAdd;
-	}
+    public Button getBtnAdd() {
+        return btnAdd;
+    }
 
-	public Button getBtnDelete()
-	{
-		return btnDelete;
-	}
+    public Button getBtnDelete() {
+        return btnDelete;
+    }
 
-	public VerticalPanel getItemContainer()
-	{
-		return itemContainer;
-	}
-
+    public VerticalPanel getItemContainer() {
+        return itemContainer;
+    }
 
 }

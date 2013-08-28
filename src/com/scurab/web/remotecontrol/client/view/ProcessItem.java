@@ -7,53 +7,51 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.Widget;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.FocusPanel;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.Widget;
 import com.scurab.web.remotecontrol.client.datamodel.Proc;
 
-public class ProcessItem extends Composite implements HasClickHandlers
-{
+public class ProcessItem extends Composite implements HasClickHandlers {
 
-	private static ProcessItemUiBinder uiBinder = GWT.create(ProcessItemUiBinder.class);
+    private static ProcessItemUiBinder uiBinder = GWT
+            .create(ProcessItemUiBinder.class);
 
-	interface ProcessItemUiBinder extends UiBinder<Widget, ProcessItem>
-	{
-	}
-	
-	@UiField Label lblProcessName;
-	@UiField Label lblProcessId;
-	@UiField Label lblProcessDescription;
-	@UiField FocusPanel container;
-	private Proc mProcess;
+    interface ProcessItemUiBinder extends UiBinder<Widget, ProcessItem> {
+    }
 
-	public ProcessItem()
-	{
-		initWidget(uiBinder.createAndBindUi(this));
-		lblProcessDescription.setVisible(false);
-	}
-	
-	public ProcessItem(Proc p)
-	{
-		this();
-		mProcess = p;
-		lblProcessName.setText(p.Name);
-		lblProcessId.setText(String.valueOf(p.ID));
-		if(p.Description != null && p.Description.length() > 0)
-		{
-			lblProcessDescription.setVisible(true);
-			lblProcessDescription.setText(p.Description);
-		}		
-	}
+    @UiField
+    Label lblProcessName;
+    @UiField
+    Label lblProcessId;
+    @UiField
+    Label lblProcessDescription;
+    @UiField
+    FocusPanel container;
+    private Proc mProcess;
 
-	@Override
-	public HandlerRegistration addClickHandler(ClickHandler handler)
-	{
-		return container.addClickHandler(handler);
-	}
+    public ProcessItem() {
+        initWidget(uiBinder.createAndBindUi(this));
+        lblProcessDescription.setVisible(false);
+    }
 
-	public Proc getProcess()
-	{
-		return mProcess;
-	}
+    public ProcessItem(Proc p) {
+        this();
+        mProcess = p;
+        lblProcessName.setText(p.Name);
+        lblProcessId.setText(String.valueOf(p.ID));
+        if (p.Description != null && p.Description.length() > 0) {
+            lblProcessDescription.setVisible(true);
+            lblProcessDescription.setText(p.Description);
+        }
+    }
+
+    @Override
+    public HandlerRegistration addClickHandler(ClickHandler handler) {
+        return container.addClickHandler(handler);
+    }
+
+    public Proc getProcess() {
+        return mProcess;
+    }
 }
