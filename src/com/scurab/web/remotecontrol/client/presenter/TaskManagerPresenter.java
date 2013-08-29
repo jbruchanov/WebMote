@@ -138,14 +138,14 @@ public class TaskManagerPresenter extends BaseControlPresenter {
 
     private ProcessCommand getStartCustomCommand(String... params) {
         ProcessCommand pc = new ProcessCommand();
-        pc.Run(params[0], null);
-        if (params.length > 1) {
-            StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
+        if (params.length > 1) {            
             for (int i = 1; i < params.length; i++) {
                 sb.append(params[i] + " ");
             }
-            pc.MethodParameter = sb.toString().trim();
+            sb.setLength(sb.length() - 1);
         }
+        pc.Run(params[0], params.length > 1 ? sb.toString() : null);
         return pc;
     }
 
